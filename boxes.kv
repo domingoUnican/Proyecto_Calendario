@@ -1,0 +1,31 @@
+<Boxes>:
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        ScreenManager:
+            size_hint: 1, .9
+            id: _screen_manager
+            Screen:
+                name: 'dia'
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 50
+                    id: _morning
+            Screen:
+                name: 'noche'
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 50
+                    id: _afternoon
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'bottom'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, .1
+            Button:
+                text: 'Go to Screen 1'
+                on_press: _screen_manager.current = 'dia'
+            Button:
+                text: 'Go to Screen 2'
+                on_press: _screen_manager.current = 'noche'
