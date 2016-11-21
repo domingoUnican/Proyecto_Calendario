@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.listview import ListView
 from datetime import timedelta
 from horario import horario
 
@@ -32,14 +32,18 @@ class Boxes(FloatLayout):
 
 class TestApp(App):
     def build(self):
-        h = horario(['Lunes','Martes','Miércoles'],timedelta(hours=9))
+        h = horario(['Lunes','Martes','Miércoles','Jueves','Viernes'],timedelta(hours=9))
         h.incluye_hora('Lunes','Mates',timedelta(hours=9), timedelta(hours=10))
         h.incluye_hora('Lunes','Ingles',timedelta(hours=10), timedelta(hours=11))
         h.incluye_hora('Martes','Lengua',timedelta(hours=9), timedelta(hours=11))
         h.incluye_hora('Miércoles','Frances',timedelta(hours=9), timedelta(hours=11))
-        for dia in ['Lunes','Martes','Miércoles']:
+        h.incluye_hora('Jueves','Frances',timedelta(hours=9), timedelta(hours=10))
+        h.incluye_hora('Jueves','Ingles',timedelta(hours=10), timedelta(hours=11))
+        h.incluye_hora('Viernes','Frances',timedelta(hours=9), timedelta(hours=11))
+        for dia in ['Lunes','Martes','Miércoles','Jueves','Viernes']:
             for i in range(11,19):
                 h.incluye_hora(dia,'Libre',timedelta(hours=i), timedelta(hours=i+1))
+        
         return Boxes(h)
 
 if __name__ == '__main__':
