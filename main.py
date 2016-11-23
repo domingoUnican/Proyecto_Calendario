@@ -4,6 +4,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.uix.listview import ListView
 from datetime import timedelta
@@ -28,8 +29,47 @@ class Boxes(FloatLayout):
                              size_hint_y = porcentaje)
                 bx_t.add_widget(btn)
             self.ids['_afternoon'].add_widget(bx_t)
+        profes = DropDown()
+        aulas =  DropDown()
+        asigns = DropDown()
+        for index in range(10):
+            btn = Button(text='profe %d' % index, size_hint_y=None, height=44)
+            # Mostrar el menu
+            btn.bind(on_release=lambda btn: profes.select(btn.text))
 
+            # add el boton dentro del dropdown
+            profes.add_widget(btn)
+        for index in range(10):
+            btn = Button(text='aulas %d' % index, size_hint_y=None, height=44)
+            # Mostrar el menu
+            btn.bind(on_release=lambda btn: aulas.select(btn.text))
 
+            # add el boton dentro del dropdown
+            aulas.add_widget(btn)
+        for index in range(10):
+            btn = Button(text='profe %d' % index, size_hint_y=None, height=44)
+            # Mostrar el menu
+            btn.bind(on_release=lambda btn: profes.select(btn.text))
+
+            # add el boton dentro del dropdown
+            profes.add_widget(btn)
+        for index in range(10):
+            btn = Button(text='asignatura %d' % index, size_hint_y=None, height=44)
+            # Mostrar el menu
+            btn.bind(on_release=lambda btn: aulas.select(btn.text))
+
+            # add el boton dentro del dropdown
+            asigns.add_widget(btn)
+        profesbutton = Button(text = 'Profesores', size_hint = (None, None))
+        profesbutton.bind(on_release=profes.open)
+        aulasbutton= Button(text = 'Aulas', size_hint = (None, None))
+        aulasbutton.bind(on_release=aulas.open)
+        asignsbutton= Button(text = 'Asigns', size_hint = (None, None))
+        asignsbutton.bind(on_release=asigns.open)
+        aulas.bind(on_select=lambda instance, x: setattr(aulasbutton, 'text', x))
+        self.ids['_main'].add_widget(profesbutton)
+        self.ids['_main'].add_widget(aulasbutton)
+        self.ids['_main'].add_widget(asignsbutton)
 class TestApp(App):
     def build(self):
         h = horario(['Lunes','Martes','Miércoles','Jueves','Viernes'],timedelta(hours=9))
@@ -43,7 +83,7 @@ class TestApp(App):
         for dia in ['Lunes','Martes','Miércoles','Jueves','Viernes']:
             for i in range(11,19):
                 h.incluye_hora(dia,'Libre',timedelta(hours=i), timedelta(hours=i+1))
-        
+
         return Boxes(h)
 
 if __name__ == '__main__':

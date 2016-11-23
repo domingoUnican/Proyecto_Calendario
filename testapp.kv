@@ -5,17 +5,13 @@
         ScreenManager:
             size_hint: 1, .9
             id: _screen_manager
-			Screen:
+            Screen:
                 name: 'Principal'
-                FloatLayout:
+                BoxLayout:
                     orientation: 'horizontal'
                     padding: 50
                     id: _main
-					ListView:
-						anchor_x: 'center'
-						anchor_y: 'center'
-						item_strings: ['Asignaturas', 'Profesores', 'Aulas']
-						
+                    
             Screen:
                 name: 'dia'
                 BoxLayout:
@@ -34,9 +30,9 @@
         BoxLayout:
             orientation: 'horizontal'
             size_hint: 1, .1
-			Button:
+            Button:
                 text: 'Principal'
-				on_press: _screen_manager.current = 'Principal'
+                on_press: _screen_manager.current = 'Principal'
             Button:
                 text: 'Horario de mañana'
                 on_press: _screen_manager.current = 'dia'
