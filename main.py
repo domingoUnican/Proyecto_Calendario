@@ -56,7 +56,7 @@ class Boxes(FloatLayout):
         for index in range(10):
             btn = Button(text='asignatura %d' % index, size_hint_y=None, height=44)
             # Mostrar el menu
-            btn.bind(on_release=lambda btn: aulas.select(btn.text))
+            btn.bind(on_release=lambda btn: asigns.select(btn.text))
 
             # add el boton dentro del dropdown
             asigns.add_widget(btn)
