@@ -21,7 +21,8 @@ class Boxes(FloatLayout):
             bx_t.add_widget(Button(text=nombre, size_hint_y=0.02))
             for texto, porcentaje in h.clases_manana(nombre):
                 btn = Button(text = texto,
-                             size_hint_y = porcentaje)
+                             size_hint_y = porcentaje, on_press=h.change_buttons)
+                #btn.bind(on_press=h.change_buttons)
                 bx_m.add_widget(btn)
             self.ids['_morning'].add_widget(bx_m)
             for texto, porcentaje in h.clases_tarde(nombre):
@@ -32,32 +33,60 @@ class Boxes(FloatLayout):
         profes = DropDown()
         aulas =  DropDown()
         asigns = DropDown()
-        for index in range(10):
-            btn = Button(text='profe %d' % index, size_hint_y=None, height=44)
+        button = Button()
+        profesores=[]
+        salas=[]
+        asignaturas=[]
+        
+        i = 0
+        # Iterate over the lines of the file
+        with open('profes.csv') as csvfile:
+            for line in csvfile:
+                # process line
+                d = line.replace("\n", '')
+                profesores.append(d)
+                i = i +1
+       
+        for index in profesores:
+            print(index)
+            btn = Button(text=index, size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: profes.select(btn.text))
 
             # add el boton dentro del dropdown
             profes.add_widget(btn)
-        for index in range(10):
-            btn = Button(text='aulas %d' % index, size_hint_y=None, height=44)
+
+        i = 0
+        # Iterate over the lines of the file
+        with open('aulas.csv') as csvfile:
+            for line in csvfile:
+                # process line
+                d = line.replace("\n", '')
+                salas.append(d)
+                i = i +1
+            
+        for index in salas:
+            btn = Button(text=index, size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: aulas.select(btn.text))
 
             # add el boton dentro del dropdown
             aulas.add_widget(btn)
-        for index in range(10):
-            btn = Button(text='profe %d' % index, size_hint_y=None, height=44)
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: profes.select(btn.text))
 
-            # add el boton dentro del dropdown
-            profes.add_widget(btn)
-        for index in range(10):
-            btn = Button(text='asignatura %d' % index, size_hint_y=None, height=44)
+        i = 0
+        # Iterate over the lines of the file
+        with open('asig.csv') as csvfile:
+            for line in csvfile:
+                # process line
+                d = line.replace("\n", '')
+                asignaturas.append(d)
+                i = i +1
+                
+        for index in asignaturas:
+            btn = Button(text=index, size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: asigns.select(btn.text))
-
+            
             # add el boton dentro del dropdown
             asigns.add_widget(btn)
         profesbutton = Button(text = 'Profesores', size_hint = (None, None))
@@ -74,7 +103,18 @@ class Boxes(FloatLayout):
         self.ids['_main'].add_widget(asignsbutton)
 class TestApp(App):
     def build(self):
-        h = horario(['Lunes','Martes','Miércoles','Jueves','Viernes'],timedelta(hours=9))
+        dias=[]
+        i = 0
+        # Iterate over the lines of the file
+        with open('dias.csv') as csvfile:
+            for line in csvfile:
+                # process line
+                d = line.replace("\n", '')
+                dias.append(d)
+                i = i +1
+                
+        print(dias)
+        h = horario(dias,timedelta(hours=9))
         h.incluye_hora('Lunes','Mates',timedelta(hours=9), timedelta(hours=10))
         h.incluye_hora('Lunes','Ingles',timedelta(hours=10), timedelta(hours=11))
         h.incluye_hora('Martes','Lengua',timedelta(hours=9), timedelta(hours=11))
