@@ -80,3 +80,6 @@ class horario:
             texto = ('%s\n%s--%s')%(asignatura, principio, fin)
             yield texto, porcentaje
             principio = fin
+            
+    def change_buttons(self):
+        sys.stdout.write('1')
