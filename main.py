@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from copy import copy
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
@@ -9,6 +9,16 @@ from kivy.uix.button import Button
 from kivy.uix.listview import ListView
 from datetime import timedelta
 from horario import horario
+
+class Boton(Button):
+    def on_press(self, *args):
+        self.disabled = True if not self.disabled else False
+        super(Boton, self).on_press(*args)
+        return False
+    def on_touch_up(self, touch):
+        self.disabled = False if self.disabled else True
+        super(Boton, self).on_touch_up(touch)
+        return True
 
 class Boxes(FloatLayout):
     def __init__(self, h, **kwargs):
@@ -20,9 +30,14 @@ class Boxes(FloatLayout):
             bx_m.add_widget(Button(text=nombre, size_hint_y=0.02))
             bx_t.add_widget(Button(text=nombre, size_hint_y=0.02))
             for texto, porcentaje in h.clases_manana(nombre):
-                btn = Button(text = texto,
-                             size_hint_y = porcentaje, on_press=h.change_buttons)
-                #btn.bind(on_press=h.change_buttons)
+                btn = Boton(text = texto,
+                             size_hint_y = porcentaje)
+                textito = copy(texto)
+                def opcional(self,touch):
+                    print("El texto del boton es:"+ textito)
+                    self.disable = True
+                    h.change_buttons()
+                btn.bind(on_touch_up=opcional)
                 bx_m.add_widget(btn)
             self.ids['_morning'].add_widget(bx_m)
             for texto, porcentaje in h.clases_tarde(nombre):
@@ -31,22 +46,22 @@ class Boxes(FloatLayout):
                 bx_t.add_widget(btn)
             self.ids['_afternoon'].add_widget(bx_t)
         profes = DropDown()
-        aulas =  DropDown()
+        aulas = DropDown()
         asigns = DropDown()
         button = Button()
         profesores=[]
         salas=[]
         asignaturas=[]
-        
+
         i = 0
         # Iterate over the lines of the file
-        with open('profes.csv') as csvfile:
+        with open('profes.csv', encoding = 'utf8') as csvfile:
             for line in csvfile:
                 # process line
-                d = line.replace("\n", '')
+                d = line.strip()
                 profesores.append(d)
                 i = i +1
-       
+
         for index in profesores:
             print(index)
             btn = Button(text=index, size_hint_y=None, height=44)
@@ -58,13 +73,13 @@ class Boxes(FloatLayout):
 
         i = 0
         # Iterate over the lines of the file
-        with open('aulas.csv') as csvfile:
+        with open('aulas.csv', encoding = 'utf8') as csvfile:
             for line in csvfile:
                 # process line
                 d = line.replace("\n", '')
                 salas.append(d)
                 i = i +1
-            
+
         for index in salas:
             btn = Button(text=index, size_hint_y=None, height=44)
             # Mostrar el menu
@@ -75,18 +90,18 @@ class Boxes(FloatLayout):
 
         i = 0
         # Iterate over the lines of the file
-        with open('asig.csv') as csvfile:
+        with open('asig.csv', encoding = 'utf8') as csvfile:
             for line in csvfile:
                 # process line
                 d = line.replace("\n", '')
                 asignaturas.append(d)
                 i = i +1
-                
+
         for index in asignaturas:
             btn = Button(text=index, size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: asigns.select(btn.text))
-            
+
             # add el boton dentro del dropdown
             asigns.add_widget(btn)
         profesbutton = Button(text = 'Profesores', size_hint = (None, None))
@@ -109,10 +124,10 @@ class TestApp(App):
         with open('dias.csv') as csvfile:
             for line in csvfile:
                 # process line
-                d = line.replace("\n", '')
+                d = line.strip()
                 dias.append(d)
                 i = i +1
-                
+
         print(dias)
         h = horario(dias,timedelta(hours=9))
         h.incluye_hora('Lunes','Mates',timedelta(hours=9), timedelta(hours=10))

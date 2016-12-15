@@ -24,7 +24,7 @@ class horario:
             for l in self.h_dia[pos]:
                 nueva_lista.append(tuple(l))
                 if not encontrado and l[1]>=inicio:
-                    print str(l[1]), str(inicio)
+                    #print str(l[1]), str(inicio)
                     nueva_lista.append(tuple((asignatura,fin)))
                     encontrado = True
                 self.h_dia[pos] = nueva_lista
@@ -80,6 +80,6 @@ class horario:
             texto = ('%s\n%s--%s')%(asignatura, principio, fin)
             yield texto, porcentaje
             principio = fin
-            
-    def change_buttons(self):
-        sys.stdout.write('1')
+
+    def change_buttons(self,*args, **kwargs):
+        print("1")
