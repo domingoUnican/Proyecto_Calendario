@@ -13,6 +13,7 @@ class horario:
         self.h_dia = [list() for i in dias]
         self.inicio = inicio
         self.empieza_tarde = timedelta(hours = 15)
+        self.choosed = False
 
     def incluye_hora(self, dia, asignatura, inicio, fin):
         pos = self.dias.index(dia)
@@ -80,6 +81,4 @@ class horario:
             texto = ('%s\n%s--%s')%(asignatura, principio, fin)
             yield texto, porcentaje
             principio = fin
-
-    def change_buttons(self,*args, **kwargs):
-        print("1")
+            
