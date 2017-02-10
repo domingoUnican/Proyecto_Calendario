@@ -9,6 +9,10 @@ from excel import excel
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
     numPulsaciones = 0
+    i = 0
+    j = 0
+    k = 0
+    l = 0
     primero = []
     segundo = []
     
@@ -24,8 +28,8 @@ class Boxes(FloatLayout):
 
             #añado dias
             nombre = dia
-            bx_m.add_widget(Button(text=nombre, size_hint_y=0.02))
-            bx_t.add_widget(Button(text=nombre, size_hint_y=0.02))
+            bx_m.add_widget(Boton(text=nombre, size_hint_y=0.02))
+            bx_t.add_widget(Boton(text=nombre, size_hint_y=0.02))
             
             #Botones de mañana
             for texto, porcentaje in horarioPrincipal.clases_manana(nombre):
@@ -118,21 +122,63 @@ class Boxes(FloatLayout):
 
         export = Button(text = 'Exportar', size_hint = (None, None))
         self.ids['_main'].add_widget(export)
+
         
     def intercambia(self, horario):
 
-        #print(boton.text)
-        if self.numPulsaciones == 0:
-            self.primero = 2
-            
-        self.numPulsaciones = self.numPulsaciones + 1
-        #print(self.numPulsaciones)
+        # Recupero el id de la ventana activa
+        ids = self.ids['_screen_manager'].current
         
-        if self.numPulsaciones > 1:
-            print("Recorriendo")
-            for dia in horario.dias:
-                nombre = dia  
-                for texto, porcentaje in horario.clases_manana(nombre):
-                        print(texto)
-                        print(porcentaje)
-                    
+        if ids == 'dia':
+            ids = '_morning'
+        else:
+            ids = '_afternoon'
+
+        # Recorro la ventana guardando los pulsados
+        # Busco el primero, busco el segundo, y los intercambio
+        if self.numPulsaciones == 0:
+            for child in self.ids[ids].children:
+                self.i = self.i + 1
+                self.j = 0
+                for grandchild in child.children:
+                    self.j = self.j + 1
+                    if grandchild.select == 2:
+                        self.primero = grandchild
+                        self.numPulsaciones = self.numPulsaciones + 1
+                        print(grandchild)
+                        print(self.primero)
+                        print(grandchild.text)
+                        print(grandchild.select)
+                        print('i:'+str(self.i))
+                        print('j:'+str(self.j))
+                        
+        elif self.numPulsaciones == 1:
+            a = ''
+            for child in self.ids[ids].children:
+                self.k = self.k + 1
+                self.l = 0
+                for grandchild in child.children:
+                    self.l = self.l + 1
+                    if grandchild.select == 2:
+                        if grandchild != self.primero:
+                            self.segundo = grandchild
+                            a = grandchild.text
+                            self.numPulsaciones = self.numPulsaciones + 1
+
+                            #Intercambio el primero
+                            grandchild.text = self.primero.text
+
+        if self.numPulsaciones == 2:
+            for child in self.ids[ids].children:
+                self.k = self.k + 1
+                self.l = 0
+                for grandchild in child.children:
+                    self.l = self.l + 1
+                    if grandchild.select == 2:
+                        if grandchild != self.segundo:
+                            #Intercambio el segundo
+                            grandchild.text = a
+                            self.numPulsaciones = self.numPulsaciones + 1
+
+                            
+
