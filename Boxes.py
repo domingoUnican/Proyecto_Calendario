@@ -167,6 +167,8 @@ class Boxes(FloatLayout):
 
                             #Intercambio el primero
                             grandchild.text = self.primero.text
+                            grandchild.select = 0
+                            grandchild.disabled = False
 
         if self.numPulsaciones == 2:
             for child in self.ids[ids].children:
@@ -178,7 +180,15 @@ class Boxes(FloatLayout):
                         if grandchild != self.segundo:
                             #Intercambio el segundo
                             grandchild.text = a
+                            grandchild.select = 0
+                            grandchild.disabled = False
                             self.numPulsaciones = self.numPulsaciones + 1
+            self.numPulsaciones = 0
 
                             
 
+
+            
+            
+
+                            
