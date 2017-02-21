@@ -1,4 +1,5 @@
 from datetime import timedelta
+from lxml import etree
 
 class horario:
     '''
@@ -82,3 +83,33 @@ class horario:
             yield texto, porcentaje
             principio = fin
             
+    def save_timetableXML(self):
+        print('PRINT MONEY')
+
+        #Inicializaciones
+        root = etree.Element('HighSchoolTimetableArchive')
+        doc = etree.ElementTree(root)
+        instances = etree.SubElement(root, "Instancias")
+        instance1 = etree.SubElement(root[0], "Instancias", id="1")
+        instance2 = etree.SubElement(root[0], "Instancias", id="2")
+        etree.SubElement(instance1, "Metadatos")
+        etree.SubElement(instance1, "Times")
+        etree.SubElement(instance1, "Resources")
+        etree.SubElement(instance1, "Events")
+        etree.SubElement(instance1, "Constraints")
+        
+        etree.SubElement(root, "Soluciones")
+        etree.SubElement(root[1], "SolucionManana", id="1")
+
+        #Recorro el horario guardando sus datos
+
+        
+        etree.SubElement(root[1], "SolucionTarde", id="2")
+
+
+        #Guardado de datos
+        outFile = open('homemade.xml', 'wb')
+        doc.write(outFile)
+        print('XML GUARDADO')
+        print('Estos son los datos guardados')
+        print(etree.tostring(root))
