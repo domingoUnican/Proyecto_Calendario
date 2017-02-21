@@ -22,12 +22,15 @@ class TestApp(App):
         horarioPrincipal.incluye_hora('Jueves','Frances',timedelta(hours=9), timedelta(hours=10))
         horarioPrincipal.incluye_hora('Jueves','Ingles',timedelta(hours=10), timedelta(hours=11))
         horarioPrincipal.incluye_hora('Viernes','Frances',timedelta(hours=9), timedelta(hours=11))
-        print(horarioPrincipal)
+
         for dia in ['Lunes','Martes','Miércoles','Jueves','Viernes']:
             for i in range(11,19):
                 horarioPrincipal.incluye_hora(dia,'Libre',timedelta(hours=i), timedelta(hours=i+1))
 
         return Boxes(horarioPrincipal)
+
+    def save(self):
+        horarioPrincipal.save_timetableXML()
 
 if __name__ == '__main__':
     TestApp().run()
