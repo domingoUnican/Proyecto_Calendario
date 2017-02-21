@@ -40,7 +40,8 @@
                 text: 'Horario de tarde'
                 on_press: _screen_manager.current = 'noche'
             Button:
-                text: 'Comprobar'
+                text: 'Guardar'
+				on_press: app.save()
             Button:
                 text: 'Salir'
                 on_press: app.stop()
