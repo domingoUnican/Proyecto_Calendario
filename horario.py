@@ -1,110 +1,36 @@
-from datetime import timedelta
-from lxml import etree
-
-class horario:
-    '''
-    Clase que implementa un horario. Ahora supongo que todos los
-    dias empiezan y terminan a la misma hora. Eso quiere decir
-    que si hay huecos libres entonces que se pongan explicitamente.
-    Y que todos los dias tiene que darse clase, aunque sea un hueco libre.
-    '''
-
-    def __init__(self, dias, inicio):
-        self.dias = dias
-        self.h_dia = [list() for i in dias]
-        self.inicio = inicio
-        self.empieza_tarde = timedelta(hours = 15)
-        self.choosed = False
-
-    def incluye_hora(self, dia, asignatura, inicio, fin):
-        pos = self.dias.index(dia)
-        nueva_lista = []
-        encontrado = False
-        if not self.h_dia[pos]:
-            self.h_dia[pos].append(tuple((asignatura,fin)))
-        else:
-            for l in self.h_dia[pos]:
-                nueva_lista.append(tuple(l))
-                if not encontrado and l[1]>=inicio:
-                    #print str(l[1]), str(inicio)
-                    nueva_lista.append(tuple((asignatura,fin)))
-                    encontrado = True
-                self.h_dia[pos] = nueva_lista
-
-    def segundos_clase_manana(self):
-        '''
-        Metodo que devuelve los segundos totales que hay
-        que estar cada dia dando clase por la manana.
-        Recordad que todos los dias tienen que tener las mismas horas,
-        por lo que hay que rellenar con huecos libres.
-        '''
-        manana = [l for l in self.h_dia[0] if l[1]<=self.empieza_tarde]
-        return (manana[-1][1]-self.inicio).seconds
-
-    def segundos_clase_tarde(self):
-        '''
-        Metodo que devuelve los segundos totales que hay
-        que estar cada dia dando clase por la tarde.
-        Recordad que todos los dias tienen que tener las mismas horas,
-        por lo que hay que rellenar con huecos libres.
-        '''
-        manana = [l for l in self.h_dia[0] if l[1]>=self.empieza_tarde]
-        return (self.h_dia[0][-1][1]-self.empieza_tarde).seconds
-
-    def clases_manana(self, dia):
-        '''
-        simple iterador para dibujar los botones
-        '''
-        pos = self.dias.index(dia)
-
-        principio = self.inicio
-        total = float(self.segundos_clase_manana())
-        manana = [l for l in self.h_dia[pos] if l[1]<=self.empieza_tarde]
-        for asignatura, fin in manana:
-            porcentaje = (fin-principio).seconds/total
-            porcentaje *= 0.98
-            texto = ('%s\n%s--%s')%(asignatura, principio, fin)
-            yield texto, porcentaje
-            principio = fin
-
-
-    def clases_tarde(self, dia):
-        '''
-        simple iterador para dibujar los botones
-        '''
-        pos = self.dias.index(dia)
-        principio = self.empieza_tarde
-        total = float(self.segundos_clase_tarde())
-        tarde = [l for l in self.h_dia[pos] if l[1]>self.empieza_tarde]
-        for asignatura, fin in tarde:
-            porcentaje = (fin-principio).seconds/total
-            porcentaje *= 0.98
-            texto = ('%s\n%s--%s')%(asignatura, principio, fin)
-            yield texto, porcentaje
-            principio = fin
-            
-    def save_timetableXML(self):
-        print('PRINT MONEY')
+def save_timetableXML(self):
+        print('GUARDANDO XML')
 
         #Inicializaciones
-        root = etree.Element('HighSchoolTimetableArchive')
+        root = etree.Element('HighSchoolTimetableArchive', id="Root")
         doc = etree.ElementTree(root)
         instances = etree.SubElement(root, "Instancias")
         instance1 = etree.SubElement(root[0], "Instancias", id="1")
         instance2 = etree.SubElement(root[0], "Instancias", id="2")
-        etree.SubElement(instance1, "Metadatos")
-        etree.SubElement(instance1, "Times")
-        etree.SubElement(instance1, "Resources")
-        etree.SubElement(instance1, "Events")
-        etree.SubElement(instance1, "Constraints")
+        etree.SubElement(instance1, "Metadatos", id="Meta")
+        etree.SubElement(instance1, "Times", id="Tm")
+        etree.SubElement(instance1, "Resources", id="Res")
+        etree.SubElement(instance1, "Events", id="Ev")
+        etree.SubElement(instance1, "Constraints", id="Cons")
         
         etree.SubElement(root, "Soluciones")
-        etree.SubElement(root[1], "SolucionManana", id="1")
+        solucion1 = etree.SubElement(root[1], "SolucionManana", id="1")
 
         #Recorro el horario guardando sus datos
+        #pos = self.dias.index('Lunes')
 
+        for pos in self.dias:
+            print(pos)
+            solucionDia = etree.SubElement(solucion1, pos, id=pos)
+            pos = self.dias.index(pos)
+            for asignatura, hora in self.h_dia[pos]:
+                etree.SubElement(solucionDia, asignatura, id=asignatura)
+                #hr = str(hora)
+                #etree.SubElement(solucionDia, hora, id=hr)
+                print(asignatura)
+                print(hora)
         
-        etree.SubElement(root[1], "SolucionTarde", id="2")
+        #solucion2 = etree.SubElement(root[1], "SolucionTarde", id="2")
 
 
         #Guardado de datos
