@@ -1,0 +1,1098 @@
+@Chapter
+    @PartNumber { Part B }
+    @PartTitle { Solving }
+    @PartText {
+A solver is an operation that makes large-scale changes to a solution.
+Solvers operate at a high level and should not be cluttered with
+implementation details:  their source files will include @C { khe.h }
+as usual, but should not include header file @C { khe_interns.h } which
+gives access to KHE's internals.  Thus, the user of KHE is as well
+equipped to write a solver as its author.
+@LP
+Many solvers are packaged with KHE.  They are the subject of this
+part of the manual, all of which is implemented using @C { khe.h }
+but not @C { khe_interns.h }.
+}
+    @Title { Introducing Solving }
+    @Tag { general_solvers }
+@Begin
+@LP
+This chapter introduces solving.  It defines an interface for solvers,
+presents a few high-level ones, and explains some general concepts,
+including setting options and gathering statistics.
+@BeginSections
+
+@Section
+    @Title { General solving }
+    @Tag { general_solvers.general }
+@Begin
+@LP
+A @I { solver } is a function that finds solutions, or partial
+solutions, to instances.  A @I { general solver } solves an instance
+completely, unlike, say, a @I { time solver } which only finds
+time assignments, or a @I { resource solver } which only finds
+resource assignments.
+@PP
+The recommended interface for general solvers, defined in @C { khe.h }, is
+@ID @C {
+typedef KHE_SOLN (*KHE_GENERAL_SOLVER)(KHE_SOLN soln,
+  KHE_OPTIONS options);
+}
+A general solver may split meets, build layer trees and task trees,
+assign times and resources, and so on without restriction.  It will
+usually return the solution it is given, but it may return a different
+solution to the same instance, in which case it should delete the
+solution it is given.
+@PP
+Its second parameter, @C { options }, is a pointer to a set of options
+which may be used to vary the behaviour of the solver.  Options
+are the subject of Section {@NumberOf general_solvers.options}.
+@PP
+The main general solver distributed with KHE is
+@ID @C {
+KHE_SOLN KheGeneralSolve2014(KHE_SOLN soln, KHE_OPTIONS options);
+}
+This is a single-threaded general solver which works by calling
+functions defined elsewhere in this guide.  It returns the solution
+it is given.
+@PP
+The author's intention is that the best solver (all things considered)
+that he creates in any given year, if better than his previous solvers,
+should be called @C { KheGeneralSolve } with the year appended, and
+that KHE's main program should call it, either directly or as the
+solver passed to some parallel solver.  @C { KheGeneralSolve2014 }
+is the first of these solvers.
+@PP
+@C { KheGeneralSolve2014 } assumes that @C { soln } is as returned by
+@C { KheSolnMake }, so it begins with @C { KheSolnSplitCycleMeet } and
+@C { KheSolnMakeCompleteRepresentation }.  Then it calls other solvers
+defined elsewhere in this guide:  it builds a layer tree and task tree,
+attaches demand monitors, calls @C { KheCycleNodeAssignTimes } to
+assign times, and @C { KheTaskingAssignResources } to assign resources.
+Finally, it calls @C { KheSolnEnsureOfficialCost } and returns.
+@PP
+@C { KheGeneralSolve2014 } is affected indirectly by many options,
+via the functions it calls.  The only options it consults directly
+are @C { monitor_evenness }, which it uses to decide whether
+to install evenness monitors (Section {@NumberOf matchings.evenness}),
+and @C { time_assignment_only }, which when set causes it to exit
+early, immediately after time assignment.
+@End @Section
+
+@Section
+    @Title { Parallel solving }
+    @Tag { general_solvers.parallel }
+@Begin
+@LP
+Function
+@ID @C {
+void KheArchiveParallelSolve(KHE_ARCHIVE archive, int thread_count,
+  int make_solns, KHE_GENERAL_SOLVER solver, KHE_OPTIONS options,
+  int keep_solns, KHE_SOLN_GROUP soln_group);
+}
+creates a pool of @C { thread_count } threads and uses them to solve
+the instances of @C { archive }.  They include the thread that called
+{0.95 1.0} @Scale @C { KheArchiveParallelSolve }, so @C { thread_count }
+must be at least 1.
+@PP
+@C { KheArchiveParallelSolve } creates @C { make_solns } solutions
+for each instance of @C { archive }, by creating that many solutions
+and calling @C { solver } on each solution with a copy of @C { options }.
+The solutions passed to @C { solver } are identical except that the
+diversifier of the first is 0, the diversifier of the second is 1, and
+so on.  The solver may use these values to create diverse solutions.
+@PP
+If @C { soln_group } is non-@C { NULL }, @C { KheArchiveParallelSolve }
+keeps the best @C { keep_solns } out of the @C { make_solns } solutions
+it made for each instance, and adds them to @C { soln_group }, deleting
+the others.  Otherwise it deletes all the solutions it made.
+@PP
+A variant of @C { KheArchiveParallelSolve } that may sometimes be more
+convenient is
+@ID @C {
+KHE_SOLN KheInstanceParallelSolve(KHE_INSTANCE ins, int thread_count,
+  int make_solns, KHE_GENERAL_SOLVER solver, KHE_OPTIONS options);
+}
+Behind the scenes it is the same, but it solves a single instance
+rather than an entire archive, and it returns any one best solution
+rather than storing a set of best solutions in a solution group.
+@PP
+Parallelism is obtained via functions @C { pthread_create } and
+@C { pthread_join } from the Posix threads library.  KHE has been
+carefully designed to ensure that operations carried out in parallel
+on distinct solutions cannot interfere with each other.  If you do
+not have Posix, a simple workaround documented in KHE's makefile will
+allow you to compile KHE without it.  The only difference is that
+@C { KheArchiveParallelSolve } and @C { KheInstanceParallelSolve }
+will find their solutions sequentially rather than in parallel.
+@End @Section
+
+@Section
+    @Title { Benchmarking }
+    @Tag { general_solvers.benchmarking }
+@Begin
+@LP
+For benchmarking (that is, for gathering statistics while a solver runs),
+KHE offers
+@ID @C {
+void KheBenchmark(KHE_ARCHIVE archive, KHE_GENERAL_SOLVER solver,
+  char *solver_name, char *author_name, char test_label,
+  KHE_STATS_TABLE_TYPE table_type);
+}
+It solves @C { archive }, possibly several times, using @C { solver },
+writing the results into files in directory @C { "stats" } of the
+current directory.  Some files are archives, others contain tables of
+statistics recording the performance of @C { solver }, printed by KHE's
+statistics functions (Section {@NumberOf general_solvers.stats}).
+@PP
+Parameter @C { solver_name } is a brief name for @C { solver }, suited
+for use in the header of a table column; @C { author_name } is the name
+of the author of the solver; and @C { test_label } (a character between
+@C { 'A' } and @C { 'Z' }) determines which tests are performed and
+which files are written.  These may change from time to time.  See
+the top of file @C { khe_sm_benchmark.c } for current details.
+@PP
+Parameter @C { table_type } determines the format of any tables
+written.  Its values are
+@ID @C {
+typedef enum {
+  KHE_STATS_TABLE_PLAIN,
+  KHE_STATS_TABLE_LOUT,
+  KHE_STATS_TABLE_LATEX
+} KHE_STATS_TABLE_TYPE;
+}
+which request plain text, Lout, or LaTeX format.
+@PP
+@C { KheBenchmark } takes it upon itself to skip some instances of
+the archive it is given.  To see which are skipped, consult function
+@C { KheBenchmarkTryInstance } in file @C { khe_sm_benchmark.c }.
+If it comes upon such an instance, it includes a row for it in the
+tables it prints, but it does not attempt to solve it, and it leaves
+the entries for that row blank.
+# For example, it skips instance
+# @C { DK-HG-12 } of the standard XHSTT-2013 data set.  Solving
+# @C { DK-HG-12 } well involves choosing a good set of meets to
+# @I not assign times to, something KHE's solvers have no idea about.
+@End @Section
+
+@Section
+    @Title { Options }
+    @Tag { general_solvers.options }
+@Begin
+@LP
+All solvers take an @C { options } parameter of type @C { KHE_OPTIONS },
+a pointer to a set of options which can be used to vary their behaviour.
+Function
+@ID @C {
+KHE_OPTIONS KheOptionsMake(void);
+}
+returns a new options object whose options all have their default
+values.  For each option, there is one function to retrieve the
+option and another to set it.  These functions are documented
+alongside the solvers that their options affect, and the full list of
+options appears below.  Some simple solvers do not use any options;
+in that case, the @C { options } argument may be @C { NULL }.  Function
+@ID @C {
+void KheOptionsDelete(KHE_OPTIONS options);
+}
+may be called to delete an options object when it is no longer needed.
+@PP
+Options can be classified into two kinds, although the distinction
+between them is not absolute.  One kind is there for the convenience
+of the end user, to allow him to try out different possibilities.
+Options of this kind are not set by any of KHE's solvers.  The other
+kind is there because some of KHE's solvers need to vary the
+behaviour of other solvers that they call.  These ones are set by
+KHE's solvers.
+# , although when they set an option they usually remember
+# the previous value, and reset the option to that value before they
+# return.
+@PP
+Because options (especially the second kind) can change, when solving
+in parallel different options objects must be passed to each solve.
+These can be created by copying using
+@ID @C {
+KHE_OPTIONS KheOptionsCopy(KHE_OPTIONS options);
+}
+It will call @C { KheEjectorCopy } to copy any ejectors stored
+inside it.  This is necessary because a single ejector cannot
+safely be accessed by two solvers in parallel.  Split analysers
+also cannot be used in parallel, so @C { KheOptionsCopy } creates
+a new split analyser object for the copy.
+@PP
+The following subsections present the complete list of options.
+Only brief indications of their meaning are given here, with
+references to the places where they are described in detail.
+@BeginSubSections
+
+@SubSection
+    @Title { General options }
+    @Tag { general_solvers.options.general }
+@Begin
+@LP
+This subsection describes options used widely or by KHE's general solvers.
+@PP
+The @C { diversify } option determines whether some solvers consult the
+solution's diversifier (Section {@NumberOf solutions.diversification}),
+and so produce a different result for different solutions when their
+diversifiers are different.  It is retrieved and set by
+@ID @C { 
+bool KheOptionsDiversify(KHE_OPTIONS options);
+void KheOptionsSetDiversify(KHE_OPTIONS options, bool diversify);
+}
+Its default value is @C { true }.  Many of the solvers packaged
+with KHE consult this option.
+# @C { KheLayerMatchMake } and
+# @C { KheLayerMatchImproveNodeRegularity } consult it
+# (Section {@NumberOf time_solvers.layer_match}), as does
+# @C { KheEjectorSolve } (Section {@NumberOf ejection.solving}).
+@PP
+The @C { monitor_evenness } option determines whether
+@C { KheGeneralSolve2014 } (Section {@NumberOf general_solvers.general})
+installs evenness monitors (Section {@NumberOf matchings.evenness}).
+It is retrieved and set by
+@ID @C { 
+bool KheOptionsMonitorEvenness(KHE_OPTIONS options);
+void KheOptionsSetMonitorEvenness(KHE_OPTIONS options,
+  bool monitor_evenness);
+}
+Its default value is @C { false }.
+@PP
+The @C { time_assignment_only } option determines whether
+@C { KheGeneralSolve2014 } (Section {@NumberOf general_solvers.general})
+exits early, leaving the solution in its state after time assignment.
+It is retrieved and set by
+@ID @C { 
+bool KheOptionsTimeAssignmentOnly(KHE_OPTIONS options);
+void KheOptionsSetTimeAssignmentOnly(KHE_OPTIONS options,
+  bool time_assignment_only);
+}
+Its default value is @C { false }.
+@End @SubSection
+
+@SubSection
+    @Title { Structural solver options }
+    @Tag { general_solvers.options.structural }
+@Begin
+@LP
+This subsection describes options used by KHE's structural solvers.
+@PP
+The @C { structural_time_equiv } option holds a time-equivalence
+object (Section {@NumberOf structural_solvers.time_equiv}).  It
+is retrieved and set by
+@ID {0.97 1.0} @Scale @C {
+KHE_TIME_EQUIV KheOptionsStructuralTimeEquiv(KHE_OPTIONS options);
+void KheOptionsSetStructuralTimeEquiv(KHE_OPTIONS options,
+  KHE_TIME_EQUIV structural_time_equiv);
+}
+The default value is a time-equivalence object created by
+@C { KheOptionsMake } or @C { KheOptionsCopy } and deleted
+by @C { KheOptionsDelete }.  There seems to be no reason to
+ever call @C { KheOptionsSetStructuralTimeEquiv }, but the
+user of the time-equivalence object will need to call
+@C { KheTimeEquivSolve } at some point.
+@PP
+The @C { structural_split_analyser } option holds a split analyser
+object (Section {@NumberOf structural_solvers.split.analyse}).  It
+is retrieved and set by
+@ID {0.97 1.0} @Scale @C {
+KHE_SPLIT_ANALYSER KheOptionsStructuralSplitAnalyser(KHE_OPTIONS options);
+void KheOptionsSetStructuralSplitAnalyser(KHE_OPTIONS options,
+  KHE_SPLIT_ANALYSER structural_split_analyser);
+}
+The default value is a split analyser object created by
+@C { KheOptionsMake } or @C { KheOptionsCopy } and deleted
+by @C { KheOptionsDelete }.  There seems to be no reason to
+ever call @C { KheOptionsSetStructuralSplitAnalyser }.
+@End @SubSection
+
+@SubSection
+    @Title { Time solver options }
+    @Tag { general_solvers.options.time }
+@Begin
+@LP
+This subsection describes options used by KHE's time solvers,
+except for ejection chain time repair algorithms, whose options
+appear in Section {@NumberOf general_solvers.options.ejector}.
+@PP
+The @C { time_cluster_meet_domains } option determines whether
+{0.95 1.0} @Scale @C { KheCycleNodeAssignTimes }
+(Section {@NumberOf time_solvers.combined}) clusters meet domains
+using @C { KheSolnClusterAndLimitMeetDomains }
+(Section {@NumberOf time_solvers.domains.idle}) before assigning
+times and unclusters them afterwards.  It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeClusterMeetDomains(KHE_OPTIONS options);
+void KheOptionsSetTimeClusterMeetDomains(KHE_OPTIONS options,
+  bool time_cluster_meet_domains);
+}
+Its default value is @C { false }.
+@PP
+The @C { time_tighten_domains } option determines whether
+@C { KheCycleNodeAssignTimes } (Section {@NumberOf time_solvers.combined})
+tightens resource domains
+(Section {@NumberOf resource_solvers.task_tree.reorganization}).
+It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeTightenDomains(KHE_OPTIONS options);
+void KheOptionsSetTimeTightenDomains(KHE_OPTIONS options,
+  bool time_tighten_domains);
+}
+Its default value is @C { true }.
+@PP
+The @C { time_node_repair } option determines whether
+@C { KheCycleNodeAssignTimes } (Section {@NumberOf time_solvers.combined})
+ends by calling @C { KheEjectionChainNodeRepairTimes }
+(Section {@NumberOf time_solvers.repair.ejection}).  If so, it calls
+it twice, before and after removing regularity-enhancing features.  It
+is retrieved and set by
+@ID @C {
+bool KheOptionsTimeNodeRepair(KHE_OPTIONS options);
+void KheOptionsSetTimeNodeRepair(KHE_OPTIONS options,
+  bool time_node_repair);
+}
+Its default value is @C { true }.
+@PP
+The @C { time_node_regularity } option determines whether
+@C { KheNodeLayeredAssignTimes } (Section {@NumberOf time_solvers.layer.layered})
+tries for node regularity.  It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeNodeRegularity(KHE_OPTIONS options);
+void KheOptionsSetTimeNodeRegularity(KHE_OPTIONS options,
+  bool time_node_regularity);
+}
+Its default value is @C { true }.
+@PP
+The @C { time_layer_swap } option determines whether or not
+@C { KheNodeLayeredAssignTimes }
+(Section {@NumberOf time_solvers.layer.layered}) tries more than
+one ordering of its layers.  It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeLayerSwap(KHE_OPTIONS options);
+void KheOptionsSetTimeLayerSwap(KHE_OPTIONS options,
+  bool time_layer_swap);
+}
+Its default value is @C { false }.
+@PP
+The @C { time_layer_repair } option determines whether or not
+@C { KheNodeLayeredAssignTimes }
+(Section {@NumberOf time_solvers.layer.layered}) repairs its
+assignment of times to each layer immediately after assigning
+the layer.  It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeLayerRepair(KHE_OPTIONS options);
+void KheOptionsSetTimeLayerRepair(KHE_OPTIONS options,
+  bool time_layer_repair);
+}
+Its default value is @C { true }.
+@PP
+If @C { time_layer_repair } is @C { true }, then option
+@C { time_layer_repair_backoff } determines whether exponential
+backoff is used to decide which layers to repair.  It is
+retrieved and set by
+@ID @C {
+bool KheOptionsTimeLayerRepairBackoff(KHE_OPTIONS options);
+void KheOptionsSetTimeLayerRepairBackoff(KHE_OPTIONS options,
+  bool time_layer_repair_backoff);
+}
+Its default value is @C { false }, meaning to repair every layer.
+@PP
+The @C { time_layer_repair_long } option affects
+@C { KheEjectionChainLayerRepairTimes }
+(Section {@NumberOf time_solvers.repair.ejection}), determining whether it
+targets just the current layer, or every layer up to and including
+the current layer.  It is retrieved and set by
+@ID @C {
+bool KheOptionsTimeLayerRepairLong(KHE_OPTIONS options);
+void KheOptionsSetTimeLayerRepairLong(KHE_OPTIONS options,
+  bool time_layer_repair_long);
+}
+Its default value is @C { false }, meaning to target just the
+current layer.
+@PP
+The @C { time_kempe_stats } option holds an object of type
+@C { KHE_KEMPE_STATS }, used for recording statistics about
+Kempe meet moves (Section {@NumberOf time_solvers.kempe}).
+It is retrieved and set by
+@ID @C {
+KHE_KEMPE_STATS KheOptionsTimeKempeStats(KHE_OPTIONS options);
+void KheOptionsSetTimeKempeStats(KHE_OPTIONS options,
+  KHE_KEMPE_STATS time_kempe_stats);
+}
+Its default value is a new @C { KHE_KEMPE_STATS } object, both when
+an options object is created and when it is copied.  So there is not
+usually any need to call @C { KheOptionsSetTimeKempeStats }.
+@End @SubSection
+
+@SubSection
+    @Title { Resource solver options }
+    @Tag { general_solvers.options.resource }
+@Begin
+@LP
+This subsection describes options used by KHE's resource solvers,
+except for ejection chain resource repair algorithms, whose options
+appear in Section {@NumberOf general_solvers.options.ejector}.
+@PP
+The @C { resource_invariant } option determines whether
+resource solvers limit themselves to producing results that
+preserve the @I { resource assignment invariant }
+(Section {@NumberOf resource_solvers.invt}), which states that
+the number of unmatched demand tixels may not increase.  It
+is retrieved and set by
+@ID @C { 
+bool KheOptionsResourceInvariant(KHE_OPTIONS options);
+void KheOptionsSetResourceInvariant(KHE_OPTIONS options,
+  bool resource_invariant);
+}
+Its default value is @C { false }.  Many resource solvers consult this
+option:  @C { KheTaskTreeMake }, @C { KheTaskingMakeTaskTree },
+@C { KheTaskingTightenToPartition }, @C { KheResourcePairReassign },
+@C { KheResourcePairRepairSplitAssignments }, and
+@C { KheEjectionChainRepairResources }.  It would be ideal if they
+all did, but they don't at present.
+@PP
+The @C { resource_rematch } option tells @C { KheTaskingAssignResources }
+whether to call @C { KheResourceRematch }. It is retrieved and set by
+@ID @C { 
+bool KheOptionsResourceRematch(KHE_OPTIONS options);
+void KheOptionsSetResourceRematch(KHE_OPTIONS options,
+  bool resource_rematch);
+}
+It has default value @C { true }.
+@PP
+The @C { resource_pair } option affects @C { KheResourcePairRepair }
+as explained in Section {@NumberOf resource_solvers.pair.solver}.
+It is retrieved and set by
+@ID @C {
+KHE_OPTIONS_RESOURCE_PAIR KheOptionsResourcePair(KHE_OPTIONS options);
+void KheOptionsSetResourcePair(KHE_OPTIONS options,
+  KHE_OPTIONS_RESOURCE_PAIR resource_pair);
+}
+It has default value @C { KHE_OPTIONS_RESOURCE_PAIR_SPLITS }.  Some
+rudimentary statistics are gathered in three integer values:
+@C { resource_pair_calls }, @C { resource_pair_successes }, 
+and @C { resource_pair_truncs }.  These may be retrieved and set
+as usual:
+@ID @C {
+int KheOptionsResourcePairCalls(KHE_OPTIONS options);
+void KheOptionsSetResourcePairCalls(KHE_OPTIONS options,
+  int resource_pair_calls);
+int KheOptionsResourcePairSuccesses(KHE_OPTIONS options);
+void KheOptionsSetResourcePairSuccesses(KHE_OPTIONS options,
+  int resource_pair_successes);
+int KheOptionsResourcePairTruncs(KHE_OPTIONS options);
+void KheOptionsSetResourcePairTruncs(KHE_OPTIONS options,
+  int resource_pair_truncs);
+}
+See Section {@NumberOf resource_solvers.pair.solver} for the details.
+@End @SubSection
+
+@SubSection
+    @Title { Ejection chain options }
+    @Tag { general_solvers.options.ejector }
+@Begin
+@LP
+This section describes options relevant to ejector objects and
+ejection chain repair algorithms.  For full details, consult
+Chapter {@NumberOf ejection}.
+@PP
+Functions
+@ID @C {
+KHE_EJECTOR KheOptionsEjector(KHE_OPTIONS options, int index);
+void KheOptionsSetEjector(KHE_OPTIONS options, int index,
+  KHE_EJECTOR ej);
+}
+retrieve and set one ejector object for each non-negative
+@C { index }.  At each index the default value is @C { NULL }.
+Functions
+@ID @C {
+char *KheOptionsEjectorSchedulesString(KHE_OPTIONS options);
+void KheOptionsSetEjectorSchedulesString(KHE_OPTIONS options,
+  char *ejector_schedules_string);
+}
+retrieve and set a string describing the schedules to apply
+to an ejector.  For the default value, consult
+Section {@NumberOf ejection.statistics}.  Functions
+@ID @C {
+bool KheOptionsEjectorPromoteDefects(KHE_OPTIONS options);
+void KheOptionsSetEjectorPromoteDefects(KHE_OPTIONS options,
+  bool ejector_promote_defects);
+}
+retrieve and set the @C { ejector_promote_defects } option of
+ejectors.  Its default value is @C { true }.  Functions
+@ID @C {
+bool KheOptionsEjectorFreshVisits(KHE_OPTIONS options);
+void KheOptionsSetEjectorFreshVisits(KHE_OPTIONS options,
+  bool ejector_fresh_visits);
+}
+retrieve and set the @C { ejector_fresh_visits } option of
+ejectors.  Its default value is @C { false }.
+#Functions
+#@ID @C {
+#bool KheOptionsEjectorSuppressRecent(KHE_OPTIONS options);
+#void KheOptionsSetEjectorSuppressRecent(KHE_OPTIONS options,
+#  bool ejector_suppress_recent);
+#}
+#retrieve and set the @C { ejector_suppress_recent } option of
+#ejectors.  Its default value is @C { false }.
+@PP
+The @C { ejector_repair_times } option determines whether
+augment functions are permitted to change the assignments
+of meets.  It is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorRepairTimes(KHE_OPTIONS options);
+void KheOptionsSetEjectorRepairTimes(KHE_OPTIONS options,
+  bool ejector_repair_times);
+}
+It is set by the various ejection chain functions, so setting
+by the caller of those functions will have no effect.  Its
+default value is @C { true }.
+@PP
+Option @C { ejector_vizier_node } determines whether
+@C { KheEjectionChainNodeRepairTimes } and
+@C { KheEjectionChainLayerRepairTimes }
+(Section {@NumberOf time_solvers.repair.ejection}) insert a vizier node
+(Section {@NumberOf structural_solvers.nodes.vizier}) temporarily
+while they run.  It is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorVizierNode(KHE_OPTIONS options);
+void KheOptionsSetEjectorVizierNode(KHE_OPTIONS options,
+  bool ejector_vizier_node);
+}
+Its default value is @C { false }.
+@PP
+The @C { ejector_nodes_before_meets } option determines whether
+augment functions that try both node swaps and meet moves try
+the node swaps first.  It is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorNodesBeforeMeets(KHE_OPTIONS options);
+void KheOptionsSetEjectorNodesBeforeMeets(KHE_OPTIONS options,
+  bool ejector_nodes_before_meets);
+}
+Its default value is @C { false }.
+@PP
+The @C { ejector_use_kempe_moves } option determines whether
+augment functions that move meets use Kempe meet moves in addition
+to ejecting and basic ones (Section {@NumberOf time_solvers.kempe}).
+It is retrieved and set by
+@ID @C {
+KHE_OPTIONS_KEMPE KheOptionsEjectorUseKempeMoves(KHE_OPTIONS options);
+void KheOptionsSetEjectorUseKempeMoves(KHE_OPTIONS options,
+  KHE_OPTIONS_KEMPE ejector_use_kempe_moves);
+}
+where type @C { KHE_OPTIONS_KEMPE } is
+@ID @C {
+typedef enum {
+  KHE_OPTIONS_KEMPE_NO,
+  KHE_OPTIONS_KEMPE_AUTO,
+  KHE_OPTIONS_KEMPE_YES
+} KHE_OPTIONS_KEMPE;
+}
+@C { KHE_OPTIONS_KEMPE_NO } means to not use them, and
+@C { KHE_OPTIONS_KEMPE_YES } means to use them wherever
+possible (this is the default value).  @C { KHE_OPTIONS_KEMPE_AUTO }
+means to use them only when moving meets that lie in nodes
+that lie in layers of large duration relative to the cycle
+duration, reasoning that swaps are virtually always needed
+when such meets are moved.
+@PP
+The @C { ejector_use_fuzzy_moves } option determines whether
+augment functions that move meets try fuzzy meet moves
+(Section {@NumberOf time_solvers.repair.meet_set}) in addition
+to the other kinds of meet moves.  If they do, to conserve
+running time they only do so at depth 1 on the ejection chain,
+i.e. only when repairing a defect of the current best solution,
+not when repairing a defect introduced by a previous repair.
+The option is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorUseFuzzyMoves(KHE_OPTIONS options);
+void KheOptionsSetEjectorUseFuzzyMoves(KHE_OPTIONS options,
+  bool ejector_use_fuzzy_moves);
+}
+Its default value is @C { false }.  At present the @C { width },
+@C { depth }, and @C { max_meets } parameters of @C { KheFuzzyMeetMove }
+are fixed constants.
+@PP
+The @C { ejector_use_split_moves } option determines whether
+augment functions that move meets try split meet moves in addition
+to the other kinds of meet moves.  The option is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorUseSplitMoves(KHE_OPTIONS options);
+void KheOptionsSetEjectorUseSplitMoves(KHE_OPTIONS options,
+  bool ejector_use_split_moves);
+}
+Its default value is @C { false }, but some of the solvers
+change it on their own authority.
+@PP
+The @C { ejector_ejecting_not_basic } option determines whether
+augment functions that assign and move meets use ejecting assignments
+and moves, not basic ones (Section {@NumberOf time_solvers.kempe}).
+It is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorEjectingNotBasic(KHE_OPTIONS options);
+void KheOptionsSetEjectorEjectingNotBasic(KHE_OPTIONS options,
+  bool ejector_ejecting_not_basic);
+}
+Its default value is @C { true }.
+@PP
+The @C { ejector_limit_node } option holds a node.  When it is
+non-@C { NULL }, it causes augment functions that assign and
+move meets to limit their repairs to the descendants of that
+node.  It is retrieved and set by
+@ID @C {
+KHE_NODE KheOptionsEjectorLimitNode(KHE_OPTIONS options);
+void KheOptionsSetEjectorLimitNode(KHE_OPTIONS options,
+  KHE_NODE ejector_limit_node);
+}
+Its default value is @C { NULL }.
+@PP
+The @C { ejector_repair_resources } option determines whether
+augment functions are permitted to change the assignments
+of tasks.  It is retrieved and set by
+@ID @C {
+bool KheOptionsEjectorRepairResources(KHE_OPTIONS options);
+void KheOptionsSetEjectorRepairResources(KHE_OPTIONS options,
+  bool ejector_repair_resources);
+}
+It is set by the various ejection chain functions, so setting
+by the caller of those functions will have no effect.  Its
+default value is @C { true }.
+@PP
+The @C { ejector_limit_defects } option is an integer limit on
+the number of defects handled by the main loop of the ejector.
+Each time the main list of defects is copied and sorted, if its
+size exceeds this limit, defects are dropped from the end until
+it doesn't.  It is retrieved and set by
+@ID @C {
+int KheOptionsEjectorLimitDefects(KHE_OPTIONS options);
+void KheOptionsSetEjectorLimitDefects(KHE_OPTIONS options,
+  int ejector_limit_defects);
+}
+Its default value is @C { INT_MAX }.
+@End @SubSection
+
+@EndSubSections
+@End @Section
+
+@Section
+    @Title { Gathering statistics }
+    @Tag { general_solvers.stats }
+@Begin
+@LP
+KHE offers a module for gathering statistics.  It can
+calculate running times and generate files containing
+tables in several formats, and graphs in Lout format.
+@BeginSubSections
+
+@SubSection
+    @Title { Running time and date }
+    @Tag { general_solvers.stats.runningtime }
+@Begin
+@LP
+To find out how long something takes to run, objects of
+type @C { KHE_STATS_TIMER } (the usual pointer to a private
+record) are used.  Each records one moment in time.  To create
+and delete these timer objects, the functions are
+@ID @C {
+KHE_STATS_TIMER KheStatsTimerMake(void);
+void KheStatsTimerDelete(KHE_STATS_TIMER st);
+}
+@C { KheStatsTimerMake } returns a new timer, initialized by calling
+@C { KheStatsTimerReset } on it, and @C { KheStatsTimerDelete }
+deletes @C { st }, reclaiming the memory it used.  There is also
+@ID @C {
+KHE_STATS_TIMER KheStatsTimerCopy(KHE_STATS_TIMER st);
+}
+which copies @C { st }, producing a new timer holding the same time
+as @C { st }.  The other functions are
+@ID @C {
+void KheStatsTimerReset(KHE_STATS_TIMER st);
+float KheStatsTimerNow(KHE_STATS_TIMER st);
+}
+@C { KheStatsTimerReset } resets the time held within @C { st }
+to the time when @C { KheStatsTimerReset } was called.
+@C { KheStatsTimerNow } compares the time recorded in @C { st }
+(when @C { KheStatsTimerReset } was last called) with
+the time now and reports the difference in seconds.  Both
+functions may be called any number of times on the same timer.
+Any number of timers may be used independently.
+@PP
+Because wall clock times are used, times measured within one thread
+of a parallel solve will not in general measure the time consumed
+by that thread.  However, a parallel solver can be called between
+@C { KheStatsTimerReset } and @C { KheStatsTimerNow }, and then
+they will reliably measure the elapsed time of the parallel solve.
+@PP
+Also offered is
+@ID @C {
+char *KheStatsDateToday(void);
+}
+which returns the current date as a string in static memory.
+@PP
+For the sake of compilations that do not have the Unix system functions
+called by these functions, file @C { khe.h } has a @C { KHE_USE_TIMING }
+preprocessor flag.  Its default value is 1; changing it to 0 will turn
+off all calls to Unix timing system functions.  If that is done, all
+functions will still compile and run without error, but
+@C { KheStatsTimerNow } will always return @C { -1.0 }, and
+@C { KheStatsDateToday } will return @C { "?" }.
+@End @SubSection
+
+@SubSection
+    @Title { Files of tables and graphs }
+    @Tag { general_solvers.stats.files }
+@Begin
+@LP
+The main thing that the stats module does is generate files of tables
+and graphs.  Any number of files may be generated simultaneously (not
+in parallel, because the stats module has no locking, but by one
+thread).  One file may contain any number of tables and graphs,
+although only one may be generated at a time within any one file.
+@PP
+To begin and end a file, call
+@ID @C {
+void KheStatsFileBegin(char *file_name);
+void KheStatsFileEnd(char *file_name);
+}
+This writes a file called @C { file_name } in sub-directory
+@C { stats } of the current directory (which the user must have
+created previously).  The file is opened by @C { KheStatsFileBegin }
+and closed by @C { KheStatsFileEnd }.  To generate the actual
+tables and graphs, see the following subsections.
+@End @SubSection
+
+@SubSection
+    @Title { Tables }
+    @Tag { general_solvers.stats.tables }
+@Begin
+@LP
+To generate tables, make matching pairs of calls to the following
+functions in between the calls to @C { KheStatsFileBegin } and
+@C { KheStatsFileEnd }:
+@ID {0.98 1.0} @Scale @C {
+void KheStatsTableBegin(char *file_name, KHE_STATS_TABLE_TYPE table_type,
+  int col_width, char *corner, bool with_average_row, bool with_total_row,
+  bool highlight_cost_minima, bool highlight_time_minima,
+  bool highlight_int_minima);
+void KheStatsTableEnd(char *file_name);
+}
+Only one table at a time can be generated into a given file, so a
+table is not identified separately from its file.  The table is
+begun by @C { KheStatsTableBegin }, and finished, including being
+written out to the file, by @C { KheStatsTableEnd }.  Where the
+file format permits, a label will be associated with the table:
+the file name for the first table, the file name followed by an
+underscore and 2 for the second table, and so on.  The value
+of the table is created in between these two calls, by calling
+functions to be presented shortly.  Because the entire table is
+saved in memory until @C { KheStatsTableEnd } is called, these
+other calls may occur in any order.  In particular it is equally
+acceptable to generate the table row by row or column by column.  
+@PP
+The format of the table is specified by @C { table_type }:
+@ID @C {
+typedef enum {
+  KHE_STATS_TABLE_PLAIN,
+  KHE_STATS_TABLE_LOUT,
+  KHE_STATS_TABLE_LATEX
+} KHE_STATS_TABLE_TYPE;
+}
+The choices are plain text, Lout, or LaTeX.  Parameter @C { col_width }
+determines the width in characters of each column in plain text; it is
+ignored by the other formats.  Parameter @C { corner } is printed in
+the top left-hand corner of the table.  It must be non-@C { NULL },
+but it can be the empty string.
+@PP
+Each entry in the table has a type, which may be either @I { string },
+@I { cost }, @I { time } (really just an arbitrary @C { float }), or
+@I { int }.  If @C { with_average_row } is @C { true }, the table ends
+with an extra row.  Each entry in this row contains the average of the
+non-blank, non-string entries above it, if they all have the same type;
+otherwise the entry is blank.  If @C { with_total_row } is @C { true },
+the effect is the same except that totals are printed, not averages.
+@PP
+If @C { highlight_cost_minima } is @C { true }, the minimum values
+of type @I cost in each row appear in bold font, or marked by an
+asterisk in plain text.  Parameters @C { highlight_time_minima }
+and @C { highlight_int_minima } are the same except that they
+highlight values of type @I time or @I { int }.
+@PP
+A caption can be added by calling
+@ID @C {
+void KheStatsCaptionMake(char *file_name, char *fmt, ...);
+}
+at any time between @C { KheStatsTableBegin } and @C { KheStatsTableEnd },
+as often as desired.  This does what @C { printf } would do with the
+arguments after @C { file_name }.  The results of all calls are
+saved and printed as a caption by @C { KheStatsTableEnd }.
+@PP
+In any given table, each row except the first (header) row must
+be declared, by calling
+@ID @C {
+void KheStatsRowAdd(char *file_name, char *row_label, bool rule_below);
+}
+The rows appear in the order of the calls.  Parameter @C { row_label }
+both identifies the row and appears in the first (header) column of
+the table.  If @C { rule_below } is @C { true }, the row will have a
+rule below it.  The header row always has a rule below it, and there is
+always a rule below the last row (not counting any average or total row).
+@PP
+In the same way, non-header columns are declared, in order, by calls to
+@ID @C {
+void KheStatsColAdd(char *file_name, char *col_label, bool rule_after);
+}
+where @C { col_label } both identifies the column and appears in the
+first (header) row of the table, and setting @C { rule_after } to
+@C { true } causes a rule to be printed after the column.
+@PP
+To add an entry to the table, call any one of these functions:
+@ID @C {
+void KheStatsAddEntryString(char *file_name, char *row_label,
+  char *col_label, char *str);
+void KheStatsAddEntryCost(char *file_name, char *row_label,
+  char *col_label, KHE_COST cost);
+void KheStatsAddEntryTime(char *file_name, char *row_label,
+  char *col_label, float time);
+void KheStatsAddEntryInt(char *file_name, char *row_label,
+  char *col_label, int val);
+}
+These add an entry to @C { file_name }'s table at row @C { row_label }
+and column @C { col_label }, aborting if these are unknown or an entry
+has already been added there.  If no entry is ever added at some
+position, the table will be blank there.  The entry's format depends
+on the call.  For example,
+@ID {0.98 1.0} @Scale @C {
+KheStatsAddEntryCost(file_name, row_label, col_label, KheSolnCost(soln));
+}
+adds a solution cost to the table which will be formatted in
+the standard way.
+@PP
+All strings passed to these functions that require long-term storage 
+are copied, so mutating strings are not a concern.  On the other
+hand, there is no locking, so calls which create tables should be
+single-threaded, as should calls which modify the same table.
+@End @SubSection
+
+@SubSection
+    @Title { Graphs }
+    @Tag { general_solvers.stats.graphs }
+@Begin
+@LP
+To generate graphs in Lout format, make matching pairs of calls to
+the following functions in between the calls to @C { KheStatsFileBegin }
+and @C { KheStatsFileEnd }:
+@ID @C {
+void KheStatsGraphBegin(char *file_name);
+void KheStatsGraphEnd(char *file_name);
+}
+As for tables, only one graph can be generated into a given file at
+a time, and so the graph is identified by the file name.  To set
+options which control the overall appearance of the graph, call
+@ID @C {
+void KheStatsGraphSetWidth(char *file_name, float width);
+void KheStatsGraphSetHeight(char *file_name, float height);
+void KheStatsGraphSetXMax(char *file_name, float xmax);
+void KheStatsGraphSetYMax(char *file_name, float ymax);
+void KheStatsGraphSetAboveCaption(char *file_name, char *val);
+void KheStatsGraphSetBelowCaption(char *file_name, char *val);
+void KheStatsGraphSetLeftCaption(char *file_name, char *val);
+void KheStatsGraphSetRightCaption(char *file_name, char *val);
+}
+These determine the width and height of the graph (in centimetres),
+the maximum x and y values, and the small captions above, below,
+to the left of, and to the right of the graph.  If calls to these
+functions are not made, the options remain unspecified, causing
+Lout's graph package to substitute default values for them in its
+usual way.  The caption values must be valid Lout source.
+@PP
+A caption can be added by calling the same function as for tables:
+@ID @C {
+void KheStatsCaptionMake(char *file_name, char *fmt, ...);
+}
+at any time between @C { KheStatsGraphBegin } and @C { KheGraphTableEnd }.
+@PP
+Any number of @I { datasets } may be displayed on one graph; each
+dataset is a sequence of points.  Often there is just one dataset.
+To create a dataset, call
+@ID @C {
+void KheStatsDataSetAdd(char *file_name, char *dataset_label,
+  KHE_STATS_DATASET_TYPE dataset_type);
+}
+where @C { dataset_label } is used to identify the dataset, and
+@C { dataset_type } determines how the data are presented.  At
+present the stats module offers just one choice:
+@ID @C {
+typedef enum {
+  KHE_STATS_DATASET_HISTO
+} KHE_STATS_DATASET_TYPE;
+}
+but the Lout graph package offers many others, so it would not
+be difficult to expand the choices here.  @C { KHE_STATS_DATASET_HISTO }
+prints a histogram.  The x values of the dataset's points should be
+increasing integers; the y values are the frequencies.  Function
+@ID @C {
+void KheStatsPointAdd(char *file_name, char *dataset_label,
+  float x, float y);
+}
+adds a point to a dataset.  The points are generated in the order
+received, so in practice, successive calls to @C { KheStatsPointAdd }
+on the same dataset should have increasing x values.
+@End @SubSection
+
+@EndSubSections
+@End @Section
+
+@Section
+    @Title { Exponential backoff }
+    @Tag { general_solvers.backoff }
+@Begin
+@LP
+One strategy for making solvers faster is to do a lot of what is
+useful, and not much of what isn't useful.  When something is
+always useful, it is best to simply do it.  When something might
+be useful but wastes a lot of time when it isn't, it is best to
+try it, observe whether it is useful, and do more or less of it
+accordingly.  Solvers that do this are said to be @I { adaptive }.
+@PP
+For example, suppose there is a choice of two or more methods of
+doing something.  In that case, information can be kept about how
+successful each method has been recently, and the choice can be
+weighted towards recently successful methods.
+@PP
+However, this section is concerned with a different situation,
+involving just one method.  Suppose there is a sequence of
+@I opportunities to apply this method, and that as each opportunity
+arrives, the solver can choose to apply the method or not.  Typically,
+the method will be a repair method:  repair is optional.  If the
+solver @I accepts the opportunity, the method is then run and either
+@I succeeds (does something useful) or @I fails (does nothing useful).
+Otherwise, the solver @I declines the opportunity.  So opportunities
+are classified as successful, failed, or declined.
+@PP
+@I { Exponential backoff } from computer network implementation is
+a form of adaptation suited to this situation.  It works as follows.
+If the solver applies the method and it is successful, then it forgets
+all history and will accept the next opportunity.  But if the solver
+applies the method and it fails, then it remembers the total number
+of failed opportunities @M { F } (including this one) since the
+last successful opportunity, and does not accept another
+opportunity until after it has declined @M { 2 sup {F-1} }
+opportunities.  Declined opportunities do not count as failures.
+@PP
+Here are some examples.  Each character is one opportunity; @C { S }
+is a successful opportunity (or the start of the sequence), @C { F }
+is a failed one, and @C { . } is a declined one.  Each successful
+opportunity makes a fresh start, so the examples all begin with
+@C { S } and contain only @C { F } and @C { . } thereafter:
+@ID @C {
+S
+SF.
+SF.F..
+SF.F..F....
+SF.F..F....F........
+}
+and so on.  Every complete trace of exponential backoff can be broken
+at each @C { S } into sub-traces like these.  Methods that always
+succeed are tried at every opportunity.  Methods that always fail
+are tried only about @M { log sub 2 n } times, where @M { n } is
+the total number of opportunities.
+@PP
+Other rules for which opportunities to accept could be used, rather
+than waiting until @M { 2 sup {F-1} } opportunities have been declined.
+For example, every opportunity could be accepted, which amounts to
+having no backoff at all.  The principles are the same, only the
+rule changes.
+@PP
+KHE offers four operations which together implement exponential backoff:
+@ID @C {
+KHE_BACKOFF KheBackoffBegin(KHE_BACKOFF_TYPE backoff_type);
+bool KheBackoffAcceptOpportunity(KHE_BACKOFF bk);
+void KheBackoffResult(KHE_BACKOFF bk, bool success);
+void KheBackoffEnd(KHE_BACKOFF bk);
+}
+@C { KheBackoffBegin } creates a new backoff object, passing a
+@C { backoff_type } value which determines which rule is used,
+of type
+@ID @C {
+typedef enum {
+  KHE_BACKOFF_NONE,
+  KHE_BACKOFF_EXPONENTIAL
+} KHE_BACKOFF_TYPE;
+}
+The two values select no backoff and exponential backoff.
+@C { KheBackoffAcceptOpportunity } is called when
+an opportunity arises, and returns @C { true } if that opportunity
+should be accepted.  In that case, the next call must be to
+@C { KheBackoffResult }, reporting whether or not the method was
+successful.  @C { KheBackoffEnd } reclaims the memory consumed by
+the backoff object.
+@PP
+Suppose that the program pattern without exponential backoff is
+@ID @C {
+while( ... )
+{
+  ...
+  if( opportunity_has_arisen )
+    success = try_repair_method(soln);
+  ...
+}
+}
+Then the modified pattern for including exponential backoff is
+@ID @C {
+bk = KheBackoffBegin(KHE_BACKOFF_EXPONENTIAL);
+while( ... )
+{
+  ...
+  if( opportunity_has_arisen && KheBackoffAcceptOpportunity(bk) )
+  {
+    success = try_repair_method(soln);
+    KheBackoffResult(bk, success);
+  }
+  ...
+}
+KheBackoffEnd(bk);
+}
+Each successful {0.95 1.0} @Scale @C { KheBackoffAcceptOpportunity }
+is followed by a call to {0.95 1.0} @Scale @C { KheBackoffResult }.
+@PP
+All backoff objects hold a few statistics, kept only for printing by
+@C { KheBackoffDebug } below, and a boolean flag which is @C { true }
+if the next call must be to @C { KheBackoffResult }.  When
+exponential backoff is requested, a backoff object also maintains
+two integers, @M { C } and @M { M }.  @M { C } is the number of
+declines since the last accept (or since the backoff object was
+created).  @M { M } is the maximum number of opprtunities that
+may be declined, defined by
+@ID @Math { M ``` = ```
+matrix atleft { blbrace }
+{
+  row col 0               col { @R "    if " F = 0 } 
+  row col { 2 sup {F-1} } col { @R "    if " F >= 1 }
+}
+}
+where @M { F } is the number of failures since the last success
+(or since the backoff object was created).  The next call to
+@C { KheBackoffAcceptOpportunity } will return @C { true } if
+@M { C >= M }.  The implementation will not increase @M { M } if
+that would cause an overflow.  Overflow is very unlikely, since
+an enormous number of opportunities would have to occur first.
+@PP
+Function
+@ID @C {
+char *KheBackoffShowNextDecision(KHE_BACKOFF bk);
+}
+returns @C { "ACCEPT" } when the next call to
+@C { KheBackoffAcceptOpportunity } will return @C { true },
+and @C { "DECLINE" } when it will return @C { false }.  There is also
+@ID {0.95 1.0} @Scale @C {
+void KheBackoffDebug(KHE_BACKOFF bk, int verbosity, int indent, FILE *fp);
+}
+Verbosity 1 prints the current state, including a `@C { ! }' when
+the flag is set, on one line.  Verbosity 2 prints some statistics:
+the number of opportunities so far, and how many are successful,
+failed, and declined, in a multi-line format.  A function for
+testing this module appears in @C { khe.h }.
+@End @Section
+
+@EndSections
+@End @Chapter

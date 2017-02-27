@@ -1,0 +1,501 @@
+<HighSchoolTimetableArchive Id="./datos/informatica.csv"><Instances><Instance Id="./datos/informatica.csv"><Times><TimeGroups><Day Id="Lunes"><Name>Lunes</Name></Day><Day Id="Martes"><Name>Martes</Name></Day><Day Id="Miercoles"><Name>Miercoles</Name></Day><Day Id="Jueves"><Name>Jueves</Name></Day><Day Id="Viernes"><Name>Viernes</Name></Day><TimeGroup Id="AntesDescanso"><Name>AntesDescanso</Name></TimeGroup><TimeGroup Id="DespuesDescanso"><Name>DespuesDescanso</Name></TimeGroup><TimeGroup Id="Tarde"><Name>Tarde</Name><Name>Lunes - 1</Name></TimeGroup></TimeGroups><Time Id="Lunes1"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Martes - 1</Name></TimeGroup></TimeGroups></Time><Time Id="Martes1"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Miercoles - 1</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles1"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Jueves - 1</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves1"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Viernes - 1</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes1"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Lunes - 2</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes2"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Martes - 2</Name></TimeGroup></TimeGroups></Time><Time Id="Martes2"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Miercoles - 2</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles2"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Jueves - 2</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves2"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Viernes - 2</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes2"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Lunes - 3</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes3"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Martes - 3</Name></TimeGroup></TimeGroups></Time><Time Id="Martes3"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Miercoles - 3</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles3"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Jueves - 3</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves3"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Viernes - 3</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes3"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="AntesDescanso"><Name>Lunes - 4</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes4"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Martes - 4</Name></TimeGroup></TimeGroups></Time><Time Id="Martes4"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Miercoles - 4</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles4"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Jueves - 4</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves4"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Viernes - 4</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes4"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Lunes - 5</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes5"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Martes - 5</Name></TimeGroup></TimeGroups></Time><Time Id="Martes5"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Miercoles - 5</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles5"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Jueves - 5</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves5"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Viernes - 5</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes5"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Lunes - 6</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes6"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Martes - 6</Name></TimeGroup></TimeGroups></Time><Time Id="Martes6"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Miercoles - 6</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles6"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Jueves - 6</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves6"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Viernes - 6</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes6"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="DespuesDescanso"><Name>Lunes - 7</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes7"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Martes - 7</Name></TimeGroup></TimeGroups></Time><Time Id="Martes7"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Miercoles - 7</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles7"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Jueves - 7</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves7"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Viernes - 7</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes7"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Lunes - 8</Name></TimeGroup></TimeGroups></Time><Time Id="Lunes8"><Day Reference="Lunes" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Martes - 8</Name></TimeGroup></TimeGroups></Time><Time Id="Martes8"><Day Reference="Martes" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Miercoles - 8</Name></TimeGroup></TimeGroups></Time><Time Id="Miercoles8"><Day Reference="Miercoles" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Jueves - 8</Name></TimeGroup></TimeGroups></Time><Time Id="Jueves8"><Day Reference="Jueves" /><TimeGroups><TimeGroup Reference="Tarde"><Name>Viernes - 8</Name></TimeGroup></TimeGroups></Time><Time Id="Viernes8"><Day Reference="Viernes" /><TimeGroups><TimeGroup Reference="Tarde" /></TimeGroups></Time></Times><ResourcesTypes><ResourcesType Id="Profesores"><Name>Profesores</Name></ResourcesType><ResourcesType Id="Aulas"><Name>Aulas</Name></ResourcesType><ResourcesType Id="Cursos"><Name>Cursos</Name></ResourcesType><ResourcesType Id="Cuatrimestres"><Name>Cuatrimestres</Name></ResourcesType></ResourcesTypes><ResourcesGroups><ResourcesGroup Id="Grandes"><Name>Cuatrimestres</Name><ResourcesType Id="Aulas" /></ResourcesGroup><ResourcesGroup Id="Normales"><Name>Cuatrimestres</Name><ResourcesType Id="Aulas" /></ResourcesGroup><ResourcesGroup Id="Laboratorios"><Name>Cuatrimestres</Name><ResourcesType Id="Aulas" /></ResourcesGroup><ResourcesGroup Id="Pequenas"><Name>Cuatrimestres</Name><ResourcesType Id="Aulas" /></ResourcesGroup><ResourcesGroup Id="Curso_11"><Name>Curso_11</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_12"><Name>Curso_12</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_21"><Name>Curso_21</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_22"><Name>Curso_22</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_31"><Name>Curso_31</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_32"><Name>Curso_32</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_41"><Name>Curso_41</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Curso_42"><Name>Curso_42</Name><ResourcesType Id="Cursos" /></ResourcesGroup><ResourcesGroup Id="Cuatrimestre_1"><Name>Cuatrimestre_1</Name><ResourcesType Id="Cuatrimestres" /></ResourcesGroup><ResourcesGroup Id="Cuatrimestre_2"><Name>Cuatrimestre_2</Name><ResourcesType Id="Cuatrimestres" /></ResourcesGroup></ResourcesGroups><Resource Id="LUIS_FELIPE_TABERA_ALONSO"><Name>LUIS FELIPE TABERA ALONSO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="DOMINGO_GOMEZ_PEREZ"><Name>DOMINGO GOMEZ PEREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_LUIS_MONTA&#209;A_ARNAIZ"><Name>JOSE LUIS MONTA&#209;A ARNAIZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="CARLOS_BELTRAN_ALVAREZ"><Name>CARLOS BELTRAN ALVAREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="CRISTINA_TIRNAUCA"><Name>CRISTINA TIRNAUCA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PABLO_ABAD_FIDALGO"><Name>PABLO ABAD FIDALGO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_ANGEL_GREGORIO_MONASTERIO"><Name>JOSE ANGEL GREGORIO MONASTERIO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PROFESOR_EXTERNO______916154"><Name>PROFESOR EXTERNO      916154</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ALFONSO_DE_LA_VEGA_RUIZ"><Name>ALFONSO DE LA VEGA RUIZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MIGUEL_ANGEL_GUTIERREZ_LECUE"><Name>MIGUEL ANGEL GUTIERREZ LECUE</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MARTA_ELENA_ZORRILLA_PANTALEON"><Name>MARTA ELENA ZORRILLA PANTALEON</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="DIEGO_GARCIA_SAIZ"><Name>DIEGO GARCIA SAIZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MIGUEL_SIERRA_SANCHEZ"><Name>MIGUEL SIERRA SANCHEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="CARLOS_BLANCO_BUENO"><Name>CARLOS BLANCO BUENO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ALEJANDRO_PEREZ_RUIZ"><Name>ALEJANDRO PEREZ RUIZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ANDRES_IGLESIAS_PRIETO"><Name>ANDRES IGLESIAS PRIETO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PABLO_SANCHEZ_BARREIRO"><Name>PABLO SANCHEZ BARREIRO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ROBERTO_SANZ_GIL"><Name>ROBERTO SANZ GIL</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_ANGEL_IRASTORZA_TEJA"><Name>JOSE ANGEL IRASTORZA TEJA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_ANGEL_HERRERO_VELASCO"><Name>JOSE ANGEL HERRERO VELASCO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="VALENTIN_PUENTE_VARONA"><Name>VALENTIN PUENTE VARONA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ROGELIO_OLAVARRI_FERNANDEZ"><Name>ROGELIO OLAVARRI FERNANDEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="HECTOR_DELGADO_DIEGO"><Name>HECTOR DELGADO DIEGO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MARCOS_CRUZ_RODRIGUEZ"><Name>MARCOS CRUZ RODRIGUEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ARACELI_TUERO_DIAZ"><Name>ARACELI TUERO DIAZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JESUS_GUTIERREZ_PRECIADO"><Name>JESUS GUTIERREZ PRECIADO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ENRIQUE_VALLEJO_GUTIERREZ"><Name>ENRIQUE VALLEJO GUTIERREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="FERNANDO_VALLEJO_ALONSO"><Name>FERNANDO VALLEJO ALONSO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_MIGUEL_PRELLEZO_GUTIERREZ"><Name>JOSE MIGUEL PRELLEZO GUTIERREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="HECTOR_PEREZ_TIJERO"><Name>HECTOR PEREZ TIJERO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JULIO_LUIS_MEDINA_PASAJE"><Name>JULIO LUIS MEDINA PASAJE</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MARIO_ALDEA_RIVAS"><Name>MARIO ALDEA RIVAS</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ANDRES_PRIETO_GALA"><Name>ANDRES PRIETO GALA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ALVARO_GOMEZ_GOMEZ"><Name>ALVARO GOMEZ GOMEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_MARIA_SENTIES_VIAN"><Name>JOSE MARIA SENTIES VIAN</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ANGEL_VEGAS_GARCIA"><Name>ANGEL VEGAS GARCIA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JUAN_ANTONIO_SAIZ_IPI&#209;A"><Name>JUAN ANTONIO SAIZ IPI&#209;A</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JULIO_BARROS_GUADALUPE"><Name>JULIO BARROS GUADALUPE</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="RAMON_IGNACIO_DIEGO_GARCIA"><Name>RAMON IGNACIO DIEGO GARCIA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MATILDE_DE_APRAIZ_CASUSO"><Name>MATILDE DE APRAIZ CASUSO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PATRICIA_LOPEZ_MARTINEZ"><Name>PATRICIA LOPEZ MARTINEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ASIER_SALVADORES_TASCON"><Name>ASIER SALVADORES TASCON</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="FERNANDO_LOPEZ_VEGA"><Name>FERNANDO LOPEZ VEGA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="RAFAEL_DUQUE_MEDINA"><Name>RAFAEL DUQUE MEDINA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="EDUARDO_GARCIA_TORRE"><Name>EDUARDO GARCIA TORRE</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PROFESOR_EXTERNO______916151"><Name>PROFESOR EXTERNO      916151</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ"><Name>MARIA DEL CARMEN MARTINEZ FERNANDEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="INES_GONZALEZ_RODRIGUEZ"><Name>INES GONZALEZ RODRIGUEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MICHAEL_GONZALEZ_HARBOUR"><Name>MICHAEL GONZALEZ HARBOUR</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_CARLOS_PALENCIA_GUTIERREZ"><Name>JOSE CARLOS PALENCIA GUTIERREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ADOLFO_GARANDAL_MARTIN"><Name>ADOLFO GARANDAL MARTIN</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="LAUREANO_GONZALEZ_VEGA"><Name>LAUREANO GONZALEZ VEGA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="DANIEL_SADORNIL_RENEDO"><Name>DANIEL SADORNIL RENEDO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PROFESOR_EXTERNO______916157"><Name>PROFESOR EXTERNO      916157</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="RAFAEL_MENENDEZ_DE_LLANO_ROZAS"><Name>RAFAEL MENENDEZ DE LLANO ROZAS</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JULIO_RAMON_BEIVIDE_PALACIO"><Name>JULIO RAMON BEIVIDE PALACIO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PROFESOR_EXTERNO______916152"><Name>PROFESOR EXTERNO      916152</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOS&#201;_LUIS_BOSQUE_ORERO"><Name>JOS&#201; LUIS BOSQUE ORERO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JOSE_JAVIER_GUTIERREZ_GARCIA"><Name>JOSE JAVIER GUTIERREZ GARCIA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="JUAN_HERNANDEZ_MARQUES"><Name>JUAN HERNANDEZ MARQUES</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ELIANA_ROCIO_ROCHA_BLANCO"><Name>ELIANA ROCIO ROCHA BLANCO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PABLO_MARIA_DE_CASTRO_GARCIA"><Name>PABLO MARIA DE CASTRO GARCIA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="PABLO_PRIETO_TORRALBO"><Name>PABLO PRIETO TORRALBO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="EUGENIO_VILLAR_BONET"><Name>EUGENIO VILLAR BONET</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="HECTOR_POSADAS_COBO"><Name>HECTOR POSADAS COBO</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="FRANCISCO_JOSE_ALCALA_GALAN"><Name>FRANCISCO JOSE ALCALA GALAN</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="SERGIO_GARRIDO_FERNANDEZ"><Name>SERGIO GARRIDO FERNANDEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ESTEBAN_STAFFORD_FERNANDEZ"><Name>ESTEBAN STAFFORD FERNANDEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="OLGA_MARIA_CONDE_PORTILLA"><Name>OLGA MARIA CONDE PORTILLA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="RAMON_GANDARILLAS_PEREZ"><Name>RAMON GANDARILLAS PEREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="IRENE_GONZALEZ_PEREZ"><Name>IRENE GONZALEZ PEREZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="LUCIA_LLANO_MARTINEZ"><Name>LUCIA LLANO MARTINEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ADOLFO_COBO_GARCIA"><Name>ADOLFO COBO GARCIA</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="MARIO_MA&#209;ANA_CANTELI"><Name>MARIO MA&#209;ANA CANTELI</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="LUIS_JAVIER_MARTINEZ_RODRIGUEZ"><Name>LUIS JAVIER MARTINEZ RODRIGUEZ</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="ROSA_PILAR_OBREGON_CA&#209;IZAL"><Name>ROSA PILAR OBREGON CA&#209;IZAL</Name><ResourceType Reference="Profesores" /></Resource><Resource Id="Aula 1"><Name>Aula 1</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 2"><Name>Aula 2</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 3"><Name>Aula 3</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 4"><Name>Aula 4</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 5"><Name>Aula 5</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 6"><Name>Aula 6</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 7"><Name>Aula 7</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 8"><Name>Aula 8</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 9"><Name>Aula 9</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Grandes" /></ResourcesGroups></Resource><Resource Id="Aula 10"><Name>Aula 10</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Pequenas" /></ResourcesGroups></Resource><Resource Id="Aula 11"><Name>Aula 11</Name><ResourceType Reference="Aulas" /><ResourcesGroups><ResourcesGroup Reference="Pequenas" /></ResourcesGroups></Resource><Resource Id="Aula 12"><Name>Aula 12</Name><ResourceType Reference="Aulas" />
+<ResourcesGroups>
+    <ResourcesGroup Reference="Pequenas" />
+</ResourcesGroups>
+</Resource>
+<Resource Id="Lab 1">
+    <Name>
+    Lab 1</Name>
+    <ResourceType Reference="Aulas" />
+    <ResourcesGroups>
+        <ResourcesGroup Reference="Normales" />
+        <ResourcesGroup Reference="Laboratorios" />
+    </ResourcesGroups>
+</Resource>
+<Resource Id="Lab 2">
+    <Name>
+    Lab 2</Name>
+    <ResourceType Reference="Aulas" />
+    <ResourcesGroups>
+        <ResourcesGroup Reference="Normales" />
+        <ResourcesGroup Reference="Laboratorios" />
+    </ResourcesGroups>
+</Resource>
+<Resource Id="Lab 3">
+    <Name>
+    Lab 3</Name>
+    <ResourceType Reference="Aulas" />
+    <ResourcesGroups>
+        <ResourcesGroup Reference="Pequenas" />
+        <ResourcesGroup Reference="Laboratorios" />
+    </ResourcesGroups>
+</Resource>
+<Resource Id="Seminario Inf">
+    <Name>
+    Seminario Inf</Name>
+    <ResourceType Reference="Aulas" />
+    <ResourcesGroups>
+        <ResourcesGroup Reference="Grandes" />
+    </ResourcesGroups>
+</Resource>
+<Resource Id="Curso_11">
+    <Name>
+    Curso_11</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_12">
+    <Name>
+    Curso_12</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_21">
+    <Name>
+    Curso_21</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_22">
+    <Name>
+    Curso_22</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_31">
+    <Name>
+    Curso_31</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_32">
+    <Name>
+    Curso_32</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_41">
+    <Name>
+    Curso_41</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Resource Id="Curso_42">
+    <Name>
+    Curso_42</Name>
+    <ResourceType Reference="Cursos" />
+</Resource>
+<Events>
+    <Event Id="Sistemas Digitales_t">
+        <Name>
+        Sistemas Digitales: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="PABLO_PRIETO_TORRALBO" />
+        </Resources>
+    </Event>
+    <Event Id="&#193;lgebra Lineal y Discreta_t">
+        <Name>
+        &#193;lgebra Lineal y Discreta: Teoria</Name>
+        <Duration>
+        5</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
+        </Resources>
+    </Event>
+    <Event Id="Fundamentos F&#237;sicos de la Inform&#225;tica_t">
+        <Name>
+        Fundamentos F&#237;sicos de la Inform&#225;tica: Teoria</Name>
+        <Duration>
+        6</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="ANDRES_PRIETO_GALA" />
+            <Resource Reference="ALVARO_GOMEZ_GOMEZ" />
+            <Resource Reference="JOSE_MARIA_SENTIES_VIAN" />
+            <Resource Reference="ANGEL_VEGAS_GARCIA" />
+            <Resource Reference="JUAN_ANTONIO_SAIZ_IPI&#209;A" />
+        </Resources>
+    </Event>
+    <Event Id="Introducci&#243;n al Software_t">
+        <Name>
+        Introducci&#243;n al Software: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+            <Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+        </Resources>
+    </Event>
+    <Event Id="Ingl&#233;s_t">
+        <Name>
+        Ingl&#233;s: Teoria</Name>
+        <Duration>
+        8</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="ASIER_SALVADORES_TASCON" />
+            <Resource Reference="FERNANDO_LOPEZ_VEGA" />
+        </Resources>
+    </Event>
+    <Event Id="Estructura de Computadores_t">
+        <Name>
+        Estructura de Computadores: Teoria</Name>
+        <Duration>
+        5</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="Estructuras de Datos_t">
+        <Name>
+        Estructuras de Datos: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="Sistemas de Informaci&#243;n_t">
+        <Name>
+        Sistemas de Informaci&#243;n: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="Valores, &#201;tica y Profesi&#243;n Inform&#225;tica_t">
+        <Name>
+        Valores, &#201;tica y Profesi&#243;n Inform&#225;tica: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+            <Resource Reference="OLGA_MARIA_CONDE_PORTILLA" />
+            <Resource Reference="RAMON_GANDARILLAS_PEREZ" />
+            <Resource Reference="IRENE_GONZALEZ_PEREZ" />
+            <Resource Reference="LUCIA_LLANO_MARTINEZ" />
+            <Resource Reference="ADOLFO_COBO_GARCIA" />
+            <Resource Reference="MARIO_MA&#209;ANA_CANTELI" />
+            <Resource Reference="LUIS_JAVIER_MARTINEZ_RODRIGUEZ" />
+            <Resource Reference="ROSA_PILAR_OBREGON_CA&#209;IZAL" />
+        </Resources>
+    </Event>
+    <Event Id="Matem&#225;tica Discreta_t">
+        <Name>
+        Matem&#225;tica Discreta: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+            <Resource Reference="LAUREANO_GONZALEZ_VEGA" />
+            <Resource Reference="DANIEL_SADORNIL_RENEDO" />
+        </Resources>
+    </Event>
+    <Event Id="Introducci&#243;n a las Redes de Computadores_t">
+        <Name>
+        Introducci&#243;n a las Redes de Computadores: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_31" />
+            <Resource Reference="Curso_32" />
+        </Resources>
+    </Event>
+    <Event Id="Programaci&#243;n Paralela, Concurrente y de Tiempo Real_t">
+        <Name>
+        Programaci&#243;n Paralela, Concurrente y de Tiempo Real: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_31" />
+            <Resource Reference="Curso_32" />
+            <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
+        </Resources>
+    </Event>
+    <Event Id="Ingenier&#237;a del Software I_t">
+        <Name>
+        Ingenier&#237;a del Software I: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_31" />
+            <Resource Reference="Curso_32" />
+        </Resources>
+    </Event>
+    <Event Id="Interacci&#243;n Persona-Computador_t">
+        <Name>
+        Interacci&#243;n Persona-Computador: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_31" />
+            <Resource Reference="Curso_32" />
+        </Resources>
+    </Event>
+    <Event Id="Introducci&#243;n a los Sistemas Inteligentes_t">
+        <Name>
+        Introducci&#243;n a los Sistemas Inteligentes: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_31" />
+            <Resource Reference="Curso_32" />
+        </Resources>
+    </Event>
+    <Event Id="Computer Animation and Video Games_t">
+        <Name>
+        Computer Animation and Video Games: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Representaci&#243;n del Conocimiento_t">
+        <Name>
+        Representaci&#243;n del Conocimiento: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Modelos de C&#225;lculo_t">
+        <Name>
+        Modelos de C&#225;lculo: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Sistemas Embebidos_t">
+        <Name>
+        Sistemas Embebidos: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+            <Resource Reference="EUGENIO_VILLAR_BONET" />
+            <Resource Reference="HECTOR_POSADAS_COBO" />
+            <Resource Reference="FRANCISCO_JOSE_ALCALA_GALAN" />
+        </Resources>
+    </Event>
+    <Event Id="Dise&#241;o de Algoritmos_t">
+        <Name>
+        Dise&#241;o de Algoritmos: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Gr&#225;ficos por Computador y Realidad Virtual_t">
+        <Name>
+        Gr&#225;ficos por Computador y Realidad Virtual: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Dise&#241;o y Administraci&#243;n de Redes_t">
+        <Name>
+        Dise&#241;o y Administraci&#243;n de Redes: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+            <Resource Reference="ROBERTO_SANZ_GIL" />
+            <Resource Reference="JOSE_ANGEL_IRASTORZA_TEJA" />
+        </Resources>
+    </Event>
+    <Event Id="Sistemas Operativos Avanzados_t">
+        <Name>
+        Sistemas Operativos Avanzados: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Procesos de Ingenier&#237;a del Software_t">
+        <Name>
+        Procesos de Ingenier&#237;a del Software: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Garant&#237;a y Seguridad en Sistemas y Redes_t">
+        <Name>
+        Garant&#237;a y Seguridad en Sistemas y Redes: Teoria</Name>
+        <Duration>
+        0</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="M&#233;todos de Desarrollo_t">
+        <Name>
+        M&#233;todos de Desarrollo: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Dise&#241;o de Software_t">
+        <Name>
+        Dise&#241;o de Software: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Calidad y Auditor&#237;a_t">
+        <Name>
+        Calidad y Auditor&#237;a: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+        </Resources>
+    </Event>
+    <Event Id="Bases de Datos Avanzadas_t">
+        <Name>
+        Bases de Datos Avanzadas: Teoria</Name>
+        <Duration>
+        2</Duration>
+        <Resources>
+            <Resource Reference="Curso_41" />
+            <Resource Reference="Curso_42" />
+            <Resource Reference="DIEGO_GARCIA_SAIZ" />
+        </Resources>
+    </Event>
+    <Event Id="Introducci&#243;n a los Computadores_t">
+        <Name>
+        Introducci&#243;n a los Computadores: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="PROFESOR_EXTERNO______916151" />
+            <Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
+        </Resources>
+    </Event>
+    <Event Id="An&#225;lisis Matem&#225;tico y M&#233;todos Num&#233;ricos_t">
+        <Name>
+        An&#225;lisis Matem&#225;tico y M&#233;todos Num&#233;ricos: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
+        </Resources>
+    </Event>
+    <Event Id="Estad&#237;stica y Optimizaci&#243;n_t">
+        <Name>
+        Estad&#237;stica y Optimizaci&#243;n: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="MARCOS_CRUZ_RODRIGUEZ" />
+            <Resource Reference="ARACELI_TUERO_DIAZ" />
+        </Resources>
+    </Event>
+    <Event Id="M&#233;todos de Programaci&#243;n_t">
+        <Name>
+        M&#233;todos de Programaci&#243;n: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="PROFESOR_EXTERNO______916157" />
+        </Resources>
+    </Event>
+    <Event Id="Econom&#237;a y Administraci&#243;n de Empresas_t">
+        <Name>
+        Econom&#237;a y Administraci&#243;n de Empresas: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_11" />
+            <Resource Reference="Curso_12" />
+            <Resource Reference="ROGELIO_OLAVARRI_FERNANDEZ" />
+            <Resource Reference="HECTOR_DELGADO_DIEGO" />
+        </Resources>
+    </Event>
+    <Event Id="Organizaci&#243;n de Computadores_t">
+        <Name>
+        Organizaci&#243;n de Computadores: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+            <Resource Reference="PROFESOR_EXTERNO______916152" />
+        </Resources>
+    </Event>
+    <Event Id="Sistemas Operativos_t">
+        <Name>
+        Sistemas Operativos: Teoria</Name>
+        <Duration>
+        3</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="L&#243;gica_t">
+        <Name>
+        L&#243;gica: Teoria</Name>
+        <Duration>
+        5</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="Algor&#237;tmica y Complejidad_t">
+        <Name>
+        Algor&#237;tmica y Complejidad: Teoria</Name>
+        <Duration>
+        4</Duration>
+        <Resources>
+            <Resource Reference="Curso_21" />
+            <Resource Reference="Curso_22" />
+        </Resources>
+    </Event>
+    <Event Id="Bases de Datos_t">
+        <Name>
+            Bases de Datos: Teoria</Name><Duration>3</Duration><Resources><Resource Reference="Curso_21" /><Resource Reference="Curso_22" /><Resource Reference="PROFESOR_EXTERNO______916154" /></Resources></Event><Event Id="Sistemas Inform&#225;ticos_t"><Name>Sistemas Inform&#225;ticos: Teoria</Name><Duration>4</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /><Resource Reference="SERGIO_GARRIDO_FERNANDEZ" /></Resources></Event><Event Id="Ingenier&#237;a del Software II_t"><Name>Ingenier&#237;a del Software II: Teoria</Name><Duration>3</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Redes de Computadores y Sistemas Distribuidos_t"><Name>Redes de Computadores y Sistemas Distribuidos: Teoria</Name><Duration>3</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Desarrollo de Sistemas de Informaci&#243;n_t"><Name>Desarrollo de Sistemas de Informaci&#243;n: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Aprendizaje Autom&#225;tico y Miner&#237;a de Datos_t"><Name>Aprendizaje Autom&#225;tico y Miner&#237;a de Datos: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Lenguajes Formales_t"><Name>Lenguajes Formales: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Ingenier&#237;a de Requisitos_t"><Name>Ingenier&#237;a de Requisitos: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Arquitectura e Ingenier&#237;a de Computadores_t"><Name>Arquitectura e Ingenier&#237;a de Computadores: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Sistemas de Tiempo Real_t"><Name>Sistemas de Tiempo Real: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Trabajo Fin de Grado_t"><Name>Trabajo Fin de Grado: Teoria</Name><Duration>0</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="Natural Language Processing_t"><Name>Natural Language Processing: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="Lenguajes de Programaci&#243;n_t"><Name>Lenguajes de Programaci&#243;n: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_31" /><Resource Reference="Curso_32" /></Resources></Event><Event Id="Dise&#241;o y Gesti&#243;n de Sistemas Inform&#225;ticos_t"><Name>Dise&#241;o y Gesti&#243;n de Sistemas Inform&#225;ticos: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="Multiprocesadores_t"><Name>Multiprocesadores: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /><Resource Reference="JULIO_RAMON_BEIVIDE_PALACIO" /></Resources></Event><Event Id="Servicios Software_t"><Name>Servicios Software: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="Sistemas de Informaci&#243;n de la Empresa_t"><Name>Sistemas de Informaci&#243;n de la Empresa: Teoria</Name><Duration>3</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /><Resource Reference="ELIANA_ROCIO_ROCHA_BLANCO" /><Resource Reference="PABLO_MARIA_DE_CASTRO_GARCIA" /></Resources></Event><Event Id="Gesti&#243;n de Proyectos Software_t"><Name>Gesti&#243;n de Proyectos Software: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="Inform&#225;tica Industrial_t"><Name>Inform&#225;tica Industrial: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /><Resource Reference="JULIO_BARROS_GUADALUPE" /><Resource Reference="RAMON_IGNACIO_DIEGO_GARCIA" /><Resource Reference="MATILDE_DE_APRAIZ_CASUSO" /></Resources></Event><Event Id="(C166) Gesti&#243;n de Proyectos_t"><Name>(C166) Gesti&#243;n de Proyectos: Teoria</Name><Duration>0</Duration><Resources><Resource Reference="Curso_21" /><Resource Reference="Curso_22" /></Resources></Event><Event Id="(C209) Profesi&#243;n Inform&#225;tica_t"><Name>(C209) Profesi&#243;n Inform&#225;tica: Teoria</Name><Duration>0</Duration><Resources><Resource Reference="Curso_21" /><Resource Reference="Curso_22" /></Resources></Event><Event Id="Animaci&#243;n por Computador y Videojuegos_t"><Name>Animaci&#243;n por Computador y Videojuegos: Teoria</Name><Duration>0</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /></Resources></Event><Event Id="System and Network Security and Assurance_t"><Name>System and Network Security and Assurance: Teoria</Name><Duration>2</Duration><Resources><Resource Reference="Curso_41" /><Resource Reference="Curso_42" /><Resource Reference="ESTEBAN_STAFFORD_FERNANDEZ" /></Resources></Event></Events></Instance><MetaData><Name>Horario de Informatica</Name><Contributor>Jose Ramon Vejo</Contributor><Date>2017-02-26 23:51:28.716561</Date></MetaData></Instances></HighSchoolTimetableArchive>
