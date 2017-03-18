@@ -5,6 +5,7 @@ from kivy.uix.dropdown import DropDown
 from kivy.uix.listview import ListView
 from boton import Boton
 from excel import excel
+from lxml import etree
 
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
@@ -58,45 +59,73 @@ class Boxes(FloatLayout):
         asignaturas=[]
         cursos=[]
 
-        profesores = excel.lectura('profes.csv', profesores)
-        salas = excel.lectura('aulas.csv', salas)
-        asignaturas = excel.lectura('asig.csv', asignaturas)
-        cursos = excel.lectura('curso.csv', cursos)
+        #profesores = excel.lectura('profesores.csv', profesores)
+        #salas = excel.lectura('aulas.csv', salas)
+        #asignaturas = excel.lectura('asig.csv', asignaturas)
+        #cursos = excel.lectura('curso.csv', cursos)
 
-        #inserto las opciones en los desplegables como botones
-        for index in profesores:
-            print(index)
-            btn = Button(text=index, size_hint_y=None, height=44)
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: profes.select(btn.text))
+        print('LEYENDO XML')
 
-            # add el boton dentro del dropdown
-            profes.add_widget(btn)
+        doc = etree.parse('outfile.xml')
+        print(doc)
+        timegroups = doc.getroot().find('Instances')
+        timegroups = timegroups.find('Instance')
+        resources = timegroups.find('Resources')
 
-        for index in salas:
-            btn = Button(text=index, size_hint_y=None, height=44)
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: aulas.select(btn.text))
+        #Recupera profesores, aulas y cursos
+        for child in resources:
+            resource = child.find('ResourceType')
+            
+            '''Inserto los botones según los datos'''
+            if resource is not None:
+                resourceType = resource.get('Reference')
+            
+            if resourceType == 'Profesores':
+                #Inserto los botones de los profesores
+                print(child.findtext('Name'))
+                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                
+                # Mostrar el menu
+                btn.bind(on_release=lambda btn: profes.select(btn.text))
 
-            # add el boton dentro del dropdown
-            aulas.add_widget(btn)
+                # add el boton dentro del dropdown
+                profes.add_widget(btn)
 
-        for index in asignaturas:
-            btn = Button(text=index, size_hint_y=None, height=44)
+            if resourceType == 'Aulas':
+                #Inserto los botones de los profesores
+                print(child.findtext('Name'))
+                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                
+                # Mostrar el menu
+                btn.bind(on_release=lambda btn: aulas.select(btn.text))
+
+                # add el boton dentro del dropdown
+                aulas.add_widget(btn)
+
+            if resourceType == 'Cursos':
+                #Inserto los botones de los profesores
+                print(child.findtext('Name'))
+                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                # Mostrar el menu
+                btn.bind(on_release=lambda btn: curs.select(btn.text))
+
+                # add el boton dentro del dropdown
+                curs.add_widget(btn)
+
+        #Añado las asignaturas
+        events = timegroups.find('Events')
+        
+        for child in events:
+            event = child.find('Event')
+            print(child.findtext('Name'))
+            btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: asigns.select(btn.text))
 
             # add el boton dentro del dropdown
             asigns.add_widget(btn)
 
-        for index in cursos:
-            print(index)
-            btn = Button(text=index, size_hint_y=None, height=44)
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: curs.select(btn.text))
 
-            # add el boton dentro del dropdown
-            curs.add_widget(btn)
 
         #añado los desplegables a la pantalla
         profesbutton = Button(text = 'Profesores', size_hint = (None, None))
