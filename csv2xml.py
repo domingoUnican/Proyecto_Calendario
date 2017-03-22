@@ -7,13 +7,14 @@ import datetime
 from math import ceil
 
 DIR = os.path.join('.','datos')
-PROFS = os.path.join(DIR, 'profesores.csv')
-ROOMS = os.path.join(DIR, 'aulas.csv')
-ASIG = os.path.join(DIR, 'informatica.csv')
-OUT = os.path.join(DIR, 'outfile.xml')
+PROFS = os.path.join(DIR, 'profesores_le.csv')
+ROOMS = os.path.join(DIR, 'aulas_le.csv')
+ASIG = os.path.join(DIR, 'informatica_le.csv')
+OUT = os.path.join(DIR, 'outfile2.xml')
 DIAS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
 GRUPOS = ['AntesDescanso', 'DespuesDescanso','Tarde']
-HORAS = [str(i) for i in range(1,9)]
+HORAS = [str(i) for i in range(1,3)]
+DIAS = DIAS[:3]
 TRANS = {str(i): GRUPOS[(i-1)//3] for i in range(1,9)}
 RECURSOS = ['Profesores', 'Aulas', 'Cursos', 'Cuatrimestres']
 TYPES_ROOMS = ['Grandes', 'Normales', 'Laboratorios', 'Pequenas']
@@ -76,13 +77,17 @@ class Csv2Xml(object):
         # TODO: Change the Id of the instance, maybe it is necessary to put
         #       a instance for each degree
         instance = etree.SubElement(instances, 'Instance', Id=iden)
-        metadata = etree.SubElement(instances, 'MetaData')
+        metadata = etree.SubElement(instance, 'MetaData')
         name = etree.SubElement(metadata, 'Name')
         name.text = 'Horario de Informatica'
         contributor = etree.SubElement(metadata, 'Contributor')
         contributor.text = 'Jose Ramon Vejo'
         today = etree.SubElement(metadata, 'Date')
         today.text = datetime.datetime.now().__str__()
+        country = etree.SubElement(metadata, 'Country')
+        country.text = 'Spain'
+        Description = etree.SubElement(metadata, 'Description')
+        Description.text = 'Unican'
         # Until here, we have just defined the metadata, now the times
         times = etree.SubElement(instance, 'Times')
         tg = etree.SubElement(times, 'TimeGroups')
@@ -91,6 +96,10 @@ class Csv2Xml(object):
             day = etree.SubElement(tg, 'Day', Id=dia)
             name = etree.SubElement(day,'Name')
             name.text = dia
+        todos = etree.SubElement(tg, 'TimeGroup', Id="TodasHoras")
+        name = etree.SubElement(todos,'Name')
+        name.text = "Todas horas"
+
         # We also make three different groups, this must be necessary
         # to make professors happy. So they do not have teaching
         # before noon and after noon
@@ -101,71 +110,86 @@ class Csv2Xml(object):
         for hora in HORAS:
             for dia in DIAS:
                 time = etree.SubElement(times, 'Time', Id=dia+hora)
-                name = etree.SubElement(group, 'Name')
+                name = etree.SubElement(time, 'Name')
                 name.text = dia + ' - ' + hora
                 day = etree.SubElement(time, 'Day', Reference=dia)
                 tg = etree.SubElement(time, 'TimeGroups')
                 group = etree.SubElement(tg, 'TimeGroup', Reference=TRANS[hora])
-
+                group = etree.SubElement(tg, 'TimeGroup', Reference="TodasHoras")
         # Now, we define the resources types
-        resources_types = etree.SubElement(instance, 'ResourcesTypes')
+        resources = etree.SubElement(instance, 'Resources')
+        resources_types = etree.SubElement(resources, 'ResourceTypes')
         for recurso in RECURSOS:
-            resource = etree.SubElement(resources_types, 'ResourcesType',Id=recurso)
+            resource = etree.SubElement(resources_types, 'ResourceType',Id=recurso)
             name = etree.SubElement(resource, 'Name')
             name.text = recurso
-        # Here are the resource groups: type_rooms, semeters y classes
-        resources_groups = etree.SubElement(instance, 'ResourcesGroups')
+        # Here are the resource groups: type_rooms, semeters y classes,
+        # gr_profesores, gr_clases, gr_aulas
+        resources_groups = etree.SubElement(resources, 'ResourceGroups')
+        for recurso in RECURSOS:
+            resource = etree.SubElement(resources_groups, 'ResourceGroup',Id='gr_' + recurso)
+            name = etree.SubElement(resource, 'Name')
+            name.text = recurso
+            etree.SubElement(resource, 'ResourceType', Reference=recurso)
         for tipo in TYPES_ROOMS:
-            resource_group = etree.SubElement(resources_groups, 'ResourcesGroup',
+            resource_group = etree.SubElement(resources_groups, 'ResourceGroup',
                                               Id=tipo)
             name = etree.SubElement(resource_group, 'Name')
             name.text = recurso
-            etree.SubElement(resource_group, 'ResourcesType',Id='Aulas')
+            etree.SubElement(resource_group, 'ResourceType',Reference='Aulas')
         for curso in CLASSES:
-            resource_group = etree.SubElement(resources_groups, 'ResourcesGroup',
+            resource_group = etree.SubElement(resources_groups, 'ResourceGroup',
                                               Id=curso)
             name = etree.SubElement(resource_group, 'Name')
             name.text = curso
-            etree.SubElement(resource_group, 'ResourcesType',Id='Cursos')
+            etree.SubElement(resource_group, 'ResourceType',Reference='Cursos')
         for semester in SEMESTERS:
-            resource_group = etree.SubElement(resources_groups, 'ResourcesGroup',
+            resource_group = etree.SubElement(resources_groups, 'ResourceGroup',
                                               Id=semester)
             name = etree.SubElement(resource_group, 'Name')
             name.text = semester
-            etree.SubElement(resource_group, 'ResourcesType',Id='Cuatrimestres')
+            etree.SubElement(resource_group, 'ResourceType',Reference='Cuatrimestres')
 
         # Now, we define the resources, we start with the teachers
         for prof in self.prof:
-            resource = etree.SubElement(instance, 'Resource',
+            resource = etree.SubElement(resources, 'Resource',
                                         Id=prof.replace(' ','_'))
             name = etree.SubElement(resource, 'Name')
             name.text = prof
             resource_type = etree.SubElement(resource, 'ResourceType',
                                              Reference="Profesores")
+            resource_groups = etree.SubElement(resource, 'ResourceGroups')
+            resource_group = etree.SubElement(resource_groups, 'ResourceGroup',
+                                              Reference = 'gr_Profesores')
         # Here we define the different rooms
         for room in self.rooms:
-            resource = etree.SubElement(instance, 'Resource',
+            resource = etree.SubElement(resources, 'Resource',
                                         Id=room)
             name = etree.SubElement(resource, 'Name')
             name.text = room
             resource_type = etree.SubElement(resource, 'ResourceType',
                                              Reference="Aulas")
-            resource_groups = etree.SubElement(resource, 'ResourcesGroups')
-            etree.SubElement(resource_groups, 'ResourcesGroup',
+            resource_groups = etree.SubElement(resource, 'ResourceGroups')
+            etree.SubElement(resource_groups, 'ResourceGroup',
                              Reference=size_room(self.rooms[room]))
+            etree.SubElement(resource_groups, 'ResourceGroup',
+                             Reference='gr_Aulas')
             # if the room is a lab,
             if 'ab' in room:
-                etree.SubElement(resource_groups, 'ResourcesGroup',
-                             Reference='Laboratorios')
+                etree.SubElement(resource_groups, 'ResourceGroup',
+                                 Reference='Laboratorios')
         # Now, the different courses. We will have to add three different groups
         # for each course. If this is
         for curso in CLASSES:
-            resource = etree.SubElement(instance, 'Resource',
-                                              Id=curso)
+            resource = etree.SubElement(resources, 'Resource',
+                                        Id=curso)
             name = etree.SubElement(resource, 'Name')
             name.text = curso
             resource_type = etree.SubElement(resource, 'ResourceType',
                                              Reference="Cursos")
+            resource_groups = etree.SubElement(resource, 'ResourceGroups')
+            etree.SubElement(resource_groups, 'ResourceGroup',
+                             Reference='gr_Cursos')
         # Now, the events, for now, we suppose that the number of hours is evenly
         # explict in all 15 weeks. Labs are 2 hours per week, so each 30 hours means
         # another group.
@@ -190,9 +214,25 @@ class Csv2Xml(object):
             list_prof = [p for p in self.prof if asign in self.prof[p]]
             for p in list_prof:
                 resource = etree.SubElement(resources, 'Resource',
-                                            Reference=p.replace(' ','_'))
+                                            Reference=p.replace(' ', '_'))
+        constraints = etree.SubElement(instance, 'Constraints')
+        avoid = etree.SubElement(constraints, 'AvoidClashesConstraint', Id='Choques')
+        name = etree.SubElement(avoid, 'Name')
+        name.text = 'Choques'
+        required = etree.SubElement(avoid, 'Required')
+        required.text = 'true'
+        weight = etree.SubElement(avoid, 'Weight')
+        weight.text = '1'
+        CostFunction = etree.SubElement(avoid, 'CostFunction')
+        CostFunction.text = 'Linear'
+        AppliesTo = etree.SubElement(avoid, 'AppliesTo')
+        resource_groups = etree.SubElement(AppliesTo, 'ResourceGroups')
+        for recurso in RECURSOS:
+            resource = etree.SubElement(resource_groups, 'ResourceGroup',Reference='gr_' + recurso)
         f = open(OUT,'wb')
         doc.write(f)
+
 if __name__ == '__main__':
     c = Csv2Xml()
     c.toXHSTT()
+    print("Hecho")
