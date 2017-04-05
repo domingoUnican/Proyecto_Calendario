@@ -209,7 +209,7 @@ class Csv2Xml(object):
             course_asign = etree.SubElement(event_groups, 'Course',
                                             Id=remove_accents(asign.replace(' ', '_')))
             name = etree.SubElement(course_asign, 'Name')
-            name.text = asign
+            name.text = remove_accents(asign)
         all_events = etree.SubElement(event_groups, 'EventGroup',
                                             Id='gr_AllEvents')
         name = etree.SubElement(all_events, 'Name')
