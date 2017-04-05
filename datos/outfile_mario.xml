@@ -70,8 +70,6 @@
       <Resources>
         <ResourceTypes>
           <ResourceType Id="Teacher"><Name>Teacher</Name></ResourceType>
-          <ResourceType Id="Room_big"><Name>Room</Name></ResourceType>
-          <ResourceType Id="Room_normal"><Name>Room</Name></ResourceType>
           <ResourceType Id="Room"><Name>Room</Name></ResourceType>
           <ResourceType Id="Class"><Name>Class</Name></ResourceType>
         </ResourceTypes>
