@@ -5,6 +5,7 @@ import os.path
 import xml.etree.ElementTree as etree
 import datetime
 from math import ceil
+from unidecode import unidecode
 
 DIR = os.path.join('.','datos')
 PROFS = os.path.join(DIR, 'profesores.csv')
@@ -33,7 +34,18 @@ def size_room(x):
     else:
         return 'Pequenas'
 
+import unicodedata
+import unicodedata
+def remove_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
 
+"""
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    only_ascii = nfkd_form.encode('ASCII', 'ignore')
+    return only_ascii
+"""
 class Csv2Xml(object):
     """
     Documentation:
@@ -151,7 +163,7 @@ class Csv2Xml(object):
         # Now, we define the resources, we start with the teachers
         for prof in self.prof:
             resource = etree.SubElement(resources, 'Resource',
-                                        Id=prof.replace(' ','_'))
+                                        Id=remove_accents(prof.replace(' ','_')))
             name = etree.SubElement(resource, 'Name')
             name.text = prof
             resource_type = etree.SubElement(resource, 'ResourceType',
@@ -180,7 +192,7 @@ class Csv2Xml(object):
         # for each course. If this is
         for curso in CLASSES:
             resource = etree.SubElement(resources, 'Resource',
-                                        Id=curso)
+                                        Id=remove_accents(curso))
             name = etree.SubElement(resource, 'Name')
             name.text = curso
             resource_type = etree.SubElement(resource, 'ResourceType',
@@ -195,7 +207,7 @@ class Csv2Xml(object):
         event_groups = etree.SubElement(events, 'EventGroups')
         for asign in self.asig:
             course_asign = etree.SubElement(event_groups, 'Course',
-                                            Id=asign.replace(' ', '_'))
+                                            Id=remove_accents(asign.replace(' ', '_')))
             name = etree.SubElement(course_asign, 'Name')
             name.text = asign
         all_events = etree.SubElement(event_groups, 'EventGroup',
@@ -207,11 +219,13 @@ class Csv2Xml(object):
             # laboratories plus
             if not asign:
                 continue
-            event_t = etree.SubElement(events, 'Event', Id=asign.replace(' ','_')+'_t')
+            event_t = etree.SubElement(events, 'Event', Id=remove_accents(asign.replace(' ','_'))+'_t')
             name = etree.SubElement(event_t, 'Name')
-            name.text = asign + ': Teoria'
+            name.text = remove_accents(asign) + ': Teoria'
             duration = etree.SubElement(event_t, 'Duration')
             duration.text = str(int(ceil(float(self.asig[asign][0])/15.0)))
+            etree.SubElement(event_t, 'Course',
+                             Reference=remove_accents(asign.replace(' ', '_')))
             resources = etree.SubElement(event_t, 'Resources')
             courses = [i for i in CLASSES
                        if 'Curso_'+self.asig[asign][2] in i]
@@ -223,7 +237,7 @@ class Csv2Xml(object):
             list_prof = [p for p in self.prof if asign in self.prof[p]]
             for p in list_prof:
                 resource = etree.SubElement(resources, 'Resource',
-                                            Reference=p.replace(' ', '_'))
+                                            Reference=remove_accents(p.replace(' ', '_')))
             resource = etree.SubElement(resources, 'Resource')
             role = etree.SubElement(resource, 'Role')
             role.text = 'Room'
@@ -231,8 +245,6 @@ class Csv2Xml(object):
                                              Reference = 'Room')
             event_groups = etree.SubElement(event_t, 'EventGroups')
             etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
-            etree.SubElement(event_groups, 'EventGroup',
-                             Reference=asign.replace(' ','_'))
 
         constraints = etree.SubElement(instance, 'Constraints')
         assign_resource = etree.SubElement(constraints,
