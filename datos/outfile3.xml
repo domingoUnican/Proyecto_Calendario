@@ -1550,7 +1550,7 @@
                 </Event>
                 <Event Id="Garantia_y_Seguridad_en_Sistemas_y_Redes_t">
                     <Name>Garantia y Seguridad en Sistemas y Redes: Teoria</Name>
-                    <Duration>0</Duration>
+                    <Duration>1</Duration>
                     <Course Reference="Garantia_y_Seguridad_en_Sistemas_y_Redes" />
                     <Resources>
                         <Resource Reference="Curso_41" />
