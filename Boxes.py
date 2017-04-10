@@ -67,7 +67,7 @@ class Boxes(FloatLayout):
         print('LEYENDO XML')
 
         doc = etree.parse('outfile.xml')
-        print(doc)
+        #print(doc)
         timegroups = doc.getroot().find('Instances')
         timegroups = timegroups.find('Instance')
         resources = timegroups.find('Resources')
@@ -82,7 +82,7 @@ class Boxes(FloatLayout):
             
             if resourceType == 'Profesores':
                 #Inserto los botones de los profesores
-                print(child.findtext('Name'))
+                #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
                 
                 # Mostrar el menu
@@ -93,7 +93,7 @@ class Boxes(FloatLayout):
 
             if resourceType == 'Aulas':
                 #Inserto los botones de los profesores
-                print(child.findtext('Name'))
+                #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
                 
                 # Mostrar el menu
@@ -104,7 +104,7 @@ class Boxes(FloatLayout):
 
             if resourceType == 'Cursos':
                 #Inserto los botones de los profesores
-                print(child.findtext('Name'))
+                #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
                 # Mostrar el menu
                 btn.bind(on_release=lambda btn: curs.select(btn.text))
@@ -117,7 +117,7 @@ class Boxes(FloatLayout):
         
         for child in events:
             event = child.find('Event')
-            print(child.findtext('Name'))
+            #print(child.findtext('Name'))
             btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
             # Mostrar el menu
             btn.bind(on_release=lambda btn: asigns.select(btn.text))
@@ -128,13 +128,13 @@ class Boxes(FloatLayout):
 
 
         #añado los desplegables a la pantalla
-        profesbutton = Button(text = 'Profesores', size_hint = (None, None))
+        profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 350)
         profesbutton.bind(on_release=profes.open)
-        aulasbutton= Button(text = 'Aulas', size_hint = (None, None))
+        aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 250)
         aulasbutton.bind(on_release=aulas.open)
-        asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None))
+        asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 450)
         asignsbutton.bind(on_release=asigns.open)
-        cursosbutton= Button(text = 'Cursos', size_hint = (None, None))
+        cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 150)
         cursosbutton.bind(on_release=curs.open)
         aulas.bind(on_select=lambda instance, x: setattr(aulasbutton, 'text', x))
         profes.bind(on_select=lambda instance, x: setattr(profesbutton, 'text', x))
@@ -213,11 +213,3 @@ class Boxes(FloatLayout):
                             grandchild.disabled = False
                             self.numPulsaciones = self.numPulsaciones + 1
             self.numPulsaciones = 0
-
-                            
-
-
-            
-            
-
-                            
