@@ -84,32 +84,49 @@ class horario:
             principio = fin
             
     def save_timetableXML(self):
-        print('PRINT MONEY')
+        print('GUARDANDO XML')
 
         #Inicializaciones
-        root = etree.Element('HighSchoolTimetableArchive')
-        doc = etree.ElementTree(root)
-        instances = etree.SubElement(root, "Instancias")
-        instance1 = etree.SubElement(root[0], "Instancias", id="1")
-        instance2 = etree.SubElement(root[0], "Instancias", id="2")
-        etree.SubElement(instance1, "Metadatos")
-        etree.SubElement(instance1, "Times")
-        etree.SubElement(instance1, "Resources")
-        etree.SubElement(instance1, "Events")
-        etree.SubElement(instance1, "Constraints")
+        doc = etree.parse('outfile.xml')
+        root = doc.getroot()
         
-        etree.SubElement(root, "Soluciones")
-        etree.SubElement(root[1], "SolucionManana", id="1")
+        #Soluciones
+        etree.SubElement(root, "SolutionGroups")
+        solucion = etree.SubElement(root[1], "SolutionGroup", id="fromHorario")
 
-        #Recorro el horario guardando sus datos
+        #Metadata
+        metadata = etree.SubElement(solucion, "Metadata")
+        name = etree.SubElement(metadata, "Name")
+        name.text = "Horarios de Informática"
+        contributor = etree.SubElement(metadata, "Contributor")
+        contributor.text = "Jose Ramon Vejo"
+        date = etree.SubElement(metadata, "Date")
+        date.text = "05/03/2017"
+        country = etree.SubElement(metadata, "Country")
+        country.text = "Spain"
 
-        
-        etree.SubElement(root[1], "SolucionTarde", id="2")
 
+        #Anado la solucion
+        solve = etree.SubElement(solucion, "Solution")
+        reference = etree.SubElement(solve, "Reference")
+        reference.text = "Horarios de Informática"
+        events = etree.SubElement(solve, "Events")
 
-        #Guardado de datos
-        outFile = open('homemade.xml', 'wb')
+        #Recorro el arbol guardando el horario
+        event = etree.SubElement(events, "Event", Reference="Horarios de Informática")
+
+        duration = etree.SubElement(event, "Duration")
+        duration.text = "1"
+        time  = etree.SubElement(event, "Time", Reference="Reference Time")
+
+        #Guardo la solucion en el fichero
+        outFile = open('outfile.xml', 'wb')
         doc.write(outFile)
         print('XML GUARDADO')
         print('Estos son los datos guardados')
         print(etree.tostring(root))
+
+        
+
+
+
