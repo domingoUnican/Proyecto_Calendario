@@ -24,18 +24,18 @@ class TestApp(App):
 
         #Leo el horario desde el archivo generado por KHE
         #Inicializaciones
-        doc = etree.parse('outfile2.xml')
-        root = doc.getroot()
-
-        #Me posiciono en la solución generada
-        solutionGroup = doc.find('SolutionGroups')
-        solution = solutionGroup.find('SolutionGroup')
-        solution1 = solution.find('Solution')
-        events = solution1.find('Events')
-
-        for event in events:
-            reference = event.get('Reference')
-            print(reference)
+##        doc = etree.parse('outfile2.xml')
+##        root = doc.getroot()
+##
+##        #Me posiciono en la solución generada
+##        solutionGroup = doc.find('SolutionGroups')
+##        solution = solutionGroup.find('SolutionGroup')
+##        solution1 = solution.find('Solution')
+##        events = solution1.find('Events')
+##
+##        for event in events:
+##            reference = event.get('Reference')
+##            print(reference)
         
         horarioPrincipal.incluye_hora('Lunes','Mates',timedelta(hours=9), timedelta(hours=10))
         horarioPrincipal.incluye_hora('Lunes','Ingles',timedelta(hours=10), timedelta(hours=11))
