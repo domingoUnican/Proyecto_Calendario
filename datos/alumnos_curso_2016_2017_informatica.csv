@@ -1,0 +1,63 @@
+1;1;(G268) Sistemas Digitales;61;61;67;69;74;76;82
+1;1;(G263) Álgebra Lineal y Discreta;60;73;60;81;71;68;75
+1;1;(G269) Fundamentos Físicos de la Informática;56;61;58;71;64;68;73
+1;1;(G266) Introducción al Software;62;48;58;67;62;67;79
+1;1;(G262) Inglés;53;58;43;55;38;37;58
+2;1;(G649) Estructura de Computadores;;45;66;70;73;98;86
+2;1;(G651) Estructuras de Datos(*);;60;76;70;61;64;53
+2;1;(G656) Sistemas de Información;;58;59;64;43;60;55
+2;1;(G1724) Valores, Ética y Profesión Informática;;;;;55;56;45
+2;1;(G647) Matemática Discreta;;51;57;67;43;56;53
+3;1;(G661) Introducción a las Redes de Computadores;;;43;59;50;61;65
+3;1;(G653) Programación Paralela, Concurrente y de Tiempo Real;;;22;47;48;49;49
+3;1;(G658) Ingeniería del Software I;;;34;45;54;44;47
+3;1;(G654) Interacción Persona-Computador;;;37;36;39;35;47
+3;1;(G655) Introducción a los Sistemas Inteligentes(*);;;27;51;53;35;50
+4;1;(G1749) Computer Animation and Video Games;;;;;19;22;19
+4;1;(G684) Representación del Conocimiento;;;;4;16;20;10
+4;1;(G680) Modelos de Cálculo(*);;;;4;19;17;20
+4;1;(G675) Sistemas Embebidos;;;;7;7;16;8
+4;1;(G682) Diseño de Algoritmos;;;;5;12;16;10
+4;1;(G685) Gráficos por Computador y Realidad Virtual;;;;8;24;16;13
+4;1;(G674) Diseño y Administración de Redes;;;;8;8;13;10
+4;1;(G677) Sistemas Operativos Avanzados;;;;6;7;13;13
+4;1;(G670) Procesos de Ingeniería del Software;;;;7;15;11;18
+4;1;(G678) Garantía y Seguridad en Sistemas y Redes;;;;9;9;11;6
+4;1;(G668) Métodos de Desarrollo;;;;7;15;10;13
+4;1;(G666) Diseño de Software;;;;;15;9;10
+4;1;(G671) Calidad y Auditoría;;;;7;14;8;14
+4;1;(G691) Bases de Datos Avanzadas;;;;7;8;7;6
+1;2;(G267) Introducción a los Computadores;61;88;80;93;86;96;100
+1;2;(G264) Análisis Matemático y Métodos Numéricos;63;79;73;83;81;87;84
+1;2;(G265) Estadística y Optimización;64;81;60;73;70;80;71
+1;2;(G271) Métodos de Programación(*);62;51;60;78;75;78;92
+1;2;(G270) Economía y Administración de Empresas;64;56;61;76;67;71;67
+2;2;(G650) Organización de Computadores;;44;68;62;59;78;66
+2;2;(G660) Sistemas Operativos;;51;67;61;70;71;61
+2;2;(G646) Lógica;;45;46;42;48;61;62
+2;2;(G652) Algorítmica y Complejidad(*);;48;65;53;48;58;73
+2;2;(G657) Bases de Datos;;42;43;40;40;52;54
+3;2;(G663) Sistemas Informáticos;;;36;46;45;47;52
+3;2;(G659) Ingeniería del Software II;;;27;48;39;39;46
+3;2;(G662) Redes de Computadores y Sistemas Distribuidos;;;35;52;47;34;52
+3;2;(G665) Desarrollo de Sistemas de Información;;;15;17;15;18;23
+3;2;(G686) Aprendizaje Automático y Minería de Datos;;;;18;27;18;14
+3;2;(G681) Lenguajes Formales;;;10;21;16;13;12
+3;2;(G664) Ingeniería de Requisitos;;;11;16;9;11;22
+3;2;(G672) Arquitectura e Ingeniería de Computadores;;;7;17;17;11;11
+3;2;(G673) Sistemas de Tiempo Real;;;8;12;8;9;6
+4;2;(G692) Trabajo Fin de Grado;;;;3;21;28;
+4;2;(G687) Natural Language Processing;;;;5;18;17;13
+4;2;(G1662) Lenguajes de Programación;;;;3;14;15;14
+4;2;(G679) Diseño y Gestión de Sistemas Informáticos;;;;7;8;15;11
+4;2;(G676) Multiprocesadores;;;;7;8;12;9
+4;2;(G667) Servicios Software;;;;;16;6;11
+4;2;(G689) Sistemas de Información de la Empresa;;;;5;13;6;14
+4;2;(G669) Gestión de Proyectos Software;;;;8;15;5;10
+4;2;(G690) Informática Industrial;;;;6;5;5;6
+;;;;;;;;;
+2;;(C166) Gestión de Proyectos;;62;41;63;;;
+2;;(C209) Profesión Informática;;62;42;48;;;
+2;;(G648) Valores, Ética y Profesión Informática;;62;46;65;;;
+3;;(G683) Lenguajes de Programación;;;11;0;;;
+4;;(G688) Animación por Computador y Videojuegos;;;;12;;;

@@ -1,0 +1,51 @@
+1;1;(G31) Física Básica Experimental I: Movimiento, Fuerza, Astronomía(*);19;28;33;53;66;64;73;79
+1;2;(G33) Física Básica Experimental III: La Materia y sus Propiedades(*);19;28;32;51;59;59;73;
+1;2;(G38) Laboratorio Multidisciplinar(*);19;31;31;52;54;59;73;
+1;1;(G32) Física Básica Experimental II: Ondas: Luz y Sonido(*);19;28;29;51;56;53;69;72
+1;2;(G34) Física Básica Experimental IV: Circuitos y Electrónica(*);19;28;32;48;56;58;69;
+1;2;(G40) Programación;19;31;35;53;55;52;64;
+1;2;(G37) Matemáticas III: Cálculo Integral;19;32;40;53;63;52;63;
+1;1;(G35) Matemáticas I: Álgebra Lineal y Geometría;19;28;29;47;53;43;59;60
+1;1;(G36) Matemáticas II: Cálculo Diferencial;19;30;33;55;57;53;58;67
+2;2;(G55) Física Cuántica y Estructura de la Materia I: Fundamentos de la Física Cuántica(*);;17;32;38;52;50;53;
+1;1;(G39) Herramientas Computacionales en el Laboratorio;18;26;33;53;57;43;54;63
+2;2;(G51) Electricidad y Magnetismo(*);;17;25;32;36;42;48;
+2;1;(G49) Mecánica Clásica y Relatividad(*);;17;30;31;34;44;52;59
+2;1;(G53) Termodinámica(*);;16;26;31;39;35;49;61
+2;2;(G60) Métodos Matemáticos II: Ecuaciones Derivadas Parciales;;16;33;39;43;50;45;
+2;1;(G59) Métodos Matemáticos I: Ecuaciones Diferenciales;;17;33;38;45;43;39;49
+2;2;(G63) Laboratorio de Física II(*);;16;23;25;31;37;41;
+2;2;(G261) Inglés;;11;19;18;28;37;14;
+3;2;(G57) Física Cuántica y Estructura de la Materia III: Física del Estado Sólido;;;11;22;36;51;56;
+2;1;(G62) Laboratorio de Física I;;16;21;22;29;39;32;56
+2;1;(G431) Habilidades, Valores y Competencias Transversales(*);;17;408;274;178;24;30;45
+3;1;(G56) Física Cuántica y Estructura de la Materia II: Átomos, Moléculas y Sólidos;;;15;25;32;42;46;50
+3;1;(G52) Electromagnetismo y Óptica;;;10;20;26;40;37;42
+3;1;(G54) Física Estadística;;;13;27;27;41;36;33
+3;1;(G61) Métodos Numéricos;;;12;25;29;38;34;26
+3;1;(G50) Astronomía;;;11;23;28;30;29;29
+3;2;(G58) Física Cuántica y Estructura de la Materia IV: Núcleos y Partículas;;;7;22;32;47;44;
+3;2;(G65) Laboratorio de Física IV;;;9;16;19;35;29;
+3;2;(G64) Laboratorio de Física III;;;10;18;19;28;27;
+3;2;(G66) Historia y Panorama de Investigación y Aplicaciones de la Física;;;8;20;25;36;26;
+3;1;(G1778) Experimental Optics;;;;;;8;6;17
+3;1;(G1776) Astronomy;;;;;;;3;4
+4;1;(G79) Advanced Experimental Techniques (1C);;;;6;16;15;19;14
+4;2;(G67) Proyectos: Concepción, Desarrollo y Herramientas;;;;12;24;19;29;
+4;1;(G68) Mecánica Cuántica;;;;6;8;10;18;22
+4;1;(G70) Física de Materiales;;;;5;5;6;18;14
+4;1;(G74) Fuentes de Energía;;;;1;11;13;17;17
+4;1;(G80) Advanced Computation;;;;4;3;5;15;17
+4;1;(G72) Fotónica;;;;7;5;4;14;12
+4;2;(G82) Trabajo Fin de Grado;;;;5;15;21;18;
+4;1;(G73) Química;;;;;6;10;14;21
+4;1;(G75) Radiofísica;;;;;8;8;14;9
+4;1;(G69) Astrofísica;;;;6;5;8;13;14
+4;1;(G76) Física de la Tierra;;;;;8;12;13;13
+4;1;(G71) Física de Partículas Elementales;;;;2;6;6;10;7
+4;1;(G77) Electrónica Aplicada;;;;1;0;1;7;7
+4;1;(G78) Experimentación Didáctica;;;;;4;9;7;6
+4;1;(G1775) Advanced Experimental Techniques (2C);;;;;;6;6;7
+4;1;(G1779) Physics of Materials;;;;;;2;2;2
+4;1;(G1777) Particle Physics;;;;;;5;;
+4;;(G81) Prácticas Externas;;;;4;12;3;;

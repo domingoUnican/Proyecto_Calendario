@@ -1,0 +1,165 @@
+G80;Advanced Computation;O;4;C;1;JULIO LUIS MEDINA PASAJE;S;20;0;20;0;40;66,66
+G80;Advanced Computation;O;4;C;1;FRANCISCO JAVIER JUNQUERA QUINTANA;N;10;0;10;0;20;33,34
+G79;Advanced Experimental Techniques (1C);O;4;C;1;FERNANDO AGUADO MENENDEZ;N;10;3,6;57,6;0;71,2;12,5
+G79;Advanced Experimental Techniques (1C);O;4;C;1;JOSE IGNACIO ESPESO MARTINEZ;N;10;3,6;57,6;0;71,2;12,5
+G79;Advanced Experimental Techniques (1C);O;4;C;1;SATURNINO MARCOS MARCOS;N;10;3,6;57,6;0;71,2;12,5
+G79;Advanced Experimental Techniques (1C);O;4;C;1;FRANCISCO GONZALEZ FERNANDEZ;S;14;3,6;57,6;0;75,2;50
+G79;Advanced Experimental Techniques (1C);O;4;C;1;MANUEL PEREZ CAGIGAL;N;10;3,6;57,6;0;71,2;12,5
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;ANGEL ALBERTO VALLE GUTIERREZ;N;2,5;0,9;14,4;0;17,8;16
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;MANUEL PEREZ CAGIGAL;N;5;1,8;28,8;0;35,6;16
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;LUIS PESQUERA GONZALEZ;N;2,5;0,9;14,4;0;17,8;16
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;JOSE IGNACIO ESPESO MARTINEZ;N;5;1,8;28,8;0;35,6;16
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;FRANCISCO GONZALEZ FERNANDEZ;S;7;1,8;28,8;0;37,6;20
+G1775;Advanced Experimental Techniques (2C);O;4;C;2;ANGEL MAÑANES PEREZ;N;5;1,8;28,8;0;35,6;16
+G69;Astrofísica;O;4;C;1;DIEGO HERRANZ MUÑOZ;N;19;5;6;0;30;50
+G69;Astrofísica;O;4;C;1;LUIS JULIAN GOICOECHEA SANTAMARIA;S;19;5;6;0;30;50
+G50;Astronomía;U;3;C;1;SILVIA MATEOS IBAÑEZ;N;0;0;20;0;20;20
+G50;Astronomía;U;3;C;1;JOSE IGNACIO GONZALEZ SERRANO;S;38;7;0;0;45;70
+G50;Astronomía;U;3;C;1;IGNACIO ORDOVAS PASCUAL;N;0;0;10;0;10;10
+G1776;Astronomy;U;3;C;2;SILVIA MATEOS IBAÑEZ;N;6;3;6;0;15;15
+G1776;Astronomy;U;3;C;2;FRANCISCO JESUS CARRERA TROYANO;S;13;2;0;0;15;25
+G1776;Astronomy;U;3;C;2;DIEGO HERRANZ MUÑOZ;N;10;2;3;0;15;25
+G1776;Astronomy;U;3;C;2;IGNACIO ORDOVAS PASCUAL;N;0;2;3;0;5;10
+G1776;Astronomy;U;3;C;2;JOSE IGNACIO GONZALEZ SERRANO;N;6;1;3;0;10;25
+G51(*);Electricidad y Magnetismo;U;2;C;2;ERNESTO ANABITARTE CANO;S;30;30;0;0;60;100
+G52(*);Electromagnetismo y Óptica;U;3;C;1;FRANCISCO GONZALEZ FERNANDEZ;N;0;21;0;0;21;40
+G52(*);Electromagnetismo y Óptica;U;3;C;1;FERNANDO MORENO GRACIA;S;39;0;0;0;39;60
+G77;Electrónica Aplicada;O;4;C;1;M. MERCEDES GRANDA MIGUEL;N;4;4;4;0;12;10
+G77;Electrónica Aplicada;O;4;C;1;MIGUEL ANGEL MANZANO ANSORENA;N;2;2;4;0;8;10
+G77;Electrónica Aplicada;O;4;C;1;MARIA ELENA MEDIAVILLA BOLADO;S;10;10;20;0;40;80
+G78;Experimentación Didáctica;O;4;C;1;JOSE JULIO GÜEMEZ LEDESMA;S;15;6;28;0;49;80
+G78;Experimentación Didáctica;O;4;C;1;MERCEDES LOPEZ QUELLE;N;0;1,5;9,5;0;11;20
+G1778;Experimental Optics;U;3;C;2;ANGEL ALBERTO VALLE GUTIERREZ;N;2;3;6;0;11;25
+G1778;Experimental Optics;U;3;C;2;FERNANDO MORENO GRACIA;N;2;3;12;0;17;25
+G1778;Experimental Optics;U;3;C;2;JOSE MARIA SAIZ VEGA;S;5;9;18;0;32;50
+G31(*);Física Básica Experimental I: Movimiento, Fuerza, Astronomía;B;1;C;1;JOSE JULIO GÜEMEZ LEDESMA;N;0;9;0;0;9;0
+G31(*);Física Básica Experimental I: Movimiento, Fuerza, Astronomía;B;1;C;1;JULIO LARGO MAESO;S;26;25;28;0;79;70
+G31(*);Física Básica Experimental I: Movimiento, Fuerza, Astronomía;B;1;C;1;RAFAEL VALIENTE BARROSO;N;0;15;32;0;47;30
+G31(*);Física Básica Experimental I: Movimiento, Fuerza, Astronomía;B;1;C;1;SILVIA MATEOS IBAÑEZ;N;4;1;0;0;5;0
+G32(*);Física Básica Experimental II: Ondas: Luz y Sonido;B;1;C;1;PEDRO JOSE VALLE HERRERO;N;0;18;22,5;0;40,5;35
+G32(*);Física Básica Experimental II: Ondas: Luz y Sonido;B;1;C;1;JOSE MARIA SAIZ VEGA;S;16;9;22,5;0;47,5;30
+G32(*);Física Básica Experimental II: Ondas: Luz y Sonido;B;1;C;1;FRANCISCO MATORRAS WEINIG;N;8;10;30;0;48;35
+G33(*);Física Básica Experimental III: La Materia y sus Propiedades;B;1;C;2;ANGEL MAÑANES PEREZ;N;0;5;15;0;20;12,5
+G33(*);Física Básica Experimental III: La Materia y sus Propiedades;B;1;C;2;ALBERTO RUIZ JIMENO;N;6;4;15;0;25;25
+G33(*);Física Básica Experimental III: La Materia y sus Propiedades;B;1;C;2;FERNANDO RODRIGUEZ GONZALEZ;N;0;5;15;0;20;12,5
+G33(*);Física Básica Experimental III: La Materia y sus Propiedades;B;1;C;2;LUIS FERNANDEZ BARQUIN;S;18;15;45;0;78;50
+G34(*);Física Básica Experimental IV: Circuitos y Electrónica;B;1;C;2;ANGEL VEGAS GARCIA;N;10;10;14;0;34;35
+G34(*);Física Básica Experimental IV: Circuitos y Electrónica;B;1;C;2;ANDRES PRIETO GALA;N;0;4;8;0;12;5
+G34(*);Física Básica Experimental IV: Circuitos y Electrónica;B;1;C;2;JOSE MARIA SENTIES VIAN;N;0;6;28;0;34;10
+G34(*);Física Básica Experimental IV: Circuitos y Electrónica;B;1;C;2;ALVARO GOMEZ GOMEZ;S;11;14;44;0;69;40
+G34(*);Física Básica Experimental IV: Circuitos y Electrónica;B;1;C;2;JUAN ANTONIO SAIZ IPIÑA;N;0;6;16;0;22;10
+G55(*);Física Cuántica y Estructura de la Materia I: Fundamentos de la Física Cuántica;U;2;C;2;RAMON NIEMBRO BARCENA;N;14;10;0;0;24;40
+G55(*);Física Cuántica y Estructura de la Materia I: Fundamentos de la Física Cuántica;U;2;C;2;DIEGO HERRANZ MUÑOZ;S;22;14;0;0;36;60
+G56(*);Física Cuántica y Estructura de la Materia II: Átomos, Moléculas y Sólidos;U;3;C;1;JOSE ANTONIO ARAMBURU-ZABALA HIGUERA;S;18;12;0;0;30;50
+G56(*);Física Cuántica y Estructura de la Materia II: Átomos, Moléculas y Sólidos;U;3;C;1;ANGEL MAÑANES PEREZ;N;18;12;0;0;30;50
+G57(*);Física Cuántica y Estructura de la Materia III: Física del Estado Sólido;U;3;C;2;JOSE ANTONIO ARAMBURU-ZABALA HIGUERA;S;24;16;0;0;40;66,6
+G57(*);Física Cuántica y Estructura de la Materia III: Física del Estado Sólido;U;3;C;2;MIGUEL MORENO MAS;N;12;8;0;0;20;33,4
+G58(*);Física Cuántica y Estructura de la Materia IV: Núcleos y Partículas;U;3;C;2;MARIA TERESA RODRIGO ANORO;N;18;12;0;0;30;50
+G58(*);Física Cuántica y Estructura de la Materia IV: Núcleos y Partículas;U;3;C;2;SATURNINO MARCOS MARCOS;S;18;12;0;0;30;50
+G76;Física de la Tierra;O;4;C;1;ALBERTO GONZALEZ DIEZ;S;19;11;0;0;30;50
+G76;Física de la Tierra;O;4;C;1;JOSE RAMON SOLANA QUIROS;N;19;11;0;0;30;50
+G70;Física de Materiales;O;4;C;1;LUIS FERNANDEZ BARQUIN;N;5;2;16;0;23;25
+G70;Física de Materiales;O;4;C;1;FERNANDO RODRIGUEZ GONZALEZ;S;5;3;14;0;22;25
+G70;Física de Materiales;O;4;C;1;FERNANDO AGUADO MENENDEZ;N;5;2;16;0;23;25
+G70;Física de Materiales;O;4;C;1;JESUS MARIA RODRIGUEZ FERNANDEZ;N;5;3;14;0;22;25
+G71;Física de Partículas Elementales;O;4;C;1;NICOLO TREVISANI;N;8;6;0;0;14;25
+G71;Física de Partículas Elementales;O;4;C;1;MARIA TERESA RODRIGO ANORO;S;20;10;0;0;30;50
+G71;Física de Partículas Elementales;O;4;C;1;IVAN VILA ALVAREZ;N;0;0;16;0;16;25
+G54;Física Estadística;U;3;C;1;JOSE RAMON SOLANA QUIROS;S;13;7;0;0;20;34
+G54;Física Estadística;U;3;C;1;JULIO LARGO MAESO;N;13;7;0;0;20;33
+G54;Física Estadística;U;3;C;1;HORACIO SERGIO WIO BEITELMAJER;N;13;7;0;0;20;33
+G72;Fotónica;O;4;C;1;FRANCISCO GONZALEZ FERNANDEZ;N;10;2;6;0;18;32,5
+G72;Fotónica;O;4;C;1;PEDRO JOSE VALLE HERRERO;N;8;1,5;5,5;0;15;20
+G72;Fotónica;O;4;C;1;MANUEL PEREZ CAGIGAL;S;10;2;6;0;18;32,5
+G72;Fotónica;O;4;C;1;ANGEL ALBERTO VALLE GUTIERREZ;N;2;2;5;0;9;15
+G74;Fuentes de Energía;O;4;C;1;FERNANDO RODRIGUEZ GONZALEZ;N;4;3;0;0;7;10
+G74;Fuentes de Energía;O;4;C;1;ANTONIO RODRIGUEZ YUNTA;N;15;7;0;0;22;40
+G74;Fuentes de Energía;O;4;C;1;ANDRES PRIETO GALA;S;15;8;0;0;23;40
+G74;Fuentes de Energía;O;4;C;1;ERNESTO ANABITARTE CANO;N;1;0;0;0;1;0
+G74;Fuentes de Energía;O;4;C;1;SATURNINO MARCOS MARCOS;N;4;1;2;0;7;10
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;ADOLFO COBO GARCIA;N;0;2;0;0;2;5
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;OLGA MARIA CONDE PORTILLA;N;0;2;0;0;2;5
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;RAMON GANDARILLAS PEREZ;N;8;4;0;0;12;15
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;ERNESTO ANABITARTE CANO;N;8;2;0;0;10;15
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;IRENE GONZALEZ PEREZ;N;2;0;0;0;2;5
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;CARMEN MARIA SARABIA COBO;N;2;6;0;0;8;10
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;LUCIA LLANO MARTINEZ;N;2;2;0;0;4;10
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;MARIO MAÑANA CANTELI;N;6;6;0;0;12;15
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;LUIS JAVIER MARTINEZ RODRIGUEZ;N;2;0;0;0;2;5
+G1722;Habilidades, Valores y Competencias Transversales;B;2;C;1;JOSE MARIA SAIZ VEGA;S;6;0;0;0;6;15
+G39;Herramientas Computacionales en el Laboratorio;U;1;C;1;JULIO LARGO MAESO;N;0;0;46;0;46;35
+G39;Herramientas Computacionales en el Laboratorio;U;1;C;1;MERCEDES LOPEZ QUELLE;N;10;4;14;0;28;20
+G39;Herramientas Computacionales en el Laboratorio;U;1;C;1;JOSE CARLOS PALENCIA GUTIERREZ;S;12;4;46;0;62;35
+G39;Herramientas Computacionales en el Laboratorio;U;1;C;1;RAFAEL VALIENTE BARROSO;N;0;0;14;0;14;10
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;ERNESTO ANABITARTE CANO;N;4;2;0;0;6;10
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;FRANCISCO JESUS CARRERA TROYANO;N;4;2;0;0;6;10
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;MIGUEL ANGEL RODRIGUEZ DIAZ;N;2;1;0;0;3;5
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;JUAN MANUEL LOPEZ MARTIN;N;2;1;0;0;3;5
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;ALBERTO RUIZ JIMENO;S;24;14;0;0;38;60
+G66;Historia y Panorama de Investigación y Aplicaciones de la Física;U;3;C;2;IVAN VILA ALVAREZ;N;4;2;0;0;6;10
+G261;Inglés;B;2;C;2;GEMA TEJERIA ALONSO;S;20;40;0;0;60;100
+G62(*);Laboratorio de Física I;U;2;C;1;LUIS PESQUERA GONZALEZ;N;2;1;18;0;21;15
+G62(*);Laboratorio de Física I;U;2;C;1;JOSE JULIO GÜEMEZ LEDESMA;N;9;5;42;0;56;30
+G62(*);Laboratorio de Física I;U;2;C;1;JOSE IGNACIO ESPESO MARTINEZ;N;3;0;36;0;39;20
+G62(*);Laboratorio de Física I;U;2;C;1;JONATAN PIEDRA GOMEZ;N;0;0;6;0;6;5
+G62(*);Laboratorio de Física I;U;2;C;1;RAFAEL VALIENTE BARROSO;S;2,5;1,5;42;0;46;30
+G63(*);Laboratorio de Física II;U;2;C;2;OMAR FERNANDO CASTELLANOS BALLESTEROS;N;0;0;40;0;40;5
+G63(*);Laboratorio de Física II;U;2;C;2;JOSE MARIA SENTIES VIAN;S;15;0;80;0;95;80
+G63(*);Laboratorio de Física II;U;2;C;2;JOSE ANGEL MIER MAZA;N;0;0;40;0;40;5
+G63(*);Laboratorio de Física II;U;2;C;2;ERNESTO ANABITARTE CANO;N;0;5;0;0;5;10
+G64(*);Laboratorio de Física III;U;3;C;2;ANGEL ALBERTO VALLE GUTIERREZ;N;1;3;18;0;22;10
+G64(*);Laboratorio de Física III;U;3;C;2;PEDRO JOSE VALLE HERRERO;S;8;12;65;0;85;70
+G64(*);Laboratorio de Física III;U;3;C;2;JOSE MARIA SAIZ VEGA;N;0;0;25;0;25;20
+G65;Laboratorio de Física IV;U;3;C;2;JESUS MARIA RODRIGUEZ FERNANDEZ;N;1;0;16;0;17;10
+G65;Laboratorio de Física IV;U;3;C;2;IGNACIO HERNANDEZ CAMPO;N;1;0;31;0;32;8
+G65;Laboratorio de Física IV;U;3;C;2;FERNANDO RODRIGUEZ GONZALEZ;S;2;0;32;0;34;24
+G65;Laboratorio de Física IV;U;3;C;2;LUIS JULIAN GOICOECHEA SANTAMARIA;N;1;0;37;0;38;16
+G65;Laboratorio de Física IV;U;3;C;2;RAMON NIEMBRO BARCENA;N;2;0;37;0;39;18
+G65;Laboratorio de Física IV;U;3;C;2;SATURNINO MARCOS MARCOS;N;2;0;36;0;38;16
+G65;Laboratorio de Física IV;U;3;C;2;FERNANDO AGUADO MENENDEZ;N;1;0;31;0;32;8
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;CARMEN BLANCO DELGADO;N;0;0;22,5;0;22,5;5
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;JAIME BONACHEA PICO;N;2;0;22;0;24;10
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;JUAN REMONDO TEJERINA;S;4;4;7;0;15;40
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;M. CARMEN PESQUERA GONZALEZ;N;8;3;22,5;0;33,5;15
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;XABIER EDUARDO MORENO-VENTAS BRAVO;N;8;3;45;0;56;20
+G38(*);Laboratorio Multidisciplinar;B;1;C;2;IGNACIO HERNANDEZ CAMPO;N;2;0;16;0;18;10
+G35;Matemáticas I: Álgebra Lineal y Geometría;B;1;C;1;LAUREANO GONZALEZ VEGA;S;30;15;0;0;45;50
+G35;Matemáticas I: Álgebra Lineal y Geometría;B;1;C;1;OSCAR IGLESIAS VALIÑO;N;0;10;5;0;15;50
+G36;Matemáticas II: Cálculo Diferencial;B;1;C;1;BEATRIZ PORRAS POMARES;S;31;10;0;0;41;40
+G36;Matemáticas II: Cálculo Diferencial;B;1;C;1;JUAN GONZALEZ CRIADO DEL REY;N;0;20;0;0;20;20
+G36;Matemáticas II: Cálculo Diferencial;B;1;C;1;MARIA CRISTINA PEREZ GARCIA;N;0;0;0;0;0;40
+G37;Matemáticas III: Cálculo Integral;B;1;C;2;JOSE MANUEL BAYOD BAYOD;S;28;0;0;0;28;36
+G37;Matemáticas III: Cálculo Integral;B;1;C;2;MARIA CRISTINA PEREZ GARCIA;N;0;30;0;0;30;38
+G37;Matemáticas III: Cálculo Integral;B;1;C;2;MARIA DE UJUE ETAYO RODRIGUEZ;N;0;20;0;0;20;26
+G49(*);Mecánica Clásica y Relatividad;U;2;C;1;FERNANDO M. DUQUE CALVO;N;10;22;0;0;32;33
+G49(*);Mecánica Clásica y Relatividad;U;2;C;1;ANGEL ALBERTO VALLE GUTIERREZ;S;30;0;0;0;30;67
+G68;Mecánica Cuántica;O;4;C;1;DIEGO SANTIAGO PAZO BUENO;N;0;28;0;0;28;50
+G68;Mecánica Cuántica;O;4;C;1;RAFAEL FRANCISCO DE SALES BLANCO ALCAÑIZ;S;32;0;0;0;32;50
+G59;Métodos Matemáticos I: Ecuaciones Diferenciales;U;2;C;1;DELFINA GOMEZ GANDARILLAS;S;30;54;6;0;90;100
+G60;Métodos Matemáticos II: Ecuaciones Derivadas Parciales;U;2;C;2;LUIS ALBERTO FERNANDEZ FERNANDEZ;S;30;60;0;0;90;100
+G61;Métodos Numéricos;U;3;C;1;JOSE ANTONIO ARMESTO ALVAREZ;N;10;0;0;0;10;10
+G61;Métodos Numéricos;U;3;C;1;CARLOS BELTRAN ALVAREZ;S;20;20;20;0;60;90
+G1777;Particle Physics;O;4;C;2;FRANCISCO MATORRAS WEINIG;S;20;10;0;0;30;50
+G1777;Particle Physics;O;4;C;2;MARCOS FERNANDEZ GARCIA;N;0;0;16;0;16;25
+G1777;Particle Physics;O;4;C;2;NICOLO TREVISANI;N;8;6;0;0;14;25
+G1779;Physics of Materials;O;4;C;2;FERNANDO AGUADO MENENDEZ;N;7;3;10;0;20;25
+G1779;Physics of Materials;O;4;C;2;IGNACIO HERNANDEZ CAMPO;N;6;3;10;0;19;20
+G1779;Physics of Materials;O;4;C;2;FERNANDO RODRIGUEZ GONZALEZ;S;7;4;10;0;21;55
+G40;Programación;U;1;C;2;JOSE IGNACIO ESPESO MARTINEZ;N;0;20;60;0;80;24
+G40;Programación;U;1;C;2;ADOLFO GARANDAL MARTIN;N;0;0;60;0;60;14
+G40;Programación;U;1;C;2;MICHAEL GONZALEZ HARBOUR;S;20;10;0;0;30;24
+G40;Programación;U;1;C;2;JOSE JAVIER GUTIERREZ GARCIA;N;0;10;30;0;40;12
+G40;Programación;U;1;C;2;JOSE CARLOS PALENCIA GUTIERREZ;N;20;0;30;0;50;26
+G67;Proyectos: Concepción, Desarrollo y Herramientas;U;4;C;2;JONATAN PIEDRA GOMEZ;S;19;34;0;0;53;100
+G73;Química;O;4;C;1;CARMEN BLANCO DELGADO;S;33;17;0;0;50;90
+G73;Química;O;4;C;1;FERNANDO GONZALEZ MARTINEZ;N;5;5;0;0;10;10
+G75;Radiofísica;O;4;C;1;SUSANA GOMEZ SALCES;N;0;0;15;0;15;25
+G75;Radiofísica;O;4;C;1;CARLOS SAINZ FERNANDEZ;N;8;0;7;0;15;25
+G75;Radiofísica;O;4;C;1;ANGEL MAÑANES PEREZ;S;15;0;0;0;15;25
+G75;Radiofísica;O;4;C;1;MARIA ISABEL GUTIERREZ DIAZ-VELARDE;N;7;0;8;0;15;25
+G53(*);Termodinámica;U;2;C;1;JOSE RAMON SOLANA QUIROS;S;19,5;10,5;0;0;30;50
+G53(*);Termodinámica;U;2;C;1;JOSE JULIO GÜEMEZ LEDESMA;N;19,5;10,5;0;0;30;50
+TOTAL DEL TITULO:;;;;;;;;1425,5;1054,5;2230;0;4710;4900
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+(*):;Asignatura compartida por varios titulos;;;;;;;;;;;;

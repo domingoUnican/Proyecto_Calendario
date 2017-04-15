@@ -1,0 +1,104 @@
+G116;Álgebra Computacional;O;4;C;2;DANIEL SADORNIL RENEDO;S;38;22;0;0;60;100
+G92;Álgebra Conmutativa;U;3;C;2;LUIS MIGUEL PARDO VASALLO;S;39;21;0;0;60;100
+G42(*);Álgebra Lineal I;B;1;C;1;TOMAS JESUS RECIO MUÑIZ;S;30;25;5;0;60;100
+G89(*);Álgebra Lineal II;U;2;C;1;DANIEL SADORNIL RENEDO;S;38;22;0;0;60;100
+G652(*);Algorítmica y Complejidad;O;4;C;2;DOMINGO GOMEZ PEREZ;S;20;10;30;0;60;40
+G652(*);Algorítmica y Complejidad;O;4;C;2;JOSE LUIS MONTAÑA ARNAIZ;N;10;10;10;0;30;60
+G113;Ampliación de Álgebra;O;4;C;2;LUIS FELIPE TABERA ALONSO;S;30;30;0;0;60;100
+G84(*);Ampliación de Cálculo Diferencial;U;2;C;1;BEATRIZ PORRAS POMARES;S;18;12;0;0;30;50
+G84(*);Ampliación de Cálculo Diferencial;U;2;C;1;MARIA CRISTINA PEREZ GARCIA;N;17;13;0;0;30;50
+G86(*);Ampliación de Cálculo Integral;U;2;C;2;JAIME VINUESA TEJEDOR;S;20;20;0;0;40;80
+G86(*);Ampliación de Cálculo Integral;U;2;C;2;JUAN GONZALEZ CRIADO DEL REY;N;10;10;0;0;20;20
+G109;Ampliación de Estadística;O;4;C;2;JUAN ANTONIO CUESTA ALBERTOS;S;32;24;5;0;61;100
+G108;Ampliación de Probabilidades;O;4;C;1;ARACELI TUERO DIAZ;S;35;25;0;0;60;100
+G913(*);Análisis de los Mercados de Valores;O;4;C;2;REBECA GARCIA RAMOS;S;40;40;40;0;120;100
+G902(*);Análisis y Evaluación de Inversiones;O;4;C;1;IRENE GARCIA GONZALEZ;N;11,25;11,25;7,5;0;30;10
+G902(*);Análisis y Evaluación de Inversiones;O;4;C;1;MYRIAM GARCIA OLALLA;S;22,5;22,5;21;0;66;40
+G902(*);Análisis y Evaluación de Inversiones;O;4;C;1;PATRICIA CERECEDO SANDOVAL;N;33,75;33,75;16,5;0;84;30
+G902(*);Análisis y Evaluación de Inversiones;O;4;C;1;ESTEBAN FERNANDEZ GONZALEZ;N;22,5;22,5;15;0;60;20
+G93(*);Cálculo de Probabilidades;U;2;C;1;PAULA NAVARRO ESTEBAN;N;0;20;0;0;20;30
+G93(*);Cálculo de Probabilidades;U;2;C;1;ARACELI TUERO DIAZ;S;35;5;0;0;40;70
+G41(*);Cálculo Diferencial;B;1;C;1;MARIA CRISTINA PEREZ GARCIA;S;31;10;0;0;41;40
+G41(*);Cálculo Diferencial;B;1;C;1;JUAN GONZALEZ CRIADO DEL REY;N;0;20;0;0;20;20
+G41(*);Cálculo Diferencial;B;1;C;1;BEATRIZ PORRAS POMARES;N;0;0;0;0;0;40
+G44(*);Cálculo Integral;B;1;C;2;JOSE MANUEL BAYOD BAYOD;S;28;30;0;0;58;74
+G44(*);Cálculo Integral;B;1;C;2;MARIA DE UJUE ETAYO RODRIGUEZ;N;0;20;0;0;20;26
+G98(*);Cálculo Numérico I;U;2;C;2;JOSE JAVIER SEGURA SALA;S;24;12;24;0;60;100
+G99;Cálculo Numérico II;U;3;C;1;MARIA CECILIA POLA MENDEZ;S;30;0;30;0;60;100
+G101(*);Discrete Mathematics;U;3;C;1;MONICA BLANCO GOMEZ;N;10;5;0;0;15;30
+G101(*);Discrete Mathematics;U;3;C;1;FRANCISCO SANTOS LEAL;S;20;20;5;0;45;70
+G118;Economía y Administración de Empresas;O;4;C;1;ENRIQUE MANUEL AMBROSIO DIAZ;N;13;7;0;0;20;33,33
+G118;Economía y Administración de Empresas;O;4;C;1;MARIA JESUS GONZALEZ PRIETO;N;13;7;0;0;20;33,33
+G118;Economía y Administración de Empresas;O;4;C;1;ROGELIO OLAVARRI FERNANDEZ;S;13;7;0;0;20;33,34
+G83(*);Ecuaciones Diferenciales Ordinarias;U;2;C;1;DELFINA GOMEZ GANDARILLAS;S;30;54;6;0;90;100
+G48(*);Estadística Básica;B;1;C;2;ARACELI TUERO DIAZ;S;30;25;10;0;65;100
+G90(*);Estructuras Algebraicas;U;2;C;2;MARIA PILAR FERNANDEZ-FERREIROS ERVITI;S;35;25;0;0;60;100
+G651(*);Estructuras de Datos;O;4;C;1;JULIO LUIS MEDINA PASAJE;N;0;0;50;0;50;20
+G651(*);Estructuras de Datos;O;4;C;1;MARIO ALDEA RIVAS;S;20;20;30;0;70;64
+G651(*);Estructuras de Datos;O;4;C;1;HECTOR PEREZ TIJERO;N;0;0;40;0;40;16
+G46;Física Básica Experimental;B;1;C;1;RAFAEL VALIENTE BARROSO;N;0;0;9;0;9;13
+G46;Física Básica Experimental;B;1;C;1;MERCEDES LOPEZ QUELLE;N;4;12;9;0;25;23
+G46;Física Básica Experimental;B;1;C;1;FRANCISCO JESUS CARRERA TROYANO;S;25;16,5;0;0;41,5;55
+G46;Física Básica Experimental;B;1;C;1;SILVIA MATEOS IBAÑEZ;N;3;5,5;9;0;17,5;9
+G96(*);Geometría de Curvas y Superficies;U;2;C;2;DEMETRIO DOMINGUEZ PLATA;S;30;25;5;0;60;100
+G112;Geometría Proyectiva y Algebraica;O;4;C;2;FERNANDO ETAYO GORDEJUELA;S;17;11;2;0;30;50
+G112;Geometría Proyectiva y Algebraica;O;4;C;2;LUIS FELIPE TABERA ALONSO;N;15;11;4;0;30;50
+G45;Geometría, Arte y Naturaleza;B;1;C;2;DEMETRIO DOMINGUEZ PLATA;N;6;7;2;0;15;25
+G45;Geometría, Arte y Naturaleza;B;1;C;2;MARIO ALFREDO FIORAVANTI VILLANUEVA;S;24;17;4;0;45;75
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;RAMON GANDARILLAS PEREZ;N;2;0;6;0;8;6
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;MARIO ALFREDO FIORAVANTI VILLANUEVA;S;4;0;0;0;4;4
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;NURIA CORRAL PEREZ;N;0;0;40;0;40;28
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;OLGA MARIA CONDE PORTILLA;N;0;8;0;0;8;6
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;ADOLFO COBO GARCIA;N;0;8;0;0;8;6
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;ERNESTO ANABITARTE CANO;N;8;0;0;0;8;6
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;IRENE GONZALEZ PEREZ;N;2;0;0;0;2;2
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;CARMEN MARIA SARABIA COBO;N;8;0;0;0;8;6
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;LUCIA LLANO MARTINEZ;N;4;0;0;0;4;3
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;LUIS JAVIER MARTINEZ RODRIGUEZ;N;0;0;6;0;6;3
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;TOMAS MARTIN HERNANDEZ;N;0;0;40;0;40;28
+G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;MARIO MAÑANA CANTELI;N;2;0;0;0;2;2
+G899(*);Herramientas para la Decisión en Operaciones;O;4;C;1;BEATRIZ BLANCO ROJO;S;30;30;60;0;120;50
+G899(*);Herramientas para la Decisión en Operaciones;O;4;C;1;LIDIA SANCHEZ RUIZ;N;30;30;60;0;120;50
+G1752(*);Hilbert Spaces;U;3;C;1;JESUS ARAUJO GOMEZ;S;39;21;0;0;60;100
+G260(*);Inglés;B;1;C;2;MARIA ANDREA MONTIEL PAZ;S;20;40;0;0;60;100
+G85(*);Introducción a las Ecuaciones en Derivadas Parciales;U;2;C;2;LUIS ALBERTO FERNANDEZ FERNANDEZ;S;30;60;0;0;90;100
+G655(*);Introducción a los Sistemas Inteligentes;O;4;C;1;DOMINGO GOMEZ PEREZ;N;0;10;20;0;30;30
+G655(*);Introducción a los Sistemas Inteligentes;O;4;C;1;INES GONZALEZ RODRIGUEZ;S;30;10;20;0;60;70
+G43(*);Introducción al Lenguaje Matemático;B;1;C;1;CECILIA VALERO REVENGA;S;32;28;0;0;60;100
+G907(*);Investigación de Mercados;O;4;C;2;LUIS VELLIDO ESCUDERO;N;10;10;10;0;30;15
+G907(*);Investigación de Mercados;O;4;C;2;MARIA LUISA GALLO ALEGRIA;N;50;30;10;0;90;25
+G907(*);Investigación de Mercados;O;4;C;2;HECTOR SAN MARTIN GUTIERREZ;N;30;20;10;0;60;30
+G907(*);Investigación de Mercados;O;4;C;2;JESUS COLLADO AGUDO;S;30;20;10;0;60;30
+G345(*);Macroeconomía;O;4;C;2;NAMKEE AHN JUNG;S;12;8;0;0;20;44,5
+G345(*);Macroeconomía;O;4;C;2;MERCEDES NURIA SANCHEZ SANCHEZ;N;24;16;0;0;40;18
+G345(*);Macroeconomía;O;4;C;2;GUSTAVO COTERO BADA;N;36;24;0;0;60;12,5
+G345(*);Macroeconomía;O;4;C;2;VALERIANO MARTINEZ SAN ROMAN;N;36;24;0;0;60;25
+G119;Matemáticas para la Educación Secundaria;O;4;C;2;IGNACIO GONZALEZ RUIZ;S;30;30;0;0;60;100
+G271(*);Métodos de Programación;O;4;C;2;MARIO ALDEA RIVAS;S;20;20;60;0;100;70
+G271(*);Métodos de Programación;O;4;C;2;JOSE CARLOS PALENCIA GUTIERREZ;N;0;0;30;0;30;15
+G271(*);Métodos de Programación;O;4;C;2;PROFESOR EXTERNO      916157;N;0;0;30;0;30;15
+G680(*);Modelos de Cálculo;O;4;C;1;CRISTINA TIRNAUCA;S;30;0;30;0;60;100
+G1753;Numerical Analysis III;O;4;O;2;JOSE JAVIER SEGURA SALA;S;24;12;24;0;60;100
+G100;Optimización I;U;3;C;2;MARIA CECILIA POLA MENDEZ;S;30;0;30;0;60;100
+G47(*);Programación;B;1;C;2;MICHAEL GONZALEZ HARBOUR;S;20;10;0;0;30;24
+G47(*);Programación;B;1;C;2;JOSE JAVIER GUTIERREZ GARCIA;N;0;10;30;0;40;12
+G47(*);Programación;B;1;C;2;ADOLFO GARANDAL MARTIN;N;0;0;60;0;60;14
+G47(*);Programación;B;1;C;2;JOSE CARLOS PALENCIA GUTIERREZ;N;20;0;30;0;50;26
+G47(*);Programación;B;1;C;2;JOSE IGNACIO ESPESO MARTINEZ;N;0;20;60;0;80;24
+G94;Statistical Inference;U;3;C;2;ALICIA NIETO REYES;S;30;15;15;0;60;100
+G102;Taller de Modelización;U;3;C;2;ALICIA NIETO REYES;N;10;5;5;0;20;33,33
+G102;Taller de Modelización;U;3;C;2;FERNANDO ETAYO GORDEJUELA;N;10;5;5;0;20;33,33
+G102;Taller de Modelización;U;3;C;2;LUIS ALBERTO FERNANDEZ FERNANDEZ;S;10;5;5;0;20;33,34
+G106;Teoría Cualitativa de EDO;O;4;C;1;DELFINA GOMEZ GANDARILLAS;S;30;15;15;0;60;100
+G91;Teoría de Galois;U;3;C;1;MARIA PILAR FERNANDEZ-FERREIROS ERVITI;S;35;25;0;0;60;100
+G105;Teoría de la Medida;O;4;C;2;JESUS ARAUJO GOMEZ;S;35;25;0;0;60;100
+G97;Teoría Global de Superficies;U;3;C;1;FERNANDO ETAYO GORDEJUELA;S;38;22;0;0;60;100
+G95(*);Topología;U;2;C;1;NURIA CORRAL PEREZ;S;35;25;0;0;60;100
+G111;Topología Algebraica;O;4;C;1;NURIA CORRAL PEREZ;S;38;22;0;0;60;100
+G87(*);Variable Compleja;U;3;C;2;CARLOS BELTRAN ALVAREZ;N;0;21;0;0;21;20
+G87(*);Variable Compleja;U;3;C;2;JAIME VINUESA TEJEDOR;S;39;0;0;0;39;80
+G110;Variedades Diferenciables;O;4;C;1;DEMETRIO DOMINGUEZ PLATA;S;32;24;4;0;60;100
+TOTAL DEL TITULO:;;;;;;;;1908;1474;1114;0;4496;5200
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+(*):;Asignatura compartida por varios titulos;;;;;;;;;;;;

@@ -1,2 +1,4 @@
 # Proyecto_Calendario
-Organizing a time schedule for a whole course
+Organizing a time schedule for a whole course.
+This is a project for the Universidad de Cantabria designed to
+automatize the process of Timetabling.
