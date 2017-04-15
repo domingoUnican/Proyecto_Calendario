@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-04-15 22:57:21.005880</Date>
+<Date>2017-04-15 23:37:00.562751</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -438,19 +438,19 @@
 </ResourceGroup>
 <ResourceGroup Id="gr_Aula_Grande">
 <Name>Aula Grande</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </ResourceGroup>
 <ResourceGroup Id="gr_Aula_Normal">
 <Name>Aula Normal</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </ResourceGroup>
 <ResourceGroup Id="gr_Laboratorio">
 <Name>Laboratorio</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </ResourceGroup>
 <ResourceGroup Id="gr_Aula_Pequena">
 <Name>Aula Pequena</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </ResourceGroup>
 <ResourceGroup Id="Class_11_DOBLE">
 <Name>Clase 1 (grupo 1) de DOBLE</Name>
@@ -2117,7 +2117,7 @@
 <Resource Reference="SILVIA_MATEOS_IBANEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2136,7 +2136,7 @@
 <Resource Reference="FRANCISCO_MATORRAS_WEINIG" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2153,7 +2153,7 @@
 <Resource Reference="OSCAR_IGLESIAS_VALINO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2169,7 +2169,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2185,7 +2185,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2204,7 +2204,7 @@
 <Resource Reference="FERNANDO_M._DUQUE_CALVO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2222,7 +2222,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2238,7 +2238,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2258,7 +2258,7 @@
 <Resource Reference="LUIS_PESQUERA_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2281,7 +2281,7 @@
 <Resource Reference="MARIO_ALFREDO_FIORAVANTI_VILLANUEVA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2300,7 +2300,7 @@
 <Resource Reference="JOSE_ANTONIO_ARAMBURU-ZABALA_HIGUERA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2319,7 +2319,7 @@
 <Resource Reference="FERNANDO_MORENO_GRACIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2336,7 +2336,7 @@
 <Resource Reference="HORACIO_SERGIO_WIO_BEITELMAJER" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2354,7 +2354,7 @@
 <Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2372,7 +2372,7 @@
 <Resource Reference="IGNACIO_ORDOVAS_PASCUAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2388,7 +2388,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2406,7 +2406,7 @@
 <Resource Reference="RAFAEL_FRANCISCO_DE_SALES_BLANCO_ALCANIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2424,7 +2424,7 @@
 <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2441,7 +2441,7 @@
 <Resource Reference="ANTONIO_RODRIGUEZ_YUNTA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2458,7 +2458,7 @@
 <Resource Reference="FRANCISCO_JAVIER_JUNQUERA_QUINTANA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2474,7 +2474,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2492,7 +2492,7 @@
 <Resource Reference="FERNANDO_GONZALEZ_MARTINEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2511,7 +2511,7 @@
 <Resource Reference="MARIA_ISABEL_GUTIERREZ_DIAZ-VELARDE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2529,7 +2529,7 @@
 <Resource Reference="LUIS_JULIAN_GOICOECHEA_SANTAMARIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2546,7 +2546,7 @@
 <Resource Reference="ALBERTO_GONZALEZ_DIEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2565,7 +2565,7 @@
 <Resource Reference="IVAN_VILA_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2584,7 +2584,7 @@
 <Resource Reference="MARIA_ELENA_MEDIAVILLA_BOLADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2600,7 +2600,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2619,7 +2619,7 @@
 <Resource Reference="PABLO_PRIETO_TORRALBO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2636,7 +2636,7 @@
 <Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2656,7 +2656,7 @@
 <Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2675,7 +2675,7 @@
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2693,7 +2693,7 @@
 <Resource Reference="FERNANDO_LOPEZ_VEGA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2710,7 +2710,7 @@
 <Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2730,7 +2730,7 @@
 <Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2746,7 +2746,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2764,7 +2764,7 @@
 <Resource Reference="ROSA_PILAR_OBREGON_CANIZAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2780,7 +2780,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2797,7 +2797,7 @@
 <Resource Reference="EDUARDO_GARCIA_TORRE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2815,7 +2815,7 @@
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2831,7 +2831,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2847,7 +2847,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2866,7 +2866,7 @@
 <Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2882,7 +2882,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2898,7 +2898,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2917,7 +2917,7 @@
 <Resource Reference="CRISTINA_TIRNAUCA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2936,7 +2936,7 @@
 <Resource Reference="FRANCISCO_JOSE_ALCALA_GALAN" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2953,7 +2953,7 @@
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2969,7 +2969,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2987,7 +2987,7 @@
 <Resource Reference="JOSE_ANGEL_IRASTORZA_TEJA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3004,7 +3004,7 @@
 <Resource Reference="VALENTIN_PUENTE_VARONA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3020,7 +3020,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3036,7 +3036,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3052,7 +3052,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3068,7 +3068,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3085,7 +3085,7 @@
 <Resource Reference="DIEGO_GARCIA_SAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3104,7 +3104,7 @@
 <Resource Reference="CECILIA_VALERO_REVENGA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3123,7 +3123,7 @@
 <Resource Reference="TOMAS_JESUS_RECIO_MUNIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3141,7 +3141,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3158,7 +3158,7 @@
 <Resource Reference="FRANCISCO_JESUS_CARRERA_TROYANO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3176,7 +3176,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3194,7 +3194,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3212,7 +3212,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Grande" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3230,7 +3230,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3249,7 +3249,7 @@
 <Resource Reference="PAULA_NAVARRO_ESTEBAN" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3266,7 +3266,7 @@
 <Resource Reference="MARIA_PILAR_FERNANDEZ-FERREIROS_ERVITI" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3285,7 +3285,7 @@
 <Resource Reference="JESUS_ARAUJO_GOMEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3305,7 +3305,7 @@
 <Resource Reference="FRANCISCO_SANTOS_LEAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3322,7 +3322,7 @@
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3339,7 +3339,7 @@
 <Resource Reference="FERNANDO_ETAYO_GORDEJUELA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Normal" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3355,7 +3355,7 @@
 <Resource Reference="Class_12_MATEMATICAS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3374,7 +3374,7 @@
 <Resource Reference="ROGELIO_OLAVARRI_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3390,7 +3390,7 @@
 <Resource Reference="Class_12_MATEMATICAS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3407,7 +3407,7 @@
 <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3423,7 +3423,7 @@
 <Resource Reference="Class_12_MATEMATICAS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3443,7 +3443,7 @@
 <Resource Reference="ESTEBAN_FERNANDEZ_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3461,7 +3461,7 @@
 <Resource Reference="LIDIA_SANCHEZ_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3478,7 +3478,7 @@
 <Resource Reference="ESTEBAN_STAFFORD_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Aula_Pequena" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3495,7 +3495,7 @@
 <Resource Reference="SILVIA_MATEOS_IBANEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3512,7 +3512,7 @@
 <Resource Reference="FRANCISCO_MATORRAS_WEINIG" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3528,7 +3528,7 @@
 <Resource Reference="OSCAR_IGLESIAS_VALINO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3543,7 +3543,7 @@
 <Resource Reference="Class_11_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3558,7 +3558,7 @@
 <Resource Reference="Class_11_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3576,7 +3576,7 @@
 <Resource Reference="LUIS_PESQUERA_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3596,7 +3596,7 @@
 <Resource Reference="MARIO_ALFREDO_FIORAVANTI_VILLANUEVA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3613,7 +3613,7 @@
 <Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3630,7 +3630,7 @@
 <Resource Reference="IGNACIO_ORDOVAS_PASCUAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3645,7 +3645,7 @@
 <Resource Reference="Class_11_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3662,7 +3662,7 @@
 <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3678,7 +3678,7 @@
 <Resource Reference="ANTONIO_RODRIGUEZ_YUNTA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3694,7 +3694,7 @@
 <Resource Reference="FRANCISCO_JAVIER_JUNQUERA_QUINTANA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3709,7 +3709,7 @@
 <Resource Reference="Class_11_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3727,7 +3727,7 @@
 <Resource Reference="MARIA_ISABEL_GUTIERREZ_DIAZ-VELARDE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3744,7 +3744,7 @@
 <Resource Reference="LUIS_JULIAN_GOICOECHEA_SANTAMARIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3762,7 +3762,7 @@
 <Resource Reference="IVAN_VILA_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3780,7 +3780,7 @@
 <Resource Reference="MARIA_ELENA_MEDIAVILLA_BOLADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3795,7 +3795,7 @@
 <Resource Reference="Class_11_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3813,7 +3813,7 @@
 <Resource Reference="PABLO_PRIETO_TORRALBO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3829,7 +3829,7 @@
 <Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3848,7 +3848,7 @@
 <Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3866,7 +3866,7 @@
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3882,7 +3882,7 @@
 <Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3900,7 +3900,7 @@
 <Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3915,7 +3915,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3932,7 +3932,7 @@
 <Resource Reference="ROSA_PILAR_OBREGON_CANIZAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3948,7 +3948,7 @@
 <Resource Reference="EDUARDO_GARCIA_TORRE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3965,7 +3965,7 @@
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3980,7 +3980,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3995,7 +3995,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4012,7 +4012,7 @@
 <Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4027,7 +4027,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4042,7 +4042,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4059,7 +4059,7 @@
 <Resource Reference="CRISTINA_TIRNAUCA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4077,7 +4077,7 @@
 <Resource Reference="FRANCISCO_JOSE_ALCALA_GALAN" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4093,7 +4093,7 @@
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4108,7 +4108,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4125,7 +4125,7 @@
 <Resource Reference="JOSE_ANGEL_IRASTORZA_TEJA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4141,7 +4141,7 @@
 <Resource Reference="VALENTIN_PUENTE_VARONA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4156,7 +4156,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4171,7 +4171,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4186,7 +4186,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4201,7 +4201,7 @@
 <Resource Reference="Class_11_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4217,7 +4217,7 @@
 <Resource Reference="DIEGO_GARCIA_SAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4234,7 +4234,7 @@
 <Resource Reference="TOMAS_JESUS_RECIO_MUNIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4250,7 +4250,7 @@
 <Resource Reference="FRANCISCO_JESUS_CARRERA_TROYANO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4266,7 +4266,7 @@
 <Resource Reference="Class_11_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4284,7 +4284,7 @@
 <Resource Reference="FRANCISCO_SANTOS_LEAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4300,7 +4300,7 @@
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4315,7 +4315,7 @@
 <Resource Reference="Class_11_MATEMATICAS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4331,7 +4331,7 @@
 <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4350,7 +4350,7 @@
 <Resource Reference="ESTEBAN_FERNANDEZ_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4367,7 +4367,7 @@
 <Resource Reference="LIDIA_SANCHEZ_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4383,7 +4383,7 @@
 <Resource Reference="ESTEBAN_STAFFORD_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4400,7 +4400,7 @@
 <Resource Reference="SILVIA_MATEOS_IBANEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4417,7 +4417,7 @@
 <Resource Reference="FRANCISCO_MATORRAS_WEINIG" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4433,7 +4433,7 @@
 <Resource Reference="OSCAR_IGLESIAS_VALINO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4448,7 +4448,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4463,7 +4463,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4481,7 +4481,7 @@
 <Resource Reference="LUIS_PESQUERA_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4501,7 +4501,7 @@
 <Resource Reference="MARIO_ALFREDO_FIORAVANTI_VILLANUEVA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4518,7 +4518,7 @@
 <Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4535,7 +4535,7 @@
 <Resource Reference="IGNACIO_ORDOVAS_PASCUAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4550,7 +4550,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4567,7 +4567,7 @@
 <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4583,7 +4583,7 @@
 <Resource Reference="ANTONIO_RODRIGUEZ_YUNTA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4599,7 +4599,7 @@
 <Resource Reference="FRANCISCO_JAVIER_JUNQUERA_QUINTANA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4614,7 +4614,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4632,7 +4632,7 @@
 <Resource Reference="MARIA_ISABEL_GUTIERREZ_DIAZ-VELARDE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4649,7 +4649,7 @@
 <Resource Reference="LUIS_JULIAN_GOICOECHEA_SANTAMARIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4667,7 +4667,7 @@
 <Resource Reference="IVAN_VILA_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4685,7 +4685,7 @@
 <Resource Reference="MARIA_ELENA_MEDIAVILLA_BOLADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4700,7 +4700,7 @@
 <Resource Reference="Class_12_FISICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4718,7 +4718,7 @@
 <Resource Reference="PABLO_PRIETO_TORRALBO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4734,7 +4734,7 @@
 <Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4753,7 +4753,7 @@
 <Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4771,7 +4771,7 @@
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4787,7 +4787,7 @@
 <Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4805,7 +4805,7 @@
 <Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4820,7 +4820,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4837,7 +4837,7 @@
 <Resource Reference="ROSA_PILAR_OBREGON_CANIZAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4853,7 +4853,7 @@
 <Resource Reference="EDUARDO_GARCIA_TORRE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4870,7 +4870,7 @@
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4885,7 +4885,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4900,7 +4900,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4917,7 +4917,7 @@
 <Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4932,7 +4932,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4947,7 +4947,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4964,7 +4964,7 @@
 <Resource Reference="CRISTINA_TIRNAUCA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4982,7 +4982,7 @@
 <Resource Reference="FRANCISCO_JOSE_ALCALA_GALAN" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -4998,7 +4998,7 @@
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5013,7 +5013,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5030,7 +5030,7 @@
 <Resource Reference="JOSE_ANGEL_IRASTORZA_TEJA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5046,7 +5046,7 @@
 <Resource Reference="VALENTIN_PUENTE_VARONA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5061,7 +5061,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5076,7 +5076,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5091,7 +5091,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5106,7 +5106,7 @@
 <Resource Reference="Class_12_INFORMATICA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5122,7 +5122,7 @@
 <Resource Reference="DIEGO_GARCIA_SAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5139,7 +5139,7 @@
 <Resource Reference="TOMAS_JESUS_RECIO_MUNIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5155,7 +5155,7 @@
 <Resource Reference="FRANCISCO_JESUS_CARRERA_TROYANO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5171,7 +5171,7 @@
 <Resource Reference="Class_12_DOBLE" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5189,7 +5189,7 @@
 <Resource Reference="FRANCISCO_SANTOS_LEAL" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5205,7 +5205,7 @@
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5220,7 +5220,7 @@
 <Resource Reference="Class_12_MATEMATICAS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5236,7 +5236,7 @@
 <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5255,7 +5255,7 @@
 <Resource Reference="ESTEBAN_FERNANDEZ_GONZALEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5272,7 +5272,7 @@
 <Resource Reference="LIDIA_SANCHEZ_RUIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5288,7 +5288,7 @@
 <Resource Reference="ESTEBAN_STAFFORD_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratorio" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -5322,6 +5322,21 @@
 </ResourceGroups>
 </AppliesTo>
 </AvoidClashesConstraint>
+<PreferTimesConstraint Id="manana">
+<Name>Todo por la mañana</Name>
+<Required>false</Required>
+<Weight>1</Weight>
+<CostFunction>Linear</CostFunction>
+<AppliesTo>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</AppliesTo>
+<TimeGroups>
+<TimeGroup Reference="AntesDescanso" />
+<TimeGroup Reference="DespuesDescanso" />
+</TimeGroups>
+</PreferTimesConstraint>
 </Constraints>
 </Instance>
 </Instances>

@@ -155,7 +155,7 @@ class Csv2Xml(object):
                                               Id='gr_'+tipo)
             name = etree.SubElement(resource_group, 'Name')
             name.text = TYPES_ROOMS_NAMES[tipo]
-            etree.SubElement(resource_group, 'ResourceType',Reference='Room')
+            etree.SubElement(resource_group, 'ResourceType',Reference=tipo)
         for curso in CLASSES:
             resource_group = etree.SubElement(resources_groups, 'ResourceGroup',
                                               Id=curso)
@@ -250,7 +250,7 @@ class Csv2Xml(object):
             resource = etree.SubElement(resources, 'Resource')
             role = etree.SubElement(resource, 'Role')
             role.text = 'Room'
-            etree.SubElement(resource, 'ResourceType',  Reference = 'Room')
+            etree.SubElement(resource, 'ResourceType',  Reference = size_room(self.asig[asign][4]))
             event_groups = etree.SubElement(event_t, 'EventGroups')
             etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
         # This is to generate the labs
@@ -289,7 +289,7 @@ class Csv2Xml(object):
                 role = etree.SubElement(resource, 'Role')
                 role.text = 'Room'
                 etree.SubElement(resource, 'ResourceType',
-                                                 Reference = 'Room')
+                                                 Reference = 'Laboratorio')
                 event_groups = etree.SubElement(event_t, 'EventGroups')
                 etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
 
