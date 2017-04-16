@@ -24,6 +24,12 @@
                     orientation: 'horizontal'
                     padding: 50
                     id: _afternoon
+			Screen:
+                name: 'incidencias'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: 50
+                    id: _incidences
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'bottom'
@@ -39,6 +45,9 @@
             Button:
                 text: 'Horario de tarde'
                 on_press: _screen_manager.current = 'noche'
+			Button:
+                text: 'Incidencias'
+                on_press: _screen_manager.current = 'incidencias'
             Button:
                 text: 'Guardar'
 				on_press: app.save()
