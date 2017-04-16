@@ -59,11 +59,6 @@ class Boxes(FloatLayout):
         asignaturas=[]
         cursos=[]
 
-        #profesores = excel.lectura('profesores.csv', profesores)
-        #salas = excel.lectura('aulas.csv', salas)
-        #asignaturas = excel.lectura('asig.csv', asignaturas)
-        #cursos = excel.lectura('curso.csv', cursos)
-
         print('LEYENDO XML')
 
         doc = etree.parse('outfile.xml')
@@ -75,12 +70,12 @@ class Boxes(FloatLayout):
         #Recupera profesores, aulas y cursos
         for child in resources:
             resource = child.find('ResourceType')
-            
+
             '''Inserto los botones según los datos'''
             if resource is not None:
                 resourceType = resource.get('Reference')
             
-            if resourceType == 'Profesores':
+            if resourceType == 'Teacher':
                 #Inserto los botones de los profesores
                 #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
@@ -91,7 +86,7 @@ class Boxes(FloatLayout):
                 # add el boton dentro del dropdown
                 profes.add_widget(btn)
 
-            if resourceType == 'Aulas':
+            if resourceType == 'Room':
                 #Inserto los botones de los profesores
                 #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
@@ -102,7 +97,7 @@ class Boxes(FloatLayout):
                 # add el boton dentro del dropdown
                 aulas.add_widget(btn)
 
-            if resourceType == 'Cursos':
+            if resourceType == 'Class':
                 #Inserto los botones de los profesores
                 #print(child.findtext('Name'))
                 btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
@@ -116,16 +111,31 @@ class Boxes(FloatLayout):
         events = timegroups.find('Events')
         
         for child in events:
-            event = child.find('Event')
-            #print(child.findtext('Name'))
-            btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: asigns.select(btn.text))
+            '''event = child.find('Event')'''
 
-            # add el boton dentro del dropdown
-            asigns.add_widget(btn)
+            '''Inserto las asignaturas'''
+            if child.findtext('Name') is not None:
+                #print(child.findtext('Name'))
+                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                # Mostrar el menu
+                btn.bind(on_release=lambda btn: asigns.select(btn.text))
 
+                # add el boton dentro del dropdown
+                asigns.add_widget(btn)
 
+        #Añado un boton vacio a cada desplegable      
+        # Profesores
+        btn = Button(text='Ninguno', size_hint_y=None, height=44)
+        btn.bind(on_release=lambda btn: profes.select(btn.text))
+        profes.add_widget(btn)
+        # aulas
+        btn = Button(text='Ninguna', size_hint_y=None, height=44) 
+        btn.bind(on_release=lambda btn: aulas.select(btn.text))
+        aulas.add_widget(btn)
+        #Cursos
+        btn = Button(text='Ninguno', size_hint_y=None, height=44) 
+        btn.bind(on_release=lambda btn: curs.select(btn.text))
+        curs.add_widget(btn)
 
         #añado los desplegables a la pantalla
         profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 350)
@@ -212,4 +222,30 @@ class Boxes(FloatLayout):
                             grandchild.select = 0
                             grandchild.disabled = False
                             self.numPulsaciones = self.numPulsaciones + 1
+
+            # Recorro la ventana contraria por si provenía de allí
+            ids = self.ids['_screen_manager'].current
+
+            if ids == 'dia':
+                ids = '_afternoon'
+            else:
+                ids = '_morning'
+
+            #Compruebo que si se han intercambiado entre mañana y tarde
+            for child in self.ids[ids].children:
+                for grandchild in child.children:
+                    if grandchild.select == 2:
+                        if grandchild != self.segundo:
+                            #Intercambio el segundo
+                            grandchild.text = a
+                            grandchild.select = 0
+                            grandchild.disabled = False
+
             self.numPulsaciones = 0
+                            
+
+
+            
+            
+
+                            
