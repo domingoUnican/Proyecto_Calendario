@@ -61,7 +61,7 @@ class Boxes(FloatLayout):
 
         print('LEYENDO XML')
 
-        doc = etree.parse('outfile.xml')
+        doc = etree.parse('datos/outfile3.xml')
         #print(doc)
         timegroups = doc.getroot().find('Instances')
         timegroups = timegroups.find('Instance')
