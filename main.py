@@ -41,8 +41,8 @@ class TestApp(App):
         horarioPrincipal.incluye_hora('Lunes','Ingles',timedelta(hours=10), timedelta(hours=11))
         horarioPrincipal.incluye_hora('Martes','Lengua',timedelta(hours=9), timedelta(hours=11))
         horarioPrincipal.incluye_hora('Miercoles','Frances',timedelta(hours=9), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Jueves','Ingles',timedelta(hours=10), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Jueves','Frances',timedelta(hours=9), timedelta(hours=10))
+        horarioPrincipal.incluye_hora('Jueves','Ingles',timedelta(hours=9), timedelta(hours=10))
+        horarioPrincipal.incluye_hora('Jueves','Frances',timedelta(hours=10), timedelta(hours=11))
         horarioPrincipal.incluye_hora('Viernes','Frances',timedelta(hours=9), timedelta(hours=11))
 
         for dia in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
