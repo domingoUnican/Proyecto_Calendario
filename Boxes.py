@@ -61,7 +61,7 @@ class Boxes(FloatLayout):
 
         print('LEYENDO XML')
 
-        doc = etree.parse('datos/outfile3.xml')
+        doc = etree.parse('outfile.xml')
         #print(doc)
         timegroups = doc.getroot().find('Instances')
         timegroups = timegroups.find('Instance')
@@ -201,11 +201,14 @@ class Boxes(FloatLayout):
                     if grandchild.select == 2:
                         if grandchild != self.primero:
                             self.segundo = grandchild
-                            a = grandchild.text
+                            a = grandchild.text.splitlines()
                             self.numPulsaciones = self.numPulsaciones + 1
 
                             #Intercambio el primero
-                            grandchild.text = self.primero.text
+                            print('Texto 1:')
+                            print(self.primero.text)
+                            texto = self.primero.text.splitlines()
+                            grandchild.text = ('%s\n%s\n%s')%(texto[0], texto[1], a[2])
                             grandchild.select = 0
                             grandchild.disabled = False
 
@@ -218,7 +221,9 @@ class Boxes(FloatLayout):
                     if grandchild.select == 2:
                         if grandchild != self.segundo:
                             #Intercambio el segundo
-                            grandchild.text = a
+                            print('Texto 2:')
+                            print(a)
+                            grandchild.text = ('%s\n%s\n%s')%(a[0], a[1], texto[2])                            
                             grandchild.select = 0
                             grandchild.disabled = False
                             self.numPulsaciones = self.numPulsaciones + 1
@@ -237,15 +242,8 @@ class Boxes(FloatLayout):
                     if grandchild.select == 2:
                         if grandchild != self.segundo:
                             #Intercambio el segundo
-                            grandchild.text = a
+                            grandchild.text = ('%s\n%s\n%s')%(a[0], a[1], texto[2])  
                             grandchild.select = 0
                             grandchild.disabled = False
 
             self.numPulsaciones = 0
-                            
-
-
-            
-            
-
-                            
