@@ -37,17 +37,17 @@ class TestApp(App):
 ##            reference = event.get('Reference')
 ##            print(reference)
         
-        horarioPrincipal.incluye_hora('Lunes','Mates',timedelta(hours=9), timedelta(hours=10))
-        horarioPrincipal.incluye_hora('Lunes','Ingles',timedelta(hours=10), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Martes','Lengua',timedelta(hours=9), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Miercoles','Frances',timedelta(hours=9), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Jueves','Ingles',timedelta(hours=9), timedelta(hours=10))
-        horarioPrincipal.incluye_hora('Jueves','Frances',timedelta(hours=10), timedelta(hours=11))
-        horarioPrincipal.incluye_hora('Viernes','Frances',timedelta(hours=9), timedelta(hours=11))
+        horarioPrincipal.incluye_hora('Lunes','Mates','Aula 1',timedelta(hours=9), timedelta(hours=10))
+        horarioPrincipal.incluye_hora('Lunes','Ingles','Aula 2',timedelta(hours=10), timedelta(hours=11))
+        horarioPrincipal.incluye_hora('Martes','Lengua','Aula 3',timedelta(hours=9), timedelta(hours=11))
+        horarioPrincipal.incluye_hora('Miercoles','Frances','Aula 4',timedelta(hours=9), timedelta(hours=11))
+        horarioPrincipal.incluye_hora('Jueves','Ingles','Aula 5',timedelta(hours=9), timedelta(hours=10))
+        horarioPrincipal.incluye_hora('Jueves','Frances','Aula 6',timedelta(hours=10), timedelta(hours=11))
+        horarioPrincipal.incluye_hora('Viernes','Frances','Aula 7',timedelta(hours=9), timedelta(hours=11))
 
         for dia in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
             for i in range(11,19):
-                horarioPrincipal.incluye_hora(dia,'Libre',timedelta(hours=i), timedelta(hours=i+1))
+                horarioPrincipal.incluye_hora(dia,'Libre','Sin Aula',timedelta(hours=i), timedelta(hours=i+1))
 
         return Boxes(horarioPrincipal)
 
