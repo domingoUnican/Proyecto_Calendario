@@ -22,6 +22,10 @@ class Boxes(FloatLayout):
         
         super(Boxes, self).__init__(**kwargs)
 
+        #Fichero de lectura
+        doc = etree.parse('datos/outfile3.xml')
+
+        
         #añado los botones al horario
         for dia in horarioPrincipal.dias:
             bx_m = BoxLayout(orientation='vertical')#mañana
@@ -29,23 +33,33 @@ class Boxes(FloatLayout):
 
             #añado dias
             nombre = dia
-            bx_m.add_widget(Boton(text=nombre, size_hint_y=0.02))
-            bx_t.add_widget(Boton(text=nombre, size_hint_y=0.02))
+            btn = Boton(text=nombre, size_hint_y=0.02)
+            btn.setIdent(nombre)
+            bx_m.add_widget(btn)
+
+            btn = Boton(text=nombre, size_hint_y=0.02)
+            btn.setIdent(nombre)
+            bx_t.add_widget(btn)
+            
             
             #Botones de mañana
+            hour = 9
             for texto, porcentaje in horarioPrincipal.clases_manana(nombre):
-                btn = Boton(text = texto,
-                             size_hint_y = porcentaje)
+                btn = Boton(text = texto, size_hint_y = porcentaje)
                 btn.bind(on_release = lambda x:self.intercambia(horario=horarioPrincipal))
+                btn.setIdent(hour)
                 bx_m.add_widget(btn)
+                hour = hour +1
             self.ids['_morning'].add_widget(bx_m)
 
             #Botones de tarde
+            hour = 15
             for texto, porcentaje in horarioPrincipal.clases_tarde(nombre):
-                btn = Boton(text = texto,
-                             size_hint_y = porcentaje)
+                btn = Boton(text = texto, size_hint_y = porcentaje)
                 btn.bind(on_release = lambda x:self.intercambia(horario=horarioPrincipal))
+                btn.setIdent(hour)
                 bx_t.add_widget(btn)
+                hour = hour +1
             self.ids['_afternoon'].add_widget(bx_t)
 
         #Añado los desplegables de la primera pantalla   
@@ -59,9 +73,8 @@ class Boxes(FloatLayout):
         asignaturas=[]
         cursos=[]
 
-        print('LEYENDO XML')
+        print('LEYENDO DATOS DESPLEGABLES')
 
-        doc = etree.parse('outfile.xml')
         #print(doc)
         timegroups = doc.getroot().find('Instances')
         timegroups = timegroups.find('Instance')
@@ -144,7 +157,7 @@ class Boxes(FloatLayout):
         aulasbutton.bind(on_release=aulas.open)
         asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 450)
         asignsbutton.bind(on_release=asigns.open)
-        cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 150)
+        cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 250)
         cursosbutton.bind(on_release=curs.open)
         aulas.bind(on_select=lambda instance, x: setattr(aulasbutton, 'text', x))
         profes.bind(on_select=lambda instance, x: setattr(profesbutton, 'text', x))
@@ -187,6 +200,7 @@ class Boxes(FloatLayout):
                         print(grandchild)
                         print(self.primero)
                         print(grandchild.text)
+                        print(grandchild.ident)
                         print(grandchild.select)
                         print('i:'+str(self.i))
                         print('j:'+str(self.j))
