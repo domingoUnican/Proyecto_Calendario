@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-05-01 00:24:15.424675</Date>
+<Date>2017-05-01 00:35:40.637934</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -796,20 +796,6 @@
 </Resource>
 <Resource Id="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ">
 <Name>LUIS ALBERTO FERNANDEZ FERNANDEZ</Name>
-<ResourceType Reference="Teacher" />
-<ResourceGroups>
-<ResourceGroup Reference="gr_Teacher" />
-</ResourceGroups>
-</Resource>
-<Resource Id="JOSE_ANGEL_MIER_MAZA">
-<Name>JOSE ANGEL MIER MAZA</Name>
-<ResourceType Reference="Teacher" />
-<ResourceGroups>
-<ResourceGroup Reference="gr_Teacher" />
-</ResourceGroups>
-</Resource>
-<Resource Id="OMAR_FERNANDO_CASTELLANOS_BALLESTEROS">
-<Name>OMAR FERNANDO CASTELLANOS BALLESTEROS</Name>
 <ResourceType Reference="Teacher" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Teacher" />
@@ -1969,9 +1955,6 @@
 <Course Id="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA">
 <Name>MATEMATICAS PARA LA EDUCACION SECUNDARIA</Name>
 </Course>
-<Course Id="ESTADISTICA_BASICA">
-<Name>ESTADISTICA BASICA</Name>
-</Course>
 <Course Id="F.E.IV_PRACTICAS_EWB">
 <Name>F.E.IV PRACTICAS EWB</Name>
 </Course>
@@ -2002,9 +1985,6 @@
 <Course Id="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV">
 <Name>FISICA CUANTICA Y ESTRUCTURA DE LA MATERIA IV</Name>
 </Course>
-<Course Id="LABORATORIO_DE_FISICA_II">
-<Name>LABORATORIO DE FISICA II</Name>
-</Course>
 <Course Id="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA">
 <Name>HISTORIA Y PANORAMA DE INVESTIGACION Y APLICACIONES DE LA FISICA</Name>
 </Course>
@@ -2013,9 +1993,6 @@
 </Course>
 <Course Id="LABORATORIO_DE_FISICA_BASICA_IV">
 <Name>LABORATORIO DE FISICA BASICA IV</Name>
-</Course>
-<Course Id="CALCULO_INTEGRAL">
-<Name>CALCULO INTEGRAL</Name>
 </Course>
 <Course Id="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES">
 <Name>FISICA BASICA EXPERIMENTAL III: LA MATERIA Y SUS PROPIEDADES</Name>
@@ -2320,23 +2297,6 @@
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource Reference="Class2_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="LABORATORIO_DE_FISICA_II_t">
-<Name>LABORATORIO DE FISICA II: Teoria</Name>
-<Duration>4</Duration>
-<Course Reference="LABORATORIO_DE_FISICA_II" />
-<Resources>
-<Resource Reference="Class3_FISICA_1" />
-<Resource Reference="JOSE_ANGEL_MIER_MAZA" />
-<Resource Reference="OMAR_FERNANDO_CASTELLANOS_BALLESTEROS" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2654,8 +2614,7 @@
 <Duration>1</Duration>
 <Course Reference="CALCULO_INTEGRAL" />
 <Resources>
-<Resource Reference="Class1_MATEMATICAS_1" />
-<Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="Class1_FISICA_1" />
 <Resource Reference="MARIA_DE_UJUE_ETAYO_RODRIGUEZ" />
 <Resource Reference="JOSE_MANUEL_BAYOD_BAYOD" />
 <Resource>
@@ -2673,6 +2632,7 @@
 <Course Reference="ESTADISTICA_BASICA" />
 <Resources>
 <Resource Reference="Class1_MATEMATICAS_1" />
+<Resource Reference="Class1_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -3004,21 +2964,6 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="ESTADISTICA_BASICA_l1">
-<Name>ESTADISTICA BASICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ESTADISTICA_BASICA" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
 <Event Id="F.E.IV_PRACTICAS_EWB_l1">
 <Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
 <Duration>2</Duration>
@@ -3181,23 +3126,6 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="LABORATORIO_DE_FISICA_II_l1">
-<Name>LABORATORIO DE FISICA II: Laboratorio</Name>
-<Duration>3</Duration>
-<Course Reference="LABORATORIO_DE_FISICA_II" />
-<Resources>
-<Resource Reference="Class3_FISICA_1" />
-<Resource Reference="JOSE_ANGEL_MIER_MAZA" />
-<Resource Reference="OMAR_FERNANDO_CASTELLANOS_BALLESTEROS" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
 <Event Id="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_l1">
 <Name>HISTORIA Y PANORAMA DE INVESTIGACION Y APLICACIONES DE LA FISICA: Laboratorio</Name>
 <Duration>1</Duration>
@@ -3249,21 +3177,6 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="CALCULO_INTEGRAL_l1">
-<Name>CALCULO INTEGRAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="CALCULO_INTEGRAL" />
-<Resources>
-<Resource Reference="Class1_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
 <Event Id="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_l1">
 <Name>FISICA BASICA EXPERIMENTAL III: LA MATERIA Y SUS PROPIEDADES: Laboratorio</Name>
 <Duration>1</Duration>
@@ -3286,6 +3199,7 @@
 <Course Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA" />
 <Resources>
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="JOSE_MARIA_SENTIES_VIAN" />
 <Resource Reference="ANDRES_PRIETO_GALA" />
 <Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
 <Resource Reference="ANGEL_VEGAS_GARCIA" />
@@ -3886,21 +3800,6 @@
 </ResourceGroups>
 </AppliesTo>
 </AvoidClashesConstraint>
-<PreferTimesConstraint Id="manana">
-<Name>Todo por la mañana</Name>
-<Required>false</Required>
-<Weight>1</Weight>
-<CostFunction>Linear</CostFunction>
-<AppliesTo>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</AppliesTo>
-<TimeGroups>
-<TimeGroup Reference="AntesDescanso" />
-<TimeGroup Reference="DespuesDescanso" />
-</TimeGroups>
-</PreferTimesConstraint>
 </Constraints>
 </Instance>
 </Instances>

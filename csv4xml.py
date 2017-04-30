@@ -371,6 +371,6 @@ class Csv4Xml(object):
         f.write(salida)
         f.close()
 if __name__ == '__main__':
-    c = Csv2Xml()
+    c = Csv4Xml()
     c.toXHSTT()
     print("Hecho")

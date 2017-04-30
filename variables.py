@@ -8,12 +8,10 @@ PROFS = [os.path.join(DIR, 'profesores_doblegrado.csv'),
          os.path.join(DIR, 'profesores_matematicas.csv'),
          os.path.join(DIR, 'profesores_informática.csv'),
 ]
-ASIG = [os.path.join(DIR, 'alumnos_curso_2016_2017_fisica.csv'),
-        os.path.join(DIR, 'alumnos_curso_2016_2017_informatica.csv'),
-        os.path.join(DIR, 'alumnos_curso_2016_2017_matematicas.csv'),
+ASIG = [os.path.join(DIR, 'asignaturas.csv'),
 ]
 ROOMS = os.path.join(DIR, 'aulas.csv')
-OUT = os.path.join(DIR, 'outfile3.xml')
+OUT = os.path.join(DIR, 'outfile_nuevo.xml')
 GRUPOS = ['AntesDescanso', 'DespuesDescanso','Tarde']
 GRUPOS_NAMES = {
     'AntesDescanso': 'Antes del descanso',
@@ -53,3 +51,5 @@ for asig in ASIG:
     for degree in DEGREES:
         if degree.lower() in asig:
             COURSE[asig] = degree
+
+N_GROUPS = {str(i):1 for i in range(1,5)}

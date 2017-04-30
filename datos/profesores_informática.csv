@@ -14,7 +14,7 @@ G691;Bases de Datos Avanzadas;O;4;C;1;DIEGO GARCIA SAIZ;N;13;7;20;0;40;50
 G671;Calidad y Auditoría;O;4;C;1;MIGUEL SIERRA SANCHEZ;N;10;10;0;0;20;20
 G671;Calidad y Auditoría;O;4;C;1;CARLOS BLANCO BUENO;S;10;0;10;0;20;40
 G671;Calidad y Auditoría;O;4;C;1;ALEJANDRO PEREZ RUIZ;N;0;0;20;0;20;40
-G1749;Computer Animation and Video Games;O;4;C;1;ANDRES IGLESIAS PRIETO;S;15;15;30;0;60;100
+G1749;Animación por computador y videojuegos;O;4;C;1;ANDRES IGLESIAS PRIETO;S;15;15;30;0;60;100
 G665;Desarrollo de Sistemas de Información;O;3;C;2;MARTA ELENA ZORRILLA PANTALEON;S;20;10;0;0;30;75
 G665;Desarrollo de Sistemas de Información;O;3;C;2;MIGUEL ANGEL GUTIERREZ LECUE;N;0;0;30;0;30;25
 G682;Diseño de Algoritmos;O;4;C;1;JOSE LUIS MONTAÑA ARNAIZ;S;30;10;20;0;60;100
@@ -113,8 +113,8 @@ G660;Sistemas Operativos;U;2;C;2;JOSE MIGUEL PRELLEZO GUTIERREZ;N;0;0;60;0;60;0
 G677;Sistemas Operativos Avanzados;O;4;C;1;VALENTIN PUENTE VARONA;S;20;10;30;0;60;100
 G1828;System and Network Security and Assurance;O;4;C;1;ESTEBAN STAFFORD FERNANDEZ;N;20;10;30;0;60;100
 G1828;System and Network Security and Assurance;O;4;C;1;ENRIQUE VALLEJO GUTIERREZ;S;0;0;0;0;0;0
-G1724;Valores, Ética y Profesión Informática;B;2;C;1;OLGA MARIA CONDE PORTILLA;N;0;4;0;0;4;0
-G1724;Valores, Ética y Profesión Informática;B;2;C;1;RAMON GANDARILLAS PEREZ;N;2;0;8;0;10;0
+G1724;Transversal;B;2;C;1;OLGA MARIA CONDE PORTILLA;N;0;4;0;0;4;0
+G1724;Transversal;B;2;C;1;RAMON GANDARILLAS PEREZ;N;2;0;8;0;10;0
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;IRENE GONZALEZ PEREZ;N;2;0;0;0;2;0
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;JUAN HERNANDEZ MARQUES;N;6;0;0;0;6;4
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;LUCIA LLANO MARTINEZ;N;4;0;0;0;4;0
@@ -126,7 +126,3 @@ G1724;Valores, Ética y Profesión Informática;B;2;C;1;RAFAEL MENENDEZ DE LLANO
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;ROSA PILAR OBREGON CAÑIZAL;N;2;0;0;0;2;0
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;JOSE MIGUEL PRELLEZO GUTIERREZ;N;2;0;0;0;2;0
 G1724;Valores, Ética y Profesión Informática;B;2;C;1;FERNANDO VALLEJO ALONSO;N;13;0;0;0;13;40
-TOTAL DEL TITULO:;;;;;;;;1386;948;3004;0;5338;5600
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-(*):;Asignatura compartida por varios titulos;;;;;;;;;;;;

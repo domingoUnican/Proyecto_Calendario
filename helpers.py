@@ -49,3 +49,7 @@ def expected_number_students(array):
       if num:
          maximum = max(int(num), maximum)
    return maximum
+def name_degree(l):
+   l0 = l.split('_')[0]
+   s = normalize_name(l0)[0]
+   return s

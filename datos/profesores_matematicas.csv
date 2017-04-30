@@ -46,20 +46,20 @@ G112;Geometría Proyectiva y Algebraica;O;4;C;2;LUIS FELIPE TABERA ALONSO;N;15;1
 G45;Geometría, Arte y Naturaleza;B;1;C;2;DEMETRIO DOMINGUEZ PLATA;N;6;7;2;0;15;25
 G45;Geometría, Arte y Naturaleza;B;1;C;2;MARIO ALFREDO FIORAVANTI VILLANUEVA;S;24;17;4;0;45;75
 G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;RAMON GANDARILLAS PEREZ;N;2;0;6;0;8;6
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;MARIO ALFREDO FIORAVANTI VILLANUEVA;S;4;0;0;0;4;4
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;NURIA CORRAL PEREZ;N;0;0;40;0;40;28
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;OLGA MARIA CONDE PORTILLA;N;0;8;0;0;8;6
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;ADOLFO COBO GARCIA;N;0;8;0;0;8;6
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;ERNESTO ANABITARTE CANO;N;8;0;0;0;8;6
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;IRENE GONZALEZ PEREZ;N;2;0;0;0;2;2
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;CARMEN MARIA SARABIA COBO;N;8;0;0;0;8;6
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;LUCIA LLANO MARTINEZ;N;4;0;0;0;4;3
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;LUIS JAVIER MARTINEZ RODRIGUEZ;N;0;0;6;0;6;3
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;TOMAS MARTIN HERNANDEZ;N;0;0;40;0;40;28
-G1725(*);Habilidades, Valores y Competencias Transversales;B;1;C;1;MARIO MAÑANA CANTELI;N;2;0;0;0;2;2
+G1725(*);Transversal;B;1;C;1;MARIO ALFREDO FIORAVANTI VILLANUEVA;S;4;0;0;0;4;4
+G1725(*);Transversal;B;1;C;1;NURIA CORRAL PEREZ;N;0;0;40;0;40;28
+G1725(*);Transversal;B;1;C;1;OLGA MARIA CONDE PORTILLA;N;0;8;0;0;8;6
+G1725(*);Transversal;B;1;C;1;ADOLFO COBO GARCIA;N;0;8;0;0;8;6
+G1725(*);Transversal;B;1;C;1;ERNESTO ANABITARTE CANO;N;8;0;0;0;8;6
+G1725(*);Transversal;B;1;C;1;IRENE GONZALEZ PEREZ;N;2;0;0;0;2;2
+G1725(*);Transversal;B;1;C;1;CARMEN MARIA SARABIA COBO;N;8;0;0;0;8;6
+G1725(*);Transversal;B;1;C;1;LUCIA LLANO MARTINEZ;N;4;0;0;0;4;3
+G1725(*);Transversal;B;1;C;1;LUIS JAVIER MARTINEZ RODRIGUEZ;N;0;0;6;0;6;3
+G1725(*);Transversal;B;1;C;1;TOMAS MARTIN HERNANDEZ;N;0;0;40;0;40;28
+G1725(*);Transversal;B;1;C;1;MARIO MAÑANA CANTELI;N;2;0;0;0;2;2
 G899(*);Herramientas para la Decisión en Operaciones;O;4;C;1;BEATRIZ BLANCO ROJO;S;30;30;60;0;120;50
 G899(*);Herramientas para la Decisión en Operaciones;O;4;C;1;LIDIA SANCHEZ RUIZ;N;30;30;60;0;120;50
-G1752(*);Hilbert Spaces;U;3;C;1;JESUS ARAUJO GOMEZ;S;39;21;0;0;60;100
+G1752(*);Espacios de Hilbert;U;3;C;1;JESUS ARAUJO GOMEZ;S;39;21;0;0;60;100
 G260(*);Inglés;B;1;C;2;MARIA ANDREA MONTIEL PAZ;S;20;40;0;0;60;100
 G85(*);Introducción a las Ecuaciones en Derivadas Parciales;U;2;C;2;LUIS ALBERTO FERNANDEZ FERNANDEZ;S;30;60;0;0;90;100
 G655(*);Introducción a los Sistemas Inteligentes;O;4;C;1;DOMINGO GOMEZ PEREZ;N;0;10;20;0;30;30
@@ -98,7 +98,3 @@ G111;Topología Algebraica;O;4;C;1;NURIA CORRAL PEREZ;S;38;22;0;0;60;100
 G87(*);Variable Compleja;U;3;C;2;CARLOS BELTRAN ALVAREZ;N;0;21;0;0;21;20
 G87(*);Variable Compleja;U;3;C;2;JAIME VINUESA TEJEDOR;S;39;0;0;0;39;80
 G110;Variedades Diferenciables;O;4;C;1;DEMETRIO DOMINGUEZ PLATA;S;32;24;4;0;60;100
-TOTAL DEL TITULO:;;;;;;;;1908;1474;1114;0;4496;5200
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-(*):;Asignatura compartida por varios titulos;;;;;;;;;;;;
