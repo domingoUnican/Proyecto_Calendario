@@ -200,7 +200,7 @@ class Csv4Xml(object):
             name = etree.SubElement(resource, 'Name')
             name.text = room
             resource_type = etree.SubElement(resource, 'ResourceType',
-                                             Reference="Room")
+                                             Reference="Room" if 'ABO' not in room else 'Laboratory')
             resource_groups = etree.SubElement(resource, 'ResourceGroups')
             etree.SubElement(resource_groups, 'ResourceGroup',
                              Reference='gr_'+size_room(self.rooms[room]))
@@ -327,19 +327,6 @@ class Csv4Xml(object):
         etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
         role = etree.SubElement(assign_resource, 'Role')
         role.text = 'Room'
-        avoid = etree.SubElement(constraints, 'AvoidClashesConstraint', Id='Choques')
-        name = etree.SubElement(avoid, 'Name')
-        name.text = 'Choques'
-        required = etree.SubElement(avoid, 'Required')
-        required.text = 'true'
-        weight = etree.SubElement(avoid, 'Weight')
-        weight.text = '1'
-        CostFunction = etree.SubElement(avoid, 'CostFunction')
-        CostFunction.text = 'Linear'
-        AppliesTo = etree.SubElement(avoid, 'AppliesTo')
-        resource_groups = etree.SubElement(AppliesTo, 'ResourceGroups')
-        for recurso in RECURSOS:
-            resource = etree.SubElement(resource_groups, 'ResourceGroup',Reference='gr_' + recurso)
         prefer = etree.SubElement(constraints, 'PreferTimesConstraint', Id='manana')
         name = etree.SubElement(prefer, 'Name')
         name.text = 'Todo por la mañana'
@@ -361,6 +348,20 @@ class Csv4Xml(object):
         times_group = etree.SubElement(times_groups, 'TimeGroup',
                                        Reference='DespuesDescanso'
         )
+        avoid = etree.SubElement(constraints, 'AvoidClashesConstraint', Id='Choques')
+        name = etree.SubElement(avoid, 'Name')
+        name.text = 'Choques'
+        required = etree.SubElement(avoid, 'Required')
+        required.text = 'true'
+        weight = etree.SubElement(avoid, 'Weight')
+        weight.text = '1'
+        CostFunction = etree.SubElement(avoid, 'CostFunction')
+        CostFunction.text = 'Linear'
+        AppliesTo = etree.SubElement(avoid, 'AppliesTo')
+        resource_groups = etree.SubElement(AppliesTo, 'ResourceGroups')
+        for recurso in RECURSOS:
+            resource = etree.SubElement(resource_groups, 'ResourceGroup',Reference='gr_' + recurso)
+
         f = open(OUT,'wb')
         doc.write(f, encoding = 'UTF-8')
         f.close()

@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-05-01 10:45:19.618617</Date>
+<Date>2017-05-01 11:16:54.182052</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -1528,7 +1528,7 @@
 </Resource>
 <Resource Id="LABORATORIO_1">
 <Name>LABORATORIO 1</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Aula_Normal" />
 <ResourceGroup Reference="gr_Room" />
@@ -1537,7 +1537,7 @@
 </Resource>
 <Resource Id="LABORATORIO_2">
 <Name>LABORATORIO 2</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Aula_Normal" />
 <ResourceGroup Reference="gr_Room" />
@@ -1546,7 +1546,7 @@
 </Resource>
 <Resource Id="LABORATORIO_3">
 <Name>LABORATORIO 3</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Aula_Pequena" />
 <ResourceGroup Reference="gr_Room" />
@@ -1555,7 +1555,7 @@
 </Resource>
 <Resource Id="LABORATORIO_4">
 <Name>LABORATORIO 4</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Aula_Normal" />
 <ResourceGroup Reference="gr_Room" />
@@ -3789,6 +3789,21 @@
 </AppliesTo>
 <Role>Room</Role>
 </AssignResourceConstraint>
+<PreferTimesConstraint Id="na">
+<Name>Todo por la mañana</Name>
+<Required>false</Required>
+<Weight>1</Weight>
+<CostFunction>Linear</CostFunction>
+<AppliesTo>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</AppliesTo>
+<TimeGroups>
+<TimeGroup Reference="AntesDescanso" />
+<TimeGroup Reference="DespuesDescanso" />
+</TimeGroups>
+</PreferTimesConstraint>
 <AvoidClashesConstraint Id="Choques">
 <Name>Choques</Name>
 <Required>true</Required>
