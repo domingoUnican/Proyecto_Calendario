@@ -20,14 +20,18 @@ GRUPOS_NAMES = {
 }
 DIAS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
 HORAS = [str(i) for i in range(1,10)]
-RECURSOS = ['Teacher', 'Room', 'Class']
+RECURSOS = ['Teacher', 'Room', 'Class','Laboratory']
 RECURSOS_NAME = {
     'Teacher': 'Profesores',
     'Room': 'Aulas',
-    'Class': 'Cursos'
+    'Class': 'Cursos',
+    'Laboratory':'Laboratorio'
 }
 DEGREES = ['DOBLE','FISICA','MATEMATICAS','INFORMATICA']
-TYPES_ROOMS = ['Aula_Grande', 'Aula_Normal', 'Laboratorio', 'Aula_Pequena']
+TYPES_ROOMS = {'Aula_Grande':'Room',
+               'Aula_Normal':'Room',
+               'Laboratorio':'Laboratory',
+               'Aula_Pequena':'Room'}
 TYPES_ROOMS_NAMES = {
     'Aula_Grande':'Aula Grande',
     'Aula_Normal':'Aula Normal',

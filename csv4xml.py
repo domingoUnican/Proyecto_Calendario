@@ -97,7 +97,7 @@ class Csv4Xml(object):
                             asigs, c = self.prof[n_prof]
                             if n_name not in asigs:
                                 c += n_hours_class + n_hours_lab
-                                asigs = ', '.join([asigs,n_name])
+                                asigs = ','.join([asigs,n_name])
                             self.prof[n_prof] = (asigs, c)
 
     def toXHSTT(self, out=OUT, iden=ASIG):
@@ -174,7 +174,8 @@ class Csv4Xml(object):
                                               Id='gr_'+tipo)
             name = etree.SubElement(resource_group, 'Name')
             name.text = TYPES_ROOMS_NAMES[tipo]
-            etree.SubElement(resource_group, 'ResourceType',Reference='Room')
+            etree.SubElement(resource_group, 'ResourceType',
+                             Reference=TYPES_ROOMS[tipo])
         for curso in CLASSES:
             resource_group = etree.SubElement(resources_groups, 'ResourceGroup',
                                               Id=curso)
@@ -206,7 +207,7 @@ class Csv4Xml(object):
             etree.SubElement(resource_groups, 'ResourceGroup',
                              Reference='gr_Room')
             # if the room is a lab,
-            if 'ab' in room:
+            if 'LABORATORIO' in room:
                 etree.SubElement(resource_groups, 'ResourceGroup',
                                  Reference='gr_Laboratorio')
         # Now, the different courses. We will have to add three different groups
@@ -239,14 +240,14 @@ class Csv4Xml(object):
         for asign in self.asig:
             # we have to separate theory and laboratories, so we have to consider
             # laboratories plus
-            if int(self.asig[asign][2])< 1:
+            if int(self.asig[asign][3])< 1:
                 continue
             event_t = etree.SubElement(events, 'Event',
                                        Id=remove_accents(asign.replace(' ','_'))+'_t')
             name = etree.SubElement(event_t, 'Name')
             name.text = remove_accents(asign) + ': Teoria'
             duration = etree.SubElement(event_t, 'Duration')
-            duration.text = self.asig[asign][2]
+            duration.text = self.asig[asign][3]
             etree.SubElement(event_t, 'Course',
                              Reference=remove_accents(asign.replace(' ', '_')))
             resources = etree.SubElement(event_t, 'Resources')
@@ -261,7 +262,7 @@ class Csv4Xml(object):
                 resource = etree.SubElement(resources, 'Resource',
                                             Reference=course)
             # All professors in a lecture must assists to all the lectures
-            list_prof = [p for p in self.prof if asign in self.prof[p]]
+            list_prof = [p for p in self.prof if asign in self.prof[p][0].split(',')]
             for p in list_prof:
                 resource = etree.SubElement(resources, 'Resource',
                                             Reference=remove_accents(p.replace(' ', '_')))
@@ -276,14 +277,14 @@ class Csv4Xml(object):
             for temp_i in range(1,N_GROUPS[self.asig[asign][0]]+1):
                 # we have to separate theory and laboratories, so we have to consider
                 # laboratories plus
-                if int(self.asig[asign][4]) <1:
+                if int(self.asig[asign][2]) <1:
                     continue
                 event_t = etree.SubElement(events, 'Event',
                                            Id=remove_accents(asign.replace(' ','_'))+'_l'+str(temp_i))
                 name = etree.SubElement(event_t, 'Name')
                 name.text = remove_accents(asign) + ': Laboratorio'
                 duration = etree.SubElement(event_t, 'Duration')
-                duration.text = self.asig[asign][4]
+                duration.text = self.asig[asign][2]
                 etree.SubElement(event_t, 'Course',
                                  Reference=remove_accents(asign.replace(' ', '_')))
                 resources = etree.SubElement(event_t, 'Resources')
@@ -297,7 +298,7 @@ class Csv4Xml(object):
                     resource = etree.SubElement(resources, 'Resource',
                                                 Reference=course)
                 # All professors in a lecture must assists to all the lectures
-                list_prof = [p for p in self.prof if asign in self.prof[p]]
+                list_prof = [p for p in self.prof if asign in self.prof[p][0].split(',')]
                 for p in list_prof:
                     resource = etree.SubElement(resources, 'Resource',
                                                 Reference=remove_accents(p.replace(' ', '_')))
@@ -305,7 +306,7 @@ class Csv4Xml(object):
                 role = etree.SubElement(resource, 'Role')
                 role.text = 'Room'
                 etree.SubElement(resource, 'ResourceType',
-                                                 Reference = 'Room')
+                                                 Reference = 'Laboratory')
                 event_groups = etree.SubElement(event_t, 'EventGroups')
                 etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
 

@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-05-01 00:35:40.637934</Date>
+<Date>2017-05-01 10:45:19.618617</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -410,6 +410,9 @@
 <ResourceType Id="Class">
 <Name>Cursos</Name>
 </ResourceType>
+<ResourceType Id="Laboratory">
+<Name>Laboratorio</Name>
+</ResourceType>
 <ResourceType Id="Aula_Grande">
 <Name>Aula Grande</Name>
 </ResourceType>
@@ -436,6 +439,10 @@
 <Name>Cursos</Name>
 <ResourceType Reference="Class" />
 </ResourceGroup>
+<ResourceGroup Id="gr_Laboratory">
+<Name>Laboratorio</Name>
+<ResourceType Reference="Laboratory" />
+</ResourceGroup>
 <ResourceGroup Id="gr_Aula_Grande">
 <Name>Aula Grande</Name>
 <ResourceType Reference="Room" />
@@ -446,7 +453,7 @@
 </ResourceGroup>
 <ResourceGroup Id="gr_Laboratorio">
 <Name>Laboratorio</Name>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </ResourceGroup>
 <ResourceGroup Id="gr_Aula_Pequena">
 <Name>Aula Pequena</Name>
@@ -1067,6 +1074,13 @@
 <ResourceGroup Reference="gr_Teacher" />
 </ResourceGroups>
 </Resource>
+<Resource Id="LUIS_FELIPE_TABERA_ALONSO">
+<Name>LUIS FELIPE TABERA ALONSO</Name>
+<ResourceType Reference="Teacher" />
+<ResourceGroups>
+<ResourceGroup Reference="gr_Teacher" />
+</ResourceGroups>
+</Resource>
 <Resource Id="JUAN_ANTONIO_CUESTA_ALBERTOS">
 <Name>JUAN ANTONIO CUESTA ALBERTOS</Name>
 <ResourceType Reference="Teacher" />
@@ -1076,13 +1090,6 @@
 </Resource>
 <Resource Id="FERNANDO_ETAYO_GORDEJUELA">
 <Name>FERNANDO ETAYO GORDEJUELA</Name>
-<ResourceType Reference="Teacher" />
-<ResourceGroups>
-<ResourceGroup Reference="gr_Teacher" />
-</ResourceGroups>
-</Resource>
-<Resource Id="LUIS_FELIPE_TABERA_ALONSO">
-<Name>LUIS FELIPE TABERA ALONSO</Name>
 <ResourceType Reference="Teacher" />
 <ResourceGroups>
 <ResourceGroup Reference="gr_Teacher" />
@@ -1519,6 +1526,42 @@
 <ResourceGroup Reference="gr_Room" />
 </ResourceGroups>
 </Resource>
+<Resource Id="LABORATORIO_1">
+<Name>LABORATORIO 1</Name>
+<ResourceType Reference="Room" />
+<ResourceGroups>
+<ResourceGroup Reference="gr_Aula_Normal" />
+<ResourceGroup Reference="gr_Room" />
+<ResourceGroup Reference="gr_Laboratorio" />
+</ResourceGroups>
+</Resource>
+<Resource Id="LABORATORIO_2">
+<Name>LABORATORIO 2</Name>
+<ResourceType Reference="Room" />
+<ResourceGroups>
+<ResourceGroup Reference="gr_Aula_Normal" />
+<ResourceGroup Reference="gr_Room" />
+<ResourceGroup Reference="gr_Laboratorio" />
+</ResourceGroups>
+</Resource>
+<Resource Id="LABORATORIO_3">
+<Name>LABORATORIO 3</Name>
+<ResourceType Reference="Room" />
+<ResourceGroups>
+<ResourceGroup Reference="gr_Aula_Pequena" />
+<ResourceGroup Reference="gr_Room" />
+<ResourceGroup Reference="gr_Laboratorio" />
+</ResourceGroups>
+</Resource>
+<Resource Id="LABORATORIO_4">
+<Name>LABORATORIO 4</Name>
+<ResourceType Reference="Room" />
+<ResourceGroups>
+<ResourceGroup Reference="gr_Aula_Normal" />
+<ResourceGroup Reference="gr_Room" />
+<ResourceGroup Reference="gr_Laboratorio" />
+</ResourceGroups>
+</Resource>
 <Resource Id="Class1_DOBLE_1">
 <Name>Clase 1 (grupo 1) de DOBLE</Name>
 <ResourceType Reference="Class" />
@@ -1934,8 +1977,8 @@
 <Course Id="TALLER_DE_MODELIZACION">
 <Name>TALLER DE MODELIZACION</Name>
 </Course>
-<Course Id="AMP._DE_ALGEBRA">
-<Name>AMP. DE ALGEBRA</Name>
+<Course Id="AMPLIACION_DE_ALGEBRA">
+<Name>AMPLIACION DE ALGEBRA</Name>
 </Course>
 <Course Id="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA">
 <Name>GEOMETRIA PROYECTIVA Y ALGEBRAICA</Name>
@@ -2108,7 +2151,7 @@
 </EventGroups>
 <Event Id="PROGRAMACION_t">
 <Name>PROGRAMACION: Teoria</Name>
-<Duration>2</Duration>
+<Duration>3</Duration>
 <Course Reference="PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_MATEMATICAS_1" />
@@ -2116,7 +2159,92 @@
 <Resource Reference="Class1_FISICA_1" />
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="CALCULO_INTEGRAL_t">
+<Name>CALCULO INTEGRAL: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="CALCULO_INTEGRAL" />
+<Resources>
+<Resource Reference="Class1_FISICA_1" />
+<Resource Reference="MARIA_DE_UJUE_ETAYO_RODRIGUEZ" />
+<Resource Reference="JOSE_MANUEL_BAYOD_BAYOD" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ESTADISTICA_BASICA_t">
+<Name>ESTADISTICA BASICA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="ESTADISTICA_BASICA" />
+<Resources>
+<Resource Reference="Class1_MATEMATICAS_1" />
+<Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="ARACELI_TUERO_DIAZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
+<Name>GEOMETRIA, ARTE Y NATURALEZA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="GEOMETRIA,_ARTE_Y_NATURALEZA" />
+<Resources>
+<Resource Reference="Class1_MATEMATICAS_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INGLES_t">
+<Name>INGLES: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="INGLES" />
+<Resources>
+<Resource Reference="Class2_FISICA_1" />
+<Resource Reference="MARIA_ANDREA_MONTIEL_PAZ" />
+<Resource Reference="GEMA_TEJERIA_ALONSO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
+<Name>GEOMETRIA DE CURVAS Y SUPERFICIES: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_1" />
+<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2133,6 +2261,76 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ECUACIONES_DER.PARCIALES_t">
+<Name>ECUACIONES DER.PARCIALES: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="ECUACIONES_DER.PARCIALES" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_1" />
+<Resource Reference="Class2_DOBLE_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ESTRUCTURAS_ALGEBRAICAS_t">
+<Name>ESTRUCTURAS ALGEBRAICAS: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="ESTRUCTURAS_ALGEBRAICAS" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_1" />
+<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="MARIA_PILAR_FERNANDEZ-FERREIROS_ERVITI" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="AMPLIACION_DE_CALCULO_INTEGRAL_t">
+<Name>AMPLIACION DE CALCULO INTEGRAL: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="AMPLIACION_DE_CALCULO_INTEGRAL" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_1" />
+<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="JUAN_GONZALEZ_CRIADO_DEL_REY" />
+<Resource Reference="JAIME_VINUESA_TEJEDOR" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="VARIABLE_COMPLEJA_t">
+<Name>VARIABLE COMPLEJA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="VARIABLE_COMPLEJA" />
+<Resources>
+<Resource Reference="Class3_MATEMATICAS_1" />
+<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="JAIME_VINUESA_TEJEDOR" />
+<Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2161,8 +2359,25 @@
 </Event>
 <Event Id="STATISTICAL_INFERENCE_t">
 <Name>STATISTICAL INFERENCE: Teoria</Name>
-<Duration>1</Duration>
+<Duration>3</Duration>
 <Course Reference="STATISTICAL_INFERENCE" />
+<Resources>
+<Resource Reference="Class3_MATEMATICAS_1" />
+<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="ALICIA_NIETO_REYES" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ALGEBRA_CONMUTATIVA_t">
+<Name>ALGEBRA CONMUTATIVA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="ALGEBRA_CONMUTATIVA" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
@@ -2191,13 +2406,30 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="TALLER_DE_MODELIZACION_t">
-<Name>TALLER DE MODELIZACION: Teoria</Name>
-<Duration>4</Duration>
-<Course Reference="TALLER_DE_MODELIZACION" />
+<Event Id="AMPLIACION_DE_ALGEBRA_t">
+<Name>AMPLIACION DE ALGEBRA: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="AMPLIACION_DE_ALGEBRA" />
 <Resources>
-<Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_MATEMATICAS_1" />
+<Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+<Name>GEOMETRIA PROYECTIVA Y ALGEBRAICA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA" />
+<Resources>
+<Resource Reference="Class4_MATEMATICAS_1" />
+<Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
+<Resource Reference="FERNANDO_ETAYO_GORDEJUELA" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2209,7 +2441,7 @@
 </Event>
 <Event Id="AMPLIACION_DE_ESTADISTICA_t">
 <Name>AMPLIACION DE ESTADISTICA: Teoria</Name>
-<Duration>1</Duration>
+<Duration>3</Duration>
 <Course Reference="AMPLIACION_DE_ESTADISTICA" />
 <Resources>
 <Resource Reference="Class4_MATEMATICAS_1" />
@@ -2223,12 +2455,13 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="NUMERICAL_ANALYSIS_III_t">
-<Name>NUMERICAL ANALYSIS III: Teoria</Name>
-<Duration>1</Duration>
-<Course Reference="NUMERICAL_ANALYSIS_III" />
+<Event Id="ALGEBRA_COMPUTACIONAL_t">
+<Name>ALGEBRA COMPUTACIONAL: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="ALGEBRA_COMPUTACIONAL" />
 <Resources>
-<Resource Reference="Class4_MATEMATICAS_OPTATIVA1" />
+<Resource Reference="Class4_MATEMATICAS_1" />
+<Resource Reference="DANIEL_SADORNIL_RENEDO" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2238,13 +2471,75 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="F.E.IV_PRACTICAS_EWB_t">
-<Name>F.E.IV PRACTICAS EWB: Teoria</Name>
+<Event Id="TEORIA_DE_LA_MEDIDA_t">
+<Name>TEORIA DE LA MEDIDA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="TEORIA_DE_LA_MEDIDA" />
+<Resources>
+<Resource Reference="Class4_MATEMATICAS_1" />
+<Resource Reference="JESUS_ARAUJO_GOMEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="NUMERICAL_ANALYSIS_III_t">
+<Name>NUMERICAL ANALYSIS III: Teoria</Name>
 <Duration>2</Duration>
-<Course Reference="F.E.IV_PRACTICAS_EWB" />
+<Course Reference="NUMERICAL_ANALYSIS_III" />
+<Resources>
+<Resource Reference="Class4_MATEMATICAS_OPTATIVA1" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
+<Name>MATEMATICAS PARA LA EDUCACION SECUNDARIA: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA" />
+<Resources>
+<Resource Reference="Class4_MATEMATICAS_OPTATIVA1" />
+<Resource Reference="IGNACIO_GONZALEZ_RUIZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FISICA_BASICA_t">
+<Name>FISICA BASICA: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="FISICA_BASICA" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
-<Resource Reference="Class1_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FISICA_EXPERIMENTAL_t">
+<Name>FISICA EXPERIMENTAL: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="FISICA_EXPERIMENTAL" />
+<Resources>
+<Resource Reference="Class1_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2261,6 +2556,7 @@
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
 <Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
 <Resource Reference="JUAN_REMONDO_TEJERINA" />
@@ -2275,12 +2571,31 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="FUNDAMENTOS_FISICA_CUANTICA_t">
-<Name>FUNDAMENTOS FISICA CUANTICA: Teoria</Name>
+<Event Id="ELECTRICIDAD_Y_MAGNETISMO_t">
+<Name>ELECTRICIDAD Y MAGNETISMO: Teoria</Name>
 <Duration>4</Duration>
-<Course Reference="FUNDAMENTOS_FISICA_CUANTICA" />
+<Course Reference="ELECTRICIDAD_Y_MAGNETISMO" />
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class2_FISICA_1" />
+<Resource Reference="ERNESTO_ANABITARTE_CANO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_t">
+<Name>INTRODUCCION A LAS ECUACIONES EN DERIVADAS PARCIALES: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES" />
+<Resources>
+<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class2_FISICA_1" />
+<Resource Reference="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2306,49 +2621,234 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="LABORATORIO_DE_FISICA_BASICA_III_t">
-<Name>LABORATORIO DE FISICA BASICA III: Teoria</Name>
-<Duration>2</Duration>
-<Course Reference="LABORATORIO_DE_FISICA_BASICA_III" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource Reference="Class1_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="LABORATORIO_DE_FISICA_BASICA_IV_t">
-<Name>LABORATORIO DE FISICA BASICA IV: Teoria</Name>
-<Duration>2</Duration>
-<Course Reference="LABORATORIO_DE_FISICA_BASICA_IV" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource Reference="Class1_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="LABORATORIO_DE_FISICA_IV_t">
-<Name>LABORATORIO DE FISICA IV: Teoria</Name>
+<Event Id="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+<Name>FISICA CUANTICA Y ESTRUCTURA DE LA MATERIA III: Teoria</Name>
 <Duration>4</Duration>
-<Course Reference="LABORATORIO_DE_FISICA_IV" />
+<Course Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III" />
 <Resources>
-<Resource Reference="Class3_FISICA_1" />
 <Resource Reference="Class3_DOBLE_1" />
-<Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
-<Resource Reference="LUIS_JULIAN_GOICOECHEA_SANTAMARIA" />
-<Resource Reference="RAMON_NIEMBRO_BARCENA" />
-<Resource Reference="SATURNINO_MARCOS_MARCOS" />
+<Resource Reference="Class3_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+<Name>FISICA CUANTICA Y ESTRUCTURA DE LA MATERIA IV: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV" />
+<Resources>
+<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class3_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+<Name>HISTORIA Y PANORAMA DE INVESTIGACION Y APLICACIONES DE LA FISICA: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA" />
+<Resources>
+<Resource Reference="Class4_DOBLE_1" />
+<Resource Reference="Class4_FISICA_1" />
+<Resource Reference="ERNESTO_ANABITARTE_CANO" />
+<Resource Reference="ALBERTO_RUIZ_JIMENO" />
+<Resource Reference="FRANCISCO_JESUS_CARRERA_TROYANO" />
+<Resource Reference="MIGUEL_ANGEL_RODRIGUEZ_DIAZ" />
+<Resource Reference="JUAN_MANUEL_LOPEZ_MARTIN" />
+<Resource Reference="IVAN_VILA_ALVAREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_t">
+<Name>FISICA BASICA EXPERIMENTAL III: LA MATERIA Y SUS PROPIEDADES: Teoria</Name>
+<Duration>2</Duration>
+<Course Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES" />
+<Resources>
+<Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="LUIS_FERNANDEZ_BARQUIN" />
+<Resource Reference="ANGEL_MANANES_PEREZ" />
+<Resource Reference="ALBERTO_RUIZ_JIMENO" />
+<Resource Reference="FERNANDO_RODRIGUEZ_GONZALEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
+<Name>FISICA BASICA EXPERIMENTAL IV: CIRCUITOS Y ELECTRONICA: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA" />
+<Resources>
+<Resource Reference="Class1_FISICA_1" />
+<Resource Reference="JOSE_MARIA_SENTIES_VIAN" />
+<Resource Reference="ANDRES_PRIETO_GALA" />
+<Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
+<Resource Reference="ANGEL_VEGAS_GARCIA" />
+<Resource Reference="ALVARO_GOMEZ_GOMEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="PROYECTOS_t">
+<Name>PROYECTOS: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="PROYECTOS" />
+<Resources>
+<Resource Reference="Class4_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ASTRONOMY_t">
+<Name>ASTRONOMY: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="ASTRONOMY" />
+<Resources>
+<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
+<Resource Reference="SILVIA_MATEOS_IBANEZ" />
+<Resource Reference="FRANCISCO_JESUS_CARRERA_TROYANO" />
+<Resource Reference="DIEGO_HERRANZ_MUNOZ" />
+<Resource Reference="IGNACIO_ORDOVAS_PASCUAL" />
+<Resource Reference="JOSE_IGNACIO_GONZALEZ_SERRANO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="PARTICLE_PHYSICS_t">
+<Name>PARTICLE PHYSICS: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="PARTICLE_PHYSICS" />
+<Resources>
+<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
+<Resource Reference="FRANCISCO_MATORRAS_WEINIG" />
+<Resource Reference="MARCOS_FERNANDEZ_GARCIA" />
+<Resource Reference="NICOLO_TREVISANI" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="EXPERIMENTAL_OPTICS_t">
+<Name>EXPERIMENTAL OPTICS: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="EXPERIMENTAL_OPTICS" />
+<Resources>
+<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
+<Resource Reference="ANGEL_ALBERTO_VALLE_GUTIERREZ" />
+<Resource Reference="FERNANDO_MORENO_GRACIA" />
+<Resource Reference="JOSE_MARIA_SAIZ_VEGA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="PHYSICS_OF_MATERIALS_t">
+<Name>PHYSICS OF MATERIALS: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="PHYSICS_OF_MATERIALS" />
+<Resources>
+<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
+<Resource Reference="FERNANDO_RODRIGUEZ_GONZALEZ" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
+<Resource Reference="FERNANDO_AGUADO_MENENDEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
+<Name>ADVANCED EXPERIMENTAL TECHNIQUES (2C): Teoria</Name>
+<Duration>6</Duration>
+<Course Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)" />
+<Resources>
+<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
+<Resource Reference="ANGEL_MANANES_PEREZ" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
+<Resource Reference="ANGEL_ALBERTO_VALLE_GUTIERREZ" />
+<Resource Reference="MANUEL_PEREZ_CAGIGAL" />
+<Resource Reference="LUIS_PESQUERA_GONZALEZ" />
+<Resource Reference="FRANCISCO_GONZALEZ_FERNANDEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ESTADISTICA_Y_OPTIMIZACION_t">
+<Name>ESTADISTICA Y OPTIMIZACION: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="ESTADISTICA_Y_OPTIMIZACION" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="ARACELI_TUERO_DIAZ" />
+<Resource Reference="MARCOS_CRUZ_RODRIGUEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
+<Name>ECONOMIA Y ADMINISTRACION DE EMPRESAS: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="ROGELIO_OLAVARRI_FERNANDEZ" />
+<Resource Reference="HECTOR_DELGADO_DIEGO" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2378,10 +2878,11 @@
 </Event>
 <Event Id="METODOS_DE_PROGRAMACION_t">
 <Name>METODOS DE PROGRAMACION: Teoria</Name>
-<Duration>2</Duration>
+<Duration>1</Duration>
 <Course Reference="METODOS_DE_PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="MARIO_ALDEA_RIVAS" />
 <Resource Reference="PROFESOR_EXTERNO______916157" />
 <Resource>
@@ -2393,9 +2894,25 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
+<Name>ANALISIS MATEMATICO Y METODOS NUMERICOS: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="ORGANIZACION_DE_COMPUTADORES_t">
 <Name>ORGANIZACION DE COMPUTADORES: Teoria</Name>
-<Duration>2</Duration>
+<Duration>4</Duration>
 <Course Reference="ORGANIZACION_DE_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
@@ -2412,11 +2929,28 @@
 </Event>
 <Event Id="ALGORITMICA_Y_COMPLEJIDAD_t">
 <Name>ALGORITMICA Y COMPLEJIDAD: Teoria</Name>
-<Duration>2</Duration>
+<Duration>3</Duration>
 <Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LOGICA_t">
+<Name>LOGICA: Teoria</Name>
+<Duration>6</Duration>
+<Course Reference="LOGICA" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="INES_GONZALEZ_RODRIGUEZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2432,6 +2966,7 @@
 <Course Reference="SISTEMAS_OPERATIVOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
 <Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
 <Resource>
 <Role>Room</Role>
@@ -2444,12 +2979,65 @@
 </Event>
 <Event Id="BASES_DE_DATOS_t">
 <Name>BASES DE DATOS: Teoria</Name>
-<Duration>2</Duration>
+<Duration>4</Duration>
 <Course Reference="BASES_DE_DATOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
 <Resource Reference="PROFESOR_EXTERNO______916154" />
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INGENIERIA_DE_REQUISITOS_t">
+<Name>INGENIERIA DE REQUISITOS: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="INGENIERIA_DE_REQUISITOS" />
+<Resources>
+<Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="PABLO_SANCHEZ_BARREIRO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INGENIERIA_DEL_SOFTWARE_II_t">
+<Name>INGENIERIA DEL SOFTWARE II: Teoria</Name>
+<Duration>3</Duration>
+<Course Reference="INGENIERIA_DEL_SOFTWARE_II" />
+<Resources>
+<Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="CARLOS_BLANCO_BUENO" />
+<Resource Reference="MIGUEL_SIERRA_SANCHEZ" />
+<Resource Reference="PATRICIA_LOPEZ_MARTINEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="SISTEMAS_DE_TIEMPO_REAL_t">
+<Name>SISTEMAS DE TIEMPO REAL: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="SISTEMAS_DE_TIEMPO_REAL" />
+<Resources>
+<Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2465,6 +3053,8 @@
 <Course Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2480,6 +3070,7 @@
 <Course Reference="LENGUAJES_FORMALES" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2495,6 +3086,7 @@
 <Course Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="CRISTINA_TIRNAUCA" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2510,6 +3102,7 @@
 <Course Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="PABLO_ABAD_FIDALGO" />
 <Resource Reference="JOSE_ANGEL_GREGORIO_MONASTERIO" />
 <Resource>
 <Role>Room</Role>
@@ -2522,10 +3115,11 @@
 </Event>
 <Event Id="SISTEMAS_INFORMATICOS_t">
 <Name>SISTEMAS INFORMATICOS: Teoria</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="SISTEMAS_INFORMATICOS" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="PABLO_ABAD_FIDALGO" />
 <Resource Reference="SERGIO_GARRIDO_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
@@ -2543,7 +3137,60 @@
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
 <Resource Reference="EDUARDO_GARCIA_TORRE" />
+<Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource Reference="ENRIQUE_VALLEJO_GUTIERREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="GESTION_DE_PROYECTOS_SOFTWARE_t">
+<Name>GESTION DE PROYECTOS SOFTWARE: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="GESTION_DE_PROYECTOS_SOFTWARE" />
+<Resources>
+<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
+<Resource Reference="CARLOS_BLANCO_BUENO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INFORMATICA_INDUSTRIAL_t">
+<Name>INFORMATICA INDUSTRIAL: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="INFORMATICA_INDUSTRIAL" />
+<Resources>
+<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
+<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
+<Resource Reference="Class4_INFORMATICA_COMPUTACION1" />
+<Resource Reference="JULIO_BARROS_GUADALUPE" />
+<Resource Reference="RAMON_IGNACIO_DIEGO_GARCIA" />
+<Resource Reference="MATILDE_DE_APRAIZ_CASUSO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="SERVICIOS_SOFTWARE_t">
+<Name>SERVICIOS SOFTWARE: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="SERVICIOS_SOFTWARE" />
+<Resources>
+<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
+<Resource Reference="PATRICIA_LOPEZ_MARTINEZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2572,14 +3219,46 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
-<Event Id="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_t">
-<Name>DISENO Y GESTION DE SISTEMAS INFORMATICOS: Teoria</Name>
+<Event Id="MULTIPROCESADORES_t">
+<Name>MULTIPROCESADORES: Teoria</Name>
 <Duration>4</Duration>
-<Course Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS" />
+<Course Reference="MULTIPROCESADORES" />
 <Resources>
 <Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
-<Resource Reference="JOSE_ANGEL_HERRERO_VELASCO" />
-<Resource Reference="VALENTIN_PUENTE_VARONA" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
+<Resource Reference="JULIO_RAMON_BEIVIDE_PALACIO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="NATURAL_LANGUAGE_PROCESSING_t">
+<Name>NATURAL LANGUAGE PROCESSING: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="NATURAL_LANGUAGE_PROCESSING" />
+<Resources>
+<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
+<Resource Reference="CRISTINA_TIRNAUCA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Room" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LENGUAJES_DE_PROGRAMACION_t">
+<Name>LENGUAJES DE PROGRAMACION: Teoria</Name>
+<Duration>4</Duration>
+<Course Reference="LENGUAJES_DE_PROGRAMACION" />
+<Resources>
+<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2591,7 +3270,7 @@
 </Event>
 <Event Id="PROGRAMACION_l1">
 <Name>PROGRAMACION: Laboratorio</Name>
-<Duration>3</Duration>
+<Duration>2</Duration>
 <Course Reference="PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_MATEMATICAS_1" />
@@ -2599,92 +3278,12 @@
 <Resource Reference="Class1_FISICA_1" />
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="CALCULO_INTEGRAL_l1">
-<Name>CALCULO INTEGRAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="CALCULO_INTEGRAL" />
-<Resources>
-<Resource Reference="Class1_FISICA_1" />
-<Resource Reference="MARIA_DE_UJUE_ETAYO_RODRIGUEZ" />
-<Resource Reference="JOSE_MANUEL_BAYOD_BAYOD" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ESTADISTICA_BASICA_l1">
-<Name>ESTADISTICA BASICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ESTADISTICA_BASICA" />
-<Resources>
-<Resource Reference="Class1_MATEMATICAS_1" />
-<Resource Reference="Class1_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="GEOMETRIA,_ARTE_Y_NATURALEZA_l1">
-<Name>GEOMETRIA, ARTE Y NATURALEZA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="GEOMETRIA,_ARTE_Y_NATURALEZA" />
-<Resources>
-<Resource Reference="Class1_MATEMATICAS_1" />
-<Resource Reference="MARIO_ALFREDO_FIORAVANTI_VILLANUEVA" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="INGLES_l1">
-<Name>INGLES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="INGLES" />
-<Resources>
-<Resource Reference="Class2_FISICA_1" />
-<Resource Reference="MARIA_ANDREA_MONTIEL_PAZ" />
-<Resource Reference="GEMA_TEJERIA_ALONSO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_l1">
-<Name>GEOMETRIA DE CURVAS Y SUPERFICIES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES" />
-<Resources>
-<Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2698,75 +3297,10 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ECUACIONES_DER.PARCIALES_l1">
-<Name>ECUACIONES DER.PARCIALES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ECUACIONES_DER.PARCIALES" />
-<Resources>
-<Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ESTRUCTURAS_ALGEBRAICAS_l1">
-<Name>ESTRUCTURAS ALGEBRAICAS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ESTRUCTURAS_ALGEBRAICAS" />
-<Resources>
-<Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
-<Resource Reference="MARIA_PILAR_FERNANDEZ-FERREIROS_ERVITI" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="AMPLIACION_DE_CALCULO_INTEGRAL_l1">
-<Name>AMPLIACION DE CALCULO INTEGRAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="AMPLIACION_DE_CALCULO_INTEGRAL" />
-<Resources>
-<Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
-<Resource Reference="JUAN_GONZALEZ_CRIADO_DEL_REY" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="VARIABLE_COMPLEJA_l1">
-<Name>VARIABLE COMPLEJA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="VARIABLE_COMPLEJA" />
-<Resources>
-<Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2775,7 +3309,7 @@
 </Event>
 <Event Id="OPTIMIZACION_I_l1">
 <Name>OPTIMIZACION I: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="OPTIMIZACION_I" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
@@ -2783,7 +3317,7 @@
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2797,25 +3331,10 @@
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="ALICIA_NIETO_REYES" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ALGEBRA_CONMUTATIVA_l1">
-<Name>ALGEBRA CONMUTATIVA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ALGEBRA_CONMUTATIVA" />
-<Resources>
-<Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2824,14 +3343,14 @@
 </Event>
 <Event Id="OPTIMIZACION_l1">
 <Name>OPTIMIZACION: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="OPTIMIZACION" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2840,45 +3359,17 @@
 </Event>
 <Event Id="TALLER_DE_MODELIZACION_l1">
 <Name>TALLER DE MODELIZACION: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>4</Duration>
 <Course Reference="TALLER_DE_MODELIZACION" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ" />
+<Resource Reference="FERNANDO_ETAYO_GORDEJUELA" />
+<Resource Reference="ALICIA_NIETO_REYES" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="AMP._DE_ALGEBRA_l1">
-<Name>AMP. DE ALGEBRA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="AMP._DE_ALGEBRA" />
-<Resources>
-<Resource Reference="Class4_MATEMATICAS_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_l1">
-<Name>GEOMETRIA PROYECTIVA Y ALGEBRAICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA" />
-<Resources>
-<Resource Reference="Class4_MATEMATICAS_1" />
-<Resource Reference="LUIS_FELIPE_TABERA_ALONSO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2894,39 +3385,7 @@
 <Resource Reference="JUAN_ANTONIO_CUESTA_ALBERTOS" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ALGEBRA_COMPUTACIONAL_l1">
-<Name>ALGEBRA COMPUTACIONAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ALGEBRA_COMPUTACIONAL" />
-<Resources>
-<Resource Reference="Class4_MATEMATICAS_1" />
-<Resource Reference="DANIEL_SADORNIL_RENEDO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="TEORIA_DE_LA_MEDIDA_l1">
-<Name>TEORIA DE LA MEDIDA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="TEORIA_DE_LA_MEDIDA" />
-<Resources>
-<Resource Reference="Class4_MATEMATICAS_1" />
-<Resource Reference="JESUS_ARAUJO_GOMEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2939,25 +3398,10 @@
 <Course Reference="NUMERICAL_ANALYSIS_III" />
 <Resources>
 <Resource Reference="Class4_MATEMATICAS_OPTATIVA1" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_l1">
-<Name>MATEMATICAS PARA LA EDUCACION SECUNDARIA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA" />
-<Resources>
-<Resource Reference="Class4_MATEMATICAS_OPTATIVA1" />
-<Resource Reference="IGNACIO_GONZALEZ_RUIZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -2973,37 +3417,7 @@
 <Resource Reference="Class1_FISICA_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_BASICA_l1">
-<Name>FISICA BASICA: Laboratorio</Name>
-<Duration>5</Duration>
-<Course Reference="FISICA_BASICA" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_EXPERIMENTAL_l1">
-<Name>FISICA EXPERIMENTAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="FISICA_EXPERIMENTAL" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3012,11 +3426,12 @@
 </Event>
 <Event Id="LABORATORIO_MULTIDISCIPLINAR_l1">
 <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="LABORATORIO_MULTIDISCIPLINAR" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
 <Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
 <Resource Reference="JUAN_REMONDO_TEJERINA" />
@@ -3024,23 +3439,7 @@
 <Resource Reference="JAIME_BONACHEA_PICO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ELECTRICIDAD_Y_MAGNETISMO_l1">
-<Name>ELECTRICIDAD Y MAGNETISMO: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ELECTRICIDAD_Y_MAGNETISMO" />
-<Resources>
-<Resource Reference="Class2_DOBLE_1" />
-<Resource Reference="Class2_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3049,29 +3448,13 @@
 </Event>
 <Event Id="FUNDAMENTOS_FISICA_CUANTICA_l1">
 <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>4</Duration>
 <Course Reference="FUNDAMENTOS_FISICA_CUANTICA" />
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_l1">
-<Name>INTRODUCCION A LAS ECUACIONES EN DERIVADAS PARCIALES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES" />
-<Resources>
-<Resource Reference="Class2_DOBLE_1" />
-<Resource Reference="Class2_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3087,58 +3470,7 @@
 <Resource Reference="Class2_FISICA_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_l1">
-<Name>FISICA CUANTICA Y ESTRUCTURA DE LA MATERIA III: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III" />
-<Resources>
-<Resource Reference="Class3_DOBLE_1" />
-<Resource Reference="Class3_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_l1">
-<Name>FISICA CUANTICA Y ESTRUCTURA DE LA MATERIA IV: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV" />
-<Resources>
-<Resource Reference="Class3_DOBLE_1" />
-<Resource Reference="Class3_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_l1">
-<Name>HISTORIA Y PANORAMA DE INVESTIGACION Y APLICACIONES DE LA FISICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA" />
-<Resources>
-<Resource Reference="Class4_DOBLE_1" />
-<Resource Reference="Class4_FISICA_1" />
-<Resource Reference="MIGUEL_ANGEL_RODRIGUEZ_DIAZ" />
-<Resource Reference="JUAN_MANUEL_LOPEZ_MARTIN" />
-<Resource Reference="IVAN_VILA_ALVAREZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3147,14 +3479,14 @@
 </Event>
 <Event Id="LABORATORIO_DE_FISICA_BASICA_III_l1">
 <Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
-<Duration>4</Duration>
+<Duration>2</Duration>
 <Course Reference="LABORATORIO_DE_FISICA_BASICA_III" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3163,50 +3495,14 @@
 </Event>
 <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l1">
 <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
-<Duration>3</Duration>
+<Duration>2</Duration>
 <Course Reference="LABORATORIO_DE_FISICA_BASICA_IV" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_l1">
-<Name>FISICA BASICA EXPERIMENTAL III: LA MATERIA Y SUS PROPIEDADES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES" />
-<Resources>
-<Resource Reference="Class1_DOBLE_1" />
-<Resource Reference="LUIS_FERNANDEZ_BARQUIN" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_l1">
-<Name>FISICA BASICA EXPERIMENTAL IV: CIRCUITOS Y ELECTRONICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA" />
-<Resources>
-<Resource Reference="Class1_FISICA_1" />
-<Resource Reference="JOSE_MARIA_SENTIES_VIAN" />
-<Resource Reference="ANDRES_PRIETO_GALA" />
-<Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
-<Resource Reference="ANGEL_VEGAS_GARCIA" />
-<Resource Reference="ALVARO_GOMEZ_GOMEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3215,153 +3511,21 @@
 </Event>
 <Event Id="LABORATORIO_DE_FISICA_IV_l1">
 <Name>LABORATORIO DE FISICA IV: Laboratorio</Name>
-<Duration>3</Duration>
+<Duration>4</Duration>
 <Course Reference="LABORATORIO_DE_FISICA_IV" />
 <Resources>
 <Resource Reference="Class3_FISICA_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="FERNANDO_RODRIGUEZ_GONZALEZ" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
 <Resource Reference="LUIS_JULIAN_GOICOECHEA_SANTAMARIA" />
 <Resource Reference="RAMON_NIEMBRO_BARCENA" />
 <Resource Reference="SATURNINO_MARCOS_MARCOS" />
+<Resource Reference="FERNANDO_AGUADO_MENENDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="PROYECTOS_l1">
-<Name>PROYECTOS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="PROYECTOS" />
-<Resources>
-<Resource Reference="Class4_FISICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ASTRONOMY_l1">
-<Name>ASTRONOMY: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ASTRONOMY" />
-<Resources>
-<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
-<Resource Reference="SILVIA_MATEOS_IBANEZ" />
-<Resource Reference="DIEGO_HERRANZ_MUNOZ" />
-<Resource Reference="IGNACIO_ORDOVAS_PASCUAL" />
-<Resource Reference="JOSE_IGNACIO_GONZALEZ_SERRANO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="PARTICLE_PHYSICS_l1">
-<Name>PARTICLE PHYSICS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="PARTICLE_PHYSICS" />
-<Resources>
-<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
-<Resource Reference="FRANCISCO_MATORRAS_WEINIG" />
-<Resource Reference="MARCOS_FERNANDEZ_GARCIA" />
-<Resource Reference="NICOLO_TREVISANI" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="EXPERIMENTAL_OPTICS_l1">
-<Name>EXPERIMENTAL OPTICS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="EXPERIMENTAL_OPTICS" />
-<Resources>
-<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
-<Resource Reference="FERNANDO_MORENO_GRACIA" />
-<Resource Reference="JOSE_MARIA_SAIZ_VEGA" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="PHYSICS_OF_MATERIALS_l1">
-<Name>PHYSICS OF MATERIALS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="PHYSICS_OF_MATERIALS" />
-<Resources>
-<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_l1">
-<Name>ADVANCED EXPERIMENTAL TECHNIQUES (2C): Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)" />
-<Resources>
-<Resource Reference="Class4_FISICA_INTERNATIONAL_DIPLOMA1" />
-<Resource Reference="MANUEL_PEREZ_CAGIGAL" />
-<Resource Reference="LUIS_PESQUERA_GONZALEZ" />
-<Resource Reference="FRANCISCO_GONZALEZ_FERNANDEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ESTADISTICA_Y_OPTIMIZACION_l1">
-<Name>ESTADISTICA Y OPTIMIZACION: Laboratorio</Name>
-<Duration>2</Duration>
-<Course Reference="ESTADISTICA_Y_OPTIMIZACION" />
-<Resources>
-<Resource Reference="Class1_INFORMATICA_1" />
-<Resource Reference="MARCOS_CRUZ_RODRIGUEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_l1">
-<Name>ECONOMIA Y ADMINISTRACION DE EMPRESAS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS" />
-<Resources>
-<Resource Reference="Class1_INFORMATICA_1" />
-<Resource Reference="ROGELIO_OLAVARRI_FERNANDEZ" />
-<Resource Reference="HECTOR_DELGADO_DIEGO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3379,7 +3543,7 @@
 <Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3392,26 +3556,12 @@
 <Course Reference="METODOS_DE_PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="MARIO_ALDEA_RIVAS" />
 <Resource Reference="PROFESOR_EXTERNO______916157" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_l1">
-<Name>ANALISIS MATEMATICO Y METODOS NUMERICOS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS" />
-<Resources>
-<Resource Reference="Class1_INFORMATICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3420,7 +3570,7 @@
 </Event>
 <Event Id="ORGANIZACION_DE_COMPUTADORES_l1">
 <Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
-<Duration>3</Duration>
+<Duration>2</Duration>
 <Course Reference="ORGANIZACION_DE_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
@@ -3428,7 +3578,7 @@
 <Resource Reference="JOSE_LUIS_BOSQUE_ORERO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3441,26 +3591,11 @@
 <Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="LOGICA_l1">
-<Name>LOGICA: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="LOGICA" />
-<Resources>
-<Resource Reference="Class2_INFORMATICA_1" />
-<Resource Reference="INES_GONZALEZ_RODRIGUEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3473,10 +3608,11 @@
 <Course Reference="SISTEMAS_OPERATIVOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
 <Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3491,56 +3627,11 @@
 <Resource Reference="Class2_INFORMATICA_1" />
 <Resource Reference="PROFESOR_EXTERNO______916154" />
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="INGENIERIA_DE_REQUISITOS_l1">
-<Name>INGENIERIA DE REQUISITOS: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="INGENIERIA_DE_REQUISITOS" />
-<Resources>
-<Resource Reference="Class3_INFORMATICA_1" />
-<Resource Reference="PABLO_SANCHEZ_BARREIRO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="INGENIERIA_DEL_SOFTWARE_II_l1">
-<Name>INGENIERIA DEL SOFTWARE II: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="INGENIERIA_DEL_SOFTWARE_II" />
-<Resources>
-<Resource Reference="Class3_INFORMATICA_1" />
-<Resource Reference="MIGUEL_SIERRA_SANCHEZ" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="SISTEMAS_DE_TIEMPO_REAL_l1">
-<Name>SISTEMAS DE TIEMPO REAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="SISTEMAS_DE_TIEMPO_REAL" />
-<Resources>
-<Resource Reference="Class3_INFORMATICA_1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3549,13 +3640,15 @@
 </Event>
 <Event Id="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
 <Name>DESARROLLO DE SISTEMAS DE INFORMACION: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3564,13 +3657,14 @@
 </Event>
 <Event Id="LENGUAJES_FORMALES_l1">
 <Name>LENGUAJES FORMALES: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="LENGUAJES_FORMALES" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3579,13 +3673,14 @@
 </Event>
 <Event Id="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_l1">
 <Name>APRENDIZAJE AUTOMATICO Y MINERIA DE DATOS: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="CRISTINA_TIRNAUCA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3594,14 +3689,15 @@
 </Event>
 <Event Id="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
 <Name>ARQUITECTURA E INGENIERIA DE COMPUTADORES: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="PABLO_ABAD_FIDALGO" />
 <Resource Reference="JOSE_ANGEL_GREGORIO_MONASTERIO" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3610,14 +3706,15 @@
 </Event>
 <Event Id="SISTEMAS_INFORMATICOS_l1">
 <Name>SISTEMAS INFORMATICOS: Laboratorio</Name>
-<Duration>2</Duration>
+<Duration>1</Duration>
 <Course Reference="SISTEMAS_INFORMATICOS" />
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
+<Resource Reference="PABLO_ABAD_FIDALGO" />
 <Resource Reference="SERGIO_GARRIDO_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3631,60 +3728,11 @@
 <Resources>
 <Resource Reference="Class3_INFORMATICA_1" />
 <Resource Reference="EDUARDO_GARCIA_TORRE" />
+<Resource Reference="HECTOR_PEREZ_TIJERO" />
 <Resource Reference="ENRIQUE_VALLEJO_GUTIERREZ" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="GESTION_DE_PROYECTOS_SOFTWARE_l1">
-<Name>GESTION DE PROYECTOS SOFTWARE: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="GESTION_DE_PROYECTOS_SOFTWARE" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="INFORMATICA_INDUSTRIAL_l1">
-<Name>INFORMATICA INDUSTRIAL: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="INFORMATICA_INDUSTRIAL" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
-<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
-<Resource Reference="Class4_INFORMATICA_COMPUTACION1" />
-<Resource Reference="JULIO_BARROS_GUADALUPE" />
-<Resource Reference="RAMON_IGNACIO_DIEGO_GARCIA" />
-<Resource Reference="MATILDE_DE_APRAIZ_CASUSO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="SERVICIOS_SOFTWARE_l1">
-<Name>SERVICIOS SOFTWARE: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="SERVICIOS_SOFTWARE" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3693,7 +3741,7 @@
 </Event>
 <Event Id="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
 <Name>SISTEMAS DE INFORMACION DE LA EMPRESA: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>2</Duration>
 <Course Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA" />
 <Resources>
 <Resource Reference="Class4_INFORMATICA_SOFTWARE1" />
@@ -3703,7 +3751,7 @@
 <Resource Reference="PABLO_MARIA_DE_CASTRO_GARCIA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3712,7 +3760,7 @@
 </Event>
 <Event Id="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
 <Name>DISENO Y GESTION DE SISTEMAS INFORMATICOS: Laboratorio</Name>
-<Duration>1</Duration>
+<Duration>4</Duration>
 <Course Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS" />
 <Resources>
 <Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
@@ -3720,53 +3768,7 @@
 <Resource Reference="VALENTIN_PUENTE_VARONA" />
 <Resource>
 <Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="MULTIPROCESADORES_l1">
-<Name>MULTIPROCESADORES: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="MULTIPROCESADORES" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
-<Resource Reference="JULIO_RAMON_BEIVIDE_PALACIO" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="NATURAL_LANGUAGE_PROCESSING_l1">
-<Name>NATURAL LANGUAGE PROCESSING: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="NATURAL_LANGUAGE_PROCESSING" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
-</Resource>
-</Resources>
-<EventGroups>
-<EventGroup Reference="gr_AllEvents" />
-</EventGroups>
-</Event>
-<Event Id="LENGUAJES_DE_PROGRAMACION_l1">
-<Name>LENGUAJES DE PROGRAMACION: Laboratorio</Name>
-<Duration>1</Duration>
-<Course Reference="LENGUAJES_DE_PROGRAMACION" />
-<Resources>
-<Resource Reference="Class4_INFORMATICA_COMPUTADORES1" />
-<Resource>
-<Role>Room</Role>
-<ResourceType Reference="Room" />
+<ResourceType Reference="Laboratory" />
 </Resource>
 </Resources>
 <EventGroups>
@@ -3797,6 +3799,7 @@
 <ResourceGroup Reference="gr_Teacher" />
 <ResourceGroup Reference="gr_Room" />
 <ResourceGroup Reference="gr_Class" />
+<ResourceGroup Reference="gr_Laboratory" />
 </ResourceGroups>
 </AppliesTo>
 </AvoidClashesConstraint>
