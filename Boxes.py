@@ -1,4 +1,5 @@
 from kivy.uix.floatlayout import FloatLayout
+from datetime import timedelta
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
@@ -16,14 +17,17 @@ class Boxes(FloatLayout):
     l = 0
     primero = []
     segundo = []
+    timeTable = ''
     
     def __init__(self, horarioPrincipal, **kwargs):
         ''' Inicialización del horario '''
+
+        timeTable = horarioPrincipal
         
         super(Boxes, self).__init__(**kwargs)
 
         #Fichero de lectura
-        doc = etree.parse('datos/outfile3.xml')
+        doc = etree.parse('datos/outfile_nuevo_solucion.xml')
 
         
         #añado los botones al horario
@@ -91,7 +95,10 @@ class Boxes(FloatLayout):
             if resourceType == 'Teacher':
                 #Inserto los botones de los profesores
                 #print(child.findtext('Name'))
-                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+                #Asigno el ID
+                ident = child.get('Id')
+                btn.setIdent(ident)
                 
                 # Mostrar el menu
                 btn.bind(on_release=lambda btn: profes.select(btn.text))
@@ -100,9 +107,12 @@ class Boxes(FloatLayout):
                 profes.add_widget(btn)
 
             if resourceType == 'Room':
-                #Inserto los botones de los profesores
+                #Inserto los botones de las aulas
                 #print(child.findtext('Name'))
-                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+                #Asigno el ID
+                ident = child.get('Id')
+                btn.setIdent(ident)
                 
                 # Mostrar el menu
                 btn.bind(on_release=lambda btn: aulas.select(btn.text))
@@ -111,9 +121,13 @@ class Boxes(FloatLayout):
                 aulas.add_widget(btn)
 
             if resourceType == 'Class':
-                #Inserto los botones de los profesores
+                #Inserto los botones de los cursos
                 #print(child.findtext('Name'))
-                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+                #Asigno el ID
+                ident = child.get('Id')
+                btn.setIdent(ident)
+                
                 # Mostrar el menu
                 btn.bind(on_release=lambda btn: curs.select(btn.text))
 
@@ -129,7 +143,11 @@ class Boxes(FloatLayout):
             '''Inserto las asignaturas'''
             if child.findtext('Name') is not None:
                 #print(child.findtext('Name'))
-                btn = Button(text=child.findtext('Name'), size_hint_y=None, height=44)
+                btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+                #Asigno el ID
+                ident = child.get('Id')
+                btn.setIdent(ident)
+                
                 # Mostrar el menu
                 btn.bind(on_release=lambda btn: asigns.select(btn.text))
 
@@ -138,24 +156,24 @@ class Boxes(FloatLayout):
 
         #Añado un boton vacio a cada desplegable      
         # Profesores
-        btn = Button(text='Ninguno', size_hint_y=None, height=44)
+        btn = Boton(text='Ninguno', size_hint_y=None, height=44)
         btn.bind(on_release=lambda btn: profes.select(btn.text))
         profes.add_widget(btn)
         # aulas
-        btn = Button(text='Ninguna', size_hint_y=None, height=44) 
+        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
         btn.bind(on_release=lambda btn: aulas.select(btn.text))
         aulas.add_widget(btn)
         #Cursos
-        btn = Button(text='Ninguno', size_hint_y=None, height=44) 
+        btn = Boton(text='Ninguno', size_hint_y=None, height=44) 
         btn.bind(on_release=lambda btn: curs.select(btn.text))
         curs.add_widget(btn)
 
         #añado los desplegables a la pantalla
-        profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 350)
+        profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 330)
         profesbutton.bind(on_release=profes.open)
-        aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 250)
+        aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 200)
         aulasbutton.bind(on_release=aulas.open)
-        asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 450)
+        asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 400)
         asignsbutton.bind(on_release=asigns.open)
         cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 250)
         cursosbutton.bind(on_release=curs.open)
@@ -169,13 +187,149 @@ class Boxes(FloatLayout):
         self.ids['_main'].add_widget(cursosbutton)
 
         #Separación y boton de exportacion
-        empty = Button(text = '', size_hint = (None, None))
-        self.ids['_main'].add_widget(empty)
+##        empty = Button(text = '', size_hint = (None, None))
+##        self.ids['_main'].add_widget(empty)
 
-        export = Button(text = 'Exportar', size_hint = (None, None))
+        export = Button(text = 'Cargar selección', size_hint = (None, None), width = 200)
+        export.bind(on_release=lambda btn: self.getFilter(horarioPrincipal))
         self.ids['_main'].add_widget(export)
-
         
+
+    def getFilter(self,horarioPrincipal):
+
+        filterProf = ''
+        filterAula = ''
+        filterAsig = ''
+        filterCurs = ''
+
+        # Recupero los valores seleccionados y cargo sus referencias xml
+        doc = etree.parse('datos/outfile_nuevo_solucion.xml')
+        timegroups = doc.getroot().find('Instances')
+        timegroups = timegroups.find('Instance')
+        resources = timegroups.find('Resources')
+
+        print('FILTRO')
+
+        #Recupero la referencia del curso
+        text = self.ids['_main'].children[1].text
+        for child in resources:
+            name = child.find('Name')         
+            if name is not None:                
+                if name.text == text:
+                    print('FOUNDED COURSE')
+                    filterCurs = child.get('Id')
+        
+        #Recupero la referencia de la asignatura
+        text = self.ids['_main'].children[2].text
+        events = timegroups.find('Events')
+        for child in events:
+            name = child.find('Name')
+            if name is not None:
+                if name.text == text:
+                    print('FOUNDED ASIGNATURA')
+                    filterAsig = child.get('Id')
+        
+        #Recupero la referencia del aula
+        text = self.ids['_main'].children[3].text
+        for child in resources:
+            name = child.find('Name')
+            if name is not None:
+                if name.text == text:
+                    print('FOUNDED AULA')
+                    filterAula = child.get('Id')
+
+        #Recupero la referencia del profesor
+        text = self.ids['_main'].children[4].text
+        for child in resources:
+            name = child.find('Name')
+            if name is not None:
+                if name.text == text:
+                    print('FOUNDED PROFE')
+                    filterProf = child.get('Id')
+                    ##print(child.xpath("//@Id"))
+
+##        if filterProf is None:
+##            filterProf = 'Ninguno'
+##
+##        if filterAula is None:
+##            filterAula = 'Ninguna'
+##            
+##        if filterCurs is None:
+##            filterCurs = 'Ninguno'
+##            
+##        if filterAsig is None:
+##            filterAsig = 'Ninguna'
+
+        #Lista de asignaturas para el filtrado
+        listaAsignaturas = []
+        print('Profesor')
+        print(filterProf)
+        print('Aula')
+        print(filterAula)
+        print('Asignatura')
+        print(filterAsig)
+        print('Curso')
+        print(filterCurs)
+        
+        #Recupero la lista de asignaturas del profesor
+        timegroups = doc.getroot().find('Instances')
+        timegroups = timegroups.find('Instance')
+        events = timegroups.find('Events')
+        for event in events:
+            for child in event:
+                for last in child:
+                    if last is not None:
+                        resource = last.get('Reference')
+
+                        if resource is not None and resource == filterProf:
+                            listaAsignaturas.append(event.get('Id'))
+                            print(event.get('Id'))
+            
+        
+        #Lista de asignaturas del curso
+        timegroups = doc.getroot().find('Instances')
+        timegroups = timegroups.find('Instance')
+        events = timegroups.find('Events')
+        for event in events:
+            for child in event:
+                for last in child:
+                    if last is not None:
+                        resource = last.get('Reference')
+
+                        if resource is not None and resource == filterCurs:
+                            listaAsignaturas.append(event.get('Id'))
+                            print(event.get('Id'))
+
+        #asignatura seleccionada
+        if filterAsig != '':
+            listaAsignaturas.append(filterAsig)
+
+        #variable para comparar (lista de todas las anteriores)
+        
+        #Cargo el horario según la selección
+        #Me posiciono en la solucion y pinto segun lo seleccionado
+        solutionGroups = doc.getroot().find('SolutionGroups')
+        solutionGroup = solutionGroups.find('SolutionGroup')
+        solution = solutionGroup.find('Solution')
+        events = solution.find('Events')
+
+        #Lista de asignaturas para el filtrado
+        print(listaAsignaturas)
+        
+##        for child in events:
+##            asig = child.get('Reference')
+##
+##            if listaasignaturas is not None:
+##                if filterAula is None:
+##                    if asig == listaasignaturas:
+##                        #horarioPrincipal.incluye_hora('Lunes','MATES','Aula 14',timedelta(10),timedelta(11))
+##                else:
+##                    if asig == listaasignaturas:
+##                        #if 
+##            else:
+                
+
+    
     def intercambia(self, horario):
 
         # Recupero el id de la ventana activa
