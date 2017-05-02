@@ -15,6 +15,8 @@ class horario:
         self.inicio = inicio
         self.empieza_tarde = timedelta(hours = 15)
         self.choosed = False
+        self.listaAulas = ''
+        self.listaAsignaturas = ''
 
     def incluye_hora(self, dia, asignatura, aula, inicio, fin):
         pos = self.dias.index(dia)
@@ -83,48 +85,57 @@ class horario:
             yield texto, porcentaje
             principio = fin
             
+            
     def save_timetableXML(self):
         print('GUARDANDO XML')
 
-        #Inicializaciones
-        doc = etree.parse('outfile.xml')
-        root = doc.getroot()
-        
-        #Soluciones
-        etree.SubElement(root, "SolutionGroups")
-        solucion = etree.SubElement(root[1], "SolutionGroup", id="fromHorario")
+        #solo guardo si se aplica algún filtro(y modifico lo cargado)
+        if self.listaAulas != '' or self.listaAsignaturas != '':
+            #Inicializaciones
+            doc = etree.parse('datos/outfile_nuevo_solucion.xml')
+            root = doc.getroot()
 
-        #Metadata
-        metadata = etree.SubElement(solucion, "Metadata")
-        name = etree.SubElement(metadata, "Name")
-        name.text = "Horarios de Informática"
-        contributor = etree.SubElement(metadata, "Contributor")
-        contributor.text = "Jose Ramon Vejo"
-        date = etree.SubElement(metadata, "Date")
-        date.text = "05/03/2017"
-        country = etree.SubElement(metadata, "Country")
-        country.text = "Spain"
+            #Primero recorro el archivo borrando lo cargado anteriormente
 
 
-        #Anado la solucion
-        solve = etree.SubElement(solucion, "Solution")
-        reference = etree.SubElement(solve, "Reference")
-        reference.text = "Horarios de Informática"
-        events = etree.SubElement(solve, "Events")
 
-        #Recorro el arbol guardando el horario
-        event = etree.SubElement(events, "Event", Reference="Horarios de Informática")
+            #Añado al archivo la nueva disposición del horario
+            
+            #Soluciones
+            etree.SubElement(root, "SolutionGroups")
+            solucion = etree.SubElement(root[1], "SolutionGroup", id="fromHorario")
 
-        duration = etree.SubElement(event, "Duration")
-        duration.text = "1"
-        time  = etree.SubElement(event, "Time", Reference="Reference Time")
+            #Metadata
+            metadata = etree.SubElement(solucion, "Metadata")
+            name = etree.SubElement(metadata, "Name")
+            name.text = "Horarios de Informática"
+            contributor = etree.SubElement(metadata, "Contributor")
+            contributor.text = "Jose Ramon Vejo"
+            date = etree.SubElement(metadata, "Date")
+            date.text = "05/03/2017"
+            country = etree.SubElement(metadata, "Country")
+            country.text = "Spain"
 
-        #Guardo la solucion en el fichero
-        outFile = open('outfile.xml', 'wb')
-        doc.write(outFile)
-        print('XML GUARDADO')
-        print('Estos son los datos guardados')
-        print(etree.tostring(root))
+
+            #Anado la solucion
+            solve = etree.SubElement(solucion, "Solution")
+            reference = etree.SubElement(solve, "Reference")
+            reference.text = "Horarios de Informática"
+            events = etree.SubElement(solve, "Events")
+
+            #Recorro el arbol guardando el horario
+            event = etree.SubElement(events, "Event", Reference="Horarios de Informática")
+
+            duration = etree.SubElement(event, "Duration")
+            duration.text = "1"
+            time  = etree.SubElement(event, "Time", Reference="Reference Time")
+
+            #Guardo la solucion en el fichero
+            outFile = open('datos/outfile_nuevo_solucion.xml', 'wb')
+            doc.write(outFile)
+            print('XML GUARDADO')
+            print('Estos son los datos guardados')
+            #print(etree.tostring(root))
 
         
 
