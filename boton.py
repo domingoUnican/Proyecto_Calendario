@@ -12,5 +12,8 @@ class Boton(Button):
     def setIdent(self, ident):
         self.ident = ident
 
+    def getIdent(self):
+        return self.ident
+
     def printText(self):
         print("El texto del boton es:"+ self.text)
