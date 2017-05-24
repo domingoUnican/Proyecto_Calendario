@@ -18,18 +18,19 @@ class horario:
         self.listaAulas = ''
         self.listaAsignaturas = ''
 
-    def incluye_hora(self, dia, asignatura, aula, inicio, fin):
+    def incluye_hora(self, dia, asignatura, asignaturaID, aula, aulaID, inicio, fin):
         pos = self.dias.index(dia)
         nueva_lista = []
         encontrado = False
         if not self.h_dia[pos]:
-            self.h_dia[pos].append(tuple((asignatura,aula,fin)))
+            self.h_dia[pos].append(tuple((asignatura,asignaturaID,aula,aulaID,fin)))
         else:
             for l in self.h_dia[pos]:
                 nueva_lista.append(tuple(l))
-                if not encontrado and l[2]>=inicio:
+                print(l)
+                if not encontrado and l[4]>=inicio:
                     #print str(l[1]), str(inicio)
-                    nueva_lista.append(tuple((asignatura,aula,fin)))
+                    nueva_lista.append(tuple((asignatura,asignaturaID,aula,aulaID,fin)))
                     encontrado = True
                 self.h_dia[pos] = nueva_lista
 
@@ -40,8 +41,8 @@ class horario:
         Recordad que todos los dias tienen que tener las mismas horas,
         por lo que hay que rellenar con huecos libres.
         '''
-        manana = [l for l in self.h_dia[0] if l[2]<=self.empieza_tarde]
-        return (manana[-1][2]-self.inicio).seconds
+        manana = [l for l in self.h_dia[0] if l[4]<=self.empieza_tarde]
+        return (manana[-1][4]-self.inicio).seconds
 
     def segundos_clase_tarde(self):
         '''
@@ -50,8 +51,8 @@ class horario:
         Recordad que todos los dias tienen que tener las mismas horas,
         por lo que hay que rellenar con huecos libres.
         '''
-        manana = [l for l in self.h_dia[0] if l[2]>=self.empieza_tarde]
-        return (self.h_dia[0][-1][2]-self.empieza_tarde).seconds
+        manana = [l for l in self.h_dia[0] if l[4]>=self.empieza_tarde]
+        return (self.h_dia[0][-1][4]-self.empieza_tarde).seconds
 
     def clases_manana(self, dia):
         '''
@@ -61,12 +62,12 @@ class horario:
 
         principio = self.inicio
         total = float(self.segundos_clase_manana())
-        manana = [l for l in self.h_dia[pos] if l[2]<=self.empieza_tarde]
-        for asignatura, aula, fin in manana:
+        manana = [l for l in self.h_dia[pos] if l[4]<=self.empieza_tarde]
+        for asignatura, asignaturaID, aula, aulaID, fin in manana:
             porcentaje = (fin-principio).seconds/total
             porcentaje *= 0.98
             texto = ('%s\n%s\n%s--%s')%(asignatura, aula, principio, fin)
-            yield texto, porcentaje
+            yield texto, porcentaje, asignaturaID, aulaID
             principio = fin
 
 
@@ -77,8 +78,8 @@ class horario:
         pos = self.dias.index(dia)
         principio = self.empieza_tarde
         total = float(self.segundos_clase_tarde())
-        tarde = [l for l in self.h_dia[pos] if l[2]>self.empieza_tarde]
-        for asignatura, aula, fin in tarde:
+        tarde = [l for l in self.h_dia[pos] if l[4]>self.empieza_tarde]
+        for asignatura, asignaturaID, aula, aulaID, fin in tarde:
             porcentaje = (fin-principio).seconds/total
             porcentaje *= 0.98
             texto = ('%s\n%s\n%s--%s')%(asignatura, aula, principio, fin)
