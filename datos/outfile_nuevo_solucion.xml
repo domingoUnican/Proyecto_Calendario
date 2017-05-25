@@ -4,7 +4,7 @@
       <MetaData>
         <Name>Horario de Informatica</Name>
         <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-        <Date>2017-05-01 11:16:54.182052</Date>
+        <Date>2017-05-25 18:56:27.577369</Date>
         <Country>Spain</Country>
         <Description>Facultad de ciencias</Description>
       </MetaData>
@@ -2172,7 +2172,7 @@
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_1"/>
-            <Resource Reference="Class2_DOBLE_1"/>
+            <Resource Reference="Class3_DOBLE_1"/>
             <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA"/>
             <Resource>
               <Role>Room</Role>
@@ -2189,7 +2189,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_1"/>
-            <Resource Reference="Class2_DOBLE_1"/>
+            <Resource Reference="Class3_DOBLE_1"/>
             <Resource Reference="JOSE_JAVIER_SEGURA_SALA"/>
             <Resource>
               <Role>Room</Role>
@@ -2275,7 +2275,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="MARIA_CECILIA_POLA_MENDEZ"/>
             <Resource>
               <Role>Room</Role>
@@ -2292,7 +2292,7 @@
           <Duration>3</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="ALICIA_NIETO_REYES"/>
             <Resource>
               <Role>Room</Role>
@@ -2309,7 +2309,7 @@
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource>
               <Role>Room</Role>
               <ResourceType Reference="Room"/>
@@ -2325,7 +2325,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource>
               <Role>Room</Role>
               <ResourceType Reference="Room"/>
@@ -3225,7 +3225,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_1"/>
-            <Resource Reference="Class2_DOBLE_1"/>
+            <Resource Reference="Class3_DOBLE_1"/>
             <Resource Reference="JOSE_JAVIER_SEGURA_SALA"/>
             <Resource>
               <Role>Room</Role>
@@ -3242,7 +3242,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="MARIA_CECILIA_POLA_MENDEZ"/>
             <Resource>
               <Role>Room</Role>
@@ -3259,7 +3259,7 @@
           <Duration>1</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="ALICIA_NIETO_REYES"/>
             <Resource>
               <Role>Room</Role>
@@ -3276,7 +3276,7 @@
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource>
               <Role>Room</Role>
               <ResourceType Reference="Laboratory"/>
@@ -3292,7 +3292,7 @@
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ"/>
             <Resource Reference="FERNANDO_ETAYO_GORDEJUELA"/>
             <Resource Reference="ALICIA_NIETO_REYES"/>
@@ -3444,7 +3444,7 @@
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class3_FISICA_1"/>
-            <Resource Reference="Class3_DOBLE_1"/>
+            <Resource Reference="Class4_DOBLE_1"/>
             <Resource Reference="FERNANDO_RODRIGUEZ_GONZALEZ"/>
             <Resource Reference="IGNACIO_HERNANDEZ_CAMPO"/>
             <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ"/>
@@ -3719,7 +3719,18 @@
           </AppliesTo>
           <Role>Room</Role>
         </AssignResourceConstraint>
-        <PreferTimesConstraint Id="na">
+        <AssignTimeConstraint Id="AssignTimes">
+          <Name>Asignar todas las asignaturas</Name>
+          <Required>true</Required>
+          <Weight>1</Weight>
+          <CostFunction>Linear</CostFunction>
+          <AppliesTo>
+            <EventGroups>
+              <EventGroup Reference="gr_AllEvents"/>
+            </EventGroups>
+          </AppliesTo>
+        </AssignTimeConstraint>
+        <PreferTimesConstraint Id="manana">
           <Name>Todo por la mañana</Name>
           <Required>false</Required>
           <Weight>1</Weight>
@@ -3755,1519 +3766,1538 @@
     <SolutionGroup Id="KHE_2016_02_06">
       <MetaData>
         <Contributor>Jeffrey H. Kingston</Contributor>
-        <Date>1 May 2017</Date>
+        <Date>25 May 2017</Date>
         <Description>Produced by KHE Version 2016_02_06</Description>
       </MetaData>
       <Solution Reference="TODO">
-        <RunningTime>1.3</RunningTime>
+        <RunningTime>1.8</RunningTime>
         <Events>
           <Event Reference="PROGRAMACION_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PROGRAMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
+            <Time Reference="Miercoles1"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="PROGRAMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_INTEGRAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_INTEGRAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_INTEGRAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_INTEGRAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ESTADISTICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ESTADISTICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ESTADISTICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ESTADISTICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
             <Duration>1</Duration>
             <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGLES_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGLES_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGLES_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGLES_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
+          <Event Reference="PROGRAMACION_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_INTEGRAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_INTEGRAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_INTEGRAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_INTEGRAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
             <Resources>
               <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
+          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA,_ARTE_Y_NATURALEZA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGLES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGLES_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGLES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGLES_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
           <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
             <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
             <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="CALCULO_NUMERICO_I_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_NUMERICO_I_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ECUACIONES_DER.PARCIALES_t">
             <Duration>1</Duration>
             <Time Reference="Viernes1"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="CALCULO_NUMERICO_I_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
           <Event Reference="ECUACIONES_DER.PARCIALES_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ECUACIONES_DER.PARCIALES_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ESTRUCTURAS_ALGEBRAICAS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
+            <Time Reference="Martes2"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ESTRUCTURAS_ALGEBRAICAS_t">
             <Duration>1</Duration>
-            <Time Reference="Martes5"/>
+            <Time Reference="Viernes2"/>
             <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ESTRUCTURAS_ALGEBRAICAS_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="AMPLIACION_DE_CALCULO_INTEGRAL_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles3"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTRUCTURAS_ALGEBRAICAS_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="AMPLIACION_DE_CALCULO_INTEGRAL_t">
             <Duration>1</Duration>
-            <Time Reference="Martes4"/>
+            <Time Reference="Martes1"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="AMPLIACION_DE_CALCULO_INTEGRAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="AMPLIACION_DE_CALCULO_INTEGRAL_t">
             <Duration>1</Duration>
             <Time Reference="Jueves5"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="VARIABLE_COMPLEJA_t">
             <Duration>1</Duration>
-            <Time Reference="Martes3"/>
+            <Time Reference="Jueves1"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_10"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="VARIABLE_COMPLEJA_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes5"/>
+            <Time Reference="Lunes2"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_10"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="VARIABLE_COMPLEJA_t">
             <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_10"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="VARIABLE_COMPLEJA_t">
             <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_10"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="OPTIMIZACION_I_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes1"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="OPTIMIZACION_I_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="OPTIMIZACION_I_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
+            <Time Reference="Martes2"/>
             <Resources>
               <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="STATISTICAL_INFERENCE_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="STATISTICAL_INFERENCE_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="STATISTICAL_INFERENCE_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGEBRA_CONMUTATIVA_t">
             <Duration>1</Duration>
             <Time Reference="Lunes1"/>
             <Resources>
               <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="STATISTICAL_INFERENCE_t">
+          <Event Reference="ALGEBRA_CONMUTATIVA_t">
             <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
+            <Time Reference="Lunes3"/>
             <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="STATISTICAL_INFERENCE_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ALGEBRA_CONMUTATIVA_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles3"/>
+            <Time Reference="Martes3"/>
             <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ALGEBRA_CONMUTATIVA_t">
             <Duration>1</Duration>
-            <Time Reference="Martes4"/>
+            <Time Reference="Viernes5"/>
             <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_CONMUTATIVA_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_CONMUTATIVA_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="OPTIMIZACION_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
+            <Time Reference="Miercoles2"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="OPTIMIZACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes5"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="AMPLIACION_DE_ALGEBRA_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="AMPLIACION_DE_ALGEBRA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles3"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="OPTIMIZACION_t">
+          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="NUMERICAL_ANALYSIS_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="NUMERICAL_ANALYSIS_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_EXPERIMENTAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_EXPERIMENTAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_II_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles2"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_II_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes5"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes1"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes2"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
             <Duration>1</Duration>
             <Time Reference="Viernes5"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="AMPLIACION_DE_ALGEBRA_t">
+          <Event Reference="PROYECTOS_t">
             <Duration>1</Duration>
             <Time Reference="Lunes1"/>
             <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="AMPLIACION_DE_ALGEBRA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
+          <Event Reference="PROYECTOS_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GEOMETRIA_PROYECTIVA_Y_ALGEBRAICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles3"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="AMPLIACION_DE_ESTADISTICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGEBRA_COMPUTACIONAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
             <Resources>
               <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="TEORIA_DE_LA_MEDIDA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NUMERICAL_ANALYSIS_III_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NUMERICAL_ANALYSIS_III_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MATEMATICAS_PARA_LA_EDUCACION_SECUNDARIA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_EXPERIMENTAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_EXPERIMENTAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles3"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes4"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ELECTRICIDAD_Y_MAGNETISMO_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INTRODUCCION_A_LAS_ECUACIONES_EN_DERIVADAS_PARCIALES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_II_t">
+          <Event Reference="PROYECTOS_t">
             <Duration>1</Duration>
             <Time Reference="Martes3"/>
             <Resources>
               <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_II_t">
+          <Event Reference="PROYECTOS_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes5"/>
+            <Time Reference="Lunes4"/>
             <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+          <Event Reference="ASTRONOMY_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
+            <Time Reference="Viernes2"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
+          <Event Reference="ASTRONOMY_t">
             <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_III_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
+            <Time Reference="Lunes4"/>
             <Resources>
               <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
+          <Event Reference="ASTRONOMY_t">
             <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_CUANTICA_Y_ESTRUCTURA_DE_LA_MATERIA_IV_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
+            <Time Reference="Miercoles5"/>
             <Resources>
               <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+          <Event Reference="PARTICLE_PHYSICS_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles1"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
+          <Event Reference="PARTICLE_PHYSICS_t">
             <Duration>1</Duration>
             <Time Reference="Jueves1"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="HISTORIA_Y_PANORAMA_DE_INVESTIGACION_Y_APLICACIONES_DE_LA_FISICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves2"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
+          <Event Reference="PARTICLE_PHYSICS_t">
             <Duration>1</Duration>
             <Time Reference="Jueves3"/>
             <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PROYECTOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PROYECTOS_t">
+          <Event Reference="EXPERIMENTAL_OPTICS_t">
             <Duration>1</Duration>
             <Time Reference="Lunes3"/>
             <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="PROYECTOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PROYECTOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ASTRONOMY_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ASTRONOMY_t">
+          <Event Reference="EXPERIMENTAL_OPTICS_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles3"/>
             <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ASTRONOMY_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes4"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PARTICLE_PHYSICS_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PARTICLE_PHYSICS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PARTICLE_PHYSICS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="EXPERIMENTAL_OPTICS_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="PHYSICS_OF_MATERIALS_t">
             <Duration>1</Duration>
             <Time Reference="Lunes1"/>
             <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="EXPERIMENTAL_OPTICS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="EXPERIMENTAL_OPTICS_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="PHYSICS_OF_MATERIALS_t">
             <Duration>1</Duration>
             <Time Reference="Lunes2"/>
             <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="PHYSICS_OF_MATERIALS_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
+            <Time Reference="Martes3"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="PHYSICS_OF_MATERIALS_t">
             <Duration>1</Duration>
             <Time Reference="Viernes3"/>
             <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PHYSICS_OF_MATERIALS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
-            <Time Reference="Martes1"/>
+            <Time Reference="Miercoles2"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
+            <Time Reference="Martes4"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
+            <Time Reference="Miercoles4"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
-            <Time Reference="Martes2"/>
+            <Time Reference="Viernes4"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
+            <Time Reference="Lunes5"/>
             <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ADVANCED_EXPERIMENTAL_TECHNIQUES_(2C)_t">
             <Duration>1</Duration>
             <Time Reference="Martes5"/>
             <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
             <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
+            <Time Reference="Miercoles1"/>
             <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
             <Resources>
               <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
+          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
             <Duration>1</Duration>
             <Time Reference="Viernes3"/>
             <Resources>
               <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="ESTADISTICA_Y_OPTIMIZACION_t">
+          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
+            <Time Reference="Jueves2"/>
             <Resources>
               <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
           <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles3"/>
+            <Time Reference="Martes5"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes4"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="METODOS_DE_PROGRAMACION_t">
-            <Time Reference="Martes5"/>
+            <Time Reference="Lunes5"/>
             <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
             <Duration>1</Duration>
             <Time Reference="Lunes3"/>
             <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
+          <Event Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles5"/>
             <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_t">
             <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
+            <Time Reference="Viernes2"/>
             <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles3"/>
             <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_t">
             <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
+            <Time Reference="Miercoles5"/>
             <Resources>
-              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LOGICA_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_OPERATIVOS_t">
             <Duration>1</Duration>
             <Time Reference="Martes1"/>
             <Resources>
               <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="LOGICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LOGICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LOGICA_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LOGICA_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LOGICA_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
           <Event Reference="SISTEMAS_OPERATIVOS_t">
             <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_OPERATIVOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
+            <Time Reference="Jueves5"/>
             <Resources>
               <Resource Reference="AULA_7"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="BASES_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="BASES_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="BASES_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="BASES_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes1"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes2"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
             <Duration>1</Duration>
             <Time Reference="Lunes2"/>
             <Resources>
               <Resource Reference="AULA_4"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="BASES_DE_DATOS_t">
+          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_FORMALES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_FORMALES_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles2"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes5"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes4"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_INFORMATICOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves4"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_INFORMATICOS_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles4"/>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_t">
+            <Duration>1</Duration>
+            <Resources>
+              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
             <Duration>1</Duration>
             <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="AULA_8"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SERVICIOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SERVICIOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SERVICIOS_SOFTWARE_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes5"/>
             <Resources>
               <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="BASES_DE_DATOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="BASES_DE_DATOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+          <Event Reference="SERVICIOS_SOFTWARE_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles5"/>
             <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DE_REQUISITOS_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INGENIERIA_DEL_SOFTWARE_II_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_TIEMPO_REAL_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_INFORMATICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LENGUAJES_FORMALES_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LENGUAJES_FORMALES_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_t">
+          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles3"/>
             <Resources>
               <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_t">
+          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_t">
             <Duration>1</Duration>
             <Time Reference="Martes4"/>
             <Resources>
               <Resource Reference="AULA_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="SISTEMAS_INFORMATICOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_INFORMATICOS_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_t">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="AULA_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_11"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="GESTION_DE_PROYECTOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INFORMATICA_INDUSTRIAL_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+          <Event Reference="MULTIPROCESADORES_t">
             <Duration>1</Duration>
             <Time Reference="Miercoles1"/>
             <Resources>
-              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+          <Event Reference="MULTIPROCESADORES_t">
             <Duration>1</Duration>
             <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="MULTIPROCESADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="MULTIPROCESADORES_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
             <Resources>
               <Resource Reference="AULA_6"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="INFORMATICA_INDUSTRIAL_t">
+          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
+            <Duration>1</Duration>
+            <Time Reference="Viernes1"/>
+            <Resources>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
             <Duration>1</Duration>
             <Time Reference="Martes2"/>
             <Resources>
               <Resource Reference="AULA_6"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="SERVICIOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SERVICIOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SERVICIOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SERVICIOS_SOFTWARE_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="AULA_9"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes5"/>
-            <Resources>
-              <Resource Reference="AULA_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MULTIPROCESADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MULTIPROCESADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes3"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MULTIPROCESADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes3"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="MULTIPROCESADORES_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="AULA_5"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles3"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
-            <Duration>1</Duration>
-            <Time Reference="Jueves3"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes4"/>
-            <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="NATURAL_LANGUAGE_PROCESSING_t">
-            <Duration>1</Duration>
-            <Time Reference="Martes5"/>
-            <Resources>
-              <Resource Reference="AULA_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="AULA_7"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
           <Event Reference="LENGUAJES_DE_PROGRAMACION_t">
             <Duration>1</Duration>
             <Time Reference="Jueves5"/>
             <Resources>
-              <Resource Reference="SEMINARIO_FISICA"><Role>Room</Role></Resource>
+              <Resource Reference="AULA_6"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="PROGRAMACION_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="PROGRAMACION_l1">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_NUMERICO_I_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="CALCULO_NUMERICO_I_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="OPTIMIZACION_I_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="OPTIMIZACION_I_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="STATISTICAL_INFERENCE_l1">
-            <Time Reference="Jueves2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="OPTIMIZACION_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="OPTIMIZACION_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="TALLER_DE_MODELIZACION_l1">
             <Duration>1</Duration>
             <Time Reference="Viernes1"/>
             <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="PROGRAMACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_NUMERICO_I_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="CALCULO_NUMERICO_I_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes5"/>
+            <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="TALLER_DE_MODELIZACION_l1">
+          <Event Reference="OPTIMIZACION_I_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="OPTIMIZACION_I_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="STATISTICAL_INFERENCE_l1">
+            <Time Reference="Jueves4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="OPTIMIZACION_l1">
             <Duration>1</Duration>
             <Time Reference="Miercoles4"/>
             <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="OPTIMIZACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="TALLER_DE_MODELIZACION_l1">
             <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
             <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="TALLER_DE_MODELIZACION_l1">
             <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
             <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TALLER_DE_MODELIZACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="TALLER_DE_MODELIZACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles5"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="AMPLIACION_DE_ESTADISTICA_l1">
-            <Time Reference="Martes4"/>
+            <Time Reference="Martes2"/>
             <Resources>
               <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
             </Resources>
@@ -5280,334 +5310,375 @@
           </Event>
           <Event Reference="F.E.IV_PRACTICAS_EWB_l1">
             <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
+            <Time Reference="Miercoles2"/>
             <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="F.E.IV_PRACTICAS_EWB_l1">
             <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
+            <Time Reference="Lunes5"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
             <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="LABORATORIO_MULTIDISCIPLINAR_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_MULTIDISCIPLINAR_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_II_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_II_l1">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_BASICA_III_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes3"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_BASICA_III_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_BASICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_BASICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="METODOS_DE_PROGRAMACION_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="METODOS_DE_PROGRAMACION_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ORGANIZACION_DE_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes3"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_OPERATIVOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_OPERATIVOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="BASES_DE_DATOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves2"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="BASES_DE_DATOS_l1">
             <Duration>1</Duration>
             <Time Reference="Martes4"/>
             <Resources>
               <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
+          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
             <Duration>1</Duration>
-            <Time Reference="Miercoles1"/>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="FUNDAMENTOS_FISICA_CUANTICA_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_II_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves2"/>
             <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
+          <Event Reference="LABORATORIO_DE_FISICA_II_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_BASICA_III_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_BASICA_III_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_BASICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_BASICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LABORATORIO_DE_FISICA_IV_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes5"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="INTRODUCCION_A_LOS_COMPUTADORES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves5"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="METODOS_DE_PROGRAMACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="METODOS_DE_PROGRAMACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ORGANIZACION_DE_COMPUTADORES_l1">
             <Duration>1</Duration>
             <Time Reference="Martes2"/>
             <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="LENGUAJES_FORMALES_l1">
+          <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_l1">
             <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
+            <Time Reference="Miercoles2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ALGORITMICA_Y_COMPLEJIDAD_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes5"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_OPERATIVOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes4"/>
             <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="LENGUAJES_FORMALES_l1">
+          <Event Reference="SISTEMAS_OPERATIVOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="BASES_DE_DATOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="BASES_DE_DATOS_l1">
             <Duration>1</Duration>
             <Time Reference="Jueves4"/>
             <Resources>
               <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
+          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_FORMALES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="LENGUAJES_FORMALES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
           <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes2"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
+            <Duration>1</Duration>
+            <Time Reference="Jueves3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_INFORMATICOS_l1">
+            <Time Reference="Miercoles3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Lunes1"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_l1">
+            <Duration>1</Duration>
+            <Time Reference="Martes3"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
+            <Duration>1</Duration>
+            <Time Reference="Miercoles4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
+            <Duration>1</Duration>
+            <Time Reference="Viernes4"/>
+            <Resources>
+              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
+            </Resources>
+          </Event>
+          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
             <Duration>1</Duration>
             <Time Reference="Miercoles2"/>
             <Resources>
               <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_l1">
+          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
             <Duration>1</Duration>
-            <Time Reference="Viernes4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes3"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes5"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_INFORMATICOS_l1">
             <Time Reference="Jueves2"/>
             <Resources>
-              <Resource Reference="LABORATORIO_4"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Viernes5"/>
-            <Resources>
               <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
-          <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_l1">
-            <Duration>1</Duration>
-            <Resources>
-              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
-            <Duration>1</Duration>
-            <Time Reference="Martes3"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
+          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
             <Duration>1</Duration>
             <Time Reference="Lunes5"/>
             <Resources>
-              <Resource Reference="LABORATORIO_3"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Lunes1"/>
-            <Resources>
               <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
           <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
             <Duration>1</Duration>
-            <Time Reference="Viernes1"/>
+            <Time Reference="Martes5"/>
             <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Miercoles4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
-            </Resources>
-          </Event>
-          <Event Reference="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
-            <Duration>1</Duration>
-            <Time Reference="Jueves4"/>
-            <Resources>
-              <Resource Reference="LABORATORIO_1"><Role>Room</Role></Resource>
+              <Resource Reference="LABORATORIO_2"><Role>Room</Role></Resource>
             </Resources>
           </Event>
         </Events>
         <Report>
-          <InfeasibilityValue>0</InfeasibilityValue>
+          <InfeasibilityValue>14</InfeasibilityValue>
           <ObjectiveValue>0</ObjectiveValue>
+          <Resources>
+            <Resource Reference="Class3_INFORMATICA_1">
+              <Constraint Reference="Choques">
+                <Cost>4</Cost>
+              </Constraint>
+            </Resource>
+            <Resource Reference="Class4_DOBLE_1">
+              <Constraint Reference="Choques">
+                <Cost>3</Cost>
+              </Constraint>
+            </Resource>
+          </Resources>
+          <Events>
+            <Event Reference="LOGICA_t">
+              <Constraint Reference="AssignTimes">
+                <Cost>2</Cost>
+              </Constraint>
+            </Event>
+            <Event Reference="INGENIERIA_DE_REQUISITOS_t">
+              <Constraint Reference="AssignTimes">
+                <Cost>2</Cost>
+              </Constraint>
+            </Event>
+            <Event Reference="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_t">
+              <Constraint Reference="AssignTimes">
+                <Cost>1</Cost>
+              </Constraint>
+            </Event>
+            <Event Reference="SISTEMAS_INFORMATICOS_t">
+              <Constraint Reference="AssignTimes">
+                <Cost>1</Cost>
+              </Constraint>
+            </Event>
+            <Event Reference="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_t">
+              <Constraint Reference="AssignTimes">
+                <Cost>1</Cost>
+              </Constraint>
+            </Event>
+          </Events>
         </Report>
       </Solution>
     </SolutionGroup>

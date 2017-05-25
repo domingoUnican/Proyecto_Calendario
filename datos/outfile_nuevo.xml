@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-05-01 11:16:54.182052</Date>
+<Date>2017-05-25 18:56:27.577369</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -2243,7 +2243,7 @@
 <Course Reference="GEOMETRIA_DE_CURVAS_Y_SUPERFICIES" />
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class3_DOBLE_1" />
 <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
@@ -2260,7 +2260,7 @@
 <Course Reference="CALCULO_NUMERICO_I" />
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class3_DOBLE_1" />
 <Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
@@ -2346,7 +2346,7 @@
 <Course Reference="OPTIMIZACION_I" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
@@ -2363,7 +2363,7 @@
 <Course Reference="STATISTICAL_INFERENCE" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="ALICIA_NIETO_REYES" />
 <Resource>
 <Role>Room</Role>
@@ -2380,7 +2380,7 @@
 <Course Reference="ALGEBRA_CONMUTATIVA" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2396,7 +2396,7 @@
 <Course Reference="OPTIMIZACION" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -3296,7 +3296,7 @@
 <Course Reference="CALCULO_NUMERICO_I" />
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
-<Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class3_DOBLE_1" />
 <Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
@@ -3313,7 +3313,7 @@
 <Course Reference="OPTIMIZACION_I" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="MARIA_CECILIA_POLA_MENDEZ" />
 <Resource>
 <Role>Room</Role>
@@ -3330,7 +3330,7 @@
 <Course Reference="STATISTICAL_INFERENCE" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="ALICIA_NIETO_REYES" />
 <Resource>
 <Role>Room</Role>
@@ -3347,7 +3347,7 @@
 <Course Reference="OPTIMIZACION" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Laboratory" />
@@ -3363,7 +3363,7 @@
 <Course Reference="TALLER_DE_MODELIZACION" />
 <Resources>
 <Resource Reference="Class3_MATEMATICAS_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ" />
 <Resource Reference="FERNANDO_ETAYO_GORDEJUELA" />
 <Resource Reference="ALICIA_NIETO_REYES" />
@@ -3515,7 +3515,7 @@
 <Course Reference="LABORATORIO_DE_FISICA_IV" />
 <Resources>
 <Resource Reference="Class3_FISICA_1" />
-<Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class4_DOBLE_1" />
 <Resource Reference="FERNANDO_RODRIGUEZ_GONZALEZ" />
 <Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="JESUS_MARIA_RODRIGUEZ_FERNANDEZ" />
@@ -3789,7 +3789,18 @@
 </AppliesTo>
 <Role>Room</Role>
 </AssignResourceConstraint>
-<PreferTimesConstraint Id="na">
+<AssignTimeConstraint Id="AssignTimes">
+<Name>Asignar todas las asignaturas</Name>
+<Required>true</Required>
+<Weight>1</Weight>
+<CostFunction>Linear</CostFunction>
+<AppliesTo>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</AppliesTo>
+</AssignTimeConstraint>
+<PreferTimesConstraint Id="manana">
 <Name>Todo por la mañana</Name>
 <Required>false</Required>
 <Weight>1</Weight>

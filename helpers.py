@@ -50,6 +50,10 @@ def expected_number_students(array):
          maximum = max(int(num), maximum)
    return maximum
 def name_degree(l):
-   l0 = l.split('_')[0]
+   temp = l.split('_')
+   if len(temp)>1:
+      l0, year = temp
+   else:
+      l0, year = temp[0],''
    s = normalize_name(l0)[0]
-   return s
+   return s, year

@@ -39,13 +39,15 @@ class Csv4Xml(object):
                         self.asig[name] = contents[1:-1]
                         self.asig[name].append([])
                         for temp in contents[6].split(','):
-                            t_n = name_degree(temp)
+                            t_n, t_year = name_degree(temp)
+                            if not t_year:
+                                t_year = contents[1]
                             for temp20 in contents[7].split(','):
                                 temp2 = normalize_name(temp20)[0]
-                                self.asig[name][-1].append((contents[1],t_n,
+                                self.asig[name][-1].append((t_year,t_n,
                                                         temp2))
-                                if (contents[1],t_n,temp2) not in DEGREES:
-                                    DEGREES.append((contents[1],t_n,temp2))
+                                if (t_year,t_n,temp2) not in DEGREES:
+                                    DEGREES.append((t_year,t_n,temp2))
 
                         N_GROUPS[contents[1]] = max(int(contents[5]),
                                                     N_GROUPS[contents[1]])
@@ -327,6 +329,20 @@ class Csv4Xml(object):
         etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
         role = etree.SubElement(assign_resource, 'Role')
         role.text = 'Room'
+        assign_times = etree.SubElement(constraints,
+                                          'AssignTimeConstraint',
+                                          Id='AssignTimes')
+        name = etree.SubElement(assign_times, 'Name')
+        name.text = 'Asignar todas las asignaturas'
+        required = etree.SubElement(assign_times, 'Required')
+        required.text = 'true'
+        weight = etree.SubElement(assign_times, 'Weight')
+        weight.text = '1'
+        CostFunction = etree.SubElement(assign_times, 'CostFunction')
+        CostFunction.text = 'Linear'
+        AppliesTo = etree.SubElement(assign_times, 'AppliesTo')
+        event_groups = etree.SubElement(AppliesTo, 'EventGroups')
+        etree.SubElement(event_groups, 'EventGroup', Reference='gr_AllEvents')
         prefer = etree.SubElement(constraints, 'PreferTimesConstraint', Id='manana')
         name = etree.SubElement(prefer, 'Name')
         name.text = 'Todo por la mañana'
