@@ -34,3 +34,6 @@ class Boton(Button):
 
     def setText(self, text):
         self.text = text
+        
+    def getText(self):
+        return self.text
