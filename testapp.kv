@@ -1,9 +1,9 @@
-<Boxes>:
+<Boxes>:					
     AnchorLayout:
         anchor_x: 'center'
-        anchor_y: 'top'
+        anchor_y: 'center'
         ScreenManager:
-            size_hint: 1, .9
+            size_hint: .9, .8
             id: _screen_manager
             Screen:
                 name: 'Principal'
@@ -27,9 +27,27 @@
 			Screen:
                 name: 'incidencias'
                 BoxLayout:
-                    orientation: 'horizontal'
+                    orientation: 'vertical'
                     padding: 50
                     id: _incidences
+	AnchorLayout:
+		anchor_x: 'center'
+		anchor_y: 'top'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, .1
+			Boton2:
+				text: 'Cambiar Aulas'
+				on_press: app.changeAula()
+			Button:
+				text: ''
+				background_color: [0,0,0,1]
+			Button:
+				text: 'Filtro seleccionado: '
+			Button:
+				text: ''
+				background_color: [0,0,0,1]
+
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'bottom'
