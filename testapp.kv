@@ -37,11 +37,11 @@
 			orientation: 'horizontal'
 			size_hint: 1, .1
 			Boton2:
-				text: 'Cambiar Aulas'
+				text: 'Acción: Intercambiar asignaturas'
 				on_press: app.changeAula()
 			Button:
-				text: ''
-				background_color: [0,0,0,1]
+				text: 'Resetear el filtro'
+				on_press: app.resetFilter()
 			Button:
 				text: 'Filtro seleccionado: '
 			Button:
@@ -58,7 +58,7 @@
                 text: 'Principal'
                 on_press: _screen_manager.current = 'Principal'
             Button:
-                text: 'Horario de manana'
+                text: 'Horario de manaña'
                 on_press: _screen_manager.current = 'dia'
             Button:
                 text: 'Horario de tarde'
