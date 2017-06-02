@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 from kivy.config import Config
 from copy import copy
 from kivy.app import App
@@ -15,7 +15,7 @@ from lxml import etree
 dias=['Lunes','Martes','Miercoles','Jueves','Viernes']
 horarioPrincipal = horario(dias,timedelta(hours=9))
 filterTotal = set()
-box = ''
+documento = 'datos/outfile_nuevo_solucion.xml'
         
 class TestApp(App):
     def build(self):
@@ -24,28 +24,29 @@ class TestApp(App):
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
         Config.set('graphics', 'fullscreen', 'auto')
         Config.write()
-        
+
+        '''Creación de un horario vacío para rellenarlo con los datos posteriormente'''
         for dia in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
             for i in range(9,19):
                 horarioPrincipal.incluye_hora(dia,'Libre', dia, 'Sin Aula', '', timedelta(hours=i), timedelta(hours=i+1))
 
-        self.box = Boxes(horarioPrincipal,filterTotal)
+        #self.documento = 'datos/outfile_nuevo_solucion.xml'
+        
+        self.box = Boxes(horarioPrincipal,filterTotal,documento)
 
         return self.box
 
     def save(self):
-        print('COMIENZO DEL GUARDADO')
-
+        '''Llamada al guardado del horario'''
         self.box.saveTimetable()
 
-        print('FIN DEL GUARDADO')
-
     def changeAula(self):
-        print('SELECCIONA AULA')
-
+        '''Llamada al cambio de asignatura'''
         self.box.changeAsignaturaAula()
 
-        print('AULA CAMBIADA')
+    def resetFilter(self):
+        '''Llamada al reseteo del filtro'''
+        self.box.resetDropdown()
 
 if __name__ == '__main__':
     TestApp().run()
