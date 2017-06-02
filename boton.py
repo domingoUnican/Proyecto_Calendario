@@ -1,3 +1,4 @@
+# -*- coding: 850 -*-
 from kivy.uix.button import Button
 from horario import horario
 
