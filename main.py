@@ -22,7 +22,7 @@ class TestApp(App):
 
         #Modifico la configuracion de kivy
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
-        Config.set('graphics', 'fullscreen', 'auto')
+        Config.set('graphics', 'fullscreen', '0')
         Config.write()
 
         '''Creación de un horario vacío para rellenarlo con los datos posteriormente'''
