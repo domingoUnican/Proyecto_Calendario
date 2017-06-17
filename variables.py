@@ -56,4 +56,4 @@ for asig in ASIG:
         if degree.lower() in asig:
             COURSE[asig] = degree
 
-N_GROUPS = {str(i):1 for i in range(1,5)}
+N_GROUPS = {'1':4,'2':4, '3':1, '4':1}

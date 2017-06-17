@@ -4,7 +4,7 @@
 <MetaData>
 <Name>Horario de Informatica</Name>
 <Contributor>Jose Ramon, Mario and Domingo</Contributor>
-<Date>2017-05-25 18:56:27.577369</Date>
+<Date>2017-06-17 11:13:54.140195</Date>
 <Country>Spain</Country>
 <Description>Facultad de ciencias</Description>
 </MetaData>
@@ -2157,6 +2157,15 @@
 <Resource Reference="Class1_MATEMATICAS_1" />
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="Class1_MATEMATICAS_2" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="Class1_MATEMATICAS_3" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="Class1_MATEMATICAS_4" />
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
 <Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
 <Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
@@ -2177,6 +2186,9 @@
 <Course Reference="CALCULO_INTEGRAL" />
 <Resources>
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource Reference="MARIA_DE_UJUE_ETAYO_RODRIGUEZ" />
 <Resource Reference="JOSE_MANUEL_BAYOD_BAYOD" />
 <Resource>
@@ -2195,6 +2207,12 @@
 <Resources>
 <Resource Reference="Class1_MATEMATICAS_1" />
 <Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="Class1_MATEMATICAS_2" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_MATEMATICAS_3" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_MATEMATICAS_4" />
+<Resource Reference="Class1_DOBLE_4" />
 <Resource Reference="ARACELI_TUERO_DIAZ" />
 <Resource>
 <Role>Room</Role>
@@ -2211,6 +2229,9 @@
 <Course Reference="GEOMETRIA,_ARTE_Y_NATURALEZA" />
 <Resources>
 <Resource Reference="Class1_MATEMATICAS_1" />
+<Resource Reference="Class1_MATEMATICAS_2" />
+<Resource Reference="Class1_MATEMATICAS_3" />
+<Resource Reference="Class1_MATEMATICAS_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2226,6 +2247,9 @@
 <Course Reference="INGLES" />
 <Resources>
 <Resource Reference="Class2_FISICA_1" />
+<Resource Reference="Class2_FISICA_2" />
+<Resource Reference="Class2_FISICA_3" />
+<Resource Reference="Class2_FISICA_4" />
 <Resource Reference="MARIA_ANDREA_MONTIEL_PAZ" />
 <Resource Reference="GEMA_TEJERIA_ALONSO" />
 <Resource>
@@ -2244,6 +2268,12 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class3_DOBLE_2" />
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class3_DOBLE_3" />
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class3_DOBLE_4" />
 <Resource Reference="DEMETRIO_DOMINGUEZ_PLATA" />
 <Resource>
 <Role>Room</Role>
@@ -2261,6 +2291,12 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class3_DOBLE_2" />
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class3_DOBLE_3" />
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class3_DOBLE_4" />
 <Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
@@ -2278,6 +2314,12 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class2_DOBLE_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2294,6 +2336,12 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class2_DOBLE_4" />
 <Resource Reference="MARIA_PILAR_FERNANDEZ-FERREIROS_ERVITI" />
 <Resource>
 <Role>Room</Role>
@@ -2311,6 +2359,12 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class2_DOBLE_1" />
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class2_DOBLE_4" />
 <Resource Reference="JUAN_GONZALEZ_CRIADO_DEL_REY" />
 <Resource Reference="JAIME_VINUESA_TEJEDOR" />
 <Resource>
@@ -2525,6 +2579,9 @@
 <Course Reference="FISICA_BASICA" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_DOBLE_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2540,6 +2597,9 @@
 <Course Reference="FISICA_EXPERIMENTAL" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_DOBLE_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2556,6 +2616,12 @@
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
 <Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
@@ -2578,6 +2644,12 @@
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource Reference="Class2_FISICA_1" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_FISICA_2" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_FISICA_3" />
+<Resource Reference="Class2_DOBLE_4" />
+<Resource Reference="Class2_FISICA_4" />
 <Resource Reference="ERNESTO_ANABITARTE_CANO" />
 <Resource>
 <Role>Room</Role>
@@ -2595,6 +2667,12 @@
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource Reference="Class2_FISICA_1" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_FISICA_2" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_FISICA_3" />
+<Resource Reference="Class2_DOBLE_4" />
+<Resource Reference="Class2_FISICA_4" />
 <Resource Reference="LUIS_ALBERTO_FERNANDEZ_FERNANDEZ" />
 <Resource>
 <Role>Room</Role>
@@ -2612,6 +2690,12 @@
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource Reference="Class2_FISICA_1" />
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_FISICA_2" />
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_FISICA_3" />
+<Resource Reference="Class2_DOBLE_4" />
+<Resource Reference="Class2_FISICA_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Room" />
@@ -2681,6 +2765,9 @@
 <Course Reference="FISICA_BASICA_EXPERIMENTAL_III:_LA_MATERIA_Y_SUS_PROPIEDADES" />
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_DOBLE_4" />
 <Resource Reference="LUIS_FERNANDEZ_BARQUIN" />
 <Resource Reference="ANGEL_MANANES_PEREZ" />
 <Resource Reference="ALBERTO_RUIZ_JIMENO" />
@@ -2700,6 +2787,9 @@
 <Course Reference="FISICA_BASICA_EXPERIMENTAL_IV:_CIRCUITOS_Y_ELECTRONICA" />
 <Resources>
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource Reference="JOSE_MARIA_SENTIES_VIAN" />
 <Resource Reference="ANDRES_PRIETO_GALA" />
 <Resource Reference="JUAN_ANTONIO_SAIZ_IPINA" />
@@ -2830,6 +2920,9 @@
 <Course Reference="ESTADISTICA_Y_OPTIMIZACION" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="ARACELI_TUERO_DIAZ" />
 <Resource Reference="MARCOS_CRUZ_RODRIGUEZ" />
 <Resource>
@@ -2847,6 +2940,9 @@
 <Course Reference="ECONOMIA_Y_ADMINISTRACION_DE_EMPRESAS" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="ROGELIO_OLAVARRI_FERNANDEZ" />
 <Resource Reference="HECTOR_DELGADO_DIEGO" />
 <Resource>
@@ -2864,6 +2960,9 @@
 <Course Reference="INTRODUCCION_A_LOS_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
 <Resource Reference="PROFESOR_EXTERNO______916151" />
 <Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
@@ -2882,6 +2981,9 @@
 <Course Reference="METODOS_DE_PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="MARIO_ALDEA_RIVAS" />
 <Resource Reference="PROFESOR_EXTERNO______916157" />
@@ -2900,6 +3002,9 @@
 <Course Reference="ANALISIS_MATEMATICO_Y_METODOS_NUMERICOS" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="CARLOS_BELTRAN_ALVAREZ" />
 <Resource>
 <Role>Room</Role>
@@ -2916,6 +3021,9 @@
 <Course Reference="ORGANIZACION_DE_COMPUTADORES" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="PROFESOR_EXTERNO______916152" />
 <Resource Reference="JOSE_LUIS_BOSQUE_ORERO" />
 <Resource>
@@ -2933,6 +3041,9 @@
 <Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
@@ -2950,6 +3061,9 @@
 <Course Reference="LOGICA" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="INES_GONZALEZ_RODRIGUEZ" />
 <Resource>
 <Role>Room</Role>
@@ -2966,6 +3080,9 @@
 <Course Reference="SISTEMAS_OPERATIVOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
 <Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
 <Resource>
@@ -2983,6 +3100,9 @@
 <Course Reference="BASES_DE_DATOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="PROFESOR_EXTERNO______916154" />
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
 <Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
@@ -3290,6 +3410,72 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="PROGRAMACION_l2">
+<Name>PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_MATEMATICAS_2" />
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
+<Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="PROGRAMACION_l3">
+<Name>PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_MATEMATICAS_3" />
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
+<Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="PROGRAMACION_l4">
+<Name>PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_MATEMATICAS_4" />
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
+<Resource Reference="JOSE_JAVIER_GUTIERREZ_GARCIA" />
+<Resource Reference="MICHAEL_GONZALEZ_HARBOUR" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="ADOLFO_GARANDAL_MARTIN" />
+<Resource Reference="JOSE_IGNACIO_ESPESO_MARTINEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="CALCULO_NUMERICO_I_l1">
 <Name>CALCULO NUMERICO I: Laboratorio</Name>
 <Duration>2</Duration>
@@ -3297,6 +3483,57 @@
 <Resources>
 <Resource Reference="Class2_MATEMATICAS_1" />
 <Resource Reference="Class3_DOBLE_1" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="CALCULO_NUMERICO_I_l2">
+<Name>CALCULO NUMERICO I: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="CALCULO_NUMERICO_I" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_2" />
+<Resource Reference="Class3_DOBLE_2" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="CALCULO_NUMERICO_I_l3">
+<Name>CALCULO NUMERICO I: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="CALCULO_NUMERICO_I" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_3" />
+<Resource Reference="Class3_DOBLE_3" />
+<Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="CALCULO_NUMERICO_I_l4">
+<Name>CALCULO NUMERICO I: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="CALCULO_NUMERICO_I" />
+<Resources>
+<Resource Reference="Class2_MATEMATICAS_4" />
+<Resource Reference="Class3_DOBLE_4" />
 <Resource Reference="JOSE_JAVIER_SEGURA_SALA" />
 <Resource>
 <Role>Room</Role>
@@ -3424,6 +3661,54 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="F.E.IV_PRACTICAS_EWB_l2">
+<Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="F.E.IV_PRACTICAS_EWB" />
+<Resources>
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="F.E.IV_PRACTICAS_EWB_l3">
+<Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="F.E.IV_PRACTICAS_EWB" />
+<Resources>
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="F.E.IV_PRACTICAS_EWB_l4">
+<Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="F.E.IV_PRACTICAS_EWB" />
+<Resources>
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="LABORATORIO_MULTIDISCIPLINAR_l1">
 <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
 <Duration>2</Duration>
@@ -3431,6 +3716,72 @@
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
+<Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
+<Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
+<Resource Reference="JUAN_REMONDO_TEJERINA" />
+<Resource Reference="CARMEN_BLANCO_DELGADO" />
+<Resource Reference="JAIME_BONACHEA_PICO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_MULTIDISCIPLINAR_l2">
+<Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_MULTIDISCIPLINAR" />
+<Resources>
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
+<Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
+<Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
+<Resource Reference="JUAN_REMONDO_TEJERINA" />
+<Resource Reference="CARMEN_BLANCO_DELGADO" />
+<Resource Reference="JAIME_BONACHEA_PICO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_MULTIDISCIPLINAR_l3">
+<Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_MULTIDISCIPLINAR" />
+<Resources>
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
+<Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
+<Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
+<Resource Reference="JUAN_REMONDO_TEJERINA" />
+<Resource Reference="CARMEN_BLANCO_DELGADO" />
+<Resource Reference="JAIME_BONACHEA_PICO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_MULTIDISCIPLINAR_l4">
+<Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_MULTIDISCIPLINAR" />
+<Resources>
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource Reference="IGNACIO_HERNANDEZ_CAMPO" />
 <Resource Reference="XABIER_EDUARDO_MORENO-VENTAS_BRAVO" />
 <Resource Reference="M._CARMEN_PESQUERA_GONZALEZ" />
@@ -3461,6 +3812,51 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="FUNDAMENTOS_FISICA_CUANTICA_l2">
+<Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+<Duration>4</Duration>
+<Course Reference="FUNDAMENTOS_FISICA_CUANTICA" />
+<Resources>
+<Resource Reference="Class2_DOBLE_2" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FUNDAMENTOS_FISICA_CUANTICA_l3">
+<Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+<Duration>4</Duration>
+<Course Reference="FUNDAMENTOS_FISICA_CUANTICA" />
+<Resources>
+<Resource Reference="Class2_DOBLE_3" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="FUNDAMENTOS_FISICA_CUANTICA_l4">
+<Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+<Duration>4</Duration>
+<Course Reference="FUNDAMENTOS_FISICA_CUANTICA" />
+<Resources>
+<Resource Reference="Class2_DOBLE_4" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="LABORATORIO_DE_FISICA_II_l1">
 <Name>LABORATORIO DE FISICA II: Laboratorio</Name>
 <Duration>2</Duration>
@@ -3468,6 +3864,54 @@
 <Resources>
 <Resource Reference="Class2_DOBLE_1" />
 <Resource Reference="Class2_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_II_l2">
+<Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_II" />
+<Resources>
+<Resource Reference="Class2_DOBLE_2" />
+<Resource Reference="Class2_FISICA_2" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_II_l3">
+<Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_II" />
+<Resources>
+<Resource Reference="Class2_DOBLE_3" />
+<Resource Reference="Class2_FISICA_3" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_II_l4">
+<Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_II" />
+<Resources>
+<Resource Reference="Class2_DOBLE_4" />
+<Resource Reference="Class2_FISICA_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Laboratory" />
@@ -3493,6 +3937,54 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_III_l2">
+<Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_III" />
+<Resources>
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_III_l3">
+<Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_III" />
+<Resources>
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_III_l4">
+<Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_III" />
+<Resources>
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l1">
 <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
 <Duration>2</Duration>
@@ -3500,6 +3992,54 @@
 <Resources>
 <Resource Reference="Class1_DOBLE_1" />
 <Resource Reference="Class1_FISICA_1" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l2">
+<Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_IV" />
+<Resources>
+<Resource Reference="Class1_DOBLE_2" />
+<Resource Reference="Class1_FISICA_2" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l3">
+<Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_IV" />
+<Resources>
+<Resource Reference="Class1_DOBLE_3" />
+<Resource Reference="Class1_FISICA_3" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l4">
+<Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="LABORATORIO_DE_FISICA_BASICA_IV" />
+<Resources>
+<Resource Reference="Class1_DOBLE_4" />
+<Resource Reference="Class1_FISICA_4" />
 <Resource>
 <Role>Room</Role>
 <ResourceType Reference="Laboratory" />
@@ -3550,12 +4090,120 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l2">
+<Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="INTRODUCCION_A_LOS_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
+<Resource Reference="PROFESOR_EXTERNO______916151" />
+<Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l3">
+<Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="INTRODUCCION_A_LOS_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
+<Resource Reference="PROFESOR_EXTERNO______916151" />
+<Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l4">
+<Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="INTRODUCCION_A_LOS_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_4" />
+<Resource Reference="JESUS_GUTIERREZ_PRECIADO" />
+<Resource Reference="PROFESOR_EXTERNO______916151" />
+<Resource Reference="MARIA_DEL_CARMEN_MARTINEZ_FERNANDEZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="METODOS_DE_PROGRAMACION_l1">
 <Name>METODOS DE PROGRAMACION: Laboratorio</Name>
 <Duration>2</Duration>
 <Course Reference="METODOS_DE_PROGRAMACION" />
 <Resources>
 <Resource Reference="Class1_INFORMATICA_1" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="MARIO_ALDEA_RIVAS" />
+<Resource Reference="PROFESOR_EXTERNO______916157" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="METODOS_DE_PROGRAMACION_l2">
+<Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="METODOS_DE_PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_2" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="MARIO_ALDEA_RIVAS" />
+<Resource Reference="PROFESOR_EXTERNO______916157" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="METODOS_DE_PROGRAMACION_l3">
+<Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="METODOS_DE_PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_3" />
+<Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
+<Resource Reference="MARIO_ALDEA_RIVAS" />
+<Resource Reference="PROFESOR_EXTERNO______916157" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="METODOS_DE_PROGRAMACION_l4">
+<Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="METODOS_DE_PROGRAMACION" />
+<Resources>
+<Resource Reference="Class1_INFORMATICA_4" />
 <Resource Reference="JOSE_CARLOS_PALENCIA_GUTIERREZ" />
 <Resource Reference="MARIO_ALDEA_RIVAS" />
 <Resource Reference="PROFESOR_EXTERNO______916157" />
@@ -3585,12 +4233,114 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="ORGANIZACION_DE_COMPUTADORES_l2">
+<Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ORGANIZACION_DE_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="PROFESOR_EXTERNO______916152" />
+<Resource Reference="JOSE_LUIS_BOSQUE_ORERO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ORGANIZACION_DE_COMPUTADORES_l3">
+<Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ORGANIZACION_DE_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="PROFESOR_EXTERNO______916152" />
+<Resource Reference="JOSE_LUIS_BOSQUE_ORERO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ORGANIZACION_DE_COMPUTADORES_l4">
+<Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ORGANIZACION_DE_COMPUTADORES" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_4" />
+<Resource Reference="PROFESOR_EXTERNO______916152" />
+<Resource Reference="JOSE_LUIS_BOSQUE_ORERO" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="ALGORITMICA_Y_COMPLEJIDAD_l1">
 <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
 <Duration>2</Duration>
 <Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
+<Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ALGORITMICA_Y_COMPLEJIDAD_l2">
+<Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
+<Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ALGORITMICA_Y_COMPLEJIDAD_l3">
+<Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="DOMINGO_GOMEZ_PEREZ" />
+<Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="ALGORITMICA_Y_COMPLEJIDAD_l4">
+<Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="ALGORITMICA_Y_COMPLEJIDAD" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="DOMINGO_GOMEZ_PEREZ" />
 <Resource Reference="JOSE_LUIS_MONTANA_ARNAIZ" />
 <Resource>
@@ -3619,12 +4369,120 @@
 <EventGroup Reference="gr_AllEvents" />
 </EventGroups>
 </Event>
+<Event Id="SISTEMAS_OPERATIVOS_l2">
+<Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="SISTEMAS_OPERATIVOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
+<Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="SISTEMAS_OPERATIVOS_l3">
+<Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="SISTEMAS_OPERATIVOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
+<Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="SISTEMAS_OPERATIVOS_l4">
+<Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="SISTEMAS_OPERATIVOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_4" />
+<Resource Reference="RAFAEL_MENENDEZ_DE_LLANO_ROZAS" />
+<Resource Reference="JOSE_MIGUEL_PRELLEZO_GUTIERREZ" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
 <Event Id="BASES_DE_DATOS_l1">
 <Name>BASES DE DATOS: Laboratorio</Name>
 <Duration>2</Duration>
 <Course Reference="BASES_DE_DATOS" />
 <Resources>
 <Resource Reference="Class2_INFORMATICA_1" />
+<Resource Reference="PROFESOR_EXTERNO______916154" />
+<Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="BASES_DE_DATOS_l2">
+<Name>BASES DE DATOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="BASES_DE_DATOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_2" />
+<Resource Reference="PROFESOR_EXTERNO______916154" />
+<Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="BASES_DE_DATOS_l3">
+<Name>BASES DE DATOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="BASES_DE_DATOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_3" />
+<Resource Reference="PROFESOR_EXTERNO______916154" />
+<Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
+<Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
+<Resource Reference="MARTA_ELENA_ZORRILLA_PANTALEON" />
+<Resource>
+<Role>Room</Role>
+<ResourceType Reference="Laboratory" />
+</Resource>
+</Resources>
+<EventGroups>
+<EventGroup Reference="gr_AllEvents" />
+</EventGroups>
+</Event>
+<Event Id="BASES_DE_DATOS_l4">
+<Name>BASES DE DATOS: Laboratorio</Name>
+<Duration>2</Duration>
+<Course Reference="BASES_DE_DATOS" />
+<Resources>
+<Resource Reference="Class2_INFORMATICA_4" />
 <Resource Reference="PROFESOR_EXTERNO______916154" />
 <Resource Reference="ALFONSO_DE_LA_VEGA_RUIZ" />
 <Resource Reference="MIGUEL_ANGEL_GUTIERREZ_LECUE" />
