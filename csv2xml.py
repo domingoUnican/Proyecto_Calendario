@@ -54,7 +54,7 @@ class Csv4Xml(object):
                         # Todos los cursos tienen el mismo numero de grupos
                         # Las asignaturas tendran tantas horas como grupos.
         for i, degree, special in DEGREES:
-            for j in range(1,N_GROUPS[i]+1):
+            for j in range(1,N_GROUPS[i]+2):
                 key = 'Class%s_%s_%s%s'%(str(i),degree,special,str(j))
                 key = key.replace(' ','_')
                 if not special:
