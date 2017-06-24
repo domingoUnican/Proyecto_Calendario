@@ -50,7 +50,7 @@ for degree in DEGREES:
 CLASSES = list(CLASSES_NAME.keys())
 CLASSES.sort()
 COURSE = dict(zip(PROFS, DEGREES))
-for asig in ASIG:
+for asig in SUBJ:
     for degree in DEGREES:
         if degree.lower() in asig:
             COURSE[asig] = degree
