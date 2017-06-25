@@ -18,7 +18,7 @@ TIME_GROUPS_DESCRIPTION = {
     'Tarde': 'Por la Tarde'
 }
 DAYS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
-HORAS = [str(i) for i in range(1, 10)]
+HOURS = [str(i) for i in range(1, 10)]
 RECURSOS = ['Teacher', 'Room', 'Class', 'Laboratory']
 RECURSOS_NAME = {
     'Teacher': 'Profesores',

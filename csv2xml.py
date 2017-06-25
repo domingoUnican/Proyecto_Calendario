@@ -27,34 +27,39 @@ def csv2xml(semester=2):
 
     ## TIMES ##
     times = etree.SubElement(instance, 'Times')
+
+    # Defining time groups: todas_horas, antes_descanso, despues_descanso y tarde
     time_groups = etree.SubElement(times, 'TimeGroups')
+    todas_horas = etree.SubElement(time_groups, 'TimeGroup', Id="TodasHoras")
+    name = etree.SubElement(todos, 'Name')
+    name.text = "Todas las horas"
+
+    for grupo in TIME_GROUPS:
+        group = etree.SubElement(tg, 'TimeGroup', Id=grupo)
+        name = etree.SubElement(group, 'Name')
+        name.text = TIME_GROUPS_DESCRIPTION[group]
+    
+    #Defining the days, lunes to viernes
     for day in DAYS:
         day_element = etree.SubElement(time_groups, 'Day', Id=day)
         name = etree.SubElement(day_element, 'Name')
         name.text = day
-        todas_horas = etree.SubElement(time_groups, 'TimeGroup', Id="TodasHoras")
-        name = etree.SubElement(todos, 'Name')
-        name.text = "Todas las horas"
-
-        for grupo in TIME_GROUPS:
-            group = etree.SubElement(tg, 'TimeGroup', Id=grupo)
-            name = etree.SubElement(group, 'Name')
-            name.text = TIME_GROUPS_DESCRIPTION[group]
-
-        for hour in HOURS:
-            for day in DAYS:
-                time = etree.SubElement(times, 'Time', Id=day + hour)
-                name = etree.SubElement(time, 'Name')
-                name.text = dia + ' - ' + hora
-                day = etree.SubElement(time, 'Day', Reference=dia)
-                tg = etree.SubElement(time, 'TimeGroups')
-                etree.SubElement(tg, 'TimeGroup', Reference=hours_slot(hora))
-                etree.SubElement(tg, 'TimeGroup', Reference="TodasHoras")
+    
+    # Defining the hours each day has
+    for hour in HOURS:
+        for day in DAYS:
+            time = etree.SubElement(times, 'Time', Id=day + hour)
+            name = etree.SubElement(time, 'Name')
+            name.text = day + ' - ' + hour
+            day_reference = etree.SubElement(time, 'Day', Reference=day)
+            time_groups_reference = etree.SubElement(time, 'TimeGroups')
+            etree.SubElement(time_groups_reference, 'TimeGroup', Reference=hours_slot(hour))
+            etree.SubElement(time_groups_reference, 'TimeGroup', Reference="TodasHoras")
 
 
 def fetch(semester):
     # Variables that will contain our data
-    rooms = dict()          # [roomName] -> capacity 
+    rooms = dict()          # [roomName] -> capacity
     subjects = dict()       # [degree][subjectName] -> subject_data
     profs = dict()          # [professorName] -> professor_data
     subject_profs = dict()  # [degree][subjectName] -> professor_list
