@@ -11,13 +11,13 @@ PROFS = [os.path.join(DIR, 'profesores_doblegrado.csv'),
 SUBJ = os.path.join(DIR, 'asignaturas.csv')
 ROOMS = os.path.join(DIR, 'aulas.csv')
 OUT = os.path.join(DIR, 'outfile_nuevo.xml')
-GROUPS = ['AntesDescanso', 'DespuesDescanso', 'Tarde']
-GROUPS_NAMES = {
+TIME_GROUPS = ['AntesDescanso', 'DespuesDescanso', 'Tarde']
+TIME_GROUPS_DESCRIPTION = {
     'AntesDescanso': 'Antes del descanso',
     'DespuesDescanso': 'Despues del descanso',
-    'Tarde': 'Tarde'
+    'Tarde': 'Por la Tarde'
 }
-DIAS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
+DAYS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
 HORAS = [str(i) for i in range(1, 10)]
 RECURSOS = ['Teacher', 'Room', 'Class', 'Laboratory']
 RECURSOS_NAME = {
