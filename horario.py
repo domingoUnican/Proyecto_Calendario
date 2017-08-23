@@ -13,7 +13,7 @@ class horario:
         self.dias = dias
         self.h_dia = [list() for i in dias]
         self.inicio = inicio
-        self.empieza_tarde = timedelta(hours = 15)
+        self.empieza_tarde = 7
         self.choosed = False
         self.listaAulas = ''
         self.listaAsignaturas = ''
@@ -45,7 +45,7 @@ class horario:
         por lo que hay que rellenar con huecos libres.
         '''
         manana = [l for l in self.h_dia[0] if l[4]<=self.empieza_tarde]
-        return (manana[-1][4]-self.inicio).seconds
+        return (manana[-1][4]-self.inicio)
 
     def segundos_clase_tarde(self):
         '''
@@ -55,7 +55,7 @@ class horario:
         por lo que hay que rellenar con huecos libres.
         '''
         manana = [l for l in self.h_dia[0] if l[4]>=self.empieza_tarde]
-        return (self.h_dia[0][-1][4]-self.empieza_tarde).seconds
+        return (self.h_dia[0][-1][4]-self.empieza_tarde)
 
     def clases_manana(self, dia):
         '''
@@ -67,9 +67,9 @@ class horario:
         total = float(self.segundos_clase_manana())
         manana = [l for l in self.h_dia[pos] if l[4]<=self.empieza_tarde]
         for asignatura, asignaturaID, aula, aulaID, fin in manana:
-            porcentaje = (fin-principio).seconds/total
+            porcentaje = (fin-principio)/total
             porcentaje *= 0.98
-            texto = ('%s\n%s\n%s--%s')%(asignatura, aula, principio, fin)
+            texto = ('%s\n%s\n%s -- %s')%(asignatura, aula, principio, fin)
             yield texto, porcentaje, asignaturaID, aulaID
             principio = fin
 
@@ -83,9 +83,9 @@ class horario:
         total = float(self.segundos_clase_tarde())
         tarde = [l for l in self.h_dia[pos] if l[4]>self.empieza_tarde]
         for asignatura, asignaturaID, aula, aulaID, fin in tarde:
-            porcentaje = (fin-principio).seconds/total
+            porcentaje = (fin-principio)/total
             porcentaje *= 0.98
-            texto = ('%s\n%s\n%s--%s')%(asignatura, aula, principio, fin)
+            texto = ('%s\n%s\n%s -- %s')%(asignatura, aula, principio, fin)
             yield texto, porcentaje
             principio = fin
         
