@@ -13,7 +13,7 @@ from lxml import etree
 
 #variables globales
 dias=['Lunes','Martes','Miercoles','Jueves','Viernes']
-horarioPrincipal = horario(dias,timedelta(hours=9))
+horarioPrincipal = horario(dias,1)
 filterTotal = set()
 documento = 'datos/outfile_nuevo_solucion.xml'
         
@@ -28,7 +28,7 @@ class TestApp(App):
         '''Creación de un horario vacío para rellenarlo con los datos posteriormente'''
         for dia in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
             for i in range(9,19):
-                horarioPrincipal.incluye_hora(dia,'Libre', dia, 'Sin Aula', '', timedelta(hours=i), timedelta(hours=i+1))
+                horarioPrincipal.incluye_hora(dia,'Libre', dia, 'Sin Aula', '', i-8, i-7)
 
         #self.documento = 'datos/outfile_nuevo_solucion.xml'
         
