@@ -22,15 +22,13 @@ class TestApp(App):
 
         #Modifico la configuracion de kivy
         Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
-        Config.set('graphics', 'fullscreen', '0')
+        Config.set('graphics', 'fullscreen', 'auto')
         Config.write()
 
         '''Creación de un horario vacío para rellenarlo con los datos posteriormente'''
         for dia in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
             for i in range(9,19):
                 horarioPrincipal.incluye_hora(dia,'Libre', dia, 'Sin Aula', '', i-8, i-7)
-
-        #self.documento = 'datos/outfile_nuevo_solucion.xml'
         
         self.box = Boxes(horarioPrincipal,filterTotal,documento)
 
