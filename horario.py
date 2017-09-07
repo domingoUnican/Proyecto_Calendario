@@ -30,7 +30,6 @@ class horario:
         else:
             for l in self.h_dia[pos]:
                 nueva_lista.append(tuple(l))
-                print(l)
                 if not encontrado and l[4]>=inicio:
                     #print str(l[1]), str(inicio)
                     nueva_lista.append(tuple((asignatura,asignaturaID,aula,aulaID,fin)))
