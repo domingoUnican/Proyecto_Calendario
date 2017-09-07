@@ -26,6 +26,7 @@ class Boxes(FloatLayout):
     aulas = DropDown()
     documento = ''
     lastIdentificador = ''
+    numIncidences = 10
     
     def __init__(self, horarioPrincipal, filterTotal, documento, **kwargs):
         ''' Inicialización del horario '''
@@ -250,7 +251,9 @@ class Boxes(FloatLayout):
         report = solution.find('Report')
         resources = report.find('Resources')
         events = report.find('Events')
-        
+
+        nInc = 0
+
         for child in resources:
             reference = child.get('Reference')
             for nice in child:
@@ -270,12 +273,13 @@ class Boxes(FloatLayout):
                         #Inserto un botón con la incidencia y sus datos
                         constraints = timegroups.find('Constraints')
                         
-                        if constraints is not None:
+                        if constraints is not None and nInc < self.numIncidences:
                             for child in constraints:
                                 if child.get('Id') == constraint:
+                                    nInc = nInc +1
                                     btn = Button(text = resourceName + text + child.findtext('Name'))
                                     self.ids['_incidences'].add_widget(btn)
-            
+        
         for child in events:
             reference = child.get('Reference')
             for nice in child:
@@ -293,9 +297,10 @@ class Boxes(FloatLayout):
                             #Inserto un botón con la incidencia y sus datos
                             constraints = timegroups.find('Constraints')
                         
-                            if constraints is not None:
+                            if constraints is not None and nInc < self.numIncidences:
                                 for child in constraints:
                                     if child.get('Id') == constraint:
+                                        nInc = nInc +1
                                         btn = Button(text = resourceName + text + child.findtext('Name'))
                                         self.ids['_incidences'].add_widget(btn)
                                                 
@@ -514,32 +519,18 @@ class Boxes(FloatLayout):
         
         self.lastIdentificador = ''
         self.filterTotal = set()
-        print('self.filterLoad')
-        print(self.filterLoad)
-        self.filterLoad = set()
-        print(self.filterTotal)
-        print('self.filterLoad')
-        print(self.filterLoad)
-        
+        self.filterLoad = set()        
 
     def loadFilter(self,text,filterLoad,ident):
 
-        '''Método que recupera el filtro seleccionado en los desplegables y que se usa para cargar'''
-        print(self.filterTotal)
-        filterLoad = self.filterLoad
-
+        '''Método que recupera el filtro seleccionado en los desplegables y que se usa para cargar'''    
+        filterLoad = set()
+        filterLoad.add(ident)
+        
         #Pongo el texto en el botón que sirve como indicador
         self.children[1].children[0].children[0].text = self.children[1].children[0].children[0].text.split(':')[0] + ': ' + text
-        
-        #Compruebo si es el primer filtrado
-        if len(self.filterTotal) == 0:
-            self.filterTotal.add(ident)
-        else:
-            aux = self.filterTotal
-            self.filterTotal = set()
-            self.filterTotal.add(ident)
-            
-        filterLoad = filterLoad.union(self.filterTotal)
+ 
+        #filterLoad = filterLoad.union(self.filterTotal)
             
         listaParcial = set()
         listaPadres = set()
@@ -552,6 +543,7 @@ class Boxes(FloatLayout):
         timegroup = timegroups.find('Instance')
         events = timegroup.find('Events')
 
+        #Si no filtro por aula, busco las asignaturas
         #Busco los profesores, clases y asignaturas que coinciden con el filtro
         for child in events:
             if child is not None:
@@ -564,9 +556,9 @@ class Boxes(FloatLayout):
                             if nice.get('Reference') is not None:
                                 if nice.get('Reference') in filterLoad:
                                     print('')
-                                else:
-                                    listaParcial.add(nice.get('Reference'))
-     
+                                    #else:
+                                        #listaParcial.add(nice.get('Reference'))
+         
                 else:
                     resources = child.find('Resources')
                     listaHermanos = set()
@@ -576,53 +568,57 @@ class Boxes(FloatLayout):
                                 if nice.get('Reference') in filterLoad:
                                     listaPadres.add(child.get('Id'))
                                     hermanoEncontrado = True
-                                else:
-                                    listaHermanos.add(nice.get('Reference'))
-                                        
+                                    #else:
+                                        #print('')
+                                        #listaHermanos.add(nice.get('Reference'))
+                                            
                         if hermanoEncontrado == True:
                             listaParcial = listaParcial.union(listaPadres)
                             listaParcial = listaParcial.union(listaHermanos)
                             hermanoEncontrado = False
-
+            
         listaAsignaturas = set()
 
-        #Actualizo el filtro
-        filterLoad = filterLoad.union(listaParcial)
-##        filterLoad = list(filterLoad)
-##        filterLoad.sort()
+        #Salvo el filtro        
+        self.filterLoad = listaParcial
+
+        #Si no se ha encontrado (aula) lo añado directamente
+        if self.filterLoad == set():
+            self.filterLoad.add(ident)
             
-        #Busco la referencia a las aulas en la solucion
-        solutionGroups = doc.getroot().find('SolutionGroups')
-        solutionGroup = solutionGroups.find('SolutionGroup')
-        solution = solutionGroup.find('Solution')
-        events = solution.find('Events')
-
-        for child in events:
-            resources = child.find('Resources')
-            if child.get('Reference') in filterLoad:
-                for nice in resources:
-                    listaParcial.add(nice.get('Reference'))
-            else:
-                for nice in resources:
-                    if nice.get('Reference') in filterLoad:
-                        listaAsignaturas.add(child.get('Reference'))
-
-                        #Con la lista de asignatutas, recupero los profesores y cursos
-                        timegroups = doc.getroot().find('Instances')
-                        timegroup = timegroups.find('Instance')
-                        events = timegroup.find('Events')
-
-                        for child in events:
-                            if child is not None:
-                                name = child.find('Name')
-                                key = child.get('Id')
-                                if key in listaAsignaturas:
-                                    resources = child.find('Resources')
-                                    for nice in resources:
-                                        listaParcial.add(nice.get('Reference'))
+        #Busco la referencia a las aulas en la solucion (guardo las asignaturas)
+##        solutionGroups = doc.getroot().find('SolutionGroups')
+##        solutionGroup = solutionGroups.find('SolutionGroup')
+##        solution = solutionGroup.find('Solution')
+##        events = solution.find('Events')
+##
+##        for child in events:
+##            resources = child.find('Resources')
+##            if child.get('Reference') in filterLoad:
+##                if resources is not None:
+##                    for nice in resources:
+##                        listaParcial.add(nice.get('Reference'))
+##            else:
+##                if resources is not None:
+##                    for nice in resources:
+##                        if nice.get('Reference') in filterLoad:
+##                            listaAsignaturas.add(child.get('Reference'))
+##
+##                            #Con la lista de asignatutas, recupero los profesores y cursos
+##                            timegroups = doc.getroot().find('Instances')
+##                            timegroup = timegroups.find('Instance')
+##                            events = timegroup.find('Events')
+##
+##                            for child in events:
+##                                if child is not None:
+##                                    name = child.find('Name')
+##                                    key = child.get('Id')
+##                                    if key in listaAsignaturas:
+##                                        resources = child.find('Resources')
+##                                        for nice in resources:
+##                                            listaParcial.add(nice.get('Reference'))
                                     
-        #Salvo el filtro         
-        self.filterLoad = filterLoad.union(listaParcial)
+        #self.filterLoad = filterLoad.union(listaParcial)
             
         #Elimino los desplegables antiguos
         self.ids['_main'].remove_widget(self.ids['_main'].children[3])
@@ -763,33 +759,25 @@ class Boxes(FloatLayout):
         self.ids['_main'].add_widget(asignsbutton)
         self.ids['_main'].add_widget(cursosbutton)
 
-        if identificador == 'Prof' or self.lastIdentificador == 'Prof':
-            self.ids['_main'].children[3].disabled = True
-        if identificador == 'Aula' or self.lastIdentificador == 'Aula':
-            self.ids['_main'].children[2].disabled = True
-        if identificador == 'Asig' or self.lastIdentificador == 'Asig':
-            self.ids['_main'].children[1].disabled = True
-        if identificador == 'Curso' or self.lastIdentificador == 'Curso':
-            self.ids['_main'].children[0].disabled = True
+        #if identificador == 'Prof' or self.lastIdentificador == 'Prof':
+        self.ids['_main'].children[3].disabled = True
+        #if identificador == 'Aula' or self.lastIdentificador == 'Aula':
+        self.ids['_main'].children[2].disabled = True
+        #if identificador == 'Asig' or self.lastIdentificador == 'Asig':
+        self.ids['_main'].children[1].disabled = True
+        #if identificador == 'Curso' or self.lastIdentificador == 'Curso':
+        self.ids['_main'].children[0].disabled = True
 
         self.lastIdentificador = identificador
 
-        #else:
-        #Ya se ha filtrado una vez, se añade el nuevo filtro
-        #self.filterLoad.add(ident)
-        #self.filterTotal.add(ident)
-
+        self.filterLoad = self.filterLoad.union(listaAsignaturas)
+        
         self.filterTotal = self.filterLoad
                 
     
     def loadTimetable(self,horarioPrincipal):
 
         '''Método que realiza la carga del horario según lo introducido en el filtro'''
-
-        print('Filtro seleccionado para la carga')
-        print(self.filterTotal)
-        print('self.filterLoad')
-        print(self.filterLoad)
         
         #Inicializaciones
         filterProf = ''
@@ -808,20 +796,28 @@ class Boxes(FloatLayout):
         solution = solutionGroup.find('Solution')
         events = solution.find('Events')
 
-        #Rocorro la solución y pinto el horario según lo seleccionado
+        #Recorro la solución y pinto el horario según lo seleccionado
         for child in events:
             time = child.find('Time')
             if time is not None:
                 timeReference = time.get('Reference')
                 resources = child.find('Resources')
                 if child.get('Reference') in self.filterTotal:
-                    for nice in resources:
-                        if '' == nice.get('Reference'):
-                            listaParcial.append('Sin aula')
-                        else:
-                            listaParcial.append(nice.get('Reference'))
-                        timeParcial.append(timeReference)
-                        asigParcial.append(child.get('Reference'))
+                    if resources is not None:
+                        for nice in resources:
+                            if '' == nice.get('Reference'):
+                                listaParcial.append('Sin aula')
+                            else:
+                                listaParcial.append(nice.get('Reference'))
+                            timeParcial.append(timeReference)
+                            asigParcial.append(child.get('Reference'))
+                else:
+                    if resources is not None:
+                        for nice in resources:
+                            if nice.get('Reference') in self.filterTotal:
+                                listaParcial.append(nice.get('Reference'))
+                                timeParcial.append(timeReference)
+                                asigParcial.append(child.get('Reference'))
                         
 
         #Reseteo los valores del horario a vacío, tanto los textos como el estado del botón
@@ -947,9 +943,16 @@ class Boxes(FloatLayout):
 
         #Recorro la solución y borro los datos antiguos
         for child in events:
+            resources = child.find('Resources')
             if child.get('Reference') in self.filterTotal:
                 #Elimino el nodo
                 child.getparent().remove(child)
+            else:
+                if resources is not None:
+                    for nice in resources:
+                        if nice.get('Reference') in self.filterTotal:
+                            #Elimino el nodo
+                            child.getparent().remove(child)
 
         #recorro el horario y inserto sus datos
         guardadoLunes = False
