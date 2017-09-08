@@ -1573,504 +1573,504 @@
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_1">
-          <Name>Clase 1 (grupo 1) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_2">
-          <Name>Clase 1 (grupo 2) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_3">
-          <Name>Clase 1 (grupo 3) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_4">
-          <Name>Clase 1 (grupo 4) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_5">
-          <Name>Clase 1 (grupo 5) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 5)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_DOBLE_6">
-          <Name>Clase 1 (grupo 6) de DOBLE</Name>
+          <Name>Clase 1 de DOBLE (grupo 6)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_1">
-          <Name>Clase 1 (grupo 1) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_2">
-          <Name>Clase 1 (grupo 2) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_3">
-          <Name>Clase 1 (grupo 3) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_4">
-          <Name>Clase 1 (grupo 4) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_5">
-          <Name>Clase 1 (grupo 5) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 5)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_FISICA_6">
-          <Name>Clase 1 (grupo 6) de FISICA</Name>
+          <Name>Clase 1 de FISICA (grupo 6)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_1">
-          <Name>Clase 1 (grupo 1) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_2">
-          <Name>Clase 1 (grupo 2) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_3">
-          <Name>Clase 1 (grupo 3) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_4">
-          <Name>Clase 1 (grupo 4) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_5">
-          <Name>Clase 1 (grupo 5) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 5)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_INFORMATICA_6">
-          <Name>Clase 1 (grupo 6) de INFORMATICA</Name>
+          <Name>Clase 1 de INFORMATICA (grupo 6)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_1">
-          <Name>Clase 1 (grupo 1) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_2">
-          <Name>Clase 1 (grupo 2) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_3">
-          <Name>Clase 1 (grupo 3) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_4">
-          <Name>Clase 1 (grupo 4) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_5">
-          <Name>Clase 1 (grupo 5) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 5)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class1_MATEMATICAS_6">
-          <Name>Clase 1 (grupo 6) de MATEMATICAS</Name>
+          <Name>Clase 1 de MATEMATICAS (grupo 6)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_DOBLE_1">
-          <Name>Clase 2 (grupo 1) de DOBLE</Name>
+          <Name>Clase 2 de DOBLE (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_DOBLE_2">
-          <Name>Clase 2 (grupo 2) de DOBLE</Name>
+          <Name>Clase 2 de DOBLE (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_DOBLE_3">
-          <Name>Clase 2 (grupo 3) de DOBLE</Name>
+          <Name>Clase 2 de DOBLE (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_DOBLE_4">
-          <Name>Clase 2 (grupo 4) de DOBLE</Name>
+          <Name>Clase 2 de DOBLE (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_FISICA_1">
-          <Name>Clase 2 (grupo 1) de FISICA</Name>
+          <Name>Clase 2 de FISICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_FISICA_2">
-          <Name>Clase 2 (grupo 2) de FISICA</Name>
+          <Name>Clase 2 de FISICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_FISICA_3">
-          <Name>Clase 2 (grupo 3) de FISICA</Name>
+          <Name>Clase 2 de FISICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_FISICA_4">
-          <Name>Clase 2 (grupo 4) de FISICA</Name>
+          <Name>Clase 2 de FISICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_INFORMATICA_1">
-          <Name>Clase 2 (grupo 1) de INFORMATICA</Name>
+          <Name>Clase 2 de INFORMATICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_INFORMATICA_2">
-          <Name>Clase 2 (grupo 2) de INFORMATICA</Name>
+          <Name>Clase 2 de INFORMATICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_INFORMATICA_3">
-          <Name>Clase 2 (grupo 3) de INFORMATICA</Name>
+          <Name>Clase 2 de INFORMATICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_INFORMATICA_4">
-          <Name>Clase 2 (grupo 4) de INFORMATICA</Name>
+          <Name>Clase 2 de INFORMATICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_MATEMATICAS_1">
-          <Name>Clase 2 (grupo 1) de MATEMATICAS</Name>
+          <Name>Clase 2 de MATEMATICAS (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_MATEMATICAS_2">
-          <Name>Clase 2 (grupo 2) de MATEMATICAS</Name>
+          <Name>Clase 2 de MATEMATICAS (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_MATEMATICAS_3">
-          <Name>Clase 2 (grupo 3) de MATEMATICAS</Name>
+          <Name>Clase 2 de MATEMATICAS (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class2_MATEMATICAS_4">
-          <Name>Clase 2 (grupo 4) de MATEMATICAS</Name>
+          <Name>Clase 2 de MATEMATICAS (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_DOBLE_1">
-          <Name>Clase 3 (grupo 1) de DOBLE</Name>
+          <Name>Clase 3 de DOBLE (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_DOBLE_2">
-          <Name>Clase 3 (grupo 2) de DOBLE</Name>
+          <Name>Clase 3 de DOBLE (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_DOBLE_3">
-          <Name>Clase 3 (grupo 3) de DOBLE</Name>
+          <Name>Clase 3 de DOBLE (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_DOBLE_4">
-          <Name>Clase 3 (grupo 4) de DOBLE</Name>
+          <Name>Clase 3 de DOBLE (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_FISICA_1">
-          <Name>Clase 3 (grupo 1) de FISICA</Name>
+          <Name>Clase 3 de FISICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_FISICA_2">
-          <Name>Clase 3 (grupo 2) de FISICA</Name>
+          <Name>Clase 3 de FISICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_FISICA_3">
-          <Name>Clase 3 (grupo 3) de FISICA</Name>
+          <Name>Clase 3 de FISICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_FISICA_4">
-          <Name>Clase 3 (grupo 4) de FISICA</Name>
+          <Name>Clase 3 de FISICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_INFORMATICA_1">
-          <Name>Clase 3 (grupo 1) de INFORMATICA</Name>
+          <Name>Clase 3 de INFORMATICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_INFORMATICA_2">
-          <Name>Clase 3 (grupo 2) de INFORMATICA</Name>
+          <Name>Clase 3 de INFORMATICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_INFORMATICA_3">
-          <Name>Clase 3 (grupo 3) de INFORMATICA</Name>
+          <Name>Clase 3 de INFORMATICA (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_INFORMATICA_4">
-          <Name>Clase 3 (grupo 4) de INFORMATICA</Name>
+          <Name>Clase 3 de INFORMATICA (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_MATEMATICAS_1">
-          <Name>Clase 3 (grupo 1) de MATEMATICAS</Name>
+          <Name>Clase 3 de MATEMATICAS (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_MATEMATICAS_2">
-          <Name>Clase 3 (grupo 2) de MATEMATICAS</Name>
+          <Name>Clase 3 de MATEMATICAS (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_MATEMATICAS_3">
-          <Name>Clase 3 (grupo 3) de MATEMATICAS</Name>
+          <Name>Clase 3 de MATEMATICAS (grupo 3)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class3_MATEMATICAS_4">
-          <Name>Clase 3 (grupo 4) de MATEMATICAS</Name>
+          <Name>Clase 3 de MATEMATICAS (grupo 4)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_DOBLE_1">
-          <Name>Clase 4 (grupo 1) de DOBLE</Name>
+          <Name>Clase 4 de DOBLE (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_DOBLE_2">
-          <Name>Clase 4 (grupo 2) de DOBLE</Name>
+          <Name>Clase 4 de DOBLE (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_FISICA_1">
-          <Name>Clase 4 (grupo 1) de FISICA</Name>
+          <Name>Clase 4 de FISICA (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_FISICA_2">
-          <Name>Clase 4 (grupo 2) de FISICA</Name>
+          <Name>Clase 4 de FISICA (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_FISICA_INTERNATIONAL_DIPLOMA1">
-          <Name>Clase 4 (grupo 1) de FISICA (INTERNATIONAL DIPLOMA)</Name>
+          <Name>Clase 4 de FISICA (INTERNATIONAL DIPLOMA) (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_FISICA_INTERNATIONAL_DIPLOMA2">
-          <Name>Clase 4 (grupo 2) de FISICA (INTERNATIONAL DIPLOMA)</Name>
+          <Name>Clase 4 de FISICA (INTERNATIONAL DIPLOMA) (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_COMPUTACION1">
-          <Name>Clase 4 (grupo 1) de INFORMATICA (COMPUTACION)</Name>
+          <Name>Clase 4 de INFORMATICA (COMPUTACION) (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_COMPUTACION2">
-          <Name>Clase 4 (grupo 2) de INFORMATICA (COMPUTACION)</Name>
+          <Name>Clase 4 de INFORMATICA (COMPUTACION) (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_COMPUTADORES1">
-          <Name>Clase 4 (grupo 1) de INFORMATICA (COMPUTADORES)</Name>
+          <Name>Clase 4 de INFORMATICA (COMPUTADORES) (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_COMPUTADORES2">
-          <Name>Clase 4 (grupo 2) de INFORMATICA (COMPUTADORES)</Name>
+          <Name>Clase 4 de INFORMATICA (COMPUTADORES) (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_SOFTWARE1">
-          <Name>Clase 4 (grupo 1) de INFORMATICA (SOFTWARE)</Name>
+          <Name>Clase 4 de INFORMATICA (SOFTWARE) (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_INFORMATICA_SOFTWARE2">
-          <Name>Clase 4 (grupo 2) de INFORMATICA (SOFTWARE)</Name>
+          <Name>Clase 4 de INFORMATICA (SOFTWARE) (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_MATEMATICAS_1">
-          <Name>Clase 4 (grupo 1) de MATEMATICAS</Name>
+          <Name>Clase 4 de MATEMATICAS (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_MATEMATICAS_2">
-          <Name>Clase 4 (grupo 2) de MATEMATICAS</Name>
+          <Name>Clase 4 de MATEMATICAS (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_MATEMATICAS_OPTATIVA1">
-          <Name>Clase 4 (grupo 1) de MATEMATICAS (OPTATIVA)</Name>
+          <Name>Clase 4 de MATEMATICAS (OPTATIVA) (grupo 1)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
           </ResourceGroups>
         </Resource>
         <Resource Id="Class4_MATEMATICAS_OPTATIVA2">
-          <Name>Clase 4 (grupo 2) de MATEMATICAS (OPTATIVA)</Name>
+          <Name>Clase 4 de MATEMATICAS (OPTATIVA) (grupo 2)</Name>
           <ResourceType Reference="Class"/>
           <ResourceGroups>
             <ResourceGroup Reference="gr_Class"/>
@@ -3539,7 +3539,7 @@
           </EventGroups>
         </Event>
         <Event Id="PROGRAMACION_l1">
-          <Name>PROGRAMACION: Laboratorio</Name>
+          <Name>PROGRAMACION: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_MATEMATICAS_1"/>
@@ -3561,7 +3561,7 @@
           </EventGroups>
         </Event>
         <Event Id="PROGRAMACION_l2">
-          <Name>PROGRAMACION: Laboratorio</Name>
+          <Name>PROGRAMACION: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_MATEMATICAS_2"/>
@@ -3583,7 +3583,7 @@
           </EventGroups>
         </Event>
         <Event Id="PROGRAMACION_l3">
-          <Name>PROGRAMACION: Laboratorio</Name>
+          <Name>PROGRAMACION: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_MATEMATICAS_3"/>
@@ -3605,7 +3605,7 @@
           </EventGroups>
         </Event>
         <Event Id="PROGRAMACION_l4">
-          <Name>PROGRAMACION: Laboratorio</Name>
+          <Name>PROGRAMACION: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_MATEMATICAS_4"/>
@@ -3627,7 +3627,7 @@
           </EventGroups>
         </Event>
         <Event Id="CALCULO_NUMERICO_I_l1">
-          <Name>CALCULO NUMERICO I: Laboratorio</Name>
+          <Name>CALCULO NUMERICO I: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_1"/>
@@ -3644,7 +3644,7 @@
           </EventGroups>
         </Event>
         <Event Id="CALCULO_NUMERICO_I_l2">
-          <Name>CALCULO NUMERICO I: Laboratorio</Name>
+          <Name>CALCULO NUMERICO I: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_2"/>
@@ -3661,7 +3661,7 @@
           </EventGroups>
         </Event>
         <Event Id="CALCULO_NUMERICO_I_l3">
-          <Name>CALCULO NUMERICO I: Laboratorio</Name>
+          <Name>CALCULO NUMERICO I: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_3"/>
@@ -3678,7 +3678,7 @@
           </EventGroups>
         </Event>
         <Event Id="CALCULO_NUMERICO_I_l4">
-          <Name>CALCULO NUMERICO I: Laboratorio</Name>
+          <Name>CALCULO NUMERICO I: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_MATEMATICAS_4"/>
@@ -3695,7 +3695,7 @@
           </EventGroups>
         </Event>
         <Event Id="OPTIMIZACION_I_l1">
-          <Name>OPTIMIZACION I: Laboratorio</Name>
+          <Name>OPTIMIZACION I: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
@@ -3712,7 +3712,7 @@
           </EventGroups>
         </Event>
         <Event Id="STATISTICAL_INFERENCE_l1">
-          <Name>STATISTICAL INFERENCE: Laboratorio</Name>
+          <Name>STATISTICAL INFERENCE: Laboratorio 1</Name>
           <Duration>1</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
@@ -3729,7 +3729,7 @@
           </EventGroups>
         </Event>
         <Event Id="OPTIMIZACION_l1">
-          <Name>OPTIMIZACION: Laboratorio</Name>
+          <Name>OPTIMIZACION: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
@@ -3745,7 +3745,7 @@
           </EventGroups>
         </Event>
         <Event Id="TALLER_DE_MODELIZACION_l1">
-          <Name>TALLER DE MODELIZACION: Laboratorio</Name>
+          <Name>TALLER DE MODELIZACION: Laboratorio 1</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class3_MATEMATICAS_1"/>
@@ -3764,7 +3764,7 @@
           </EventGroups>
         </Event>
         <Event Id="AMPLIACION_DE_ESTADISTICA_l1">
-          <Name>AMPLIACION DE ESTADISTICA: Laboratorio</Name>
+          <Name>AMPLIACION DE ESTADISTICA: Laboratorio 1</Name>
           <Duration>1</Duration>
           <Resources>
             <Resource Reference="Class4_MATEMATICAS_1"/>
@@ -3780,7 +3780,7 @@
           </EventGroups>
         </Event>
         <Event Id="NUMERICAL_ANALYSIS_III_l1">
-          <Name>NUMERICAL ANALYSIS III: Laboratorio</Name>
+          <Name>NUMERICAL ANALYSIS III: Laboratorio 1</Name>
           <Duration>1</Duration>
           <Resources>
             <Resource Reference="Class4_MATEMATICAS_OPTATIVA1"/>
@@ -3796,7 +3796,7 @@
           </EventGroups>
         </Event>
         <Event Id="F.E.IV_PRACTICAS_EWB_l1">
-          <Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+          <Name>F.E.IV PRACTICAS EWB: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_1"/>
@@ -3812,7 +3812,7 @@
           </EventGroups>
         </Event>
         <Event Id="F.E.IV_PRACTICAS_EWB_l2">
-          <Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+          <Name>F.E.IV PRACTICAS EWB: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_2"/>
@@ -3828,7 +3828,7 @@
           </EventGroups>
         </Event>
         <Event Id="F.E.IV_PRACTICAS_EWB_l3">
-          <Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+          <Name>F.E.IV PRACTICAS EWB: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_3"/>
@@ -3844,7 +3844,7 @@
           </EventGroups>
         </Event>
         <Event Id="F.E.IV_PRACTICAS_EWB_l4">
-          <Name>F.E.IV PRACTICAS EWB: Laboratorio</Name>
+          <Name>F.E.IV PRACTICAS EWB: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_4"/>
@@ -3860,7 +3860,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_MULTIDISCIPLINAR_l1">
-          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_1"/>
@@ -3882,7 +3882,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_MULTIDISCIPLINAR_l2">
-          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_2"/>
@@ -3904,7 +3904,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_MULTIDISCIPLINAR_l3">
-          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_3"/>
@@ -3926,7 +3926,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_MULTIDISCIPLINAR_l4">
-          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio</Name>
+          <Name>LABORATORIO MULTIDISCIPLINAR: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_4"/>
@@ -3948,7 +3948,7 @@
           </EventGroups>
         </Event>
         <Event Id="FUNDAMENTOS_FISICA_CUANTICA_l1">
-          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio 1</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_1"/>
@@ -3963,7 +3963,7 @@
           </EventGroups>
         </Event>
         <Event Id="FUNDAMENTOS_FISICA_CUANTICA_l2">
-          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio 2</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_2"/>
@@ -3978,7 +3978,7 @@
           </EventGroups>
         </Event>
         <Event Id="FUNDAMENTOS_FISICA_CUANTICA_l3">
-          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio 3</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_3"/>
@@ -3993,7 +3993,7 @@
           </EventGroups>
         </Event>
         <Event Id="FUNDAMENTOS_FISICA_CUANTICA_l4">
-          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio</Name>
+          <Name>FUNDAMENTOS FISICA CUANTICA: Laboratorio 4</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_4"/>
@@ -4008,7 +4008,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_II_l1">
-          <Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA II: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_1"/>
@@ -4024,7 +4024,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_II_l2">
-          <Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA II: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_2"/>
@@ -4040,7 +4040,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_II_l3">
-          <Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA II: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_3"/>
@@ -4056,7 +4056,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_II_l4">
-          <Name>LABORATORIO DE FISICA II: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA II: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_DOBLE_4"/>
@@ -4072,7 +4072,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_III_l1">
-          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_1"/>
@@ -4088,7 +4088,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_III_l2">
-          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_2"/>
@@ -4104,7 +4104,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_III_l3">
-          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_3"/>
@@ -4120,7 +4120,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_III_l4">
-          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA III: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_4"/>
@@ -4136,7 +4136,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l1">
-          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_1"/>
@@ -4152,7 +4152,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l2">
-          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_2"/>
@@ -4168,7 +4168,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l3">
-          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_3"/>
@@ -4184,7 +4184,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_BASICA_IV_l4">
-          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA BASICA IV: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_DOBLE_4"/>
@@ -4200,7 +4200,7 @@
           </EventGroups>
         </Event>
         <Event Id="LABORATORIO_DE_FISICA_IV_l1">
-          <Name>LABORATORIO DE FISICA IV: Laboratorio</Name>
+          <Name>LABORATORIO DE FISICA IV: Laboratorio 1</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class3_FISICA_1"/>
@@ -4223,7 +4223,7 @@
           </EventGroups>
         </Event>
         <Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l1">
-          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_1"/>
@@ -4241,7 +4241,7 @@
           </EventGroups>
         </Event>
         <Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l2">
-          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_2"/>
@@ -4259,7 +4259,7 @@
           </EventGroups>
         </Event>
         <Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l3">
-          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_3"/>
@@ -4277,7 +4277,7 @@
           </EventGroups>
         </Event>
         <Event Id="INTRODUCCION_A_LOS_COMPUTADORES_l4">
-          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio</Name>
+          <Name>INTRODUCCION A LOS COMPUTADORES: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_4"/>
@@ -4295,7 +4295,7 @@
           </EventGroups>
         </Event>
         <Event Id="METODOS_DE_PROGRAMACION_l1">
-          <Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+          <Name>METODOS DE PROGRAMACION: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_1"/>
@@ -4313,7 +4313,7 @@
           </EventGroups>
         </Event>
         <Event Id="METODOS_DE_PROGRAMACION_l2">
-          <Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+          <Name>METODOS DE PROGRAMACION: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_2"/>
@@ -4331,7 +4331,7 @@
           </EventGroups>
         </Event>
         <Event Id="METODOS_DE_PROGRAMACION_l3">
-          <Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+          <Name>METODOS DE PROGRAMACION: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_3"/>
@@ -4349,7 +4349,7 @@
           </EventGroups>
         </Event>
         <Event Id="METODOS_DE_PROGRAMACION_l4">
-          <Name>METODOS DE PROGRAMACION: Laboratorio</Name>
+          <Name>METODOS DE PROGRAMACION: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class1_INFORMATICA_4"/>
@@ -4367,7 +4367,7 @@
           </EventGroups>
         </Event>
         <Event Id="ORGANIZACION_DE_COMPUTADORES_l1">
-          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_1"/>
@@ -4384,7 +4384,7 @@
           </EventGroups>
         </Event>
         <Event Id="ORGANIZACION_DE_COMPUTADORES_l2">
-          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_2"/>
@@ -4401,7 +4401,7 @@
           </EventGroups>
         </Event>
         <Event Id="ORGANIZACION_DE_COMPUTADORES_l3">
-          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_3"/>
@@ -4418,7 +4418,7 @@
           </EventGroups>
         </Event>
         <Event Id="ORGANIZACION_DE_COMPUTADORES_l4">
-          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio</Name>
+          <Name>ORGANIZACION DE COMPUTADORES: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_4"/>
@@ -4435,7 +4435,7 @@
           </EventGroups>
         </Event>
         <Event Id="ALGORITMICA_Y_COMPLEJIDAD_l1">
-          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_1"/>
@@ -4452,7 +4452,7 @@
           </EventGroups>
         </Event>
         <Event Id="ALGORITMICA_Y_COMPLEJIDAD_l2">
-          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_2"/>
@@ -4469,7 +4469,7 @@
           </EventGroups>
         </Event>
         <Event Id="ALGORITMICA_Y_COMPLEJIDAD_l3">
-          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_3"/>
@@ -4486,7 +4486,7 @@
           </EventGroups>
         </Event>
         <Event Id="ALGORITMICA_Y_COMPLEJIDAD_l4">
-          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio</Name>
+          <Name>ALGORITMICA Y COMPLEJIDAD: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_4"/>
@@ -4503,7 +4503,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_OPERATIVOS_l1">
-          <Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+          <Name>SISTEMAS OPERATIVOS: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_1"/>
@@ -4520,7 +4520,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_OPERATIVOS_l2">
-          <Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+          <Name>SISTEMAS OPERATIVOS: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_2"/>
@@ -4537,7 +4537,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_OPERATIVOS_l3">
-          <Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+          <Name>SISTEMAS OPERATIVOS: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_3"/>
@@ -4554,7 +4554,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_OPERATIVOS_l4">
-          <Name>SISTEMAS OPERATIVOS: Laboratorio</Name>
+          <Name>SISTEMAS OPERATIVOS: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_4"/>
@@ -4571,7 +4571,7 @@
           </EventGroups>
         </Event>
         <Event Id="BASES_DE_DATOS_l1">
-          <Name>BASES DE DATOS: Laboratorio</Name>
+          <Name>BASES DE DATOS: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_1"/>
@@ -4590,7 +4590,7 @@
           </EventGroups>
         </Event>
         <Event Id="BASES_DE_DATOS_l2">
-          <Name>BASES DE DATOS: Laboratorio</Name>
+          <Name>BASES DE DATOS: Laboratorio 2</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_2"/>
@@ -4609,7 +4609,7 @@
           </EventGroups>
         </Event>
         <Event Id="BASES_DE_DATOS_l3">
-          <Name>BASES DE DATOS: Laboratorio</Name>
+          <Name>BASES DE DATOS: Laboratorio 3</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_3"/>
@@ -4628,7 +4628,7 @@
           </EventGroups>
         </Event>
         <Event Id="BASES_DE_DATOS_l4">
-          <Name>BASES DE DATOS: Laboratorio</Name>
+          <Name>BASES DE DATOS: Laboratorio 4</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class2_INFORMATICA_4"/>
@@ -4647,7 +4647,7 @@
           </EventGroups>
         </Event>
         <Event Id="DESARROLLO_DE_SISTEMAS_DE_INFORMACION_l1">
-          <Name>DESARROLLO DE SISTEMAS DE INFORMACION: Laboratorio</Name>
+          <Name>DESARROLLO DE SISTEMAS DE INFORMACION: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4664,7 +4664,7 @@
           </EventGroups>
         </Event>
         <Event Id="LENGUAJES_FORMALES_l1">
-          <Name>LENGUAJES FORMALES: Laboratorio</Name>
+          <Name>LENGUAJES FORMALES: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4680,7 +4680,7 @@
           </EventGroups>
         </Event>
         <Event Id="APRENDIZAJE_AUTOMATICO_Y_MINERIA_DE_DATOS_l1">
-          <Name>APRENDIZAJE AUTOMATICO Y MINERIA DE DATOS: Laboratorio</Name>
+          <Name>APRENDIZAJE AUTOMATICO Y MINERIA DE DATOS: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4696,7 +4696,7 @@
           </EventGroups>
         </Event>
         <Event Id="ARQUITECTURA_E_INGENIERIA_DE_COMPUTADORES_l1">
-          <Name>ARQUITECTURA E INGENIERIA DE COMPUTADORES: Laboratorio</Name>
+          <Name>ARQUITECTURA E INGENIERIA DE COMPUTADORES: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4713,7 +4713,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_INFORMATICOS_l1">
-          <Name>SISTEMAS INFORMATICOS: Laboratorio</Name>
+          <Name>SISTEMAS INFORMATICOS: Laboratorio 1</Name>
           <Duration>1</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4730,7 +4730,7 @@
           </EventGroups>
         </Event>
         <Event Id="REDES_DE_COMPUTADORES_Y_SISTEMAS_DISTRIBUIDOS_l1">
-          <Name>REDES DE COMPUTADORES Y SISTEMAS DISTRIBUIDOS: Laboratorio</Name>
+          <Name>REDES DE COMPUTADORES Y SISTEMAS DISTRIBUIDOS: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class3_INFORMATICA_1"/>
@@ -4748,7 +4748,7 @@
           </EventGroups>
         </Event>
         <Event Id="SISTEMAS_DE_INFORMACION_DE_LA_EMPRESA_l1">
-          <Name>SISTEMAS DE INFORMACION DE LA EMPRESA: Laboratorio</Name>
+          <Name>SISTEMAS DE INFORMACION DE LA EMPRESA: Laboratorio 1</Name>
           <Duration>2</Duration>
           <Resources>
             <Resource Reference="Class4_INFORMATICA_SOFTWARE1"/>
@@ -4767,7 +4767,7 @@
           </EventGroups>
         </Event>
         <Event Id="DISENO_Y_GESTION_DE_SISTEMAS_INFORMATICOS_l1">
-          <Name>DISENO Y GESTION DE SISTEMAS INFORMATICOS: Laboratorio</Name>
+          <Name>DISENO Y GESTION DE SISTEMAS INFORMATICOS: Laboratorio 1</Name>
           <Duration>4</Duration>
           <Resources>
             <Resource Reference="Class4_INFORMATICA_COMPUTADORES1"/>
