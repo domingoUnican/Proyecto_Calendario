@@ -1,0 +1,3 @@
+Esta versión (05/02/2017) está incompleta.
+De momento contiene los datos de clases de teoría de segundo cuatrimestre. 
+Faltan las pácticas de laboratorio ya que algunos datos relevantes estaban incompletos.
