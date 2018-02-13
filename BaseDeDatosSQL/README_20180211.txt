@@ -1,0 +1,2 @@
+Esta es la versión completa de la Base de Datos.
+Contiene la síntesis del horario del segundo cuatrimestre de los 4 grados de la Facultad de Ciencias.
