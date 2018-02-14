@@ -1,0 +1,43 @@
+\documentclass{tfg_domingo}
+
+\autor{Rodrigo Cepeda Marin}
+\titulo{TÍTULO}
+% Título corto para los encabezamientos de pagina:
+\corto{} % En blanco si no es necesario recortarlo.
+\ingles{TÍTULO EN INGLES}
+\fecha{FECHA DEL TRABAJO}
+% La normativa prescribe «cuatro o cinco palabras clave, en
+% español y en inglés, para su indexación en el repositorio
+% de TFG».
+\palabras{goto, saltos}%
+  {goto, considered harmful, spaghetti}
+
+\usepackage{lipsum}
+\begin{document}
+
+% Si alguna palabra se divide entre dos líneas en un punto
+% indebido, podemos indicar aquí los puntos de corte
+% aceptables (si los hay), p. ej,
+% \hyphenation{ba-rro-co, frío, cria-do, su-per-ra-tón}
+\hyphenation{Dijkstra new-speak}
+
+\portada
+\frontmatter
+% \sucinto{A Sofía}
+\gracias{\input{agradecimientos.txt}}
+\resumen{\input{resumen.tex}}{\input{abstract.tex}}
+\tableofcontents
+
+\mainmatter
+\input{capitulo1.tex}
+\input{capitulo2.tex}
+\input{capitulo3.tex}
+\input{conclusiones.tex}
+\input{apendice.tex}
+
+
+\backmatter
+% Indique aquí el fichero .bib que contenga su bibliografía.
+\bibliography{refs}
+
+\end{document}
