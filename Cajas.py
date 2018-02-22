@@ -8,6 +8,8 @@ from boton import Boton
 from boton2 import Boton2
 from lxml import etree
 
+
+
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
     numPulsaciones = 0
@@ -17,6 +19,7 @@ class Boxes(FloatLayout):
     l = 0
     primero = []
     segundo = []
+    days = ['Lunes','Martes','Miercoles','Jueves','Viernes']
     timeTable = ''
     filterLoad = set()
     filterTotal = set()
@@ -24,23 +27,17 @@ class Boxes(FloatLayout):
     nombreAula = ''
     inicio = 0
     aulas = DropDown()
-    documento = ''
     lastIdentificador = ''
     numIncidences = 10
+    bd = None
     
-    def __init__(self, horarioPrincipal, filterTotal, documento, **kwargs):
+    def __init__(self, horarioPrincipal, filterTotal,  bd,  **kwargs):
         ''' Inicialización del horario '''
 
         timeTable = horarioPrincipal
         filterLoad = filterTotal
-        self.documento = documento 
-        
-        super(Boxes, self).__init__(**kwargs)
-
-        #Fichero de lectura/escritura
-        doc = etree.parse(self.documento)
-
-        
+        self.bd = bd
+        super(Boxes, self).__init__(**kwargs)        
         #añado los botones al horario
         for dia in horarioPrincipal.dias:
             bx_m = BoxLayout(orientation='vertical')#mañana
@@ -88,62 +85,14 @@ class Boxes(FloatLayout):
         curs = DropDown()
         button = Button()
 
-        profText = set()
-        profId = set()
-        aulaText = set()
-        aulaId = set()
-        cursoText = set()
-        cursoId = set()
-        asigText = set()
-        asigId = set()
-        
-        timegroups = doc.getroot().find('Instances')
-        timegroups = timegroups.find('Instance')
-        resources = timegroups.find('Resources')
-
-        #Recupera los datos de la fuente (profesores, aulas y cursos) del fichero
-        for child in resources:
-            resource = child.find('ResourceType')
-
-            '''Inserto los botones según los datos'''
-            if resource is not None:
-                resourceType = resource.get('Reference')
-            
-            if resourceType == 'Teacher':
-                #Recupero el nombre y el ID del profesor
-                profText.add(child.findtext('Name'))
-                profId.add(child.get('Id'))
-
-            if resourceType == 'Room' or resourceType == 'Laboratory':
-                #Recupero el nombre y el ID del aula
-                aulaText.add(child.findtext('Name'))
-                aulaId.add(child.get('Id'))
-
-            if resourceType == 'Class':
-                #Recupero el nombre y el ID del curso
-                cursoText.add(child.findtext('Name'))
-                cursoId.add(child.get('Id'))
-
-        #Recupera los datos de la fuente (asignaturas)
-        events = timegroups.find('Events')
-        
-        for child in events:
-            
-            '''Inserto las asignaturas'''
-            if child.findtext('Name') is not None:
-                #Recupero el nombre y el ID de la asignatura
-                asigText.add(child.findtext('Name'))
-                asigId.add(child.get('Id'))
-
-        #Creo los botones de los desplegables ordenados
-        profText = sorted(profText)
-        profId = sorted(profId)
-        aulaText = sorted(aulaText)
-        aulaId = sorted(aulaId)
-        cursoText = sorted(cursoText)
-        cursoId = sorted(cursoId)
-        asigText = sorted(asigText)
-        asigId = sorted(asigId)
+        profText = bd.all_prof_text()
+        profId = bd.all_prof_id()
+        aulaText = bd.all_aula_text()
+        aulaId = bd.all_aula_id()
+        cursoText = bd.all_curso_text()
+        cursoId = bd.all_curso_id()
+        asigText = bd.all_asignatura_text()
+        asigId = bd.all_asignatura_id()
 
         for child in profText:
             #Inserto los botones de los profesores
@@ -243,67 +192,14 @@ class Boxes(FloatLayout):
         self.ids['_main'].add_widget(asignsbutton)
         self.ids['_main'].add_widget(cursosbutton)
         
-        #Cargo las incidencias en su pantalla desde el fichero
-        doc = etree.parse(self.documento)
-        solutionGroups = doc.getroot().find('SolutionGroups')
-        solutionGroup = solutionGroups.find('SolutionGroup')
-        solution = solutionGroup.find('Solution')
-        report = solution.find('Report')
-        resources = report.find('Resources')
-        events = report.find('Events')
 
         nInc = 0
-
-        for child in resources:
-            reference = child.get('Reference')
-            for nice in child:
-                constraint = nice.get('Reference')
-                text = ' tiene un conflicto de '
-                cursos = timegroups.find('Resources')
-
-                for binice in cursos:
-                    resource = binice.find('ResourceType')
-
-                    '''Inserto los botones según los datos'''
-                    if resource is not None:
-                        resourceType = resource.get('Reference')
-                        resourceName = binice.findtext('Name')
-                    
-                    if resourceType == 'Class' and reference == binice.get('Id'):
-                        #Inserto un botón con la incidencia y sus datos
-                        constraints = timegroups.find('Constraints')
-                        
-                        if constraints is not None and nInc < self.numIncidences:
-                            for child in constraints:
-                                if child.get('Id') == constraint:
-                                    nInc = nInc +1
-                                    btn = Button(text = resourceName + text + child.findtext('Name'))
-                                    self.ids['_incidences'].add_widget(btn)
-        
-        for child in events:
-            reference = child.get('Reference')
-            for nice in child:
-                constraint = nice.get('Reference')
-                text = ' tiene un conflicto de '
-                asig = timegroups.find('Events')
-
-                for binice in asig:
-
-                    '''Inserto los botones según los datos'''
-                    if binice.findtext('Name') is not None:
-                        resourceName = binice.findtext('Name')
-                    
-                        if reference == binice.get('Id'):
-                            #Inserto un botón con la incidencia y sus datos
-                            constraints = timegroups.find('Constraints')
-                        
-                            if constraints is not None and nInc < self.numIncidences:
-                                for child in constraints:
-                                    if child.get('Id') == constraint:
-                                        nInc = nInc +1
-                                        btn = Button(text = resourceName + text + child.findtext('Name'))
-                                        self.ids['_incidences'].add_widget(btn)
-                                                
+        for incidencia in bd.colisiones():
+            btn = Button(text = resourceName + text + child.findtext('Name'))
+            self.ids['_incidences'].add_widget(btn)
+            nInc += 1
+            if nInc >= self.numIncidences:
+                break                                         
         self.children[1].children[0].children[2].text = 'Acción: Intercambiar asignaturas'
         self.children[0].children[0].children[4].text = 'Horario de mañana'
         
@@ -315,67 +211,15 @@ class Boxes(FloatLayout):
         asigns = DropDown()
         curs = DropDown()
         button = Button()
-
-        profText = set()
-        profId = set()
-        aulaText = set()
-        aulaId = set()
-        cursoText = set()
-        cursoId = set()
-        asigText = set()
-        asigId = set()
-
+        profText = bd.all_prof_text()
+        profId = bd.all_prof_id()
+        aulaText = bd.all_aula_text()
+        aulaId = bd.all_aula_id()
+        cursoText = bd.all_curso_text()
+        cursoId = bd.all_curso_id()
+        asigText = bd.all_asignatura_text()
+        asigId = bd.all_asignatura_id()
         filterLoad = self.filterTotal
-
-        #Fichero de lectura/escritura
-        doc = etree.parse(self.documento)
-        timegroups = doc.getroot().find('Instances')
-        timegroups = timegroups.find('Instance')
-        resources = timegroups.find('Resources')
-
-        #Recupera los datos de la fuente (profesores, aulas y cursos) del fichero
-        for child in resources:
-            resource = child.find('ResourceType')
-
-            '''Inserto los botones según los datos'''
-            if resource is not None:
-                resourceType = resource.get('Reference')
-            
-            if resourceType == 'Teacher':
-                #Recupero el nombre y el ID del profesor
-                profText.add(child.findtext('Name'))
-                profId.add(child.get('Id'))
-
-            if resourceType == 'Room' or resourceType == 'Laboratory':
-                #Recupero el nombre y el ID del aula
-                aulaText.add(child.findtext('Name'))
-                aulaId.add(child.get('Id'))
-
-            if resourceType == 'Class':
-                #Recupero el nombre y el ID del curso
-                cursoText.add(child.findtext('Name'))
-                cursoId.add(child.get('Id'))
-
-        #Recupera los datos de la fuente (asignaturas)
-        events = timegroups.find('Events')
-        
-        for child in events:
-            
-            '''Inserto las asignaturas'''
-            if child.findtext('Name') is not None:
-                #Recupero el nombre y el ID de la asignatura
-                asigText.add(child.findtext('Name'))
-                asigId.add(child.get('Id'))
-
-        #Creo los botones de los desplegables ordenados
-        profText = sorted(profText)
-        profId = sorted(profId)
-        aulaText = sorted(aulaText)
-        aulaId = sorted(aulaId)
-        cursoText = sorted(cursoText)
-        cursoId = sorted(cursoId)
-        asigText = sorted(asigText)
-        asigId = sorted(asigId)
 
         for child in profText:
             #Inserto los botones de los profesores
@@ -478,7 +322,7 @@ class Boxes(FloatLayout):
             for boton in range(len(self.ids['_morning'].children[0].children)):
                 #Busco la hora
                 for j in range(len(self.ids['_morning'].children[0].children)):
-                    if self.ids['_morning'].children[i].children[j].getIdent() not in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
+                    if self.ids['_morning'].children[i].children[j].getIdent() not in self.days:
                         self.ids['_morning'].children[i].children[j].setAsigID('')
                         self.ids['_morning'].children[i].children[j].setAulaID('')
                         texto = self.ids['_morning'].children[i].children[j].getText()
@@ -496,7 +340,7 @@ class Boxes(FloatLayout):
             for boton in range(len(self.ids['_afternoon'].children[0].children)):
                 #Busco la hora
                 for j in range(len(self.ids['_afternoon'].children[0].children)):
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
+                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in self.days:
                         self.ids['_afternoon'].children[i].children[j].setAsigID('')
                         self.ids['_afternoon'].children[i].children[j].setAulaID('')
                         texto = self.ids['_afternoon'].children[i].children[j].getText()
@@ -538,44 +382,44 @@ class Boxes(FloatLayout):
         hermanoEncontrado = False
             
         # Recupero los valores seleccionados y cargo sus referencias xml
-        doc = etree.parse(self.documento)
-        timegroups = doc.getroot().find('Instances')
-        timegroup = timegroups.find('Instance')
-        events = timegroup.find('Events')
+        # doc = etree.parse(self.documento)
+        # timegroups = doc.getroot().find('Instances')
+        # timegroup = timegroups.find('Instance')
+        # events = timegroup.find('Events')
 
-        #Si no filtro por aula, busco las asignaturas
-        #Busco los profesores, clases y asignaturas que coinciden con el filtro
-        for child in events:
-            if child is not None:
-                name = child.find('Name')
-                key = child.get('Id')
-                if key in filterLoad:
-                    resources = child.find('Resources')
-                    if resources is not None:
-                        for nice in resources:
-                            if nice.get('Reference') is not None:
-                                if nice.get('Reference') in filterLoad:
-                                    print('')
-                                    #else:
-                                        #listaParcial.add(nice.get('Reference'))
+        # #Si no filtro por aula, busco las asignaturas
+        # #Busco los profesores, clases y asignaturas que coinciden con el filtro
+        # for child in events:
+        #     if child is not None:
+        #         name = child.find('Name')
+        #         key = child.get('Id')
+        #         if key in filterLoad:
+        #             resources = child.find('Resources')
+        #             if resources is not None:
+        #                 for nice in resources:
+        #                     if nice.get('Reference') is not None:
+        #                         if nice.get('Reference') in filterLoad:
+        #                             print('')
+        #                             #else:
+        #                                 #listaParcial.add(nice.get('Reference'))
          
-                else:
-                    resources = child.find('Resources')
-                    listaHermanos = set()
-                    if resources is not None:
-                        for nice in resources:
-                            if nice.get('Reference') is not None:
-                                if nice.get('Reference') in filterLoad:
-                                    listaPadres.add(child.get('Id'))
-                                    hermanoEncontrado = True
-                                    #else:
-                                        #print('')
-                                        #listaHermanos.add(nice.get('Reference'))
+        #         else:
+        #             resources = child.find('Resources')
+        #             listaHermanos = set()
+        #             if resources is not None:
+        #                 for nice in resources:
+        #                     if nice.get('Reference') is not None:
+        #                         if nice.get('Reference') in filterLoad:
+        #                             listaPadres.add(child.get('Id'))
+        #                             hermanoEncontrado = True
+        #                             #else:
+        #                                 #print('')
+        #                                 #listaHermanos.add(nice.get('Reference'))
                                             
-                        if hermanoEncontrado == True:
-                            listaParcial = listaParcial.union(listaPadres)
-                            listaParcial = listaParcial.union(listaHermanos)
-                            hermanoEncontrado = False
+        #                 if hermanoEncontrado == True:
+        #                     listaParcial = listaParcial.union(listaPadres)
+        #                     listaParcial = listaParcial.union(listaHermanos)
+        #                     hermanoEncontrado = False
             
         listaAsignaturas = set()
 
@@ -585,41 +429,6 @@ class Boxes(FloatLayout):
         #Si no se ha encontrado (aula) lo añado directamente
         if self.filterLoad == set():
             self.filterLoad.add(ident)
-            
-        #Busco la referencia a las aulas en la solucion (guardo las asignaturas)
-##        solutionGroups = doc.getroot().find('SolutionGroups')
-##        solutionGroup = solutionGroups.find('SolutionGroup')
-##        solution = solutionGroup.find('Solution')
-##        events = solution.find('Events')
-##
-##        for child in events:
-##            resources = child.find('Resources')
-##            if child.get('Reference') in filterLoad:
-##                if resources is not None:
-##                    for nice in resources:
-##                        listaParcial.add(nice.get('Reference'))
-##            else:
-##                if resources is not None:
-##                    for nice in resources:
-##                        if nice.get('Reference') in filterLoad:
-##                            listaAsignaturas.add(child.get('Reference'))
-##
-##                            #Con la lista de asignatutas, recupero los profesores y cursos
-##                            timegroups = doc.getroot().find('Instances')
-##                            timegroup = timegroups.find('Instance')
-##                            events = timegroup.find('Events')
-##
-##                            for child in events:
-##                                if child is not None:
-##                                    name = child.find('Name')
-##                                    key = child.get('Id')
-##                                    if key in listaAsignaturas:
-##                                        resources = child.find('Resources')
-##                                        for nice in resources:
-##                                            listaParcial.add(nice.get('Reference'))
-                                    
-        #self.filterLoad = filterLoad.union(listaParcial)
-            
         #Elimino los desplegables antiguos
         self.ids['_main'].remove_widget(self.ids['_main'].children[3])
         self.ids['_main'].remove_widget(self.ids['_main'].children[2])
@@ -635,74 +444,74 @@ class Boxes(FloatLayout):
         texto = ''
         identificador = ''
             
-        timegroups = doc.getroot().find('Instances')
-        timegroups = timegroups.find('Instance')
-        resources = timegroups.find('Resources')
+        # timegroups = doc.getroot().find('Instances')
+        # timegroups = timegroups.find('Instance')
+        # resources = timegroups.find('Resources')
 
-        #Recupera profesores, aulas y cursos
-        for child in resources:
-            resource = child.find('ResourceType')
+        # #Recupera profesores, aulas y cursos
+        # for child in resources:
+        #     resource = child.find('ResourceType')
 
-            '''Inserto los botones según los datos'''
-            if resource is not None:
-                resourceType = resource.get('Reference')
+        #     '''Inserto los botones según los datos'''
+        #     if resource is not None:
+        #         resourceType = resource.get('Reference')
 
-            #Actualizo el desplegable de los profesores
-            if resourceType == 'Teacher':
-                if child.get('Id') in self.filterLoad:
-                    btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
-                    ident = child.get('Id')
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: profes.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    profes.add_widget(btn)
-                    if child.get('Id') in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Prof'
+        #     #Actualizo el desplegable de los profesores
+        #     if resourceType == 'Teacher':
+        #         if child.get('Id') in self.filterLoad:
+        #             btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+        #             ident = child.get('Id')
+        #             btn.setIdent(ident)
+        #             btn.bind(on_release=lambda btn: profes.select(btn.text))
+        #             btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+        #             profes.add_widget(btn)
+        #             if child.get('Id') in self.filterTotal:
+        #                 texto = child.findtext('Name')
+        #                 identificador = 'Prof'
                         
-            #Actualizo el desplegable de las aulas
-            if resourceType == 'Room':
-                if child.get('Id') in self.filterLoad:
-                    btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
-                    ident = child.get('Id')
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: aulas.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    aulas.add_widget(btn)
-                    if child.get('Id') in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Aula'
+        #     #Actualizo el desplegable de las aulas
+        #     if resourceType == 'Room':
+        #         if child.get('Id') in self.filterLoad:
+        #             btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+        #             ident = child.get('Id')
+        #             btn.setIdent(ident)
+        #             btn.bind(on_release=lambda btn: aulas.select(btn.text))
+        #             btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+        #             aulas.add_widget(btn)
+        #             if child.get('Id') in self.filterTotal:
+        #                 texto = child.findtext('Name')
+        #                 identificador = 'Aula'
 
-            #Actualizo el desplegable de los cursos
-            if resourceType == 'Class':
-                if child.get('Id') in self.filterLoad:
-                    btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
-                    ident = child.get('Id')
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: curs.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    curs.add_widget(btn)
-                    if child.get('Id') in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Curso'
+        #     #Actualizo el desplegable de los cursos
+        #     if resourceType == 'Class':
+        #         if child.get('Id') in self.filterLoad:
+        #             btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+        #             ident = child.get('Id')
+        #             btn.setIdent(ident)
+        #             btn.bind(on_release=lambda btn: curs.select(btn.text))
+        #             btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+        #             curs.add_widget(btn)
+        #             if child.get('Id') in self.filterTotal:
+        #                 texto = child.findtext('Name')
+        #                 identificador = 'Curso'
 
-        #Añado las asignaturas
-        events = timegroups.find('Events')
+        # #Añado las asignaturas
+        # events = timegroups.find('Events')
             
-        for child in events:
-            if child.findtext('Name') is not None:
-                if child.get('Id') in self.filterLoad:
-                    btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
-                    ident = child.get('Id')
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: asigns.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    asigns.add_widget(btn)
-                    if child.get('Id') in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Asig'
+        # for child in events:
+        #     if child.findtext('Name') is not None:
+        #         if child.get('Id') in self.filterLoad:
+        #             btn = Boton(text=child.findtext('Name'), size_hint_y=None, height=44)
+        #             ident = child.get('Id')
+        #             btn.setIdent(ident)
+        #             btn.bind(on_release=lambda btn: asigns.select(btn.text))
+        #             btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+        #             asigns.add_widget(btn)
+        #             if child.get('Id') in self.filterTotal:
+        #                 texto = child.findtext('Name')
+        #                 identificador = 'Asig'
 
-        #Añado un boton vacio a cada desplegable      
+        # #Añado un boton vacio a cada desplegable      
         # Profesores
         btn = Boton(text='Ninguno', size_hint_y=None, height=44)
         btn.bind(on_release=lambda btn: profes.select(btn.text))
@@ -784,43 +593,13 @@ class Boxes(FloatLayout):
         filterAula = ''
         filterAsig = ''
         filterCurs = ''
-        listaParcial = []
-        timeParcial = []
-        asigParcial = []
+        dat_temp = self.bd.contain(self.filterTotal)
+        listaParcial = [i[0] for i in dat_temp]
+        timeParcial = [i[2] for i in dat_temp]
+        asigParcial = [i[1] for i in dat_temp]
+        nombresAsig = [i[3] for i in dat_temp]
+        nombresAulas = [i[4] for i in dat_temp]
         self.ids['_main'].children[4].disabled = True
-
-        # Recupero los valores seleccionados y cargo sus referencias xml
-        doc = etree.parse(self.documento)
-        solutionGroups = doc.getroot().find('SolutionGroups')
-        solutionGroup = solutionGroups.find('SolutionGroup')
-        solution = solutionGroup.find('Solution')
-        events = solution.find('Events')
-
-        #Recorro la solución y pinto el horario según lo seleccionado
-        for child in events:
-            time = child.find('Time')
-            if time is not None:
-                timeReference = time.get('Reference')
-                resources = child.find('Resources')
-                if child.get('Reference') in self.filterTotal:
-                    if resources is not None:
-                        for nice in resources:
-                            if '' == nice.get('Reference'):
-                                listaParcial.append('Sin aula')
-                            else:
-                                listaParcial.append(nice.get('Reference'))
-                            timeParcial.append(timeReference)
-                            asigParcial.append(child.get('Reference'))
-                else:
-                    if resources is not None:
-                        for nice in resources:
-                            if nice.get('Reference') in self.filterTotal:
-                                listaParcial.append(nice.get('Reference'))
-                                timeParcial.append(timeReference)
-                                asigParcial.append(child.get('Reference'))
-                        
-
-        #Reseteo los valores del horario a vacío, tanto los textos como el estado del botón
 
         #Borro los datos de la mañana para pintar de nuevo
         for i in range(len(self.ids['_morning'].children)):
@@ -828,7 +607,7 @@ class Boxes(FloatLayout):
             for boton in range(len(self.ids['_morning'].children[0].children)):
                 #Busco la hora
                 for j in range(len(self.ids['_morning'].children[0].children)):
-                    if self.ids['_morning'].children[i].children[j].getIdent() not in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
+                    if self.ids['_morning'].children[i].children[j].getIdent() not in self.days:
                         self.ids['_morning'].children[i].children[j].setAsigID('')
                         self.ids['_morning'].children[i].children[j].setAulaID('')
                         texto = self.ids['_morning'].children[i].children[j].getText()
@@ -846,7 +625,7 @@ class Boxes(FloatLayout):
             for boton in range(len(self.ids['_afternoon'].children[0].children)):
                 #Busco la hora
                 for j in range(len(self.ids['_afternoon'].children[0].children)):
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in ['Lunes','Martes','Miercoles','Jueves','Viernes']:
+                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in self.days:
                         self.ids['_afternoon'].children[i].children[j].setAsigID('')
                         self.ids['_afternoon'].children[i].children[j].setAulaID('')
                         texto = self.ids['_afternoon'].children[i].children[j].getText()
@@ -860,35 +639,7 @@ class Boxes(FloatLayout):
 
                                         
         #Crear copia de las listas con los nombres
-        nombresAsig = []
-        nombresAulas = []
-        timegroups = doc.getroot().find('Instances')
-        timegroups = timegroups.find('Instance')
-        resources = timegroups.find('Resources')
-        events = timegroups.find('Events')
-
-        #Nombres de las asignaturas
-        for element in asigParcial:
-            for child in events:
-                '''Recupero el nombre de la asignatura'''
-                if child.findtext('Name') is not None:
-                    if element == child.get('Id'):
-                        nombresAsig.append(child.findtext('Name'))
-
-        #Nombres de las aulas
-        for element in listaParcial:
-            if 'Sin aula' == element:
-                nombresAulas.append('Sin aula')
-                
-            for child in resources:
-                resource = child.find('ResourceType')
-                '''Inserto los botones según los datos'''
-                if resource is not None:
-                    resourceType = resource.get('Reference')
-            
-                if resourceType == 'Room' or resourceType == 'Laboratory':
-                    if element == child.get('Id'):
-                        nombresAulas.append(child.findtext('Name'))
+        
 
         #inserto según los tiempos recuperados
         pos = 0
@@ -935,39 +686,18 @@ class Boxes(FloatLayout):
         '''Método que guarda los datos del horario cargado con el filtro en el fichero'''
         
         # Recupero los valores seleccionados y cargo sus referencias xml
-        doc = etree.parse(self.documento)
-        solutionGroups = doc.getroot().find('SolutionGroups')
-        solutionGroup = solutionGroups.find('SolutionGroup')
-        solution = solutionGroup.find('Solution')
-        events = solution.find('Events')
-
-        #Recorro la solución y borro los datos antiguos
-        for child in events:
-            resources = child.find('Resources')
-            if child.get('Reference') in self.filterTotal:
-                #Elimino el nodo
-                child.getparent().remove(child)
-            else:
-                if resources is not None:
-                    for nice in resources:
-                        if nice.get('Reference') in self.filterTotal:
-                            #Elimino el nodo
-                            child.getparent().remove(child)
-
+        self.bd.delete(self.filterTotal)
         #recorro el horario y inserto sus datos
-        guardadoLunes = False
-        guardadoMartes = False
-        guardadoMiercoles = False
-        guardadoJueves = False
-        guardadoViernes = False
-
+        guardado_dict = {i:False for i in self.days}
+        
         #Guardo los datos de la mañana
         for i in range(len(self.ids['_morning'].children)):
             #Recorro los días
             for boton in range(len(self.ids['_morning'].children[0].children)):
                 #Recorro las horas
                 for j in range(len(self.ids['_morning'].children[0].children)):
-                    if self.ids['_morning'].children[i].children[j].getIdent() == 'Lunes' and guardadoLunes == False:
+                    if not guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()]:
+                        dia_id = self.ids['_morning'].children[i].children[j].getIdent()
                         for j in range(len(self.ids['_morning'].children[0].children)):
                             diaHora = self.ids['_morning'].children[i].children[j].getIdent()
                             asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
@@ -975,121 +705,21 @@ class Boxes(FloatLayout):
                             self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
                             #Compruebo que no sean horas libres
                             if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Lunes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoLunes = True
-                                
-                    if self.ids['_morning'].children[i].children[j].getIdent() == 'Martes'and guardadoMartes == False:
-                        for j in range(len(self.ids['_morning'].children[0].children)):
-                            diaHora = self.ids['_morning'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
-                            aula = self.ids['_morning'].children[i].children[j].getAulaID()
-                            self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Martes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoMartes = True
-                                
-                    if self.ids['_morning'].children[i].children[j].getIdent() == 'Miercoles' and guardadoMiercoles == False:
-                        for j in range(len(self.ids['_morning'].children[0].children)):
-                            diaHora = self.ids['_morning'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
-                            aula = self.ids['_morning'].children[i].children[j].getAulaID()
-                            self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Miercoles' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoMiercoles = True
-                                
-                    if self.ids['_morning'].children[i].children[j].getIdent() == 'Jueves' and guardadoJueves == False:
-                        for j in range(len(self.ids['_morning'].children[0].children)):
-                            diaHora = self.ids['_morning'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
-                            aula = self.ids['_morning'].children[i].children[j].getAulaID()
-                            self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Jueves' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoJueves = True
-                                
-                    if self.ids['_morning'].children[i].children[j].getIdent() == 'Viernes' and guardadoViernes == False:
-                        for j in range(len(self.ids['_morning'].children[0].children)):
-                            diaHora = self.ids['_morning'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
-                            aula = self.ids['_morning'].children[i].children[j].getAulaID()
-                            self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Viernes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoViernes = True
-                                
-        guardadoLunes = False
-        guardadoMartes = False
-        guardadoMiercoles = False
-        guardadoJueves = False
-        guardadoViernes = False
-
-        #guardo los datos por de la tarde
+                                self.bd.add(asignatura,
+                                            dia_id  + str(diaHora-8),
+                                            aula
+                                )
+                    guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()] = True
+                guardado_dict = {i:False for i in self.days}
+        guardado_dict = {i:False for i in self.days}
+        #Guardo los datos de la mañana
         for i in range(len(self.ids['_afternoon'].children)):
             #Recorro los días
             for boton in range(len(self.ids['_afternoon'].children[0].children)):
                 #Recorro las horas
                 for j in range(len(self.ids['_afternoon'].children[0].children)):
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() == 'Lunes' and guardadoLunes == False:
+                    if not guardado_dict[self.ids['_afternoon'].children[i].children[j].getIdent()]:
+                        dia_id = self.ids['_afternoon'].children[i].children[j].getIdent()
                         for j in range(len(self.ids['_afternoon'].children[0].children)):
                             diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
                             asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
@@ -1097,112 +727,11 @@ class Boxes(FloatLayout):
                             self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
                             #Compruebo que no sean horas libres
                             if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Lunes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoLunes = True
-                                
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() == 'Martes'and guardadoMartes == False:
-                        for j in range(len(self.ids['_afternoon'].children[0].children)):
-                            diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
-                            aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
-                            self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Martes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoMartes = True
-                                
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() == 'Miercoles' and guardadoMiercoles == False:
-                        for j in range(len(self.ids['_afternoon'].children[0].children)):
-                            diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
-                            aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
-                            self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Miercoles' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoMiercoles = True
-                                
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() == 'Jueves' and guardadoJueves == False:
-                        for j in range(len(self.ids['_afternoon'].children[0].children)):
-                            diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
-                            aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
-                            self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Jueves' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoJueves = True
-                                
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() == 'Viernes' and guardadoViernes == False:
-                        for j in range(len(self.ids['_afternoon'].children[0].children)):
-                            diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
-                            aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
-                            self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                #Añado la asignatura con su horario y aula
-                                event = etree.SubElement(events, "Event")
-                                event.set("Reference", asignatura)
-                                duration = etree.SubElement(event, "Duration")
-                                duration.text = "1"
-                                time = etree.SubElement(event, "Time")
-                                time.set("Reference", 'Viernes' + str(diaHora-8))
-                                resources = etree.SubElement(event, "Resources")
-                                resource = etree.SubElement(resources, "Resource")
-                                resource.set("Reference", aula)
-                                role = etree.SubElement(resource, "Role")
-                                role.text = "Room"
-                                guardadoViernes = True
-                                                                
-        
-        #Guardo la solucion en el fichero
-        outFile = open(self.documento, 'wb')
-        doc.write(outFile)            
+                                self.bd.add(asignatura,
+                                            dia_id  + str(diaHora-8),
+                                            aula
+                                )
+                    guardado_dict[self.ids['_afternoon'].children[i].children[j].getIdent()] = True
     
     def intercambia(self, horario):
 

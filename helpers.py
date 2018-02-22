@@ -57,3 +57,10 @@ def name_degree(l):
       l0, year = temp[0],''
    s = normalize_name(l0)[0]
    return s, year
+
+def dedupe(items):
+   seen = set()
+   for item in items:
+      if item not in seen:
+         yield item
+         seen.add(item)

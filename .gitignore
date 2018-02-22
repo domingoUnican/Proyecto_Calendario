@@ -1,1 +1,4 @@
 *.json
+*.pyc
+/BaseDeDatosSQL/Excel_to_DB/.project
+/BaseDeDatosSQL/Excel_to_DB/.pydevproject

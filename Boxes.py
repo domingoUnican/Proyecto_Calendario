@@ -118,11 +118,13 @@ class Boxes(FloatLayout):
                 #Recupero el nombre y el ID del aula
                 aulaText.add(child.findtext('Name'))
                 aulaId.add(child.get('Id'))
+                
 
             if resourceType == 'Class':
                 #Recupero el nombre y el ID del curso
                 cursoText.add(child.findtext('Name'))
                 cursoId.add(child.get('Id'))
+                
 
         #Recupera los datos de la fuente (asignaturas)
         events = timegroups.find('Events')
@@ -306,7 +308,7 @@ class Boxes(FloatLayout):
                                                 
         self.children[1].children[0].children[2].text = 'Acción: Intercambiar asignaturas'
         self.children[0].children[0].children[4].text = 'Horario de mañana'
-        
+        print(self.filterTotal)
             
     def resetDropdown(self):
         #Añado los desplegables de selección a la primera pantalla   
@@ -326,7 +328,7 @@ class Boxes(FloatLayout):
         asigId = set()
 
         filterLoad = self.filterTotal
-
+        print("Filtro total:", filterLoad)
         #Fichero de lectura/escritura
         doc = etree.parse(self.documento)
         timegroups = doc.getroot().find('Instances')
@@ -471,7 +473,7 @@ class Boxes(FloatLayout):
         curs.bind(on_select=lambda instance, x: setattr(self.ids['_main'].children[0], 'text', x))
 
         #Reseteo los valores del horario a vacío, tanto los textos como el estado del botón
-
+        print(self.filterTotal)
         #Borro los datos de la mañana para pintar de nuevo
         for i in range(len(self.ids['_morning'].children)):
             #Busco el día
@@ -526,6 +528,7 @@ class Boxes(FloatLayout):
         '''Método que recupera el filtro seleccionado en los desplegables y que se usa para cargar'''    
         filterLoad = set()
         filterLoad.add(ident)
+        print("llamando a filterLoad",filterLoad)
         
         #Pongo el texto en el botón que sirve como indicador
         self.children[1].children[0].children[0].text = self.children[1].children[0].children[0].text.split(':')[0] + ': ' + text
@@ -555,7 +558,7 @@ class Boxes(FloatLayout):
                         for nice in resources:
                             if nice.get('Reference') is not None:
                                 if nice.get('Reference') in filterLoad:
-                                    print('')
+                                    pass
                                     #else:
                                         #listaParcial.add(nice.get('Reference'))
          
@@ -892,7 +895,9 @@ class Boxes(FloatLayout):
 
         #inserto según los tiempos recuperados
         pos = 0
-        
+        print("Lista parcial", listaParcial)
+        print("Asig parcial", asigParcial)
+        print("Time parcial", timeParcial)
         for element in timeParcial:
             dia = element[:len(element)-1]
             hora = int(element[len(element)-1:len(element)]) + 8

@@ -5,7 +5,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from datetime import timedelta
 from horario import horario
-from Boxes import Boxes
+from Cajas import Boxes
+from conexion import con_bd
 from kivy.uix.popup import Popup
 from kivy.uix.filechooser import FileChooserListView
 from lxml import etree
@@ -15,7 +16,7 @@ from lxml import etree
 dias=['Lunes','Martes','Miercoles','Jueves','Viernes']
 horarioPrincipal = horario(dias,1)
 filterTotal = set()
-documento = 'datos/outfile_nuevo_solucion.xml'
+documento = con_bd()
         
 class TestApp(App):
     def build(self):
