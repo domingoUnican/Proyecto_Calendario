@@ -1,7 +1,7 @@
 import pymysql
 
 # Cambiar user y password asi como db a las del servidor local
-connection = pymysql.connect(host='localhost',user='Domingo',password='Domingo',db='scheduledb',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor, autocommit=True)
+connection = pymysql.connect(host='localhost',user='root',password='6f8AFF203',db='scheduledb',charset='utf8mb4',cursorclass=pymysql.cursors.DictCursor, autocommit=True)
 
 cursor = connection.cursor()
 

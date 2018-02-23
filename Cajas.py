@@ -7,7 +7,7 @@ from kivy.uix.listview import ListView
 from boton import Boton
 from boton2 import Boton2
 from lxml import etree
-
+from collections import defaultdict
 
 
 class Boxes(FloatLayout):
@@ -589,7 +589,7 @@ class Boxes(FloatLayout):
                 #Inserto los datos por la mañana
                 for i in range(len(self.ids['_morning'].children)):
                     #Busco el día
-                    for boton in range(len(self.ids['_morning'].children[0].children)):
+                    for boton in range(len(self.ids['_morning'].children[i].children)):
                         #Dia encontrado
                         if self.ids['_morning'].children[i].children[boton].getIdent() == dia:
                             #Busco la hora
@@ -602,9 +602,9 @@ class Boxes(FloatLayout):
                                     self.ids['_morning'].children[i].children[j].setText(texto)
             else:
                 #inserto los datos por la tarde
-                for i in range(len(self.ids['_morning'].children)):
+                for i in range(len(self.ids['_afternoon'].children)):
                     #Busco el día
-                    for boton in range(len(self.ids['_morning'].children[0].children)):
+                    for boton in range(len(self.ids['_afternoon'].children[i].children)):
                         #Dia encontrado
                         if self.ids['_afternoon'].children[i].children[boton].getIdent() == dia:
                             #Busco la hora
@@ -624,17 +624,21 @@ class Boxes(FloatLayout):
         
         
         #recorro el horario y inserto sus datos
-        guardado_dict = {i:False for i in self.days}
-        
+        guardado_dict = defaultdict(lambda : True)
+        for i in self.days:
+            guardado_dict[i] = False
+        guardado_dict[14]
+        guardado_dict['14']
         #Guardo los datos de la mañana
         for i in range(len(self.ids['_morning'].children)):
             #Recorro los días
-            for boton in range(len(self.ids['_morning'].children[0].children)):
+            for boton in range(len(self.ids['_morning'].children[i].children)):
                 #Recorro las horas
-                for j in range(len(self.ids['_morning'].children[0].children)):
+                for j in range(len(self.ids['_morning'].children[i].children)):
+                    print('Numero', self.ids['_morning'].children[i].children[j].getIdent())
                     if not guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()]:
                         dia_id = self.ids['_morning'].children[i].children[j].getIdent()
-                        for j in range(len(self.ids['_morning'].children[0].children)):
+                        for j in range(len(self.ids['_morning'].children[i].children)):
                             diaHora = self.ids['_morning'].children[i].children[j].getIdent()
                             asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
                             aula = self.ids['_morning'].children[i].children[j].getAulaID()
@@ -643,18 +647,20 @@ class Boxes(FloatLayout):
                             if len(asignatura) > 1:
                                 self.bd.cambia_dia(asignatura,
                                             dia_id  + str(diaHora-8))
-                    guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()] = True
+                        guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()] = True
                 guardado_dict = {i:False for i in self.days}
-        guardado_dict = {i:False for i in self.days}
+        guardado_dict = defaultdict(lambda : True)
+        for i in self.days:
+            guardado_dict[i] = False
         #Guardo los datos de la mañana
         for i in range(len(self.ids['_afternoon'].children)):
             #Recorro los días
-            for boton in range(len(self.ids['_afternoon'].children[0].children)):
+            for boton in range(len(self.ids['_afternoon'].children[i].children)):
                 #Recorro las horas
-                for j in range(len(self.ids['_afternoon'].children[0].children)):
+                for j in range(len(self.ids['_afternoon'].children[i].children)):
                     if not guardado_dict[self.ids['_afternoon'].children[i].children[j].getIdent()]:
                         dia_id = self.ids['_afternoon'].children[i].children[j].getIdent()
-                        for j in range(len(self.ids['_afternoon'].children[0].children)):
+                        for j in range(len(self.ids['_afternoon'].children[i].children)):
                             diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
                             asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
                             aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
