@@ -9,14 +9,19 @@ class con_bd:
         '''
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
-        return [reg['resource'] for reg in a]
+        temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        temp.sort(key = lambda x:x[1])
+        return [i[0] for i in temp]
+    
     def all_prof_text(self):
         '''
         devuelve todos los nombres de los profesores
         '''
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
-        return [reg['D.name'] for reg in a]
+        temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        temp.sort(key = lambda x:x[1])
+        return [i[1] for i in temp]
         
     def all_aula_id(self):
         '''
@@ -24,17 +29,22 @@ class con_bd:
         '''        
         d = search_resource_by_type(resourcetype='Room')
         a = d.fetchall()
-        a = [reg for reg in a if 'resource' in reg ]
-        return [reg['resource'] for reg in a]
-
+        temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        temp.sort(key = lambda x:x[1])
+        return [i[0] for i in temp]
+    def asig_prof(self,ident):
+        d = search_resource_by_type(resource=ident) # Solo por nombre profesor
+        a = d.fetchall()
+        return [reg['id'] for reg in a]
     def all_aula_text(self):
         '''
         devuelve todos los nombres de las aulas
         '''        
         d = search_resource_by_type(resourcetype='Room')
         a = d.fetchall()
-        a = [reg for reg in a if 'D.name' in reg ]
-        return [reg['D.name'] for reg in a]
+        temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        temp.sort(key = lambda x:x[1])
+        return [i[1] for i in temp]
 
     def all_asignatura_id(self):
         '''
@@ -76,20 +86,20 @@ class con_bd:
         '''
         d = get_class() # Extraemos todos los recursos del tipo Class
         a = d.fetchall() # Los pasamos a un array de diccionarios para trabajar con ellos
-        a = [reg for reg in a if 'name' in a]
+        a = [reg for reg in a if 'name' in reg]
+        
         return [reg['name'] for reg in a if 'PLACEHOLDER' not in reg.get('name','PLACEHOLDER')]
         
     def colisiones(self):
         '''
         devuelve todas las colisiones
         '''
-        return ["Una colision"]
         d = show_conflicts()
         a = d.fetchall()
-        a = [reg for reg in a if  'time' in reg and 'name' in reg]
-        for reg in a:
-            print(a)
-        return ['Hay un conflicto con {name} en la siguiente hora {time}'.format(reg) for reg in a]
+        a = [reg for reg in a if  'time' in reg and 'name' in reg and 'PLACEHOLDER' not in reg['name']][0:10]
+        
+        
+        return ['Hay un conflicto con {name} en la siguiente hora: {time}'.format(**reg) for reg in a]
 
     def contain(self, datos):
         '''
@@ -101,6 +111,7 @@ class con_bd:
         all_events = d.fetchall()
         for reg in all_events:
             if any(dato in reg.values() for dato in datos):
+                aula_id = 'AULA_8'
                 asig_id = reg['id']
                 for temp in select_all_by_subject(asig_id).fetchall():
                     if 'LABORATORIO' in temp['resource'] or 'AULA' in temp['resource']:
@@ -109,11 +120,34 @@ class con_bd:
                 nombre_asig = reg['name']
                 nombre_aula = aula_id.replace('_', ' ')
                 result.append((aula_id,asig_id, time_id, nombre_asig, nombre_aula))
-        
+        return list(dedupe(result))
     def delete(self, datos):
         '''
         borra listas de registros que contengan alguno de los elementos en datos.
         '''
         pass
+    def recursos_asig(self, ident):
+        '''
+        Devuelve la lista de recursos de una asignatura
+        '''
+        d = select_all_by_subject(ident)
+        a = d.fetchall()
+        return list(dedupe([reg['resource'] for reg in a]))
     
+    def nombre_asig(self, ident):
+        d = select_all_by_subject(ident)
+        a = [reg for reg in d.fetchall() if 'id' in reg]
+        for reg in a:
+            if reg['id']==ident:
+                return reg['name']
+        else:
+            return 'PLACEHOLDER'
+    def cambia_dia(self, codigo, dia):
+        update_events_cuatrimestre2_1718(codigo,codigo,codigo.split("_")[0],dia)
+    def cambia_aula(self,codigo, aula):
+        old_room='AULA_1'
+        for text in self.recursos_asig(codigo):
+            if 'AULA' in text or 'LAB' in text:
+                old_room = text
+        update_events_need_resources_c2_1718(codigo,old_room,aula)
     
