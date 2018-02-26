@@ -6,7 +6,6 @@ from kivy.uix.dropdown import DropDown
 from kivy.uix.listview import ListView
 from boton import Boton
 from boton2 import Boton2
-from lxml import etree
 from collections import defaultdict
 from time import time
 
@@ -30,7 +29,7 @@ class Boxes(FloatLayout):
     lastIdentificador = ''
     numIncidences = 10
     bd = None
-    
+    log = open('salida.txt','w')
     def __init__(self, horarioPrincipal, filterTotal,  bd,  **kwargs):
         ''' Inicialización del horario '''
 
@@ -60,7 +59,7 @@ class Boxes(FloatLayout):
                     btn.setAsigID(asignaturaID)
                     btn.setAulaID(aulaID)
                     btn.text_size = (300, 100)
-                    bx_m.add_widget(btn)
+                    bx_iter.add_widget(btn)
                     hour = hour +1
                 self.ids[turno].add_widget(bx_iter)
 
@@ -70,7 +69,6 @@ class Boxes(FloatLayout):
         asigns = DropDown()
         curs = DropDown()
         button = Button()
-        crono = time()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -79,105 +77,28 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
-        print ("Tiempo:",time()-crono)
-        for child in profText:
-            #Inserto los botones de los profesores
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = profText.index(child)
-            ident = profId[pos]
-            btn.setIdent(ident)
-
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: profes.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            profes.add_widget(btn)
-
-        for child in aulaText:
-            #Inserto los botones de las aulas
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = aulaText.index(child)
-            ident = aulaId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: aulas.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            aulas.add_widget(btn)
-
-        for child in cursoText:
-            #Inserto los botones de los cursos
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = cursoText.index(child)
-            ident = cursoId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: curs.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            curs.add_widget(btn)
-
-        for child in asigText:
-            #Inserto los botones de las asignaturas
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = asigText.index(child)
-            ident = asigId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: asigns.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            asigns.add_widget(btn)
-            
-        #Añado un boton vacio a cada desplegable      
-        # Profesores
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44)
-        btn.bind(on_release=lambda btn: profes.select(btn.text))
-        profes.add_widget(btn)
-        # aulas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: aulas.select(btn.text))
-        aulas.add_widget(btn)
-        #Cursos
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: curs.select(btn.text))
-        curs.add_widget(btn)
-        # asignaturas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: asigns.select(btn.text))
-        asigns.add_widget(btn)
-
-        #Formato para los desplegables
-        aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 200)
-        aulasbutton.bind(on_release=aulas.open)
-        profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 330)
-        profesbutton.bind(on_release=profes.open)  
-        asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 400)
-        asignsbutton.bind(on_release=asigns.open)
-        cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 250)
-        cursosbutton.bind(on_release=curs.open)
-
-        profes.bind(on_select=lambda instance, x: setattr(profesbutton, 'text', x))
-        aulas.bind(on_select=lambda instance, x: setattr(aulasbutton, 'text', x))
-        asigns.bind(on_select=lambda instance, x: setattr(asignsbutton, 'text', x))
-        curs.bind(on_select=lambda instance, x: setattr(cursosbutton, 'text', x))
-        
-        #Añado botón de carga y los desplegables
+        datos_scroll = [(profes,'Profesores',350, profText,profId),
+                        (aulas, 'Aulas',300, aulaText, aulaId),
+                        (asigns,'Asignaturas',400,asigText, asigId),
+                        (curs, 'Cursos',400,cursoText, cursoId)]
         loadSelection = Button(text = 'Cargar selección', size_hint = (None, None), width = 200)
         loadSelection.bind(on_release=lambda btn: self.loadTimetable(horarioPrincipal))
         self.ids['_main'].add_widget(loadSelection)
-        self.ids['_main'].add_widget(profesbutton)
-        self.ids['_main'].add_widget(aulasbutton)
-        self.ids['_main'].add_widget(asignsbutton)
-        self.ids['_main'].add_widget(cursosbutton)
-        
+        for tipo_scroll, nombre_scroll,tamano, tupla_text, tupla_id in datos_scroll:
+            for texto, ident in zip(tupla_text,tupla_id):
+                btn = Boton(text=texto, size_hint_y=None, height=44)
+                btn.setIdent(ident)
+                btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
+                btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+                tipo_scroll.add_widget(btn)
+            btn = Boton(text='No seleccionado', size_hint_y=None, height=44)
+            btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
+            tipo_scroll.add_widget(btn)
+            scrollButton = Button(text = nombre_scroll,
+                                  size_hint = (None, None),
+                                  width = tamano)
+            tipo_scroll.bind(on_select=lambda instance, x: setattr(scrollButton, 'text', x))
+            self.ids['_main'].add_widget(scrollButton)
 
         nInc = 0
         for incidencia in self.bd.colisiones():
@@ -198,7 +119,6 @@ class Boxes(FloatLayout):
         asigns = DropDown()
         curs = DropDown()
         button = Button()
-        crono = time()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -207,162 +127,56 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
-        print ("Tiempo:",time()-crono)
+        datos_scroll = [(profes,'Profesores',350,self.ids['_main'].children[3], profText,profId),
+                        (aulas, 'Aulas',300,self.ids['_main'].children[2], aulaText, aulaId),
+                        (asigns,'Asignaturas',400,self.ids['_main'].children[1],asigText, asigId),
+                        (curs, 'Cursos',400,self.ids['_main'].children[0],cursoText, cursoId)]
         filterLoad = set(self.filterTotal)
 
-        for child in profText:
-            #Inserto los botones de los profesores
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = profText.index(child)
-            ident = profId[pos]
-            btn.setIdent(ident)
+        for tipo_scroll, nombre_scroll,tamano,wid_pos, tupla_text, tupla_id in datos_scroll:
+            for texto, ident in zip(tupla_text,tupla_id):
+                btn = Boton(text=texto, size_hint_y=None, height=44)
+                btn.setIdent(ident)
+                btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
+                btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
+                tipo_scroll.add_widget(btn)
+            btn = Boton(text='No seleccionado', size_hint_y=None, height=44)
+            btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
+            tipo_scroll.add_widget(btn)
+            wid_pos.bind(on_release=tipo_scroll.open)
+            wid_pos.text = nombre_scroll
+            scrollButton = Button(text = nombre_scroll,
+                                  size_hint = (None, None),
+                                  width = tamano)
+            tipo_scroll.bind(on_select=lambda instance, x: setattr(wid_pos,
+                                                                   'text', x))
+            wid_pos.disabled = False
 
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: profes.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            profes.add_widget(btn)
-
-        for child in aulaText:
-            #Inserto los botones de las aulas
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = aulaText.index(child)
-            ident = aulaId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: aulas.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            aulas.add_widget(btn)
-
-        for child in cursoText:
-            #Inserto los botones de los cursos
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = cursoText.index(child)
-            ident = cursoId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: curs.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            curs.add_widget(btn)
-
-        for child in asigText:
-            #Inserto los botones de las asignaturas
-            btn = Boton(text=child, size_hint_y=None, height=44)
-            pos = asigText.index(child)
-            ident = asigId[pos]
-            btn.setIdent(ident)
-                
-            # Mostrar el menu
-            btn.bind(on_release=lambda btn: asigns.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-
-            # add el boton dentro del dropdown
-            asigns.add_widget(btn)
-
-        #Añado un boton vacio a cada desplegable      
-        # Profesores
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44)
-        btn.bind(on_release=lambda btn: profes.select(btn.text))
-        profes.add_widget(btn)
-        # aulas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: aulas.select(btn.text))
-        aulas.add_widget(btn)
-        #Cursos
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: curs.select(btn.text))
-        curs.add_widget(btn)
-        # asignaturas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: asigns.select(btn.text))
-        asigns.add_widget(btn)
-
-        #Formato para los desplegables
-        #profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 330)
-        self.ids['_main'].children[3].bind(on_release=profes.open)
-        self.ids['_main'].children[3].text = 'Profesores' 
-        #aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 200)
-        self.ids['_main'].children[2].bind(on_release=aulas.open)
-        self.ids['_main'].children[2].text = 'Aulas'
-        #asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 400)
-        self.ids['_main'].children[1].bind(on_release=asigns.open)
-        self.ids['_main'].children[1].text = 'Asignaturas'
-        #cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 250)
-        self.ids['_main'].children[0].bind(on_release=curs.open)
-        self.ids['_main'].children[0].text = 'Cursos'
-
-        profes.bind(on_select=lambda instance, x: setattr(self.ids['_main'].children[3], 'text', x))
-        aulas.bind(on_select=lambda instance, x: setattr(self.ids['_main'].children[2], 'text', x))
-        asigns.bind(on_select=lambda instance, x: setattr(self.ids['_main'].children[1], 'text', x))
-        curs.bind(on_select=lambda instance, x: setattr(self.ids['_main'].children[0], 'text', x))
-
-        #Reseteo los valores del horario a vacío, tanto los textos como el estado del botón
-
-        #Borro los datos de la mañana para pintar de nuevo
-        for i in range(len(self.ids['_morning'].children)):
-            #Busco el día
-            for boton in range(len(self.ids['_morning'].children[0].children)):
-                #Busco la hora
-                for j in range(len(self.ids['_morning'].children[0].children)):
-                    if self.ids['_morning'].children[i].children[j].getIdent() not in self.days:
-                        self.ids['_morning'].children[i].children[j].setAsigID('')
-                        self.ids['_morning'].children[i].children[j].setAulaID('')
-                        texto = self.ids['_morning'].children[i].children[j].getText()
-                        salto = '\n'
-                        cortado = texto.split(salto)
-                        cortado[0] = 'Libre'
-                        cortado[1] = 'Sin Aula'
-                        texto = ('%s\n%s\n%s--%s')%('Libre', 'Sin Aula', timedelta(hours=8+j), timedelta(hours=9+j))
-                        self.ids['_morning'].children[i].children[j].setText(salto.join(cortado))
-                        self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-
-        #Borro los datos de la tarde para pintar de nuevo
-        for i in range(len(self.ids['_afternoon'].children)):
-            #Busco el día
-            for boton in range(len(self.ids['_afternoon'].children[0].children)):
-                #Busco la hora
-                for j in range(len(self.ids['_afternoon'].children[0].children)):
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in self.days:
-                        self.ids['_afternoon'].children[i].children[j].setAsigID('')
-                        self.ids['_afternoon'].children[i].children[j].setAulaID('')
-                        texto = self.ids['_afternoon'].children[i].children[j].getText()
-                        salto = '\n'
-                        cortado = texto.split(salto)
-                        cortado[0] = 'Libre'
-                        cortado[1] = 'Sin Aula'
-                        texto = ('%s\n%s\n%s--%s')%('Libre', 'Sin Aula', timedelta(hours=8+j), timedelta(hours=9+j))
-                        self.ids['_afternoon'].children[i].children[j].setText(salto.join(cortado))
-                        self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-        
+        self.children[1].children[0].children[0].text = 'Filtro seleccionado: Ninguno'
+        for turno in ['_morning','_afternoon']:
+            for pos,j in self.botones_turno(turno):
+                if j.getIdent() in self.days:
+                    continue
+                j.setAsigID('')
+                j.setAulaID('')
+                texto = "{0}\n{1}\n{2}--{3}".format('Libre','Sin Aula',pos,pos + 1)
+                j.setText(texto)
+                j.background_color = [1,1,1,1]
         self.ids['_main'].children[4].disabled = False
-        self.ids['_main'].children[3].disabled = False
-        self.ids['_main'].children[2].disabled = False
-        self.ids['_main'].children[1].disabled = False
-        self.ids['_main'].children[0].disabled = False
-
-        #Pongo el texto en el botón que sirve como indicador
-        self.children[1].children[0].children[0].text = self.children[1].children[0].children[0].text.split(':')[0] + ': Ninguno'
-        
         self.lastIdentificador = ''
         self.filterTotal = set()
         self.filterLoad = set()        
 
-    def loadFilter(self,text,filterLoad,ident):
-        print("SE LAMA loadFilter")
 
+        
+    def loadFilter(self,text,filterLoad,ident):
+        print("Load_filter", self.filterLoad, self.filterTotal)
         '''Método que recupera el filtro seleccionado en los desplegables y que se usa para cargar'''    
         filterLoad = set()
         filterLoad.add(ident)
         
         #Pongo el texto en el botón que sirve como indicador
-        self.children[1].children[0].children[0].text = self.children[1].children[0].children[0].text.split(':')[0] + ': ' + text
+        self.children[1].children[0].children[0].text = 'Filtro seleccionado: ' + text
  
         #filterLoad = filterLoad.union(self.filterTotal)
             
@@ -380,10 +194,9 @@ class Boxes(FloatLayout):
         if self.filterLoad == set():
             self.filterLoad.add(ident)
         #Elimino los desplegables antiguos
-        self.ids['_main'].remove_widget(self.ids['_main'].children[3])
-        self.ids['_main'].remove_widget(self.ids['_main'].children[2])
-        self.ids['_main'].remove_widget(self.ids['_main'].children[1])
-        self.ids['_main'].remove_widget(self.ids['_main'].children[0])
+        for i in range(3,-1,-1):
+            self.ids['_main'].remove_widget(self.ids['_main'].children[i])
+        
 
         #Los actualizo con el filtro
         profes = DropDown()
@@ -393,6 +206,7 @@ class Boxes(FloatLayout):
         button = Button()
         texto = ''
         identificador = ''
+        
         for asig_code in self.filterLoad:
             btn = Boton(text=self.bd.nombre_asig(asig_code), size_hint_y=None, height=44)
             ident = asig_code
@@ -400,6 +214,7 @@ class Boxes(FloatLayout):
             btn.bind(on_release=lambda btn: asigns.select(btn.text))
             btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
             asigns.add_widget(btn)
+            print("asig_code",asig_code)
             if asig_code in self.filterTotal:
                 texto = child.findtext('Name')
                 identificador = 'Asig'
@@ -507,7 +322,7 @@ class Boxes(FloatLayout):
         self.filterLoad = self.filterLoad.union(listaAsignaturas)
         
         self.filterTotal = self.filterLoad
-
+        print("resultado",self.lastIdentificador,"OTRO\n", self.filterLoad,"OTRO\n", self.filterTotal)
     def botones_turno(self, turno):
         for i in self.ids[turno].children:
             #Recorro los días
@@ -557,8 +372,6 @@ class Boxes(FloatLayout):
         guardado_dict = defaultdict(lambda : True)
         for i in self.days:
             guardado_dict[i] = False
-        guardado_dict[14]
-        guardado_dict['14']
         #Guardo los datos de la mañana
         for turno in ['_morning','_afternoon']:
             guardado_dict = {i:False for i in self.days}
