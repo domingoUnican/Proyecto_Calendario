@@ -61,7 +61,6 @@ class horario:
         simple iterador para dibujar los botones
         '''
         pos = self.dias.index(dia)
-
         principio = self.inicio
         total = float(self.segundos_clase_manana())
         manana = [l for l in self.h_dia[pos] if l[4]<=self.empieza_tarde]
@@ -85,6 +84,6 @@ class horario:
             porcentaje = (fin-principio)/total
             porcentaje *= 0.98
             texto = ('%s\n%s\n%s -- %s')%(asignatura, aula, principio, fin)
-            yield texto, porcentaje
+            yield texto, porcentaje, asignaturaID, aulaID
             principio = fin
         

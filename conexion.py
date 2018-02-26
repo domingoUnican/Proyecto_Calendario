@@ -147,7 +147,8 @@ class con_bd:
     def cambia_aula(self,codigo, aula):
         old_room='AULA_1'
         for text in self.recursos_asig(codigo):
-            if 'AULA' in text or 'LAB' in text:
+            if text[0:5] in ('AULA_', 'LABOR', 'SEMIN'):
                 old_room = text
+        print("old", old_room, aula)
         update_events_need_resources_c2_1718(codigo,old_room,aula)
     

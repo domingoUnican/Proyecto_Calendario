@@ -8,7 +8,7 @@ from boton import Boton
 from boton2 import Boton2
 from lxml import etree
 from collections import defaultdict
-
+from time import time
 
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
@@ -42,41 +42,27 @@ class Boxes(FloatLayout):
         for dia in horarioPrincipal.dias:
             bx_m = BoxLayout(orientation='vertical')#mañana
             bx_t = BoxLayout(orientation='vertical')#tarde
+            relleno = [ [9,bx_m,'_morning',horarioPrincipal.clases_manana],
+                        [15,bx_t,'_afternoon', horarioPrincipal.clases_tarde]]
+            for hour, bx_iter,turno, asignacion in relleno:
 
-            #añado las cabeceras (dias)
-            nombre = dia
-            btn = Boton(text=nombre, size_hint_y=0.02)
-            btn.setIdent(nombre)
-            bx_m.add_widget(btn)
+                #añado las cabeceras (dias)
+                nombre = dia
+                btn = Boton(text=nombre, size_hint_y=0.02)
+                btn.setIdent(nombre)
+                bx_iter.add_widget(btn)
 
-            btn = Boton(text=nombre, size_hint_y=0.02)
-            btn.setIdent(nombre)
-            bx_t.add_widget(btn)
-            
-            
-            #Botones de mañana (Clase/Aula/Hora)
-            hour = 9
-            for texto, porcentaje, asignaturaID, aulaID in horarioPrincipal.clases_manana(nombre):
-                btn = Boton(text = texto, size_hint_y = porcentaje)
-                btn.bind(on_release = lambda x:self.intercambia(horario=horarioPrincipal))
-                btn.setIdent(hour)
-                btn.setAsigID(asignaturaID)
-                btn.setAulaID(aulaID)
-                btn.text_size = (300, 100)
-                bx_m.add_widget(btn)
-                hour = hour +1
-            self.ids['_morning'].add_widget(bx_m)
-
-            #Botones de tarde (Clase/Aula/Hora)
-            hour = 15
-            for texto, porcentaje in horarioPrincipal.clases_tarde(nombre):
-                btn = Boton(text = texto, size_hint_y = porcentaje)
-                btn.bind(on_release = lambda x:self.intercambia(horario=horarioPrincipal))
-                btn.setIdent(hour)
-                btn.text_size = (300, 100)
-                bx_t.add_widget(btn)
-                hour = hour +1
-            self.ids['_afternoon'].add_widget(bx_t)
+                #Botones  (Clase/Aula/Hora)
+                for texto, porcentaje, asignaturaID, aulaID in asignacion(nombre):
+                    btn = Boton(text = texto, size_hint_y = porcentaje)
+                    btn.bind(on_release = lambda x:self.intercambia(horario=horarioPrincipal))
+                    btn.setIdent(hour)
+                    btn.setAsigID(asignaturaID)
+                    btn.setAulaID(aulaID)
+                    btn.text_size = (300, 100)
+                    bx_m.add_widget(btn)
+                    hour = hour +1
+                self.ids[turno].add_widget(bx_iter)
 
         #Añado los desplegables de selección a la primera pantalla   
         profes = DropDown()
@@ -84,7 +70,7 @@ class Boxes(FloatLayout):
         asigns = DropDown()
         curs = DropDown()
         button = Button()
-
+        crono = time()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -93,6 +79,7 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
+        print ("Tiempo:",time()-crono)
         for child in profText:
             #Inserto los botones de los profesores
             btn = Boton(text=child, size_hint_y=None, height=44)
@@ -201,7 +188,7 @@ class Boxes(FloatLayout):
                 break                                         
         self.children[1].children[0].children[2].text = 'Acción: Intercambiar asignaturas'
         self.children[0].children[0].children[4].text = 'Horario de mañana'
-        
+        self.resetDropdown()
             
     def resetDropdown(self):
         print("SE LAMA resetDropdown")
@@ -211,6 +198,7 @@ class Boxes(FloatLayout):
         asigns = DropDown()
         curs = DropDown()
         button = Button()
+        crono = time()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -219,6 +207,7 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
+        print ("Tiempo:",time()-crono)
         filterLoad = set(self.filterTotal)
 
         for child in profText:
@@ -518,11 +507,14 @@ class Boxes(FloatLayout):
         self.filterLoad = self.filterLoad.union(listaAsignaturas)
         
         self.filterTotal = self.filterLoad
-                
-    
-    def loadTimetable(self,horarioPrincipal):
-        print("SE LAMA loadTimetable")
 
+    def botones_turno(self, turno):
+        for i in self.ids[turno].children:
+            #Recorro los días
+            for pos,j in reversed(list(enumerate(i.children))):
+                yield (6-pos if turno =='_morning' else 10-pos),j
+                
+    def loadTimetable(self,horarioPrincipal):
         '''Método que realiza la carga del horario según lo introducido en el filtro'''
         
         #Inicializaciones
@@ -537,92 +529,30 @@ class Boxes(FloatLayout):
         nombresAsig = [i[3] for i in dat_temp]
         nombresAulas = [i[4] for i in dat_temp]
         self.ids['_main'].children[4].disabled = True
+        dia_id = 'Lunes'
+        for turno in ['_morning','_afternoon']:
+            for pos,j in self.botones_turno(turno):
+                dia_id = j.getIdent() if j.getIdent() in self.days else dia_id
+                if j.getIdent() in self.days:
+                    continue
+                elif dia_id+str(pos) in timeParcial:
+                    position = timeParcial.index(dia_id+str(pos))
+                    j.setAsigID(asigParcial[position])
+                    j.setAulaID(listaParcial[position])
+                    texto = "{0}\n{1}\n{2}--{3}".format(nombresAsig[position],
+                                                        nombresAulas[position], pos, pos + 1)
+                else:
+                    j.setAsigID('')
+                    j.setAulaID('')
+                    texto = "{0}\n{1}\n{2}--{3}".format('Libre','Sin Aula',pos,pos + 1)
+                j.setText(texto)
+                j.background_color = [1,1,1,1]
 
-        #Borro los datos de la mañana para pintar de nuevo
-        for i in range(len(self.ids['_morning'].children)):
-            #Busco el día
-            for boton in range(len(self.ids['_morning'].children[0].children)):
-                #Busco la hora
-                for j in range(len(self.ids['_morning'].children[0].children)):
-                    if self.ids['_morning'].children[i].children[j].getIdent() not in self.days:
-                        self.ids['_morning'].children[i].children[j].setAsigID('')
-                        self.ids['_morning'].children[i].children[j].setAulaID('')
-                        texto = self.ids['_morning'].children[i].children[j].getText()
-                        salto = '\n'
-                        cortado = texto.split(salto)
-                        cortado[0] = 'Libre'
-                        cortado[1] = 'Sin Aula'
-                        texto = ('%s\n%s\n%s--%s')%('Libre', 'Sin Aula', j, 1+j)
-                        self.ids['_morning'].children[i].children[j].setText(salto.join(cortado))
-                        self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
-
-        #Borro los datos de la tarde para pintar de nuevo
-        for i in range(len(self.ids['_afternoon'].children)):
-            #Busco el día
-            for boton in range(len(self.ids['_afternoon'].children[0].children)):
-                #Busco la hora
-                for j in range(len(self.ids['_afternoon'].children[0].children)):
-                    if self.ids['_afternoon'].children[i].children[j].getIdent() not in self.days:
-                        self.ids['_afternoon'].children[i].children[j].setAsigID('')
-                        self.ids['_afternoon'].children[i].children[j].setAulaID('')
-                        texto = self.ids['_afternoon'].children[i].children[j].getText()
-                        salto = '\n'
-                        cortado = texto.split(salto)
-                        cortado[0] = 'Libre'
-                        cortado[1] = 'Sin Aula'
-                        texto = ('%s\n%s\n%s--%s')%('Libre', 'Sin Aula', j, 1+j)
-                        self.ids['_afternoon'].children[i].children[j].setText(salto.join(cortado))
-                        self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-
-                                        
-        #Crear copia de las listas con los nombres
-        
-
-        #inserto según los tiempos recuperados
-        pos = 0
-        
-        for element in timeParcial:
-            dia = element[:len(element)-1]
-            hora = int(element[len(element)-1:len(element)]) + 8
-
-            if hora < 15:
-                #Inserto los datos por la mañana
-                for i in range(len(self.ids['_morning'].children)):
-                    #Busco el día
-                    for boton in range(len(self.ids['_morning'].children[i].children)):
-                        #Dia encontrado
-                        if self.ids['_morning'].children[i].children[boton].getIdent() == dia:
-                            #Busco la hora
-                            for j in range(len(self.ids['_morning'].children[0].children)):
-                                if self.ids['_morning'].children[i].children[j].getIdent() == hora:
-                                    #Hora encontrada, pongo los datos
-                                    self.ids['_morning'].children[i].children[j].setAsigID(asigParcial[pos])
-                                    self.ids['_morning'].children[i].children[j].setAulaID(listaParcial[pos])                                    
-                                    texto = ('%s\n%s\n%s--%s')%(nombresAsig[pos], nombresAulas[pos], hora-8, hora-7)
-                                    self.ids['_morning'].children[i].children[j].setText(texto)
-            else:
-                #inserto los datos por la tarde
-                for i in range(len(self.ids['_afternoon'].children)):
-                    #Busco el día
-                    for boton in range(len(self.ids['_afternoon'].children[i].children)):
-                        #Dia encontrado
-                        if self.ids['_afternoon'].children[i].children[boton].getIdent() == dia:
-                            #Busco la hora
-                            for j in range(len(self.ids['_afternoon'].children[0].children)):
-                                if self.ids['_afternoon'].children[i].children[j].getIdent() == hora:
-                                    #Hora encontrada, pongo los datos
-                                    self.ids['_afternoon'].children[i].children[j].setAsigID(asigParcial[pos])
-                                    self.ids['_afternoon'].children[i].children[j].setAulaID(listaParcial[pos])
-                                    texto = ('%s\n%s\n%s--%s')%(nombresAsig[pos], nombresAulas[pos], hora-8, hora-7)
-                                    self.ids['_afternoon'].children[i].children[j].setText(texto)
-
-            #Avanzo la posición de las listas
-            pos = pos +1
 
     def saveTimetable(self):
-        '''Método que guarda los datos del horario cargado con el filtro en el fichero'''
-        
-        
+        '''
+        Método que guarda los datos del horario cargado con el filtro en el fichero
+        '''
         #recorro el horario y inserto sus datos
         guardado_dict = defaultdict(lambda : True)
         for i in self.days:
@@ -630,46 +560,25 @@ class Boxes(FloatLayout):
         guardado_dict[14]
         guardado_dict['14']
         #Guardo los datos de la mañana
-        for i in range(len(self.ids['_morning'].children)):
-            #Recorro los días
-            for boton in range(len(self.ids['_morning'].children[i].children)):
-                #Recorro las horas
-                for j in range(len(self.ids['_morning'].children[i].children)):
-                    print('Numero', self.ids['_morning'].children[i].children[j].getIdent())
-                    if not guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()]:
-                        dia_id = self.ids['_morning'].children[i].children[j].getIdent()
-                        for j in range(len(self.ids['_morning'].children[i].children)):
-                            diaHora = self.ids['_morning'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_morning'].children[i].children[j].getAsigID()
-                            aula = self.ids['_morning'].children[i].children[j].getAulaID()
-                            self.ids['_morning'].children[i].children[j].background_color = [1,1,1,1]
+        for turno in ['_morning','_afternoon']:
+            guardado_dict = {i:False for i in self.days}
+            for i in self.ids[turno].children:
+                #Recorro los días
+                for j in i.children:
+                    dia_id = j.getIdent()
+                    if dia_id in self.days and not guardado_dict[dia_id]:
+                        for j in i.children:
+                            diaHora = j.getIdent()
+                            asignatura = j.getAsigID()
+                            aula = j.getAulaID()
+                            j.background_color = [1,1,1,1]
                             #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
+                            if asignatura:
                                 self.bd.cambia_dia(asignatura,
                                             dia_id  + str(diaHora-8))
-                        guardado_dict[self.ids['_morning'].children[i].children[j].getIdent()] = True
-                guardado_dict = {i:False for i in self.days}
-        guardado_dict = defaultdict(lambda : True)
-        for i in self.days:
-            guardado_dict[i] = False
-        #Guardo los datos de la mañana
-        for i in range(len(self.ids['_afternoon'].children)):
-            #Recorro los días
-            for boton in range(len(self.ids['_afternoon'].children[i].children)):
-                #Recorro las horas
-                for j in range(len(self.ids['_afternoon'].children[i].children)):
-                    if not guardado_dict[self.ids['_afternoon'].children[i].children[j].getIdent()]:
-                        dia_id = self.ids['_afternoon'].children[i].children[j].getIdent()
-                        for j in range(len(self.ids['_afternoon'].children[i].children)):
-                            diaHora = self.ids['_afternoon'].children[i].children[j].getIdent()
-                            asignatura = self.ids['_afternoon'].children[i].children[j].getAsigID()
-                            aula = self.ids['_afternoon'].children[i].children[j].getAulaID()
-                            self.ids['_afternoon'].children[i].children[j].background_color = [1,1,1,1]
-                            #Compruebo que no sean horas libres
-                            if len(asignatura) > 1:
-                                self.bd.cambia_dia(asignatura,
-                                            dia_id  + str(diaHora-8))
-                    guardado_dict[self.ids['_afternoon'].children[i].children[j].getIdent()] = True
+                                self.bd.cambia_aula(asignatura, aula)
+                                print(asignatura, aula, dia_id)
+                        guardado_dict[dia_id] = True
     
     def intercambia(self, horario):
         print("Sellama intercambia")
