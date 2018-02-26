@@ -8,6 +8,7 @@ from boton import Boton
 from boton2 import Boton2
 from collections import defaultdict
 from time import time
+from helpers import dedupe
 
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
@@ -77,6 +78,12 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
+        # No voy a dividir a los cursos por grupos de practicas
+        temporal = list(dedupe([(c_i, c_t[0:-10]) for c_i, c_t in zip(cursoId, cursoText)],
+                               key= lambda x: x[1])
+        )
+        cursoText = [i[1] for i in temporal]
+        cursoId = [i[0] for i in temporal]  
         datos_scroll = [(profes,'Profesores',350, profText,profId),
                         (aulas, 'Aulas',300, aulaText, aulaId),
                         (asigns,'Asignaturas',400,asigText, asigId),
@@ -127,6 +134,11 @@ class Boxes(FloatLayout):
         cursoId = self.bd.all_curso_id()
         asigText = self.bd.all_asignatura_text()
         asigId = self.bd.all_asignatura_id()
+        temporal = list(dedupe([(c_i, c_t[0:-10]) for c_i, c_t in zip(cursoId, cursoText)],
+                               key= lambda x: x[1])
+        )
+        cursoText = [i[1] for i in temporal]
+        cursoId = [i[0] for i in temporal]  
         datos_scroll = [(profes,'Profesores',350,self.ids['_main'].children[3], profText,profId),
                         (aulas, 'Aulas',300,self.ids['_main'].children[2], aulaText, aulaId),
                         (asigns,'Asignaturas',400,self.ids['_main'].children[1],asigText, asigId),
@@ -170,159 +182,21 @@ class Boxes(FloatLayout):
 
         
     def loadFilter(self,text,filterLoad,ident):
-        print("Load_filter", self.filterLoad, self.filterTotal)
-        '''Método que recupera el filtro seleccionado en los desplegables y que se usa para cargar'''    
-        filterLoad = set()
-        filterLoad.add(ident)
-        
+        '''
+        Método que recupera el filtro seleccionado en los desplegables 
+        y que se usa para cargar
+        '''
+        nombre = ident
+        if 'Class' in nombre:# En caso que busquemos un curso
+            nombre = '_'.join(ident.split('_')[0:2]) + '_PLACEHOLDER'
+        self.filterLoad = set(self.bd.asig_ident(nombre))
         #Pongo el texto en el botón que sirve como indicador
         self.children[1].children[0].children[0].text = 'Filtro seleccionado: ' + text
- 
-        #filterLoad = filterLoad.union(self.filterTotal)
-            
-        listaParcial = set()
-        listaPadres = set()
-        listaHermanos = set()
-        hermanoEncontrado = False
-            
-        listaAsignaturas = set()
-
-        #Salvo el filtro        
-        self.filterLoad = set(self.bd.asig_prof(ident))
-
-        #Si no se ha encontrado (aula) lo añado directamente
-        if self.filterLoad == set():
-            self.filterLoad.add(ident)
-        #Elimino los desplegables antiguos
-        for i in range(3,-1,-1):
-            self.ids['_main'].remove_widget(self.ids['_main'].children[i])
-        
-
-        #Los actualizo con el filtro
-        profes = DropDown()
-        aulas = DropDown()
-        asigns = DropDown()
-        curs = DropDown()
-        button = Button()
-        texto = ''
-        identificador = ''
-        
-        for asig_code in self.filterLoad:
-            btn = Boton(text=self.bd.nombre_asig(asig_code), size_hint_y=None, height=44)
-            ident = asig_code
-            btn.setIdent(ident)
-            btn.bind(on_release=lambda btn: asigns.select(btn.text))
-            btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-            asigns.add_widget(btn)
-            print("asig_code",asig_code)
-            if asig_code in self.filterTotal:
-                texto = child.findtext('Name')
-                identificador = 'Asig'
-
-            for recurso in self.bd.recursos_asig(asig_code):
-                if recurso in self.bd.all_prof_id():
-                    btn = Boton(text=recurso.replace('_',' ').upper(), size_hint_y=None, height=44)
-                    ident = recurso
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: profes.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    profes.add_widget(btn)
-                    if ident in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Prof'
-                if recurso in self.bd.all_aula_id():
-                    btn = Boton(text=recurso.replace('_',' ').upper(), size_hint_y=None, height=44)
-                    ident = recurso
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: aulas.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    aulas.add_widget(btn)
-                    if ident in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Aula'
-                if recurso in self.bd.all_curso_id():
-                    btn = Boton(text=recurso.replace('_',' ').upper(), size_hint_y=None, height=44)
-                    ident = recurso
-                    btn.setIdent(ident)
-                    btn.bind(on_release=lambda btn: curs.select(btn.text))
-                    btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                    curs.add_widget(btn)
-                    if ident in self.filterTotal:
-                        texto = child.findtext('Name')
-                        identificador = 'Curso'
-
-        # #Añado un boton vacio a cada desplegable      
-        # Profesores
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44)
-        btn.bind(on_release=lambda btn: profes.select(btn.text))
-        profes.add_widget(btn)
-        # aulas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: aulas.select(btn.text))
-        aulas.add_widget(btn)
-        #Cursos
-        btn = Boton(text='Ninguno', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: curs.select(btn.text))
-        curs.add_widget(btn)
-        # asignaturas
-        btn = Boton(text='Ninguna', size_hint_y=None, height=44) 
-        btn.bind(on_release=lambda btn: asigns.select(btn.text))
-        asigns.add_widget(btn)
-
-        #añado los desplegables a la pantalla, seteando el texto
-        if identificador == 'Prof':
-            profesbutton = Button(text = texto, size_hint = (None, None), width = 330)
-            profesbutton.bind(on_release=profes.open)
-        else:
-            profesbutton = Button(text = 'Profesores', size_hint = (None, None), width = 330)
-            profesbutton.bind(on_release=profes.open)
-
-        if identificador == 'Aula':
-            aulasbutton= Button(text = texto, size_hint = (None, None), width = 200)
-            aulasbutton.bind(on_release=aulas.open)
-        else:
-            aulasbutton= Button(text = 'Aulas', size_hint = (None, None), width = 200)
-            aulasbutton.bind(on_release=aulas.open)
-
-        if identificador == 'Asig':
-            asignsbutton= Button(text = texto, size_hint = (None, None), width = 400)
-            asignsbutton.bind(on_release=asigns.open)
-        else:
-            asignsbutton= Button(text = 'Asignaturas', size_hint = (None, None), width = 400)
-            asignsbutton.bind(on_release=asigns.open)
-
-        if identificador == 'Curso':
-            cursosbutton= Button(text = texto, size_hint = (None, None), width = 250)
-            cursosbutton.bind(on_release=curs.open)
-        else:
-            cursosbutton= Button(text = 'Cursos', size_hint = (None, None), width = 250)
-            cursosbutton.bind(on_release=curs.open)
-            
-        aulas.bind(on_select=lambda instance, x: setattr(aulasbutton, 'text', x))
-        profes.bind(on_select=lambda instance, x: setattr(profesbutton, 'text', x))
-        asigns.bind(on_select=lambda instance, x: setattr(asignsbutton, 'text', x))
-        curs.bind(on_select=lambda instance, x: setattr(cursosbutton, 'text', x))
-            
-        self.ids['_main'].add_widget(profesbutton)
-        self.ids['_main'].add_widget(aulasbutton)
-        self.ids['_main'].add_widget(asignsbutton)
-        self.ids['_main'].add_widget(cursosbutton)
-
-        #if identificador == 'Prof' or self.lastIdentificador == 'Prof':
-        self.ids['_main'].children[3].disabled = True
-        #if identificador == 'Aula' or self.lastIdentificador == 'Aula':
-        self.ids['_main'].children[2].disabled = True
-        #if identificador == 'Asig' or self.lastIdentificador == 'Asig':
-        self.ids['_main'].children[1].disabled = True
-        #if identificador == 'Curso' or self.lastIdentificador == 'Curso':
-        self.ids['_main'].children[0].disabled = True
-
-        self.lastIdentificador = identificador
-
-        self.filterLoad = self.filterLoad.union(listaAsignaturas)
-        
+        for pos in range(3,-1,-1):
+            self.ids['_main'].children[pos].disabled = True
+        self.filterLoad = self.filterLoad.union(filterLoad)
         self.filterTotal = self.filterLoad
-        print("resultado",self.lastIdentificador,"OTRO\n", self.filterLoad,"OTRO\n", self.filterTotal)
+        
     def botones_turno(self, turno):
         for i in self.ids[turno].children:
             #Recorro los días
@@ -338,6 +212,9 @@ class Boxes(FloatLayout):
         filterAsig = ''
         filterCurs = ''
         dat_temp = self.bd.contain(self.filterTotal)
+        print("esto es dat")
+        for temp in dat_temp:
+            print(temp)
         listaParcial = [i[0] for i in dat_temp]
         timeParcial = [i[2] for i in dat_temp]
         asigParcial = [i[1] for i in dat_temp]
@@ -392,7 +269,8 @@ class Boxes(FloatLayout):
                                 self.bd.cambia_aula(asignatura, aula)
                                 print(asignatura, aula, dia_id)
                         guardado_dict[dia_id] = True
-    
+        for texto, boton in zip(self.bd.colisiones(),self.ids['_incidences'].children):
+            boton.text =  texto
     def intercambia(self, horario):
         print("Sellama intercambia")
         '''Método para intercambiar los pares asignaturas/aulas de hora'''

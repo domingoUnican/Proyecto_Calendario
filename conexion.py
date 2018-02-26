@@ -51,7 +51,7 @@ class con_bd:
         self.set_aula_id =  [i[0] for i in temp]
         return self.set_aula_id
     
-    def asig_prof(self,ident):
+    def asig_ident(self,ident):
         d = search_resource_by_type(resource=ident) # Solo por nombre profesor
         a = d.fetchall()
         return [reg['id'] for reg in a]
@@ -96,7 +96,7 @@ class con_bd:
         temp = {reg['id']:reg['name'] for reg in a}
         c = list(temp.items())
         c.sort(key = lambda x:x[1])
-        self.set_asignatura_text =  [i[1] for i in c]
+        self.set_asignatura_text =  ['{0} ({1})'.format(i[1],i[0]) for i in c]
         return self.set_asignatura_text
 
     def all_curso_id(self):
@@ -135,7 +135,8 @@ class con_bd:
         a = [reg for reg in a if  'time' in reg and 'name' in reg and 'PLACEHOLDER' not in reg['name']][0:10]
         
         
-        return ['Hay un conflicto con {name} en la siguiente hora: {time}'.format(**reg) for reg in a]
+        return ['Revisar {name} la clase {Evento A} y la clase {Evento B} en {time}'.format(**reg)
+                for reg in a]
 
     def contain(self, datos):
         '''

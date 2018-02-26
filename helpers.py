@@ -58,9 +58,9 @@ def name_degree(l):
    s = normalize_name(l0)[0]
    return s, year
 
-def dedupe(items):
+def dedupe(items, key = lambda x:x):
    seen = set()
    for item in items:
-      if item not in seen:
+      if key(item) not in seen:
          yield item
-         seen.add(item)
+         seen.add(key(item))
