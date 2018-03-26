@@ -3,20 +3,10 @@ from ParserSQL_233 import *
 
 class con_bd:
 
-    set_prof_id = set()
-    set_prof_text = set()
-    set_aula_id = set()
-    set_aula_text = set()
-    set_asignatura_id = set()
-    set_asignatura_text = set()
-    set_curso_id = set()
-    set_curso_text = set()
     def all_prof_id(self):
         '''
         devuelve todos los ids de los profesores
         '''
-        if self.set_prof_id:
-            return self.set_prof_id
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
@@ -29,8 +19,6 @@ class con_bd:
         '''
         devuelve todos los nombres de los profesores
         '''
-        if self.set_prof_text:
-            return self.set_prof_text
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
@@ -42,8 +30,6 @@ class con_bd:
         '''
         devuelve todos los ids de las aulas
         '''
-        if self.set_aula_id:
-            return self.set_aula_id
         d = search_resource_by_type(resourcetype='Room')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
@@ -55,13 +41,16 @@ class con_bd:
         d = search_resource_by_type(resource=ident) # Solo por nombre profesor
         a = d.fetchall()
         return [reg['id'] for reg in a]
+
+    def asig_times(self,ident):
+        d = search_resource_by_type()
+        q = d.fetchall()
+        return []
     
     def all_aula_text(self):
         '''
         devuelve todos los nombres de las aulas
         '''
-        if self.set_aula_text:
-            return self.set_aula_text
         d = search_resource_by_type(resourcetype='Room')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
@@ -73,8 +62,6 @@ class con_bd:
         '''
         devuelve todos los ids de las asignaturas
         '''
-        if self.set_asignatura_id:
-            return self.set_asignatura_id
         d = search_resource_by_type()
         a = d.fetchall()
         a = [reg for reg in a if 'id' in reg and 'name' in reg]
@@ -88,8 +75,6 @@ class con_bd:
         '''
         devuelve todos los nombres de las asignaturas
         '''
-        if self.set_asignatura_text:
-            return self.set_asignatura_text
         d = search_resource_by_type()
         a = d.fetchall()
         a = [reg for reg in a if 'id' in reg and 'name' in reg]
@@ -103,8 +88,6 @@ class con_bd:
         '''
         devuelve todos los ids de los cursos
         '''
-        if self.set_curso_id:
-            return self.set_curso_id
         d = get_class() # Extraemos todos los recursos del tipo Class
         a = d.fetchall() # Los pasamos a un array de diccionarios para trabajar con ellos
         a = [reg for reg in a if 'id' in reg]
@@ -116,8 +99,6 @@ class con_bd:
         '''
         devuelve todos los nombres de los cursos
         '''
-        if self.set_curso_text:
-            return self.set_curso_text
         d = get_class() # Extraemos todos los recursos del tipo Class
         a = d.fetchall() # Los pasamos a un array de diccionarios para trabajar con ellos
         a = [reg for reg in a if 'name' in reg]

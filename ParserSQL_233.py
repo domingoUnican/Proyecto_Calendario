@@ -181,8 +181,8 @@ print("---")
 # d = search_resource_by_type(resource='diego_herranz_munoz') # Solo por nombre profesor
 # a = d.fetchall()
 
-# d = search_resource_by_type(resource='AULA_1',time='Viernes2') # Por room y hora
 # a = d.fetchall()
+# d = search_resource_by_type(resource='AULA_1',time='Viernes2') # Por room y hora
 
 # d = search_resource_by_type(resource='AULA_1') # Solo por room
 # a = d.fetchall()

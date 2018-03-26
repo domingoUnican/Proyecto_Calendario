@@ -9,6 +9,7 @@ from boton2 import Boton2
 from collections import defaultdict
 from time import time
 from helpers import dedupe
+import re
 
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
@@ -195,7 +196,10 @@ class Boxes(FloatLayout):
         for pos in range(3,-1,-1):
             self.ids['_main'].children[pos].disabled = True
         self.filterLoad = self.filterLoad.union(filterLoad)
+        if re.search('^G([0-9]{1,3})',ident):
+            self.filterLoad.add(ident)
         self.filterTotal = self.filterLoad
+        print(f'El filtro:{self.filterTotal}')
         
     def botones_turno(self, turno):
         for i in self.ids[turno].children:
