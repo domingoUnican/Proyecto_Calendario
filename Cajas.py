@@ -190,16 +190,19 @@ class Boxes(FloatLayout):
         nombre = ident
         if 'Class' in nombre:# En caso que busquemos un curso
             nombre = '_'.join(ident.split('_')[0:2]) + '_PLACEHOLDER'
+        print("Nombre",nombre)
+        print("Self.filterLoad",len(self.filterLoad))
         self.filterLoad = set(self.bd.asig_ident(nombre))
+        print("Self.filterLoad",len(self.filterLoad))
         #Pongo el texto en el botón que sirve como indicador
         self.children[1].children[0].children[0].text = 'Filtro seleccionado: ' + text
         for pos in range(3,-1,-1):
             self.ids['_main'].children[pos].disabled = True
-        self.filterLoad = self.filterLoad.union(filterLoad)
+        #self.filterLoad = self.filterLoad.union(filterLoad)
         if re.search('^G([0-9]{1,3})',ident):
             self.filterLoad.add(ident)
         self.filterTotal = self.filterLoad
-        print(f'El filtro:{self.filterTotal}')
+        print(f'El filtro:{len(self.filterTotal)}')
         
     def botones_turno(self, turno):
         for i in self.ids[turno].children:
@@ -369,27 +372,27 @@ class Boxes(FloatLayout):
                 self.numPulsaciones = 0
         else:
 
-            #Asigno el aula seleccionada. No permito cambiar el aula si se está en medio de un intercambio de horas
-            doc = etree.parse('datos/outfile_nuevo_solucion.xml')
-            timegroups = doc.getroot().find('Instances')
-            timegroups = timegroups.find('Instance')
-            resources = timegroups.find('Resources')
+            # #Asigno el aula seleccionada. No permito cambiar el aula si se está en medio de un intercambio de horas
+            # doc = etree.parse('datos/outfile_nuevo_solucion.xml')
+            # timegroups = doc.getroot().find('Instances')
+            # timegroups = timegroups.find('Instance')
+            # resources = timegroups.find('Resources')
 
-            if self.children[1].children[0].children[2].getText() == 'Acción: Quitar aula':
-                self.nombreAula = 'Sin Aula'
-                self.idAula = ''
-            else:
-                #Recupera las aulas
-                for child in resources:
-                    resource = child.find('ResourceType')
-                    if resource is not None:
-                        resourceType = resource.get('Reference')
+            # if self.children[1].children[0].children[2].getText() == 'Acción: Quitar aula':
+            #     self.nombreAula = 'Sin Aula'
+            #     self.idAula = ''
+            # else:
+            #     #Recupera las aulas
+            #     for child in resources:
+            #         resource = child.find('ResourceType')
+            #         if resource is not None:
+            #             resourceType = resource.get('Reference')
 
-                    if resourceType == 'Room' or resourceType == 'Laboratory':
-                        if 'Asignar: ' + child.findtext('Name') == self.children[1].children[0].children[2].getText():
-                            #Datos del aula seleccionada
-                            self.idAula = child.get('Id')
-                            self.nombreAula = child.findtext('Name')
+            #         if resourceType == 'Room' or resourceType == 'Laboratory':
+            #             if 'Asignar: ' + child.findtext('Name') == self.children[1].children[0].children[2].getText():
+            #                 #Datos del aula seleccionada
+            #                 self.idAula = child.get('Id')
+            #                 self.nombreAula = child.findtext('Name')
 
             # Recupero el id de la ventana activa
             ids = self.ids['_screen_manager'].current

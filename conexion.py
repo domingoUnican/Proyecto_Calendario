@@ -10,6 +10,13 @@ class con_bd:
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        new_temp = []
+        for i,j in temp:
+            l0 = j.split()
+            variable = ' '.join(l0[:-2])
+            l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            new_temp.append((i,l0))
+        temp = new_temp
         temp.sort(key = lambda x:x[1])
         
         self.set_prof_id =  [i[0] for i in temp]
@@ -22,6 +29,13 @@ class con_bd:
         d = search_resource_by_type(resourcetype='Teacher')
         a = d.fetchall()
         temp = list(dedupe( [(reg['resource'],reg['D.name']) for reg in a]))
+        new_temp = []
+        for i,j in temp:
+            l0 = j.split()
+            variable = ' '.join(l0[:-2])
+            l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            new_temp.append((i,l0))
+        temp = new_temp
         temp.sort(key = lambda x:x[1])
         self.set_prof_text =  [i[1] for i in temp]
         return self.set_prof_text
@@ -167,6 +181,5 @@ class con_bd:
         for text in self.recursos_asig(codigo):
             if text[0:5] in ('AULA_', 'LABOR', 'SEMIN'):
                 old_room = text
-        print("old", old_room, aula)
         update_events_need_resources_c2_1718(codigo,old_room,aula)
     
