@@ -24,12 +24,24 @@
                     orientation: 'horizontal'
                     padding: 50
                     id: _afternoon
-			Screen:
+            Screen:
                 name: 'incidencias'
                 BoxLayout:
                     orientation: 'vertical'
                     padding: 50
                     id: _incidences
+            Screen:
+                name: 'libres_dia'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: 50
+                    id: _morning_free
+            Screen:
+                name: 'libres_noche'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: 50
+                    id: _afternoon_free
 	AnchorLayout:
 		anchor_x: 'center'
 		anchor_y: 'top'
@@ -55,17 +67,25 @@
                 text: 'Principal'
                 on_press: _screen_manager.current = 'Principal'
             Button:
-                text: 'Horario de manaña'
+                text: 'Horario de mañana'
                 on_press: _screen_manager.current = 'dia'
+                
             Button:
                 text: 'Horario de tarde'
                 on_press: _screen_manager.current = 'noche'
-			Button:
+            Button:
                 text: 'Incidencias'
                 on_press: _screen_manager.current = 'incidencias'
+
+            Button:
+                text: 'Aulas libres (mañana)'
+                on_press: _screen_manager.current = 'libres_dia'
+            Button:
+                text: 'Aulas libres (tarde)'
+                on_press: _screen_manager.current = 'libres_noche'
             Button:
                 text: 'Guardar'
-				on_press: app.save()
+                on_press: app.save()
             Button:
                 text: 'Salir'
                 on_press: app.stop()

@@ -10,7 +10,7 @@ from collections import defaultdict
 from time import time
 from helpers import dedupe
 import re
-
+from au_modulo import *
 class Boxes(FloatLayout):
     '''Se crea el entorno visual del horario con Kivi'''
     numPulsaciones = 0
@@ -28,6 +28,7 @@ class Boxes(FloatLayout):
     nombreAula = ''
     inicio = 0
     aulas = DropDown()
+    aulas_libres = DropDown()
     lastIdentificador = ''
     numIncidences = 10
     bd = None
@@ -43,8 +44,13 @@ class Boxes(FloatLayout):
         for dia in horarioPrincipal.dias:
             bx_m = BoxLayout(orientation='vertical')#mañana
             bx_t = BoxLayout(orientation='vertical')#tarde
+            bx_m_f = BoxLayout(orientation='vertical')#mañana_free
+            bx_t_f = BoxLayout(orientation='vertical')#tarde_free
             relleno = [ [9,bx_m,'_morning',horarioPrincipal.clases_manana],
-                        [15,bx_t,'_afternoon', horarioPrincipal.clases_tarde]]
+                        [15,bx_t,'_afternoon', horarioPrincipal.clases_tarde],
+                        [9,bx_m_f,'_morning_free',horarioPrincipal.clases_manana],
+                        [15,bx_t_f,'_afternoon_free', horarioPrincipal.clases_tarde]
+            ]
             for hour, bx_iter,turno, asignacion in relleno:
 
                 #añado las cabeceras (dias)
@@ -70,6 +76,7 @@ class Boxes(FloatLayout):
         aulas = DropDown()
         asigns = DropDown()
         curs = DropDown()
+        aulas_libres = DropDown()
         button = Button()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
@@ -86,9 +93,10 @@ class Boxes(FloatLayout):
         cursoText = [i[1] for i in temporal]
         cursoId = [i[0] for i in temporal]  
         datos_scroll = [(profes,'Profesores',350, profText,profId),
-                        (aulas, 'Aulas',300, aulaText, aulaId),
-                        (asigns,'Asignaturas',400,asigText, asigId),
-                        (curs, 'Cursos',400,cursoText, cursoId)]
+                        (aulas, 'Aulas',250, aulaText, aulaId),
+                        (asigns,'Asignaturas',350,asigText, asigId),
+                        (curs, 'Cursos',350,cursoText, cursoId)
+        ]
         loadSelection = Button(text = 'Cargar selección', size_hint = (None, None), width = 200)
         loadSelection.bind(on_release=lambda btn: self.loadTimetable(horarioPrincipal))
         self.ids['_main'].add_widget(loadSelection)
@@ -116,7 +124,6 @@ class Boxes(FloatLayout):
             if nInc >= self.numIncidences:
                 break                                         
         self.children[1].children[0].children[2].text = 'Acción: Intercambiar asignaturas'
-        self.children[0].children[0].children[4].text = 'Horario de mañana'
         self.resetDropdown()
             
     def resetDropdown(self):
@@ -126,6 +133,7 @@ class Boxes(FloatLayout):
         aulas = DropDown()
         asigns = DropDown()
         curs = DropDown()
+        aulas_libres = DropDown()
         button = Button()
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
@@ -175,6 +183,25 @@ class Boxes(FloatLayout):
                 texto = "{0}\n{1}\n{2}--{3}".format('Libre','Sin Aula',pos,pos + 1)
                 j.setText(texto)
                 j.background_color = [1,1,1,1]
+        for turno in ['_morning_free','_afternoon_free']:
+            for pos,j in self.botones_turno(turno):
+                dia_id = j.getIdent() if j.getIdent() in self.days else dia_id
+                if j.getIdent() in self.days:
+                    continue
+                aulas_libres = self.bd.aula_libre(dia_id+str(j.getIdent()))
+                print(len(aulas_libres))
+                texto = []
+                for i in ['AULAS', 'LABORATORIOS','SEMINARIOS']:
+                    contador = 0
+                    texto.append( f'\n{i}:')
+                    for j0 in aulas_libres:
+                        if i[:3] in j0:
+                            texto.append(j0.split('_')[-1])
+                            contador += 1
+                            if contador %13 == 0:
+                                pass
+                j.setText(texto[0]+','.join(texto[1:]))
+                j.background_color = [1,1,1,1]        
         self.ids['_main'].children[4].disabled = False
         self.lastIdentificador = ''
         self.filterTotal = set()
@@ -190,10 +217,7 @@ class Boxes(FloatLayout):
         nombre = ident
         if 'Class' in nombre:# En caso que busquemos un curso
             nombre = '_'.join(ident.split('_')[0:2]) + '_PLACEHOLDER'
-        print("Nombre",nombre)
-        print("Self.filterLoad",len(self.filterLoad))
         self.filterLoad = set(self.bd.asig_ident(nombre))
-        print("Self.filterLoad",len(self.filterLoad))
         #Pongo el texto en el botón que sirve como indicador
         self.children[1].children[0].children[0].text = 'Filtro seleccionado: ' + text
         for pos in range(3,-1,-1):
@@ -202,13 +226,19 @@ class Boxes(FloatLayout):
         if re.search('^G([0-9]{1,3})',ident):
             self.filterLoad.add(ident)
         self.filterTotal = self.filterLoad
-        print(f'El filtro:{len(self.filterTotal)}')
         
     def botones_turno(self, turno):
+        '''
+        devuelve los botones de turno extra, que puede ser tanto:
+        - _morning
+        - _afternoon
+        - _morning_free
+        - _afternoon_free
+        '''
         for i in self.ids[turno].children:
             #Recorro los días
             for pos,j in reversed(list(enumerate(i.children))):
-                yield (6-pos if turno =='_morning' else 10-pos),j
+                yield (6-pos if '_morning' in turno else 10-pos),j
                 
     def loadTimetable(self,horarioPrincipal):
         '''Método que realiza la carga del horario según lo introducido en el filtro'''
@@ -219,9 +249,6 @@ class Boxes(FloatLayout):
         filterAsig = ''
         filterCurs = ''
         dat_temp = self.bd.contain(self.filterTotal)
-        print("esto es dat")
-        for temp in dat_temp:
-            print(temp)
         listaParcial = [i[0] for i in dat_temp]
         timeParcial = [i[2] for i in dat_temp]
         asigParcial = [i[1] for i in dat_temp]
@@ -246,7 +273,6 @@ class Boxes(FloatLayout):
                     texto = "{0}\n{1}\n{2}--{3}".format('Libre','Sin Aula',pos,pos + 1)
                 j.setText(texto)
                 j.background_color = [1,1,1,1]
-
 
     def saveTimetable(self):
         '''
@@ -279,11 +305,11 @@ class Boxes(FloatLayout):
         for texto, boton in zip(self.bd.colisiones(),self.ids['_incidences'].children):
             boton.text =  texto
     def intercambia(self, horario):
-        print("Sellama intercambia")
         '''Método para intercambiar los pares asignaturas/aulas de hora'''
 
         '''Si no he seleccionado una aula para asignar o estoy en medio de un intercambio'''
-        if self.children[1].children[0].children[2].getText() == 'Acción: Intercambiar asignaturas' or self.numPulsaciones != 0:
+        accion_seleccionada = self.children[1].children[0].children[2].getText()
+        if accion_seleccionada == 'Acción: Intercambiar asignaturas' or self.numPulsaciones != 0:
 
             # Recupero el id de la ventana activa
             ids = self.ids['_screen_manager'].current
@@ -371,30 +397,8 @@ class Boxes(FloatLayout):
                 #Reinicio para volver a intercambiar
                 self.numPulsaciones = 0
         else:
-
-            # #Asigno el aula seleccionada. No permito cambiar el aula si se está en medio de un intercambio de horas
-            # doc = etree.parse('datos/outfile_nuevo_solucion.xml')
-            # timegroups = doc.getroot().find('Instances')
-            # timegroups = timegroups.find('Instance')
-            # resources = timegroups.find('Resources')
-
-            # if self.children[1].children[0].children[2].getText() == 'Acción: Quitar aula':
-            #     self.nombreAula = 'Sin Aula'
-            #     self.idAula = ''
-            # else:
-            #     #Recupera las aulas
-            #     for child in resources:
-            #         resource = child.find('ResourceType')
-            #         if resource is not None:
-            #             resourceType = resource.get('Reference')
-
-            #         if resourceType == 'Room' or resourceType == 'Laboratory':
-            #             if 'Asignar: ' + child.findtext('Name') == self.children[1].children[0].children[2].getText():
-            #                 #Datos del aula seleccionada
-            #                 self.idAula = child.get('Id')
-            #                 self.nombreAula = child.findtext('Name')
-
-            # Recupero el id de la ventana activa
+            self.idAula =  '_'.join(accion_seleccionada.split(':')[1].split())
+            self.nombreAula = self.idAula.replace('_',' ')
             ids = self.ids['_screen_manager'].current
                 
             if ids == 'dia':
@@ -441,7 +445,7 @@ class Boxes(FloatLayout):
                     
                     # Mostrar el menu
                     btn.bind(on_release=lambda btn: self.aulas.select(btn.text))
-
+                    print(btn.getAulaID())
                     # add el boton dentro del dropdown
                     self.aulas.add_widget(btn)
 

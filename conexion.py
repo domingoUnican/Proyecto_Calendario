@@ -1,5 +1,6 @@
 from helpers import dedupe
 from ParserSQL_233 import *
+from ParserSQLNew import *
 
 class con_bd:
 
@@ -13,8 +14,11 @@ class con_bd:
         new_temp = []
         for i,j in temp:
             l0 = j.split()
-            variable = ' '.join(l0[:-2])
-            l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            if len(l0)>2:
+                variable = ' '.join(l0[:-2])
+                l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            else:
+                l0 = f'{l0[1]}, {l0[0]}'
             new_temp.append((i,l0))
         temp = new_temp
         temp.sort(key = lambda x:x[1])
@@ -32,8 +36,11 @@ class con_bd:
         new_temp = []
         for i,j in temp:
             l0 = j.split()
-            variable = ' '.join(l0[:-2])
-            l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            if len(l0)>2:
+                variable = ' '.join(l0[:-2])
+                l0 = f'{l0[-2]} {l0[-1]}, {variable}'
+            else:
+                l0 = f'{l0[1]}, {l0[0]}'
             new_temp.append((i,l0))
         temp = new_temp
         temp.sort(key = lambda x:x[1])
@@ -165,7 +172,11 @@ class con_bd:
         d = select_all_by_subject(ident)
         a = d.fetchall()
         return list(dedupe([reg['resource'] for reg in a]))
-    
+
+    def aula_libre(self, tiempo):
+        d = (mostrar_espacios_libres(tiempo))
+        a = d.fetchall()
+        return [i['id'] for i in a]
     def nombre_asig(self, ident):
         d = select_all_by_subject(ident)
         a = [reg for reg in d.fetchall() if 'id' in reg]
@@ -177,6 +188,7 @@ class con_bd:
     def cambia_dia(self, codigo, dia):
         update_events_cuatrimestre2_1718(codigo,codigo,codigo.split("_")[0],dia)
     def cambia_aula(self,codigo, aula):
+        
         old_room='AULA_1'
         for text in self.recursos_asig(codigo):
             if text[0:5] in ('AULA_', 'LABOR', 'SEMIN'):
