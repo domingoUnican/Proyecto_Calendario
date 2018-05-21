@@ -1,0 +1,6 @@
+Se trata de ujna versión burda pero funcional. 
+Exporta los eventos de los tres primeros cursos de los cuatro grados a un archivo .xlsx.
+
+IMPORTANTE:
+Hay que modificar la información en la parte superior del archivo de código, rodeado de '########'. 
+Debemos introducir las credenciales de nuestra Base de Datos y la ruta del archivo de Excel a generar en nuestro sistema.
