@@ -83,7 +83,7 @@ class con_bd:
         '''
         devuelve todos los ids de las asignaturas
         '''
-        d = search_resource_by_type()
+        d = mostrar_todas_asignaturas()
         a = d.fetchall()
         a = [reg for reg in a if 'id' in reg and 'name' in reg]
         temp = {reg['id']:reg['name'] for reg in a}
@@ -96,7 +96,7 @@ class con_bd:
         '''
         devuelve todos los nombres de las asignaturas
         '''
-        d = search_resource_by_type()
+        d = mostrar_todas_asignaturas()
         a = d.fetchall()
         a = [reg for reg in a if 'id' in reg and 'name' in reg]
         temp = {reg['id']:reg['name'] for reg in a}
@@ -140,11 +140,13 @@ class con_bd:
         return ['Revisar {name} la clase {Evento A} y la clase {Evento B} en {time}'.format(**reg)
                 for reg in a]
 
-    def contain(self, datos):
+    def contain2(self, datos):
         '''
         devuelve listas de registros que contengan alguno de los elementos en datos.
         El formato tiene que ser (AULA_ID,ASIG_ID,TIME_ID,NOMBRE_ASIG,NOMBRE_AULA)
         '''
+        #TODO: Ahora lo que hago es coger todas las asignaturas, coger el identificador y adelante.
+        # Esto puede dar problemas
         result = []
         d = search_resource_by_type()
         all_events = d.fetchall()
@@ -159,6 +161,28 @@ class con_bd:
                 nombre_asig = reg['name']
                 nombre_aula = aula_id.replace('_', ' ')
                 result.append((aula_id,asig_id, time_id, nombre_asig, nombre_aula))
+        return list(dedupe(result))
+    def contain(self, datos):
+        '''
+        devuelve listas de registros que contengan alguno de los elementos en datos.
+        El formato tiene que ser (AULA_ID,ASIG_ID,TIME_ID,NOMBRE_ASIG,NOMBRE_AULA)
+        '''
+        #TODO: Ahora lo que hago es coger todas las asignaturas, coger el identificador y adelante.
+        # Esto puede dar problemas
+        cursor_d = mostrar_todas_asignaturas()
+        nombres = cursor_d.fetchall()
+        nombres = {d['id']: d['name'] for d in nombres}
+        result = []
+        for dato in datos:
+            codigo = dato.split('_')[0]
+            nombre_asig = nombres[codigo]
+            for d in mostrar_todo_asignatura(codigo).fetchall():
+                result.append((d['name'].replace(' ', '_'),
+                               d['id'],
+                               d['time'],
+                               nombre_asig,
+                               d['name']
+                ))
         return list(dedupe(result))
     def delete(self, datos):
         '''

@@ -127,7 +127,6 @@ class Boxes(FloatLayout):
         self.resetDropdown()
             
     def resetDropdown(self):
-        print("SE LAMA resetDropdown")
         #Añado los desplegables de selección a la primera pantalla   
         profes = DropDown()
         aulas = DropDown()
@@ -188,8 +187,7 @@ class Boxes(FloatLayout):
                 dia_id = j.getIdent() if j.getIdent() in self.days else dia_id
                 if j.getIdent() in self.days:
                     continue
-                aulas_libres = self.bd.aula_libre(dia_id+str(j.getIdent()))
-                print(len(aulas_libres))
+                aulas_libres = self.bd.aula_libre(dia_id+str(pos))
                 texto = []
                 for i in ['AULAS', 'LABORATORIOS','SEMINARIOS']:
                     contador = 0
@@ -226,6 +224,7 @@ class Boxes(FloatLayout):
         if re.search('^G([0-9]{1,3})',ident):
             self.filterLoad.add(ident)
         self.filterTotal = self.filterLoad
+        print("filterTotal", self.filterTotal)
         
     def botones_turno(self, turno):
         '''
@@ -300,7 +299,6 @@ class Boxes(FloatLayout):
                                 self.bd.cambia_dia(asignatura,
                                             dia_id  + str(diaHora-8))
                                 self.bd.cambia_aula(asignatura, aula)
-                                print(asignatura, aula, dia_id)
                         guardado_dict[dia_id] = True
         for texto, boton in zip(self.bd.colisiones(),self.ids['_incidences'].children):
             boton.text =  texto
@@ -445,7 +443,6 @@ class Boxes(FloatLayout):
                     
                     # Mostrar el menu
                     btn.bind(on_release=lambda btn: self.aulas.select(btn.text))
-                    print(btn.getAulaID())
                     # add el boton dentro del dropdown
                     self.aulas.add_widget(btn)
 
