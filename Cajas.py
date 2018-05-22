@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.listview import ListView
 from boton import Boton
+from Filtro import FilterDD
 from boton2 import Boton2
 from collections import defaultdict
 from time import time
@@ -115,7 +116,6 @@ class Boxes(FloatLayout):
                                   width = tamano)
             tipo_scroll.bind(on_select=lambda instance, x: setattr(scrollButton, 'text', x))
             self.ids['_main'].add_widget(scrollButton)
-
         nInc = 0
         for incidencia in self.bd.colisiones():
             btn = Button(text = incidencia)

@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from kivy.config import Config
 from copy import copy
 from kivy.app import App
