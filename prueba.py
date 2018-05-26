@@ -5,32 +5,40 @@ from kivy.lang import Builder
 from kivy.factory import Factory as F
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from boton2 import Boton2
 
-Builder.load_string('''
-<DDButton@Button>:
-    size_hint_y: None
-    height: '50dp'
-    # Double .parent because dropdown proxies add_widget to container
-    on_release: self.parent.parent.select(self.text)
-''')
 
 class FilterDD(F.DropDown):
     ignore_case = F.BooleanProperty(True)
 
-    def __init__(self, **kwargs):
+    def __init__(self, des = None, **kwargs):
         self._needle = None
         self._order = []
+        self.texto = None
+        self.ident = None
         self._widgets = {}
+        self.des = des
         super(FilterDD, self).__init__(**kwargs)
 
     options = F.ListProperty()
     def on_options(self, instance, values):
+        print("Values")
         _order = self._order
         _widgets = self._widgets
         changed = False
+        def temp(btn):
+            self.select(btn.text)
+            self.des.texto,self.texto = btn.text, btn.text
+            self.des.ident = btn.getIdent()
+            self.ident = self.des.ident()
+            
         for txt in values:
-            if txt not in _widgets:
-                _widgets[txt] = btn = Button(text=txt, size_hint_y = None, height = '50dp')
+            if txt[0] not in _widgets:
+                _widgets[txt[0]] = btn = Boton2(text=txt[0],
+                                             size_hint_y = None,
+                                             height = '50dp')
+                btn.setIdent(txt[1])
+                btn.bind(on_release=temp)
                 _order.append(txt)
                 changed = True
         for txt in _order[:]:
@@ -49,14 +57,15 @@ class FilterDD(F.DropDown):
         ign = self.ignore_case
         _lcn = needle and needle.lower()
         for haystack in self._order:
-            _lch = haystack.lower()
+            _lch = haystack[0].lower()
             if not needle or ((ign and _lcn in _lch) or 
                          (not ign and needle in haystack)):
-                add_widget(_widgets[haystack])
+                add_widget(_widgets[haystack[0]])
 
 class FilterDDTrigger(F.BoxLayout):
     def __init__(self, **kwargs):
         super(FilterDDTrigger, self).__init__(**kwargs)
+        self.identificador = None
         self._prev_dd = None
         self._textinput = ti = F.TextInput(multiline=False)
         ti.bind(text=self._apply_filter)
@@ -64,6 +73,8 @@ class FilterDDTrigger(F.BoxLayout):
         self._button = btn = F.Button(text=self.text)
         btn.bind(on_release=self._on_release)
         self.add_widget(btn)
+        self.texto = ''
+        self.ident = ''
 
     text = F.StringProperty('Open')
     def on_text(self, instance, value):
@@ -84,9 +95,7 @@ class FilterDDTrigger(F.BoxLayout):
 
     def _apply_filter(self, instance, text):
         if self.dropdown:
-            print("ENTOR")
             self.dropdown.apply_filter(text)
-
     def _on_release(self, *largs):
         if not self.dropdown:
             return
@@ -95,6 +104,7 @@ class FilterDDTrigger(F.BoxLayout):
         self.dropdown.open(self)
         self._textinput.focus = True
 
+        
     def _on_dismiss(self, *largs):
         self.remove_widget(self._textinput)
         self.add_widget(self._button)
@@ -115,8 +125,10 @@ class Prueba(App):
         self.box = BoxLayout(orientation = 'vertical')
         F= FilterDDTrigger(orientation = 'vertical')
         F.text = 'Spanish numbers'
-        F.dropdown = FilterDD(options = [i for i in ['uno','dos','tres']])
-        self.box.add_widget(F )
+        F.dropdown = FilterDD(des = F, options = [i for i in [('uno','1'),
+                                                     ('dos','2'),
+                                                     ('tres','3')]])
+        self.box.add_widget(F)
         for i in range(5):
             button = Button(text='Hello world', font_size=14)
             button.bind(on_press = exit)
