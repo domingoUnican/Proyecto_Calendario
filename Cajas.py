@@ -9,6 +9,7 @@ from Filtro import FilterDD
 from boton2 import Boton2
 from collections import defaultdict
 from time import time
+from Filtro import FilterDD, FilterDDTrigger
 from helpers import dedupe
 import re
 from au_modulo import *
