@@ -1,6 +1,7 @@
 from kivy.uix.floatlayout import FloatLayout
 from datetime import timedelta
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.listview import ListView
@@ -74,12 +75,11 @@ class Boxes(FloatLayout):
                 self.ids[turno].add_widget(bx_iter)
 
         #Añado los desplegables de selección a la primera pantalla   
-        profes = DropDown()
-        aulas = DropDown()
-        asigns = DropDown()
-        curs = DropDown()
-        aulas_libres = DropDown()
-        button = Button()
+        profes = FilterDDTrigger(orientation = 'vertical')
+        aulas = FilterDDTrigger(orientation = 'vertical')
+        asigns = FilterDDTrigger(orientation = 'vertical')
+        curs = FilterDDTrigger(orientation = 'vertical')
+        aulas_libres = FilterDDTrigger(orientation = 'vertical')
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -103,20 +103,9 @@ class Boxes(FloatLayout):
         loadSelection.bind(on_release=lambda btn: self.loadTimetable(horarioPrincipal))
         self.ids['_main'].add_widget(loadSelection)
         for tipo_scroll, nombre_scroll,tamano, tupla_text, tupla_id in datos_scroll:
-            for texto, ident in zip(tupla_text,tupla_id):
-                btn = Boton(text=texto, size_hint_y=None, height=44)
-                btn.setIdent(ident)
-                btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
-                btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                tipo_scroll.add_widget(btn)
-            btn = Boton(text='No seleccionado', size_hint_y=None, height=44)
-            btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
-            tipo_scroll.add_widget(btn)
-            scrollButton = Button(text = nombre_scroll,
-                                  size_hint = (None, None),
-                                  width = tamano)
-            tipo_scroll.bind(on_select=lambda instance, x: setattr(scrollButton, 'text', x))
-            self.ids['_main'].add_widget(scrollButton)
+            tipo_scroll.text = nombre_scroll
+            tipo_scroll.dropdown = FilterDD(width= tamano,des=tipo_scroll, options = zip(tupla_text,tupla_id))
+            self.ids['_main'].add_widget(tipo_scroll)
         nInc = 0
         for incidencia in self.bd.colisiones():
             btn = Button(text = incidencia)
@@ -129,12 +118,11 @@ class Boxes(FloatLayout):
             
     def resetDropdown(self):
         #Añado los desplegables de selección a la primera pantalla   
-        profes = DropDown()
-        aulas = DropDown()
-        asigns = DropDown()
-        curs = DropDown()
-        aulas_libres = DropDown()
-        button = Button()
+        profes = FilterDDTrigger(orientation = 'vertical', height = 200)
+        aulas = FilterDDTrigger(orientation = 'vertical', height = 200)
+        asigns = FilterDDTrigger(orientation = 'vertical', height = 200)
+        curs = FilterDDTrigger(orientation = 'vertical', height = 200)
+        aulas_libres = FilterDDTrigger(orientation = 'vertical', height = 200)
         profText = self.bd.all_prof_text()
         profId = self.bd.all_prof_id()
         aulaText = self.bd.all_aula_text()
@@ -147,32 +135,18 @@ class Boxes(FloatLayout):
                                key= lambda x: x[1])
         )
         cursoText = [i[1] for i in temporal]
-        cursoId = [i[0] for i in temporal]  
-        datos_scroll = [(profes,'Profesores',350,self.ids['_main'].children[3], profText,profId),
-                        (aulas, 'Aulas',300,self.ids['_main'].children[2], aulaText, aulaId),
+        cursoId = [i[0] for i in temporal]
+        for i in range(len(self.ids['_main'].children)):
+            print(i,self.ids['_main'].children[i].text)
+        datos_scroll = [(profes,'Profesoresss',350,self.ids['_main'].children[3], profText,profId),
+                        (aulas, 'Aulasss',300,self.ids['_main'].children[2], aulaText, aulaId),
                         (asigns,'Asignaturas',400,self.ids['_main'].children[1],asigText, asigId),
                         (curs, 'Cursos',400,self.ids['_main'].children[0],cursoText, cursoId)]
         filterLoad = set(self.filterTotal)
-
-        for tipo_scroll, nombre_scroll,tamano,wid_pos, tupla_text, tupla_id in datos_scroll:
-            for texto, ident in zip(tupla_text,tupla_id):
-                btn = Boton(text=texto, size_hint_y=None, height=44)
-                btn.setIdent(ident)
-                btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
-                btn.bind(on_release=lambda btn: self.loadFilter(btn.text,filterLoad,btn.ident))
-                tipo_scroll.add_widget(btn)
-            btn = Boton(text='No seleccionado', size_hint_y=None, height=44)
-            btn.bind(on_release=lambda btn: tipo_scroll.select(btn.text))
-            tipo_scroll.add_widget(btn)
-            wid_pos.bind(on_release=tipo_scroll.open)
-            wid_pos.text = nombre_scroll
-            scrollButton = Button(text = nombre_scroll,
-                                  size_hint = (None, None),
-                                  width = tamano)
-            tipo_scroll.bind(on_select=lambda instance, x: setattr(wid_pos,
-                                                                   'text', x))
-            wid_pos.disabled = False
-
+        for tipo_scroll, nombre_scroll,tamano,wid_pos,tupla_text, tupla_id in datos_scroll:
+            tipo_scroll.text = nombre_scroll
+            tipo_scroll.dropdown = FilterDD(width= tamano,des=tipo_scroll, options = zip(tupla_text,tupla_id))
+            self.ids['_main'].add_widget(tipo_scroll)
         self.children[1].children[0].children[0].text = 'Filtro seleccionado: Ninguno'
         for turno in ['_morning','_afternoon']:
             for pos,j in self.botones_turno(turno):

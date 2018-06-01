@@ -22,7 +22,6 @@ class FilterDD(F.DropDown):
 
     options = F.ListProperty()
     def on_options(self, instance, values):
-        print("Values")
         _order = self._order
         _widgets = self._widgets
         changed = False
